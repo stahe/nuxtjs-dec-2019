@@ -780,9 +780,9 @@
 <ul>
 <li>la page [index] aura un bouton qui permettra d’incrémenter le compteur du store [Vuex] ;</li>
 <li>la page [page1] reste inchangée ;</li>
-<li>on voudrait que lorsqu’une page est demandée à la main au serveur, celui-ci renvoie la page demandée avec un store [Vuex] qui aurait pour valeur de compteur, la dernière valeur que celui-ci avait côté client ;
-Le projet [nuxt-04] est initialement créé par recopie du projet [nuxt-03] :</li>
+<li>on voudrait que lorsqu’une page est demandée à la main au serveur, celui-ci renvoie la page demandée avec un store [Vuex] qui aurait pour valeur de compteur, la dernière valeur que celui-ci avait côté client ;</li>
 </ul>
+<p>Le projet [nuxt-04] est initialement créé par recopie du projet [nuxt-03] :</p>
 <p><img src="images/10000000000001970000018C0984BDAE.png" style="width:4.31cm;height:4.19cm;" alt="Image" /></p>
 <p>Seule la page [index] change :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
@@ -847,21 +847,21 @@ Le projet [nuxt-04] est initialement créé par recopie du projet [nuxt-03] :</
 <span class="normal"><a href="#__codelineno-0-60">60</a></span>
 <span class="normal"><a href="#__codelineno-0-61">61</a></span>
 <span class="normal"><a href="#__codelineno-0-62">62</a></span>
-<span class="normal"><a href="#__codelineno-0-63">63</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">page</span><span class="w"> </span><span class="p">[</span><span class="nx">index</span><span class="p">]</span><span class="w"> </span><span class="o">--&gt;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">Layout</span><span class="w"> </span><span class="o">:</span><span class="nx">left</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="w"> </span><span class="o">:</span><span class="nx">right</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">navigation</span><span class="w"> </span><span class="o">--&gt;</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">Navigation</span><span class="w"> </span><span class="nx">slot</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">message</span><span class="o">--&gt;</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">template</span><span class="w"> </span><span class="nx">slot</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">      </span><span class="o">&lt;</span><span class="nx">b</span><span class="o">-</span><span class="nx">alert</span><span class="w"> </span><span class="nx">show</span><span class="w"> </span><span class="nx">variant</span><span class="o">=</span><span class="s2">&quot;warning&quot;</span><span class="o">&gt;</span><span class="w"> </span><span class="nx">Home</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">value</span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="p">}}</span><span class="w"> </span><span class="o">&lt;</span><span class="err">/b-alert&gt;</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">      </span><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">bouton</span><span class="w"> </span><span class="o">--&gt;</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">      </span><span class="o">&lt;</span><span class="nx">b</span><span class="o">-</span><span class="nx">button</span><span class="w"> </span><span class="err">@</span><span class="nx">click</span><span class="o">=</span><span class="s2">&quot;incrementCounter&quot;</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;ml-3&quot;</span><span class="w"> </span><span class="nx">variant</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span><span class="o">&gt;</span><span class="nx">Incrémenter</span><span class="o">&lt;</span><span class="err">/b-button&gt;</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="o">&lt;</span><span class="err">/template&gt;</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">  </span><span class="o">&lt;</span><span class="err">/Layout&gt;</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="o">&lt;</span><span class="err">/template&gt;</span>
+<span class="normal"><a href="#__codelineno-0-63">63</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cm">&lt;!-- page [index] --&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>  <span class="p">&lt;</span><span class="nt">Layout</span> <span class="na">:left</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">:right</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="cm">&lt;!-- navigation --&gt;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="p">&lt;</span><span class="nt">Navigation</span> <span class="na">slot</span><span class="o">=</span><span class="s">&quot;left&quot;</span> <span class="p">/&gt;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="cm">&lt;!-- message--&gt;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="p">&lt;</span><span class="nt">template</span> <span class="na">slot</span><span class="o">=</span><span class="s">&quot;right&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>      <span class="p">&lt;</span><span class="nt">b-alert</span> <span class="na">show</span> <span class="na">variant</span><span class="o">=</span><span class="s">&quot;warning&quot;</span><span class="p">&gt;</span> Home - value= {{ value }} <span class="p">&lt;/</span><span class="nt">b-alert</span><span class="p">&gt;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>      <span class="cm">&lt;!-- bouton --&gt;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>      <span class="p">&lt;</span><span class="nt">b-button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;incrementCounter&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;ml-3&quot;</span> <span class="na">variant</span><span class="o">=</span><span class="s">&quot;primary&quot;</span><span class="p">&gt;</span>Incrémenter<span class="p">&lt;/</span><span class="nt">b-button</span><span class="p">&gt;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>  <span class="p">&lt;/</span><span class="nt">Layout</span><span class="p">&gt;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="cm">/* eslint-disable no-undef */</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="cm">/* eslint-disable no-console */</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="cm">/* eslint-disable nuxt/no-env-in-hooks */</span>
@@ -909,15 +909,15 @@ Le projet [nuxt-04] est initialement créé par recopie du projet [nuxt-03] :</
 <a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="p">}</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="o">&lt;</span><span class="err">/script&gt;</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 10 : on a ajouté un bouton pour incrémenter le compteur du store [Vuex] ;</li>
 <li>ligne 54 : la méthode qui gère le [clic] sur le bouton [Incrémenter] ;</li>
 <li>ligne 57 : le compteur du store est incrémenté de 1 ;</li>
-<li>ligne 59 : la valeur du compteur est affectée à la propriété [value] afin qu’elle soit affichée par la ligne 8 ;
-On exécute le projet [nuxt-04] avec le fichier [nuxt.config.js] suivant :</li>
+<li>ligne 59 : la valeur du compteur est affectée à la propriété [value] afin qu’elle soit affichée par la ligne 8 ;</li>
 </ul>
+<p>On exécute le projet [nuxt-04] avec le fichier [nuxt.config.js] suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
@@ -932,21 +932,21 @@ On exécute le projet [nuxt-04] avec le fichier [nuxt.config.js] suivant :</li>
 <span class="normal"><a href="#__codelineno-1-12">12</a></span>
 <span class="normal"><a href="#__codelineno-1-13">13</a></span>
 <span class="normal"><a href="#__codelineno-1-14">14</a></span>
-<span class="normal"><a href="#__codelineno-1-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">// répertoire du code source</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">  </span><span class="nx">srcDir</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;nuxt-04&#39;</span><span class="p">,</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">  </span><span class="c1">// routeur</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">  </span><span class="nx">router</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">// racine des URL de l&#39;application</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/nuxt-04/&#39;</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">  </span><span class="c1">// serveur</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">  </span><span class="nx">server</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="c1">// port de service, 3000 par défaut</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="mf">81</span><span class="p">,</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="c1">// adresses réseau écoutées, par défaut localhost : 127.0.0.1</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="c1">// 0.0.0.0 = toutes les adresses réseau de la machine</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">    </span><span class="nx">host</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;localhost&#39;</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="p">}</span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>// répertoire du code source
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>  srcDir: &#39;nuxt-04&#39;,
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>  // routeur
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>  router: {
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    // racine des URL de l&#39;application
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>    base: &#39;/nuxt-04/&#39;
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>  },
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>  // serveur
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>  server: {
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>    // port de service, 3000 par défaut
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>    port: 81,
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>    // adresses réseau écoutées, par défaut localhost : 127.0.0.1
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>    // 0.0.0.0 = toutes les adresses réseau de la machine
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>    host: &#39;localhost&#39;
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>}
 </code></pre></div></td></tr></table></div>
 <p>A l’exécution la première page affichée est la suivante :</p>
 <p><img src="images/10000000000006140000029B71F9DB39.png" style="width:12.352cm;height:5.291cm;" alt="Image" /></p>
@@ -955,17 +955,16 @@ On exécute le projet [nuxt-04] avec le fichier [nuxt.config.js] suivant :</li>
 <p>Si on utilise le lien [3], on a la page suivante :</p>
 <p><img src="images/100000000000060C00000233F80A9994.png" style="width:12.292cm;height:4.47cm;" alt="Image" /></p>
 <ul>
-<li>en [2], la page [page1] [1] affiche bien la valeur du compteur ;
-Maintenant, rafraîchissons la page avec [3]. La nouvelle page est la suivante :</li>
+<li>en [2], la page [page1] [1] affiche bien la valeur du compteur ;</li>
 </ul>
+<p>Maintenant, rafraîchissons la page avec [3]. La nouvelle page est la suivante :</p>
 <p><img src="images/10000000000004DD0000017FF4470033.png" style="width:16.47cm;height:5.07cm;" alt="Image" /></p>
 <ul>
-<li>
-<p>en [2], on a perdu la valeur courante du compteur. On est revenu à sa valeur initiale ;
-Ce résultat est tout a fait compréhensible si on regarde les logs :</p>
-</li>
-<li>
-<p>en [1], le serveur a réexécuté la fonction [nuxtServerInit]. Or celle-ci est la suivante :
+<li>en [2], on a perdu la valeur courante du compteur. On est revenu à sa valeur initiale ;</li>
+</ul>
+<p>Ce résultat est tout a fait compréhensible si on regarde les logs :</p>
+<ul>
+<li>en [1], le serveur a réexécuté la fonction [nuxtServerInit]. Or celle-ci est la suivante :
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
@@ -1029,8 +1028,7 @@ Ce résultat est tout a fait compréhensible si on regarde les logs :</p>
 <a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;nuxtServerInit commit terminé&#39;</span><span class="p">)</span>
 <a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-2-32" name="__codelineno-2-32"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div></p>
-</li>
+</code></pre></div></td></tr></table></div></li>
 </ul>
 <p>La ligne 28 affecte la valeur 53 au compteur.</p>
 <p>Examinons la requête HTTP faite par le navigateur lorsqu’on a rafraîchi la page [page1] :</p>
@@ -1047,17 +1045,17 @@ Ce résultat est tout a fait compréhensible si on regarde les logs :</p>
 <span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-3-10">10</a></span>
-<span class="normal"><a href="#__codelineno-3-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nx">GET</span><span class="w"> </span><span class="nx">http</span><span class="o">:</span><span class="c1">//localhost:81/nuxt-04/page1</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="nx">Host</span><span class="o">:</span><span class="w"> </span><span class="nx">localhost</span><span class="o">:</span><span class="mf">81</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="nx">User</span><span class="o">-</span><span class="nx">Agent</span><span class="o">:</span><span class="w"> </span><span class="nx">Mozilla</span><span class="o">/</span><span class="mf">5.0</span><span class="w"> </span><span class="p">(</span><span class="nx">Windows</span><span class="w"> </span><span class="nx">NT</span><span class="w"> </span><span class="mf">10.0</span><span class="p">;</span><span class="w"> </span><span class="nx">Win64</span><span class="p">;</span><span class="w"> </span><span class="nx">x64</span><span class="p">;</span><span class="w"> </span><span class="nx">rv</span><span class="o">:</span><span class="mf">70.0</span><span class="p">)</span><span class="w"> </span><span class="nx">Gecko</span><span class="o">/</span><span class="mf">20100101</span><span class="w"> </span><span class="nx">Firefox</span><span class="o">/</span><span class="mf">70.0</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="nx">Accept</span><span class="o">:</span><span class="w"> </span><span class="nx">text</span><span class="o">/</span><span class="nx">html</span><span class="p">,</span><span class="nx">application</span><span class="o">/</span><span class="nx">xhtml</span><span class="o">+</span><span class="nx">xml</span><span class="p">,</span><span class="nx">application</span><span class="o">/</span><span class="nx">xml</span><span class="p">;</span><span class="nx">q</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="o">*</span><span class="err">/*;q=0.8</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="nx">Accept</span><span class="o">-</span><span class="nx">Language</span><span class="o">:</span><span class="w"> </span><span class="nx">fr</span><span class="p">,</span><span class="nx">fr</span><span class="o">-</span><span class="nx">FR</span><span class="p">;</span><span class="nx">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="nx">en</span><span class="o">-</span><span class="nx">US</span><span class="p">;</span><span class="nx">q</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="nx">en</span><span class="p">;</span><span class="nx">q</span><span class="o">=</span><span class="mf">0.3</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="o">:</span><span class="w"> </span><span class="nx">gzip</span><span class="p">,</span><span class="w"> </span><span class="nx">deflate</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="nx">DNT</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="nx">Connection</span><span class="o">:</span><span class="w"> </span><span class="nx">keep</span><span class="o">-</span><span class="nx">alive</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="nx">Upgrade</span><span class="o">-</span><span class="nx">Insecure</span><span class="o">-</span><span class="nx">Requests</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="nx">Pragma</span><span class="o">:</span><span class="w"> </span><span class="nx">no</span><span class="o">-</span><span class="nx">cache</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="nx">Cache</span><span class="o">-</span><span class="nx">Control</span><span class="o">:</span><span class="w"> </span><span class="nx">no</span><span class="o">-</span><span class="nx">cache</span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>GET http://localhost:81/nuxt-04/page1
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>Host: localhost:81
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>Accept-Encoding: gzip, deflate
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>DNT: 1
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>Connection: keep-alive
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>Upgrade-Insecure-Requests: 1
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>Pragma: no-cache
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a>Cache-Control: no-cache
 </code></pre></div></td></tr></table></div>
 <p>On voit que cette requête ne transmet aucune information au serveur. Celui-ci n’a donc aucun moyen de connaître l’état du store [Vuex] côté client. Il aurait fallu pour cela que le client lui envoie cette information.</p>
 <p>Dans le projet suivant [nuxt-05] nous utilisons un cookie pour que le client puisse envoyer de l’information au serveur lorsque celui-ci est sollicité.</p>

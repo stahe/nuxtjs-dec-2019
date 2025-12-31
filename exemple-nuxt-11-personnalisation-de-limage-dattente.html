@@ -978,25 +978,23 @@
 <span class="normal"><a href="#__codelineno-0-5">5</a></span>
 <span class="normal"><a href="#__codelineno-0-6">6</a></span>
 <span class="normal"><a href="#__codelineno-0-7">7</a></span>
-<span class="normal"><a href="#__codelineno-0-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1">// on crée un bus d&#39;événements entre les vues</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">Vue</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="p">(</span><span class="nx">context</span><span class="p">,</span><span class="w"> </span><span class="nx">inject</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="c1">// le bus d&#39;événements</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">eventBus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Vue</span><span class="p">()</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">  </span><span class="c1">// injection d&#39;une fonction [eventBus] dans le contexte</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">  </span><span class="nx">inject</span><span class="p">(</span><span class="s1">&#39;eventBus&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">eventBus</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="o">//</span> <span class="n">on</span> <span class="n">crée</span> <span class="n">un</span> <span class="n">bus</span> <span class="n">d</span><span class="s1">&#39;événements entre les vues</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">Vue</span> <span class="kn">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">export</span> <span class="n">default</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">inject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>  <span class="o">//</span> <span class="n">le</span> <span class="n">bus</span> <span class="n">d</span><span class="s1">&#39;événements</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>  <span class="n">const</span> <span class="n">eventBus</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Vue</span><span class="p">()</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>  <span class="o">//</span> <span class="n">injection</span> <span class="n">d</span><span class="s1">&#39;une fonction [eventBus] dans le contexte</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>  <span class="n">inject</span><span class="p">(</span><span class="s1">&#39;eventBus&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="n">eventBus</span><span class="p">)</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 5 : le bus d’événements est une instance de la classe [Vue]. En effet, celle-ci a les méthodes pour gérer des événements :</li>
-<li>[$emit] : pour émettre un événement ;</li>
-<li>
-<p>[$on] : pour se mettre à l’écoute d’un événement particulier ;
-Ce bus d’événements ne gèrera qu’un événement, [loading], qui sera utilisé par les pages pour démarrer / arrêter l’animation d’attente de la fin d’une fonction asynchrone ;</p>
-</li>
-<li>
-<p>ligne 7 : on crée une fonction [$eventBus] (1er argument) dont le rôle sera de rendre l’objet [eventBus] que l’on vient de créer (2ième argument). Cette fonction est injectée dans le contexte pour qu’elle soit disponible dans les objets [context.app] et l’objet [this] des pages ;</p>
-</li>
+<li>[\$emit] : pour émettre un événement ;</li>
+<li>[\$on] : pour se mettre à l’écoute d’un événement particulier ;</li>
+</ul>
+<p>Ce bus d’événements ne gèrera qu’un événement, [loading], qui sera utilisé par les pages pour démarrer / arrêter l’animation d’attente de la fin d’une fonction asynchrone ;</p>
+<ul>
+<li>ligne 7 : on crée une fonction [\$eventBus] (1er argument) dont le rôle sera de rendre l’objet [eventBus] que l’on vient de créer (2ième argument). Cette fonction est injectée dans le contexte pour qu’elle soit disponible dans les objets [context.app] et l’objet [this] des pages ;</li>
 </ul>
 <h2 id="142-le-layout-defaultvue">14.2. Le layout [default.vue]</h2>
 <p>Le layout [default.vue] évolue de la façon suivante :</p>
@@ -1063,45 +1061,45 @@ Ce bus d’événements ne gèrera qu’un événement, [loading], qui sera util
 <span class="normal"><a href="#__codelineno-1-61">61</a></span>
 <span class="normal"><a href="#__codelineno-1-62">62</a></span>
 <span class="normal"><a href="#__codelineno-1-63">63</a></span>
-<span class="normal"><a href="#__codelineno-1-64">64</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;container&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">b</span><span class="o">-</span><span class="nx">card</span><span class="o">&gt;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">      </span><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">un</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="o">--&gt;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">      </span><span class="o">&lt;</span><span class="nx">b</span><span class="o">-</span><span class="nx">alert</span><span class="w"> </span><span class="nx">show</span><span class="w"> </span><span class="nx">variant</span><span class="o">=</span><span class="s2">&quot;success&quot;</span><span class="w"> </span><span class="nx">align</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">        </span><span class="o">&lt;</span><span class="nx">h4</span><span class="o">&gt;</span><span class="p">[</span><span class="nx">nuxt</span><span class="o">-</span><span class="mf">11</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">personnalisation</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">l</span><span class="s1">&#39;attente, gestion des erreurs&lt;/h4&gt;</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="s1">      &lt;/b-alert&gt;</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="s1">      &lt;!-- la vue courante du routage --&gt;</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="s1">      &lt;nuxt /&gt;</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="s1">      &lt;!-- loading --&gt;</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="s1">      &lt;b-alert v-if=&quot;showLoading&quot; show variant=&quot;light&quot;&gt;</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="s1">        &lt;strong&gt;Requête au serveur de données en cours...&lt;/strong&gt;</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="s1">        &lt;div class=&quot;spinner-border ml-auto&quot; role=&quot;status&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="s1">      &lt;/b-alert&gt;</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="s1">      &lt;!-- erreur de chargement --&gt;</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="s1">      &lt;b-alert v-if=&quot;showErrorLoading&quot; show variant=&quot;danger&quot;&gt;</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="s1">        &lt;strong&gt;La requête au serveur de données a échoué : {{ errorLoadingMessage }}&lt;/strong&gt;</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="s1">      &lt;/b-alert&gt;</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="s1">    &lt;/b-card&gt;</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="s1">  &lt;/div&gt;</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="s1">&lt;/template&gt;</span>
+<span class="normal"><a href="#__codelineno-1-64">64</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>    <span class="p">&lt;</span><span class="nt">b-card</span><span class="p">&gt;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>      <span class="cm">&lt;!-- un message --&gt;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>      <span class="p">&lt;</span><span class="nt">b-alert</span> <span class="na">show</span> <span class="na">variant</span><span class="o">=</span><span class="s">&quot;success&quot;</span> <span class="na">align</span><span class="o">=</span><span class="s">&quot;center&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>        <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>[nuxt-11] : personnalisation de l&#39;attente, gestion des erreurs<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>      <span class="p">&lt;/</span><span class="nt">b-alert</span><span class="p">&gt;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>      <span class="cm">&lt;!-- la vue courante du routage --&gt;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>      <span class="p">&lt;</span><span class="nt">nuxt</span> <span class="p">/&gt;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>      <span class="cm">&lt;!-- loading --&gt;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>      <span class="p">&lt;</span><span class="nt">b-alert</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&quot;showLoading&quot;</span> <span class="na">show</span> <span class="na">variant</span><span class="o">=</span><span class="s">&quot;light&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>        <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Requête au serveur de données en cours...<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;spinner-border ml-auto&quot;</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;status&quot;</span> <span class="na">aria-hidden</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>      <span class="p">&lt;/</span><span class="nt">b-alert</span><span class="p">&gt;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>      <span class="cm">&lt;!-- erreur de chargement --&gt;</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>      <span class="p">&lt;</span><span class="nt">b-alert</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&quot;showErrorLoading&quot;</span> <span class="na">show</span> <span class="na">variant</span><span class="o">=</span><span class="s">&quot;danger&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a>        <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>La requête au serveur de données a échoué : {{ errorLoadingMessage }}<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a>      <span class="p">&lt;/</span><span class="nt">b-alert</span><span class="p">&gt;</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>    <span class="p">&lt;/</span><span class="nt">b-card</span><span class="p">&gt;</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 <a id="__codelineno-1-22" name="__codelineno-1-22"></a>
-<a id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="s1">&lt;script&gt;</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="s1">/* eslint-disable no-console */</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="s1">export default {</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="s1">  name: &#39;</span><span class="nx">App</span><span class="s1">&#39;,</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="s1">  data() {</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="s1">    return {</span>
-<a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="s1">      showLoading: false,</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="s1">      showErrorLoading: false</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="s1">    }</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="s1">  },</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="s1">  // cycle de vie</span>
-<a id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="s1">  beforeCreate() {</span>
-<a id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="s1">    console.log(&#39;</span><span class="p">[</span><span class="k">default</span><span class="w"> </span><span class="nx">beforeCreate</span><span class="p">]</span><span class="s1">&#39;)</span>
-<a id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="s1">  },</span>
-<a id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="s1">  created() {</span>
-<a id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="s1">    console.log(&#39;</span><span class="p">[</span><span class="k">default</span><span class="w"> </span><span class="nx">created</span><span class="p">]</span><span class="s1">&#39;)</span>
-<a id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="s1">    // on écoute l&#39;</span><span class="nx">évt</span><span class="w"> </span><span class="p">[</span><span class="nx">loading</span><span class="p">]</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="cm">/* eslint-disable no-console */</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;App&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="w">  </span><span class="nx">data</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="w">      </span><span class="nx">showLoading</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="w">      </span><span class="nx">showErrorLoading</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="w">  </span><span class="c1">// cycle de vie</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="w">  </span><span class="nx">beforeCreate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[default beforeCreate]&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="w">  </span><span class="nx">created</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[default created]&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="w">    </span><span class="c1">// on écoute l&#39;évt [loading]</span>
 <a id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">$eventBus</span><span class="p">().</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;loading&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">mShowLoading</span><span class="p">)</span>
 <a id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="w">    </span><span class="c1">// ainsi que l&#39;évt [errorLoadingMessage]</span>
 <a id="__codelineno-1-42" name="__codelineno-1-42"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">$eventBus</span><span class="p">().</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;errorLoading&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">mShowErrorLoading</span><span class="p">)</span>
@@ -1126,7 +1124,7 @@ Ce bus d’événements ne gèrera qu’un événement, [loading], qui sera util
 <a id="__codelineno-1-61" name="__codelineno-1-61"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-1-62" name="__codelineno-1-62"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-1-63" name="__codelineno-1-63"></a><span class="p">}</span>
-<a id="__codelineno-1-64" name="__codelineno-1-64"></a><span class="o">&lt;</span><span class="err">/script&gt;</span>
+<a id="__codelineno-1-64" name="__codelineno-1-64"></a><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>lignes 11-14 : l’animation d’attente. Elle n’est affichée que si la propriété [showLoading] est vraie (ligne 29) ;</li>
@@ -1202,17 +1200,17 @@ Ce bus d’événements ne gèrera qu’un événement, [loading], qui sera util
 <span class="normal"><a href="#__codelineno-2-58">58</a></span>
 <span class="normal"><a href="#__codelineno-2-59">59</a></span>
 <span class="normal"><a href="#__codelineno-2-60">60</a></span>
-<span class="normal"><a href="#__codelineno-2-61">61</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">vue</span><span class="w"> </span><span class="nx">n</span><span class="err">°</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">--&gt;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">Layout</span><span class="w"> </span><span class="o">:</span><span class="nx">left</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="w"> </span><span class="o">:</span><span class="nx">right</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">navigation</span><span class="w"> </span><span class="o">--&gt;</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">Navigation</span><span class="w"> </span><span class="nx">slot</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">message</span><span class="o">--&gt;</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">b</span><span class="o">-</span><span class="nx">alert</span><span class="w"> </span><span class="nx">slot</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="w"> </span><span class="nx">show</span><span class="w"> </span><span class="nx">variant</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span><span class="o">&gt;</span><span class="w"> </span><span class="nx">Page</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="nx">result</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="p">}}</span><span class="w"> </span><span class="o">&lt;</span><span class="err">/b-alert&gt;</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">  </span><span class="o">&lt;</span><span class="err">/Layout&gt;</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="o">&lt;</span><span class="err">/template&gt;</span>
+<span class="normal"><a href="#__codelineno-2-61">61</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">&lt;!-- vue n° 1 --&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>  <span class="p">&lt;</span><span class="nt">Layout</span> <span class="na">:left</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">:right</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>    <span class="cm">&lt;!-- navigation --&gt;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>    <span class="p">&lt;</span><span class="nt">Navigation</span> <span class="na">slot</span><span class="o">=</span><span class="s">&quot;left&quot;</span> <span class="p">/&gt;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>    <span class="cm">&lt;!-- message--&gt;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>    <span class="p">&lt;</span><span class="nt">b-alert</span> <span class="na">slot</span><span class="o">=</span><span class="s">&quot;right&quot;</span> <span class="na">show</span> <span class="na">variant</span><span class="o">=</span><span class="s">&quot;primary&quot;</span><span class="p">&gt;</span> Page 1 -- result={{ result }} <span class="p">&lt;/</span><span class="nt">b-alert</span><span class="p">&gt;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>  <span class="p">&lt;/</span><span class="nt">Layout</span><span class="p">&gt;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10"></a>
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 <a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="cm">/* eslint-disable no-console */</span>
 <a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="cm">/* eslint-disable nuxt/no-timing-in-fetch-data */</span>
 <a id="__codelineno-2-14" name="__codelineno-2-14"></a>
@@ -1262,15 +1260,15 @@ Ce bus d’événements ne gèrera qu’un événement, [loading], qui sera util
 <a id="__codelineno-2-58" name="__codelineno-2-58"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[page1 mounted]&#39;</span><span class="p">)</span>
 <a id="__codelineno-2-59" name="__codelineno-2-59"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-2-60" name="__codelineno-2-60"></a><span class="p">}</span>
-<a id="__codelineno-2-61" name="__codelineno-2-61"></a><span class="o">&lt;</span><span class="err">/script&gt;</span>
+<a id="__codelineno-2-61" name="__codelineno-2-61"></a><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>les modifications ont lieu dans la fonction [asyncData] des lignes 26-47 ;</li>
 <li>lignes 29-30 : avant que ne commence la fonction asynchrone on émet l’événement [loading] à destination des autres pages de l’application. On rappelle que dans [asyncData], on n’a pas accès à l’objet [this] pas encore créé. On utilise alors le contexte que reçoit en argument la fonction [asyncData] (ligne 26) ;</li>
 <li>ligne 30 : on utilise le bus d’événements pour indiquer que le chargement va commencer ;</li>
-<li>ligne 38 : on utilise le bus d’événements pour indiquer que le chargement est terminé ;
-<strong>Note</strong> : A l’exécution, lorsque la page [page1] est demandée au serveur, on ne voit pas l’image d’attente. Dans les logs on voit que côté serveur la méthode [default.mShowLoading] n’est pas appelée. De toute façon, voir l’image d’attente n’a pas de sens lorsque la page est demandée au serveur. Celui-ci n’envoie la page au navigateur client qu’une fois la fonction [asyncData] terminée. L’image d’attente est alors inutile. Ce sera le cas pour toutes les pages de l’application demandées directement au serveur.</li>
+<li>ligne 38 : on utilise le bus d’événements pour indiquer que le chargement est terminé ;</li>
 </ul>
+<p><strong>Note</strong> : A l’exécution, lorsque la page [page1] est demandée au serveur, on ne voit pas l’image d’attente. Dans les logs on voit que côté serveur la méthode [default.mShowLoading] n’est pas appelée. De toute façon, voir l’image d’attente n’a pas de sens lorsque la page est demandée au serveur. Celui-ci n’envoie la page au navigateur client qu’une fois la fonction [asyncData] terminée. L’image d’attente est alors inutile. Ce sera le cas pour toutes les pages de l’application demandées directement au serveur.</p>
 <h2 id="144-la-page-index">14.4. La page [index]</h2>
 <p>Le code de la page [index] est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
@@ -1338,81 +1336,81 @@ Ce bus d’événements ne gèrera qu’un événement, [loading], qui sera util
 <span class="normal"><a href="#__codelineno-3-63">63</a></span>
 <span class="normal"><a href="#__codelineno-3-64">64</a></span>
 <span class="normal"><a href="#__codelineno-3-65">65</a></span>
-<span class="normal"><a href="#__codelineno-3-66">66</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">page</span><span class="w"> </span><span class="nx">principale</span><span class="w"> </span><span class="o">--&gt;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">Layout</span><span class="w"> </span><span class="o">:</span><span class="nx">left</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="w"> </span><span class="o">:</span><span class="nx">right</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">navigation</span><span class="w"> </span><span class="o">--&gt;</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">Navigation</span><span class="w"> </span><span class="nx">slot</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">message</span><span class="o">--&gt;</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">b</span><span class="o">-</span><span class="nx">alert</span><span class="w"> </span><span class="nx">slot</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="w"> </span><span class="nx">show</span><span class="w"> </span><span class="nx">variant</span><span class="o">=</span><span class="s2">&quot;warning&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">      </span><span class="nx">Home</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="o">&lt;</span><span class="err">/b-alert&gt;</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">  </span><span class="o">&lt;</span><span class="err">/Layout&gt;</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="o">&lt;</span><span class="err">/template&gt;</span>
+<span class="normal"><a href="#__codelineno-3-66">66</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="o">&lt;!--</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">principale</span><span class="w"> </span><span class="o">--&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">Layout</span><span class="w"> </span><span class="p">:</span><span class="n">left</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="p">:</span><span class="n">right</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="o">&gt;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="o">&lt;!--</span><span class="w"> </span><span class="n">navigation</span><span class="w"> </span><span class="o">--&gt;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">Navigation</span><span class="w"> </span><span class="n">slot</span><span class="o">=</span><span class="s">&quot;left&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="o">&lt;!--</span><span class="w"> </span><span class="n">message</span><span class="o">--&gt;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">b</span><span class="o">-</span><span class="n">alert</span><span class="w"> </span><span class="n">slot</span><span class="o">=</span><span class="s">&quot;right&quot;</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">variant</span><span class="o">=</span><span class="s">&quot;warning&quot;</span><span class="o">&gt;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">      </span><span class="n">Home</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="o">&lt;/</span><span class="n">b</span><span class="o">-</span><span class="n">alert</span><span class="o">&gt;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">Layout</span><span class="o">&gt;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
 <a id="__codelineno-3-12" name="__codelineno-3-12"></a>
-<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
 <a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="cm">/* eslint-disable no-undef */</span>
 <a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="cm">/* eslint-disable no-console */</span>
 <a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="cm">/* eslint-disable nuxt/no-env-in-hooks */</span>
 <a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="cm">/* eslint-disable nuxt/no-timing-in-fetch-data */</span>
 <a id="__codelineno-3-18" name="__codelineno-3-18"></a>
-<a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="k">import</span><span class="w"> </span><span class="nx">Navigation</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@/components/navigation&#39;</span>
-<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="k">import</span><span class="w"> </span><span class="nx">Layout</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@/components/layout&#39;</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="kn">import</span><span class="w"> </span><span class="nn">Navigation</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="err">&#39;@</span><span class="o">/</span><span class="n">components</span><span class="o">/</span><span class="n">navigation</span><span class="err">&#39;</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="kn">import</span><span class="w"> </span><span class="nn">Layout</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="err">&#39;@</span><span class="o">/</span><span class="n">components</span><span class="o">/</span><span class="n">layout</span><span class="err">&#39;</span>
 <a id="__codelineno-3-21" name="__codelineno-3-21"></a>
-<a id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Home&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="n">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="w">  </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="n">Home</span><span class="err">&#39;</span><span class="p">,</span>
 <a id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="w">  </span><span class="c1">// composants utilisés</span>
-<a id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="w">  </span><span class="nx">components</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="w">    </span><span class="nx">Layout</span><span class="p">,</span>
-<a id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="w">    </span><span class="nx">Navigation</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="w">  </span><span class="n">components</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="w">    </span><span class="n">Layout</span><span class="p">,</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="w">    </span><span class="n">Navigation</span>
 <a id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="w">  </span><span class="p">},</span>
 <a id="__codelineno-3-29" name="__codelineno-3-29"></a><span class="w">  </span><span class="c1">// données asynchrones</span>
-<a id="__codelineno-3-30" name="__codelineno-3-30"></a><span class="w">  </span><span class="nx">asyncData</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30"></a><span class="w">  </span><span class="n">asyncData</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-31" name="__codelineno-3-31"></a><span class="w">    </span><span class="c1">// log</span>
-<a id="__codelineno-3-32" name="__codelineno-3-32"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[page1 asyncData started]&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32"></a><span class="w">    </span><span class="n">console</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="err">&#39;</span><span class="o">[</span><span class="n">page1</span><span class="w"> </span><span class="n">asyncData</span><span class="w"> </span><span class="n">started</span><span class="o">]</span><span class="err">&#39;</span><span class="p">)</span>
 <a id="__codelineno-3-33" name="__codelineno-3-33"></a><span class="w">    </span><span class="c1">// début attente</span>
-<a id="__codelineno-3-34" name="__codelineno-3-34"></a><span class="w">    </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">$eventBus</span><span class="p">().</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;loading&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34"></a><span class="w">    </span><span class="n">context</span><span class="p">.</span><span class="na">app</span><span class="p">.</span><span class="na">$eventBus</span><span class="p">().</span><span class="na">$emit</span><span class="p">(</span><span class="err">&#39;</span><span class="n">loading</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
 <a id="__codelineno-3-35" name="__codelineno-3-35"></a><span class="w">    </span><span class="c1">// pas d&#39;erreur</span>
-<a id="__codelineno-3-36" name="__codelineno-3-36"></a><span class="w">    </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">$eventBus</span><span class="p">().</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;errorLoading&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36"></a><span class="w">    </span><span class="n">context</span><span class="p">.</span><span class="na">app</span><span class="p">.</span><span class="na">$eventBus</span><span class="p">().</span><span class="na">$emit</span><span class="p">(</span><span class="err">&#39;</span><span class="n">errorLoading</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
 <a id="__codelineno-3-37" name="__codelineno-3-37"></a><span class="w">    </span><span class="c1">// on rend une promesse</span>
-<a id="__codelineno-3-38" name="__codelineno-3-38"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">reject</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Promise</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">resolve</span><span class="p">,</span><span class="w"> </span><span class="n">reject</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-39" name="__codelineno-3-39"></a><span class="w">      </span><span class="c1">// on simule une fonction asynchrone</span>
-<a id="__codelineno-3-40" name="__codelineno-3-40"></a><span class="w">      </span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40"></a><span class="w">      </span><span class="n">setTimeout</span><span class="p">(</span><span class="n">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-41" name="__codelineno-3-41"></a><span class="w">        </span><span class="c1">// fin attente</span>
-<a id="__codelineno-3-42" name="__codelineno-3-42"></a><span class="w">        </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">$eventBus</span><span class="p">().</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;loading&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42"></a><span class="w">        </span><span class="n">context</span><span class="p">.</span><span class="na">app</span><span class="p">.</span><span class="na">$eventBus</span><span class="p">().</span><span class="na">$emit</span><span class="p">(</span><span class="err">&#39;</span><span class="n">loading</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
 <a id="__codelineno-3-43" name="__codelineno-3-43"></a><span class="w">        </span><span class="c1">// log</span>
-<a id="__codelineno-3-44" name="__codelineno-3-44"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[page1 asyncData finished]&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-44" name="__codelineno-3-44"></a><span class="w">        </span><span class="n">console</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="err">&#39;</span><span class="o">[</span><span class="n">page1</span><span class="w"> </span><span class="n">asyncData</span><span class="w"> </span><span class="n">finished</span><span class="o">]</span><span class="err">&#39;</span><span class="p">)</span>
 <a id="__codelineno-3-45" name="__codelineno-3-45"></a><span class="w">        </span><span class="c1">// on rend une erreur</span>
-<a id="__codelineno-3-46" name="__codelineno-3-46"></a><span class="w">        </span><span class="nx">reject</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;le serveur n&#39;a pas répondu assez vite&quot;</span><span class="p">))</span>
-<a id="__codelineno-3-47" name="__codelineno-3-47"></a><span class="w">      </span><span class="p">},</span><span class="w"> </span><span class="mf">5000</span><span class="p">)</span>
-<a id="__codelineno-3-48" name="__codelineno-3-48"></a><span class="w">    </span><span class="p">}).</span><span class="k">catch</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">error</span><span class="p">({</span><span class="w"> </span><span class="nx">statusCode</span><span class="o">:</span><span class="w"> </span><span class="mf">500</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="w"> </span><span class="p">}))</span>
+<a id="__codelineno-3-46" name="__codelineno-3-46"></a><span class="w">        </span><span class="n">reject</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="s">&quot;le serveur n&#39;a pas répondu assez vite&quot;</span><span class="p">))</span>
+<a id="__codelineno-3-47" name="__codelineno-3-47"></a><span class="w">      </span><span class="p">},</span><span class="w"> </span><span class="mi">5000</span><span class="p">)</span>
+<a id="__codelineno-3-48" name="__codelineno-3-48"></a><span class="w">    </span><span class="p">}).</span><span class="na">catch</span><span class="p">((</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="na">error</span><span class="p">({</span><span class="w"> </span><span class="n">statusCode</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">:</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">message</span><span class="w"> </span><span class="p">}))</span>
 <a id="__codelineno-3-49" name="__codelineno-3-49"></a><span class="w">  </span><span class="p">},</span>
 <a id="__codelineno-3-50" name="__codelineno-3-50"></a><span class="w">  </span><span class="c1">// cycle de vie</span>
-<a id="__codelineno-3-51" name="__codelineno-3-51"></a><span class="w">  </span><span class="nx">beforeCreate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-52" name="__codelineno-3-52"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[home beforeCreate]&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-51" name="__codelineno-3-51"></a><span class="w">  </span><span class="n">beforeCreate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-52" name="__codelineno-3-52"></a><span class="w">    </span><span class="n">console</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="err">&#39;</span><span class="o">[</span><span class="n">home</span><span class="w"> </span><span class="n">beforeCreate</span><span class="o">]</span><span class="err">&#39;</span><span class="p">)</span>
 <a id="__codelineno-3-53" name="__codelineno-3-53"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-3-54" name="__codelineno-3-54"></a><span class="w">  </span><span class="nx">created</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-55" name="__codelineno-3-55"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[home created]&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-54" name="__codelineno-3-54"></a><span class="w">  </span><span class="n">created</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-55" name="__codelineno-3-55"></a><span class="w">    </span><span class="n">console</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="err">&#39;</span><span class="o">[</span><span class="n">home</span><span class="w"> </span><span class="n">created</span><span class="o">]</span><span class="err">&#39;</span><span class="p">)</span>
 <a id="__codelineno-3-56" name="__codelineno-3-56"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-3-57" name="__codelineno-3-57"></a><span class="w">  </span><span class="nx">beforeMount</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-58" name="__codelineno-3-58"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[home beforeMount]&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-57" name="__codelineno-3-57"></a><span class="w">  </span><span class="n">beforeMount</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-58" name="__codelineno-3-58"></a><span class="w">    </span><span class="n">console</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="err">&#39;</span><span class="o">[</span><span class="n">home</span><span class="w"> </span><span class="n">beforeMount</span><span class="o">]</span><span class="err">&#39;</span><span class="p">)</span>
 <a id="__codelineno-3-59" name="__codelineno-3-59"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-3-60" name="__codelineno-3-60"></a><span class="w">  </span><span class="nx">mounted</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-61" name="__codelineno-3-61"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[home mounted]&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-60" name="__codelineno-3-60"></a><span class="w">  </span><span class="n">mounted</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-61" name="__codelineno-3-61"></a><span class="w">    </span><span class="n">console</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="err">&#39;</span><span class="o">[</span><span class="n">home</span><span class="w"> </span><span class="n">mounted</span><span class="o">]</span><span class="err">&#39;</span><span class="p">)</span>
 <a id="__codelineno-3-62" name="__codelineno-3-62"></a><span class="w">    </span><span class="c1">// pas d&#39;erreur</span>
-<a id="__codelineno-3-63" name="__codelineno-3-63"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">$eventBus</span><span class="p">().</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;errorLoading&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+<a id="__codelineno-3-63" name="__codelineno-3-63"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">$eventBus</span><span class="p">().</span><span class="na">$emit</span><span class="p">(</span><span class="err">&#39;</span><span class="n">errorLoading</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
 <a id="__codelineno-3-64" name="__codelineno-3-64"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-3-65" name="__codelineno-3-65"></a><span class="p">}</span>
-<a id="__codelineno-3-66" name="__codelineno-3-66"></a><span class="o">&lt;</span><span class="err">/script&gt;</span>
+<a id="__codelineno-3-66" name="__codelineno-3-66"></a><span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>lignes 30-49 : la fonction [asyncData] est identique à celle de la page [page1] à un détail près : ligne 46, on termine la fonction asynchrone sur un échec (utilisation de la méthode [reject]) ;</li>
 <li>ligne 46 : le paramètre de la fonction [reject] est une instance de la classe [Error]. Le paramètre du constructeur [Error] est le message de l’erreur ;</li>
 <li>ligne 48 : cette erreur est interceptée par la méthode [catch] de la [Promise] qui reçoit l’erreur en paramètre. On utilise alors la fonction [context.error] pour déclarer l’erreur. Le paramètre de la fonction [context.error] est un objet avec ici deux propriétés :</li>
 <li>[statusCode] : un code HTTP d’erreur ;</li>
-<li>[message] : un message d’erreur ;
-Que [asyncData] soit exécutée par le client ou le serveur, en cas d’erreur [context.error], [nuxt] affiche la page [layouts / <strong>error.vue</strong>] :</li>
+<li>[message] : un message d’erreur ;</li>
 </ul>
+<p>Que [asyncData] soit exécutée par le client ou le serveur, en cas d’erreur [context.error], [nuxt] affiche la page [layouts / <strong>error.vue</strong>] :</p>
 <p><img src="images/1000000000000172000001D9BB99F161.png" style="width:3.911cm;height:5.01cm;" alt="Image" /></p>
 <p>Bien que ce soit une page, la page [error.vue] est cherchée dans le dossier [layouts] (peut-être pour éviter qu’elle soit incluse dans les routes de l’application ?). Ici, la page [error.vue] est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
@@ -1466,23 +1464,23 @@ Que [asyncData] soit exécutée par le client ou le serveur, en cas d’erreur [
 <span class="normal"><a href="#__codelineno-4-49">49</a></span>
 <span class="normal"><a href="#__codelineno-4-50">50</a></span>
 <span class="normal"><a href="#__codelineno-4-51">51</a></span>
-<span class="normal"><a href="#__codelineno-4-52">52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">définition</span><span class="w"> </span><span class="nx">HTML</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">la</span><span class="w"> </span><span class="nx">vue</span><span class="w"> </span><span class="o">--&gt;</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">  </span><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">mise</span><span class="w"> </span><span class="nx">en</span><span class="w"> </span><span class="nx">page</span><span class="w"> </span><span class="o">--&gt;</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">Layout</span><span class="w"> </span><span class="o">:</span><span class="nx">left</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="w"> </span><span class="o">:</span><span class="nx">right</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">alerte</span><span class="w"> </span><span class="nx">dans</span><span class="w"> </span><span class="nx">la</span><span class="w"> </span><span class="nx">colonne</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">droite</span><span class="w"> </span><span class="o">--&gt;</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">template</span><span class="w"> </span><span class="nx">slot</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">      </span><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="nx">sur</span><span class="w"> </span><span class="nx">fond</span><span class="w"> </span><span class="nx">jaune</span><span class="w"> </span><span class="o">--&gt;</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">      </span><span class="o">&lt;</span><span class="nx">b</span><span class="o">-</span><span class="nx">alert</span><span class="w"> </span><span class="nx">show</span><span class="w"> </span><span class="nx">variant</span><span class="o">=</span><span class="s2">&quot;danger&quot;</span><span class="w"> </span><span class="nx">align</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">        </span><span class="o">&lt;</span><span class="nx">h4</span><span class="o">&gt;</span><span class="nx">L</span><span class="s1">&#39;erreur suivante s&#39;</span><span class="nx">est</span><span class="w"> </span><span class="nx">produite</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">}}</span><span class="o">&lt;</span><span class="err">/h4&gt;</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">      </span><span class="o">&lt;</span><span class="err">/b-alert&gt;</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">    </span><span class="o">&lt;</span><span class="err">/template&gt;</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">    </span><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">menu</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">navigation</span><span class="w"> </span><span class="nx">dans</span><span class="w"> </span><span class="nx">la</span><span class="w"> </span><span class="nx">colonne</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">gauche</span><span class="w"> </span><span class="o">--&gt;</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">Navigation</span><span class="w"> </span><span class="nx">slot</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">  </span><span class="o">&lt;</span><span class="err">/Layout&gt;</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="o">&lt;</span><span class="err">/template&gt;</span>
+<span class="normal"><a href="#__codelineno-4-52">52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">&lt;!-- définition HTML de la vue --&gt;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>  <span class="cm">&lt;!-- mise en page --&gt;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>  <span class="p">&lt;</span><span class="nt">Layout</span> <span class="na">:left</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">:right</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span class="cm">&lt;!-- alerte dans la colonne de droite --&gt;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>    <span class="p">&lt;</span><span class="nt">template</span> <span class="na">slot</span><span class="o">=</span><span class="s">&quot;right&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>      <span class="cm">&lt;!-- message sur fond jaune --&gt;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>      <span class="p">&lt;</span><span class="nt">b-alert</span> <span class="na">show</span> <span class="na">variant</span><span class="o">=</span><span class="s">&quot;danger&quot;</span> <span class="na">align</span><span class="o">=</span><span class="s">&quot;center&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>        <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>L&#39;erreur suivante s&#39;est produite : {{ JSON.stringify(error) }}<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>      <span class="p">&lt;/</span><span class="nt">b-alert</span><span class="p">&gt;</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>    <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>    <span class="cm">&lt;!-- menu de navigation dans la colonne de gauche --&gt;</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>    <span class="p">&lt;</span><span class="nt">Navigation</span> <span class="na">slot</span><span class="o">=</span><span class="s">&quot;left&quot;</span> <span class="p">/&gt;</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>  <span class="p">&lt;/</span><span class="nt">Layout</span><span class="p">&gt;</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 <a id="__codelineno-4-16" name="__codelineno-4-16"></a>
-<a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 <a id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="cm">/* eslint-disable no-undef */</span>
 <a id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="cm">/* eslint-disable no-console */</span>
 <a id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="cm">/* eslint-disable nuxt/no-env-in-hooks */</span>
@@ -1517,16 +1515,16 @@ Que [asyncData] soit exécutée par le client ou le serveur, en cas d’erreur [
 <a id="__codelineno-4-49" name="__codelineno-4-49"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[error mounted]&#39;</span><span class="p">)</span>
 <a id="__codelineno-4-50" name="__codelineno-4-50"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-4-51" name="__codelineno-4-51"></a><span class="p">}</span>
-<a id="__codelineno-4-52" name="__codelineno-4-52"></a><span class="o">&lt;</span><span class="err">/script&gt;</span>
+<a id="__codelineno-4-52" name="__codelineno-4-52"></a><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>Lorsque [nuxt] affiche la page [error.vue], elle lui passe en propriété [props], l’erreur qui s’est produite (ligne 33). Si l’erreur a été provoquée par [context.error(<strong>objet1</strong>)], la propriété [props] de la page [error.vue] aura la valeur [<strong>objet1</strong>]. La documentation [nuxt] indique que [objet1] doit avoir au moins les attributs [statusCode, message]. La ligne 9 affiche la chaîne jSON de l’objet [objet1] reçu.</p>
 <h2 id="145-la-page-page2">14.5. La page [page2]</h2>
 <p>La page [page2] montre une autre façon de gérer l’erreur :</p>
 <ul>
 <li>dans [page1], l’erreur est affichée dans une page à part [error.vue] ;</li>
-<li>dans [page2], l’erreur sera affichée dans la page [page2] qui a provoqué l’erreur ;
-Le code de [page2] est le suivant :</li>
+<li>dans [page2], l’erreur sera affichée dans la page [page2] qui a provoqué l’erreur ;</li>
 </ul>
+<p>Le code de [page2] est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
@@ -1595,19 +1593,19 @@ Le code de [page2] est le suivant :</li>
 <span class="normal"><a href="#__codelineno-5-66">66</a></span>
 <span class="normal"><a href="#__codelineno-5-67">67</a></span>
 <span class="normal"><a href="#__codelineno-5-68">68</a></span>
-<span class="normal"><a href="#__codelineno-5-69">69</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">vue</span><span class="w"> </span><span class="nx">n</span><span class="err">°</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">--&gt;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">Layout</span><span class="w"> </span><span class="o">:</span><span class="nx">left</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="w"> </span><span class="o">:</span><span class="nx">right</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">navigation</span><span class="w"> </span><span class="o">--&gt;</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">Navigation</span><span class="w"> </span><span class="nx">slot</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="o">--&gt;</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">b</span><span class="o">-</span><span class="nx">alert</span><span class="w"> </span><span class="nx">slot</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="w"> </span><span class="nx">show</span><span class="w"> </span><span class="nx">variant</span><span class="o">=</span><span class="s2">&quot;secondary&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">      </span><span class="nx">Page</span><span class="w"> </span><span class="mf">2</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="o">&lt;</span><span class="err">/b-alert&gt;</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">  </span><span class="o">&lt;</span><span class="err">/Layout&gt;</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="o">&lt;</span><span class="err">/template&gt;</span>
+<span class="normal"><a href="#__codelineno-5-69">69</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">&lt;!-- vue n° 2 --&gt;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>  <span class="p">&lt;</span><span class="nt">Layout</span> <span class="na">:left</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">:right</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>    <span class="cm">&lt;!-- navigation --&gt;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>    <span class="p">&lt;</span><span class="nt">Navigation</span> <span class="na">slot</span><span class="o">=</span><span class="s">&quot;left&quot;</span> <span class="p">/&gt;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>    <span class="cm">&lt;!-- message --&gt;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>    <span class="p">&lt;</span><span class="nt">b-alert</span> <span class="na">slot</span><span class="o">=</span><span class="s">&quot;right&quot;</span> <span class="na">show</span> <span class="na">variant</span><span class="o">=</span><span class="s">&quot;secondary&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>      Page 2
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>    <span class="p">&lt;/</span><span class="nt">b-alert</span><span class="p">&gt;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>  <span class="p">&lt;/</span><span class="nt">Layout</span><span class="p">&gt;</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 <a id="__codelineno-5-12" name="__codelineno-5-12"></a>
-<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 <a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="cm">/* eslint-disable no-console */</span>
 <a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="cm">/* eslint-disable nuxt/no-timing-in-fetch-data */</span>
 <a id="__codelineno-5-16" name="__codelineno-5-16"></a>
@@ -1663,7 +1661,7 @@ Le code de [page2] est le suivant :</li>
 <a id="__codelineno-5-66" name="__codelineno-5-66"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-5-67" name="__codelineno-5-67"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-5-68" name="__codelineno-5-68"></a><span class="p">}</span>
-<a id="__codelineno-5-69" name="__codelineno-5-69"></a><span class="o">&lt;</span><span class="err">/script&gt;</span>
+<a id="__codelineno-5-69" name="__codelineno-5-69"></a><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>De nouveau, on insère une fonction [asyncData] dans le code de la page et comme [index], [page2] va générer une erreur qu’on va cette fois gérer différemment.</p>
 <ul>
@@ -1750,83 +1748,83 @@ Le code de [page2] est le suivant :</li>
 <span class="normal"><a href="#__codelineno-6-74">74</a></span>
 <span class="normal"><a href="#__codelineno-6-75">75</a></span>
 <span class="normal"><a href="#__codelineno-6-76">76</a></span>
-<span class="normal"><a href="#__codelineno-6-77">77</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">  </span><span class="nx">mode</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;universal&#39;</span><span class="p">,</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">  </span><span class="cm">/*</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="cm">   ** Headers of the page</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="cm">   */</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">  </span><span class="nx">head</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Introduction à [nuxt.js]&#39;</span><span class="p">,</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="nx">meta</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">charset</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;utf-8&#39;</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;viewport&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;width=device-width, initial-scale=1&#39;</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">      </span><span class="p">{</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">        </span><span class="nx">hid</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;description&#39;</span><span class="p">,</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;description&#39;</span><span class="p">,</span>
-<a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">        </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ssr routing loading asyncdata middleware plugins store&#39;</span>
-<a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">    </span><span class="p">],</span>
-<a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="w">    </span><span class="nx">link</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">rel</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;icon&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;image/x-icon&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">href</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/favicon.ico&#39;</span><span class="w"> </span><span class="p">}]</span>
-<a id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="w">  </span><span class="cm">/*</span>
-<a id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="cm">   ** Customize the progress-bar color</span>
-<a id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="cm">   */</span>
-<a id="__codelineno-6-22" name="__codelineno-6-22"></a><span class="w">  </span><span class="nx">loading</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="normal"><a href="#__codelineno-6-77">77</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>export default {
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>  mode: &#39;universal&#39;,
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>  /*
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>   ** Headers of the page
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>   */
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>  head: {
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>    title: &#39;Introduction à [nuxt.js]&#39;,
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>    meta: [
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>      { charset: &#39;utf-8&#39; },
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>      { name: &#39;viewport&#39;, content: &#39;width=device-width, initial-scale=1&#39; },
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>      {
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>        hid: &#39;description&#39;,
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a>        name: &#39;description&#39;,
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a>        content: &#39;ssr routing loading asyncdata middleware plugins store&#39;
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a>      }
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a>    ],
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a>    link: [{ rel: &#39;icon&#39;, type: &#39;image/x-icon&#39;, href: &#39;/favicon.ico&#39; }]
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a>  },
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a>  /*
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a>   ** Customize the progress-bar color
+<a id="__codelineno-6-21" name="__codelineno-6-21"></a>   */
+<a id="__codelineno-6-22" name="__codelineno-6-22"></a>  loading: false,
 <a id="__codelineno-6-23" name="__codelineno-6-23"></a>
-<a id="__codelineno-6-24" name="__codelineno-6-24"></a><span class="w">  </span><span class="cm">/*</span>
-<a id="__codelineno-6-25" name="__codelineno-6-25"></a><span class="cm">   ** Global CSS</span>
-<a id="__codelineno-6-26" name="__codelineno-6-26"></a><span class="cm">   */</span>
-<a id="__codelineno-6-27" name="__codelineno-6-27"></a><span class="w">  </span><span class="nx">css</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
-<a id="__codelineno-6-28" name="__codelineno-6-28"></a><span class="w">  </span><span class="cm">/*</span>
-<a id="__codelineno-6-29" name="__codelineno-6-29"></a><span class="cm">   ** Plugins to load before mounting the App</span>
-<a id="__codelineno-6-30" name="__codelineno-6-30"></a><span class="cm">   */</span>
-<a id="__codelineno-6-31" name="__codelineno-6-31"></a><span class="w">  </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">src</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;@/plugins/event-bus&#39;</span><span class="w"> </span><span class="p">}],</span>
-<a id="__codelineno-6-32" name="__codelineno-6-32"></a><span class="w">  </span><span class="cm">/*</span>
-<a id="__codelineno-6-33" name="__codelineno-6-33"></a><span class="cm">   ** Nuxt.js dev-modules</span>
-<a id="__codelineno-6-34" name="__codelineno-6-34"></a><span class="cm">   */</span>
-<a id="__codelineno-6-35" name="__codelineno-6-35"></a><span class="w">  </span><span class="nx">buildModules</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-6-36" name="__codelineno-6-36"></a><span class="w">    </span><span class="c1">// Doc: https://github.com/nuxt-community/eslint-module</span>
-<a id="__codelineno-6-37" name="__codelineno-6-37"></a><span class="w">    </span><span class="s1">&#39;@nuxtjs/eslint-module&#39;</span>
-<a id="__codelineno-6-38" name="__codelineno-6-38"></a><span class="w">  </span><span class="p">],</span>
-<a id="__codelineno-6-39" name="__codelineno-6-39"></a><span class="w">  </span><span class="cm">/*</span>
-<a id="__codelineno-6-40" name="__codelineno-6-40"></a><span class="cm">   ** Nuxt.js modules</span>
-<a id="__codelineno-6-41" name="__codelineno-6-41"></a><span class="cm">   */</span>
-<a id="__codelineno-6-42" name="__codelineno-6-42"></a><span class="w">  </span><span class="nx">modules</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-6-43" name="__codelineno-6-43"></a><span class="w">    </span><span class="c1">// Doc: https://bootstrap-vue.js.org</span>
-<a id="__codelineno-6-44" name="__codelineno-6-44"></a><span class="w">    </span><span class="s1">&#39;bootstrap-vue/nuxt&#39;</span><span class="p">,</span>
-<a id="__codelineno-6-45" name="__codelineno-6-45"></a><span class="w">    </span><span class="c1">// Doc: https://axios.nuxtjs.org/usage</span>
-<a id="__codelineno-6-46" name="__codelineno-6-46"></a><span class="w">    </span><span class="s1">&#39;@nuxtjs/axios&#39;</span>
-<a id="__codelineno-6-47" name="__codelineno-6-47"></a><span class="w">  </span><span class="p">],</span>
-<a id="__codelineno-6-48" name="__codelineno-6-48"></a><span class="w">  </span><span class="cm">/*</span>
-<a id="__codelineno-6-49" name="__codelineno-6-49"></a><span class="cm">   ** Axios module configuration</span>
-<a id="__codelineno-6-50" name="__codelineno-6-50"></a><span class="cm">   ** See https://axios.nuxtjs.org/options</span>
-<a id="__codelineno-6-51" name="__codelineno-6-51"></a><span class="cm">   */</span>
-<a id="__codelineno-6-52" name="__codelineno-6-52"></a><span class="w">  </span><span class="nx">axios</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
-<a id="__codelineno-6-53" name="__codelineno-6-53"></a><span class="w">  </span><span class="cm">/*</span>
-<a id="__codelineno-6-54" name="__codelineno-6-54"></a><span class="cm">   ** Build configuration</span>
-<a id="__codelineno-6-55" name="__codelineno-6-55"></a><span class="cm">   */</span>
-<a id="__codelineno-6-56" name="__codelineno-6-56"></a><span class="w">  </span><span class="nx">build</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-57" name="__codelineno-6-57"></a><span class="w">    </span><span class="cm">/*</span>
-<a id="__codelineno-6-58" name="__codelineno-6-58"></a><span class="cm">     ** You can extend webpack config here</span>
-<a id="__codelineno-6-59" name="__codelineno-6-59"></a><span class="cm">     */</span>
-<a id="__codelineno-6-60" name="__codelineno-6-60"></a><span class="w">    </span><span class="nx">extend</span><span class="p">(</span><span class="nx">config</span><span class="p">,</span><span class="w"> </span><span class="nx">ctx</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
-<a id="__codelineno-6-61" name="__codelineno-6-61"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-6-62" name="__codelineno-6-62"></a><span class="w">  </span><span class="c1">// répertoire du code source</span>
-<a id="__codelineno-6-63" name="__codelineno-6-63"></a><span class="w">  </span><span class="nx">srcDir</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;nuxt-11&#39;</span><span class="p">,</span>
-<a id="__codelineno-6-64" name="__codelineno-6-64"></a><span class="w">  </span><span class="c1">// routeur</span>
-<a id="__codelineno-6-65" name="__codelineno-6-65"></a><span class="w">  </span><span class="nx">router</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-66" name="__codelineno-6-66"></a><span class="w">    </span><span class="c1">// racine des URL de l&#39;application</span>
-<a id="__codelineno-6-67" name="__codelineno-6-67"></a><span class="w">    </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/nuxt-11/&#39;</span>
-<a id="__codelineno-6-68" name="__codelineno-6-68"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-6-69" name="__codelineno-6-69"></a><span class="w">  </span><span class="c1">// serveur</span>
-<a id="__codelineno-6-70" name="__codelineno-6-70"></a><span class="w">  </span><span class="nx">server</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-71" name="__codelineno-6-71"></a><span class="w">    </span><span class="c1">// port de service, 3000 par défaut</span>
-<a id="__codelineno-6-72" name="__codelineno-6-72"></a><span class="w">    </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="mf">81</span><span class="p">,</span>
-<a id="__codelineno-6-73" name="__codelineno-6-73"></a><span class="w">    </span><span class="c1">// adresses réseau écoutées, par défaut localhost : 127.0.0.1</span>
-<a id="__codelineno-6-74" name="__codelineno-6-74"></a><span class="w">    </span><span class="c1">// 0.0.0.0 = toutes les adresses réseau de la machine</span>
-<a id="__codelineno-6-75" name="__codelineno-6-75"></a><span class="w">    </span><span class="nx">host</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;localhost&#39;</span>
-<a id="__codelineno-6-76" name="__codelineno-6-76"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-6-77" name="__codelineno-6-77"></a><span class="p">}</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24"></a>  /*
+<a id="__codelineno-6-25" name="__codelineno-6-25"></a>   ** Global CSS
+<a id="__codelineno-6-26" name="__codelineno-6-26"></a>   */
+<a id="__codelineno-6-27" name="__codelineno-6-27"></a>  css: [],
+<a id="__codelineno-6-28" name="__codelineno-6-28"></a>  /*
+<a id="__codelineno-6-29" name="__codelineno-6-29"></a>   ** Plugins to load before mounting the App
+<a id="__codelineno-6-30" name="__codelineno-6-30"></a>   */
+<a id="__codelineno-6-31" name="__codelineno-6-31"></a>  plugins: [{ src: &#39;@/plugins/event-bus&#39; }],
+<a id="__codelineno-6-32" name="__codelineno-6-32"></a>  /*
+<a id="__codelineno-6-33" name="__codelineno-6-33"></a>   ** Nuxt.js dev-modules
+<a id="__codelineno-6-34" name="__codelineno-6-34"></a>   */
+<a id="__codelineno-6-35" name="__codelineno-6-35"></a>  buildModules: [
+<a id="__codelineno-6-36" name="__codelineno-6-36"></a>    // Doc: https://github.com/nuxt-community/eslint-module
+<a id="__codelineno-6-37" name="__codelineno-6-37"></a>    &#39;@nuxtjs/eslint-module&#39;
+<a id="__codelineno-6-38" name="__codelineno-6-38"></a>  ],
+<a id="__codelineno-6-39" name="__codelineno-6-39"></a>  /*
+<a id="__codelineno-6-40" name="__codelineno-6-40"></a>   ** Nuxt.js modules
+<a id="__codelineno-6-41" name="__codelineno-6-41"></a>   */
+<a id="__codelineno-6-42" name="__codelineno-6-42"></a>  modules: [
+<a id="__codelineno-6-43" name="__codelineno-6-43"></a>    // Doc: https://bootstrap-vue.js.org
+<a id="__codelineno-6-44" name="__codelineno-6-44"></a>    &#39;bootstrap-vue/nuxt&#39;,
+<a id="__codelineno-6-45" name="__codelineno-6-45"></a>    // Doc: https://axios.nuxtjs.org/usage
+<a id="__codelineno-6-46" name="__codelineno-6-46"></a>    &#39;@nuxtjs/axios&#39;
+<a id="__codelineno-6-47" name="__codelineno-6-47"></a>  ],
+<a id="__codelineno-6-48" name="__codelineno-6-48"></a>  /*
+<a id="__codelineno-6-49" name="__codelineno-6-49"></a>   ** Axios module configuration
+<a id="__codelineno-6-50" name="__codelineno-6-50"></a>   ** See https://axios.nuxtjs.org/options
+<a id="__codelineno-6-51" name="__codelineno-6-51"></a>   */
+<a id="__codelineno-6-52" name="__codelineno-6-52"></a>  axios: {},
+<a id="__codelineno-6-53" name="__codelineno-6-53"></a>  /*
+<a id="__codelineno-6-54" name="__codelineno-6-54"></a>   ** Build configuration
+<a id="__codelineno-6-55" name="__codelineno-6-55"></a>   */
+<a id="__codelineno-6-56" name="__codelineno-6-56"></a>  build: {
+<a id="__codelineno-6-57" name="__codelineno-6-57"></a>    /*
+<a id="__codelineno-6-58" name="__codelineno-6-58"></a>     ** You can extend webpack config here
+<a id="__codelineno-6-59" name="__codelineno-6-59"></a>     */
+<a id="__codelineno-6-60" name="__codelineno-6-60"></a>    extend(config, ctx) {}
+<a id="__codelineno-6-61" name="__codelineno-6-61"></a>  },
+<a id="__codelineno-6-62" name="__codelineno-6-62"></a>  // répertoire du code source
+<a id="__codelineno-6-63" name="__codelineno-6-63"></a>  srcDir: &#39;nuxt-11&#39;,
+<a id="__codelineno-6-64" name="__codelineno-6-64"></a>  // routeur
+<a id="__codelineno-6-65" name="__codelineno-6-65"></a>  router: {
+<a id="__codelineno-6-66" name="__codelineno-6-66"></a>    // racine des URL de l&#39;application
+<a id="__codelineno-6-67" name="__codelineno-6-67"></a>    base: &#39;/nuxt-11/&#39;
+<a id="__codelineno-6-68" name="__codelineno-6-68"></a>  },
+<a id="__codelineno-6-69" name="__codelineno-6-69"></a>  // serveur
+<a id="__codelineno-6-70" name="__codelineno-6-70"></a>  server: {
+<a id="__codelineno-6-71" name="__codelineno-6-71"></a>    // port de service, 3000 par défaut
+<a id="__codelineno-6-72" name="__codelineno-6-72"></a>    port: 81,
+<a id="__codelineno-6-73" name="__codelineno-6-73"></a>    // adresses réseau écoutées, par défaut localhost : 127.0.0.1
+<a id="__codelineno-6-74" name="__codelineno-6-74"></a>    // 0.0.0.0 = toutes les adresses réseau de la machine
+<a id="__codelineno-6-75" name="__codelineno-6-75"></a>    host: &#39;localhost&#39;
+<a id="__codelineno-6-76" name="__codelineno-6-76"></a>  }
+<a id="__codelineno-6-77" name="__codelineno-6-77"></a>}
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 22 : on met la propiété [loading] à [false] pour que [nuxt] n’utilise pas son image d’attente par défaut ;</li>
@@ -1840,9 +1838,9 @@ Le code de [page2] est le suivant :</li>
 <ul>
 <li>en [3], on voit que le serveur envoie la page [error.vue] ;</li>
 <li>en [4], on voit que le client affiche lui aussi la page [error] avec la même erreur que le serveur ;</li>
-<li>on peut remarquer que la méthode [mShowLoading] de la page [default] n’a pas été appelée côté serveur alors même que la page [index] avait activé une attente. Cette méthode est appelée à réception d’un événement et visiblement la gestion événementielle n’est pas implémentée côté serveur ;
-Examinons le code source de la page reçue par le navigateur client :</li>
+<li>on peut remarquer que la méthode [mShowLoading] de la page [default] n’a pas été appelée côté serveur alors même que la page [index] avait activé une attente. Cette méthode est appelée à réception d’un événement et visiblement la gestion événementielle n’est pas implémentée côté serveur ;</li>
 </ul>
+<p>Examinons le code source de la page reçue par le navigateur client :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
@@ -1917,62 +1915,62 @@ Examinons le code source de la page reçue par le navigateur client :</li>
 <span class="normal"><a href="#__codelineno-7-72">72</a></span>
 <span class="normal"><a href="#__codelineno-7-73">73</a></span>
 <span class="normal"><a href="#__codelineno-7-74">74</a></span>
-<span class="normal"><a href="#__codelineno-7-75">75</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="o">&lt;!</span><span class="nx">doctype</span><span class="w"> </span><span class="nx">html</span><span class="o">&gt;</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="o">&lt;</span><span class="nx">html</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">n</span><span class="o">-</span><span class="nx">head</span><span class="o">-</span><span class="nx">ssr</span><span class="o">&gt;</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Introduction</span><span class="w"> </span><span class="nx">à</span><span class="w"> </span><span class="p">[</span><span class="nx">nuxt</span><span class="p">.</span><span class="nx">js</span><span class="p">]</span><span class="o">&lt;</span><span class="err">/title&gt;</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">meta</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">n</span><span class="o">-</span><span class="nx">head</span><span class="o">=</span><span class="s2">&quot;ssr&quot;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">meta</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">n</span><span class="o">-</span><span class="nx">head</span><span class="o">=</span><span class="s2">&quot;ssr&quot;</span><span class="w"> </span><span class="nx">name</span><span class="o">=</span><span class="s2">&quot;viewport&quot;</span><span class="w"> </span><span class="nx">content</span><span class="o">=</span><span class="s2">&quot;width=device-width, initial-scale=1&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">meta</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">n</span><span class="o">-</span><span class="nx">head</span><span class="o">=</span><span class="s2">&quot;ssr&quot;</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">hid</span><span class="o">=</span><span class="s2">&quot;description&quot;</span><span class="w"> </span><span class="nx">name</span><span class="o">=</span><span class="s2">&quot;description&quot;</span><span class="w"> </span><span class="nx">content</span><span class="o">=</span><span class="s2">&quot;ssr routing loading asyncdata middleware plugins store&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">link</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">n</span><span class="o">-</span><span class="nx">head</span><span class="o">=</span><span class="s2">&quot;ssr&quot;</span><span class="w"> </span><span class="nx">rel</span><span class="o">=</span><span class="s2">&quot;icon&quot;</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;image/x-icon&quot;</span><span class="w"> </span><span class="nx">href</span><span class="o">=</span><span class="s2">&quot;/favicon.ico&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">base</span><span class="w"> </span><span class="nx">href</span><span class="o">=</span><span class="s2">&quot;/nuxt-11/&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">link</span><span class="w"> </span><span class="nx">rel</span><span class="o">=</span><span class="s2">&quot;preload&quot;</span><span class="w"> </span><span class="nx">href</span><span class="o">=</span><span class="s2">&quot;/nuxt-11/_nuxt/runtime.js&quot;</span><span class="w"> </span><span class="kr">as</span><span class="o">=</span><span class="s2">&quot;script&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">link</span><span class="w"> </span><span class="nx">rel</span><span class="o">=</span><span class="s2">&quot;preload&quot;</span><span class="w"> </span><span class="nx">href</span><span class="o">=</span><span class="s2">&quot;/nuxt-11/_nuxt/commons.app.js&quot;</span><span class="w"> </span><span class="kr">as</span><span class="o">=</span><span class="s2">&quot;script&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">link</span><span class="w"> </span><span class="nx">rel</span><span class="o">=</span><span class="s2">&quot;preload&quot;</span><span class="w"> </span><span class="nx">href</span><span class="o">=</span><span class="s2">&quot;/nuxt-11/_nuxt/vendors.app.js&quot;</span><span class="w"> </span><span class="kr">as</span><span class="o">=</span><span class="s2">&quot;script&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">link</span><span class="w"> </span><span class="nx">rel</span><span class="o">=</span><span class="s2">&quot;preload&quot;</span><span class="w"> </span><span class="nx">href</span><span class="o">=</span><span class="s2">&quot;/nuxt-11/_nuxt/app.js&quot;</span><span class="w"> </span><span class="kr">as</span><span class="o">=</span><span class="s2">&quot;script&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">  </span><span class="p">...</span>
-<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="o">&lt;</span><span class="err">/head&gt;</span>
-<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
-<a id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">server</span><span class="o">-</span><span class="nx">rendered</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;__nuxt&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;__layout&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="w">      </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;container&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="w">        </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;card&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-7-21" name="__codelineno-7-21"></a><span class="w">          </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;card-body&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-7-22" name="__codelineno-7-22"></a><span class="w">            </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="nx">role</span><span class="o">=</span><span class="s2">&quot;alert&quot;</span><span class="w"> </span><span class="nx">aria</span><span class="o">-</span><span class="nx">live</span><span class="o">=</span><span class="s2">&quot;polite&quot;</span><span class="w"> </span><span class="nx">aria</span><span class="o">-</span><span class="nx">atomic</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="w"> </span><span class="nx">align</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;alert alert-success&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-7-23" name="__codelineno-7-23"></a><span class="w">            </span><span class="o">&lt;</span><span class="nx">h4</span><span class="o">&gt;</span><span class="p">[</span><span class="nx">nuxt</span><span class="o">-</span><span class="mf">11</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">personnalisation</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">l</span><span class="s1">&#39;attente, gestion des erreurs&lt;/h4&gt;</span>
-<a id="__codelineno-7-24" name="__codelineno-7-24"></a><span class="s1">              &lt;/div&gt;</span>
-<a id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="s1">            &lt;div&gt;</span>
-<a id="__codelineno-7-26" name="__codelineno-7-26"></a><span class="s1">              &lt;div class=&quot;row&quot;&gt;</span>
-<a id="__codelineno-7-27" name="__codelineno-7-27"></a><span class="s1">                &lt;div class=&quot;col-2&quot;&gt;</span>
-<a id="__codelineno-7-28" name="__codelineno-7-28"></a><span class="s1">                  &lt;ul class=&quot;nav flex-column&quot;&gt;</span>
-<a id="__codelineno-7-29" name="__codelineno-7-29"></a><span class="s1">                    &lt;li class=&quot;nav-item&quot;&gt;</span>
-<a id="__codelineno-7-30" name="__codelineno-7-30"></a><span class="s1">                      &lt;a href=&quot;/nuxt-11/&quot; target=&quot;_self&quot; class=&quot;nav-link active nuxt-link-active&quot;&gt;</span>
-<a id="__codelineno-7-31" name="__codelineno-7-31"></a><span class="s1">                        Home</span>
-<a id="__codelineno-7-32" name="__codelineno-7-32"></a><span class="s1">                      &lt;/a&gt;</span>
-<a id="__codelineno-7-33" name="__codelineno-7-33"></a><span class="s1">                    &lt;/li&gt;</span>
-<a id="__codelineno-7-34" name="__codelineno-7-34"></a><span class="s1">                    &lt;li class=&quot;nav-item&quot;&gt;</span>
-<a id="__codelineno-7-35" name="__codelineno-7-35"></a><span class="s1">                      &lt;a href=&quot;/nuxt-11/page1&quot; target=&quot;_self&quot; class=&quot;nav-link&quot;&gt;</span>
-<a id="__codelineno-7-36" name="__codelineno-7-36"></a><span class="s1">                        Page 1</span>
-<a id="__codelineno-7-37" name="__codelineno-7-37"></a><span class="s1">                      &lt;/a&gt;</span>
-<a id="__codelineno-7-38" name="__codelineno-7-38"></a><span class="s1">                    &lt;/li&gt;</span>
-<a id="__codelineno-7-39" name="__codelineno-7-39"></a><span class="s1">                    &lt;li class=&quot;nav-item&quot;&gt;</span>
-<a id="__codelineno-7-40" name="__codelineno-7-40"></a><span class="s1">                      &lt;a href=&quot;/nuxt-11/page2&quot; target=&quot;_self&quot; class=&quot;nav-link&quot;&gt;</span>
-<a id="__codelineno-7-41" name="__codelineno-7-41"></a><span class="s1">                        Page 2</span>
-<a id="__codelineno-7-42" name="__codelineno-7-42"></a><span class="s1">                      &lt;/a&gt;</span>
-<a id="__codelineno-7-43" name="__codelineno-7-43"></a><span class="s1">                    &lt;/li&gt;</span>
-<a id="__codelineno-7-44" name="__codelineno-7-44"></a><span class="s1">                  &lt;/ul&gt;</span>
-<a id="__codelineno-7-45" name="__codelineno-7-45"></a><span class="s1">                &lt;/div&gt; &lt;div class=&quot;col-10&quot;&gt;&lt;div role=&quot;alert&quot; aria-live=&quot;polite&quot; aria-atomic=&quot;true&quot; align=&quot;center&quot; class=&quot;alert alert-danger&quot;&gt;</span>
-<a id="__codelineno-7-46" name="__codelineno-7-46"></a><span class="s1">                &lt;h4&gt;L&#39;</span><span class="nx">erreur</span><span class="w"> </span><span class="nx">suivante</span><span class="w"> </span><span class="nx">s</span><span class="s1">&#39;est produite : {&amp;quot;statusCode&amp;quot;:500,&amp;quot;message&amp;quot;:&amp;quot;le serveur n&#39;</span><span class="nx">a</span><span class="w"> </span><span class="nx">pas</span><span class="w"> </span><span class="nx">répondu</span><span class="w"> </span><span class="nx">assez</span><span class="w"> </span><span class="nx">vite</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;}</span><span class="o">&lt;</span><span class="err">/h4&gt;</span>
-<a id="__codelineno-7-47" name="__codelineno-7-47"></a><span class="w">                    </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
-<a id="__codelineno-7-48" name="__codelineno-7-48"></a><span class="w">                </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
-<a id="__codelineno-7-49" name="__codelineno-7-49"></a><span class="w">              </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
-<a id="__codelineno-7-50" name="__codelineno-7-50"></a><span class="w">            </span><span class="o">&lt;</span><span class="err">/div&gt;  </span>
-<a id="__codelineno-7-51" name="__codelineno-7-51"></a><span class="w">          </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
-<a id="__codelineno-7-52" name="__codelineno-7-52"></a><span class="w">        </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
-<a id="__codelineno-7-53" name="__codelineno-7-53"></a><span class="w">      </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
-<a id="__codelineno-7-54" name="__codelineno-7-54"></a><span class="w">    </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
-<a id="__codelineno-7-55" name="__codelineno-7-55"></a><span class="w">  </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
-<a id="__codelineno-7-56" name="__codelineno-7-56"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span><span class="nb">window</span><span class="p">.</span><span class="nx">__NUXT__</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="p">,</span><span class="w"> </span><span class="nx">d</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="normal"><a href="#__codelineno-7-75">75</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">&lt;!doctype html&gt;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="p">&lt;</span><span class="nt">html</span> <span class="na">data-n-head-ssr</span><span class="p">&gt;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Introduction à [nuxt.js]<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">data-n-head</span><span class="o">=</span><span class="s">&quot;ssr&quot;</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">data-n-head</span><span class="o">=</span><span class="s">&quot;ssr&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">data-n-head</span><span class="o">=</span><span class="s">&quot;ssr&quot;</span> <span class="na">data-hid</span><span class="o">=</span><span class="s">&quot;description&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;description&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;ssr routing loading asyncdata middleware plugins store&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">data-n-head</span><span class="o">=</span><span class="s">&quot;ssr&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/x-icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/favicon.ico&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>  <span class="p">&lt;</span><span class="nt">base</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/nuxt-11/&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;preload&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/nuxt-11/_nuxt/runtime.js&quot;</span> <span class="na">as</span><span class="o">=</span><span class="s">&quot;script&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;preload&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/nuxt-11/_nuxt/commons.app.js&quot;</span> <span class="na">as</span><span class="o">=</span><span class="s">&quot;script&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;preload&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/nuxt-11/_nuxt/vendors.app.js&quot;</span> <span class="na">as</span><span class="o">=</span><span class="s">&quot;script&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a>  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;preload&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/nuxt-11/_nuxt/app.js&quot;</span> <span class="na">as</span><span class="o">=</span><span class="s">&quot;script&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a>  ...
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-server-rendered</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;__nuxt&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;__layout&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a>      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21"></a>          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card-body&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22"></a>            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;alert&quot;</span> <span class="na">aria-live</span><span class="o">=</span><span class="s">&quot;polite&quot;</span> <span class="na">aria-atomic</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">align</span><span class="o">=</span><span class="s">&quot;center&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;alert alert-success&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23"></a>            <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>[nuxt-11] : personnalisation de l&#39;attente, gestion des erreurs<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24"></a>              <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25"></a>            <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26"></a>              <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27"></a>                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-2&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28"></a>                  <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav flex-column&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29"></a>                    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30"></a>                      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/nuxt-11/&quot;</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_self&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link active nuxt-link-active&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31"></a>                        Home
+<a id="__codelineno-7-32" name="__codelineno-7-32"></a>                      <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33"></a>                    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<a id="__codelineno-7-34" name="__codelineno-7-34"></a>                    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35"></a>                      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/nuxt-11/page1&quot;</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_self&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-36" name="__codelineno-7-36"></a>                        Page 1
+<a id="__codelineno-7-37" name="__codelineno-7-37"></a>                      <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-7-38" name="__codelineno-7-38"></a>                    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<a id="__codelineno-7-39" name="__codelineno-7-39"></a>                    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-40" name="__codelineno-7-40"></a>                      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/nuxt-11/page2&quot;</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_self&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-41" name="__codelineno-7-41"></a>                        Page 2
+<a id="__codelineno-7-42" name="__codelineno-7-42"></a>                      <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-7-43" name="__codelineno-7-43"></a>                    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<a id="__codelineno-7-44" name="__codelineno-7-44"></a>                  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<a id="__codelineno-7-45" name="__codelineno-7-45"></a>                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-10&quot;</span><span class="p">&gt;&lt;</span><span class="nt">div</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;alert&quot;</span> <span class="na">aria-live</span><span class="o">=</span><span class="s">&quot;polite&quot;</span> <span class="na">aria-atomic</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">align</span><span class="o">=</span><span class="s">&quot;center&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;alert alert-danger&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-7-46" name="__codelineno-7-46"></a>                <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>L&#39;erreur suivante s&#39;est produite : {<span class="ni">&amp;quot;</span>statusCode<span class="ni">&amp;quot;</span>:500,<span class="ni">&amp;quot;</span>message<span class="ni">&amp;quot;</span>:<span class="ni">&amp;quot;</span>le serveur n&#39;a pas répondu assez vite<span class="ni">&amp;quot;</span>}<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+<a id="__codelineno-7-47" name="__codelineno-7-47"></a>                    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-7-48" name="__codelineno-7-48"></a>                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-7-49" name="__codelineno-7-49"></a>              <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-7-50" name="__codelineno-7-50"></a>            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>  
+<a id="__codelineno-7-51" name="__codelineno-7-51"></a>          <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-7-52" name="__codelineno-7-52"></a>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-7-53" name="__codelineno-7-53"></a>      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-7-54" name="__codelineno-7-54"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-7-55" name="__codelineno-7-55"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-7-56" name="__codelineno-7-56"></a>  <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="nb">window</span><span class="p">.</span><span class="nx">__NUXT__</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="p">,</span><span class="w"> </span><span class="nx">d</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-7-57" name="__codelineno-7-57"></a><span class="w">  </span><span class="nx">d</span><span class="p">.</span><span class="nx">statusCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">500</span><span class="p">;</span><span class="w"> </span><span class="nx">d</span><span class="p">.</span><span class="nx">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;le serveur n&#39;a pas répondu assez vite&quot;</span><span class="p">;</span>
 <a id="__codelineno-7-58" name="__codelineno-7-58"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-7-59" name="__codelineno-7-59"></a><span class="w">    </span><span class="nx">layout</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">d</span><span class="p">],</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nx">d</span><span class="p">,</span><span class="w"> </span><span class="nx">serverRendered</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
@@ -1985,13 +1983,13 @@ Examinons le code source de la page reçue par le navigateur client :</li>
 <a id="__codelineno-7-66" name="__codelineno-7-66"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">date</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="mf">1575047430157</span><span class="p">),</span><span class="w"> </span><span class="nx">args</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;[error beforeCreate]&quot;</span><span class="p">],</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">level</span><span class="o">:</span><span class="w"> </span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="nx">tag</span><span class="o">:</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="p">},</span>
 <a id="__codelineno-7-67" name="__codelineno-7-67"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">date</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="mf">1575047430246</span><span class="p">),</span><span class="w"> </span><span class="nx">args</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;[error created, error=]&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;{ statusCode: 500,\n  message: &#39;le serveur n\\&#39;a pas répondu assez vite&#39; }&quot;</span><span class="p">],</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">level</span><span class="o">:</span><span class="w"> </span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="nx">tag</span><span class="o">:</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="p">}]</span>
 <a id="__codelineno-7-68" name="__codelineno-7-68"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-7-69" name="__codelineno-7-69"></a><span class="w">    </span><span class="p">}(</span><span class="s2">&quot;log&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{}));</span><span class="o">&lt;</span><span class="err">/script&gt;</span>
-<a id="__codelineno-7-70" name="__codelineno-7-70"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">script</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;/nuxt-11/_nuxt/runtime.js&quot;</span><span class="w"> </span><span class="nx">defer</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-<a id="__codelineno-7-71" name="__codelineno-7-71"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">script</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;/nuxt-11/_nuxt/commons.app.js&quot;</span><span class="w"> </span><span class="nx">defer</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-<a id="__codelineno-7-72" name="__codelineno-7-72"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">script</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;/nuxt-11/_nuxt/vendors.app.js&quot;</span><span class="w"> </span><span class="nx">defer</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-<a id="__codelineno-7-73" name="__codelineno-7-73"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">script</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;/nuxt-11/_nuxt/app.js&quot;</span><span class="w"> </span><span class="nx">defer</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-<a id="__codelineno-7-74" name="__codelineno-7-74"></a><span class="o">&lt;</span><span class="err">/body&gt;</span>
-<a id="__codelineno-7-75" name="__codelineno-7-75"></a><span class="o">&lt;</span><span class="err">/html&gt;</span>
+<a id="__codelineno-7-69" name="__codelineno-7-69"></a><span class="w">    </span><span class="p">}(</span><span class="s2">&quot;log&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{}));&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<a id="__codelineno-7-70" name="__codelineno-7-70"></a>  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/nuxt-11/_nuxt/runtime.js&quot;</span> <span class="na">defer</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<a id="__codelineno-7-71" name="__codelineno-7-71"></a>  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/nuxt-11/_nuxt/commons.app.js&quot;</span> <span class="na">defer</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<a id="__codelineno-7-72" name="__codelineno-7-72"></a>  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/nuxt-11/_nuxt/vendors.app.js&quot;</span> <span class="na">defer</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<a id="__codelineno-7-73" name="__codelineno-7-73"></a>  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/nuxt-11/_nuxt/app.js&quot;</span> <span class="na">defer</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<a id="__codelineno-7-74" name="__codelineno-7-74"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-7-75" name="__codelineno-7-75"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 57 : on voit que le serveur a envoyé un objet [d] qui représente l’erreur qui s’est produite côté serveur ;</li>
@@ -2043,25 +2041,25 @@ Examinons le code source de la page reçue par le navigateur client :</li>
 <span class="normal"><a href="#__codelineno-8-17">17</a></span>
 <span class="normal"><a href="#__codelineno-8-18">18</a></span>
 <span class="normal"><a href="#__codelineno-8-19">19</a></span>
-<span class="normal"><a href="#__codelineno-8-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nx">asyncData</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="normal"><a href="#__codelineno-8-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">asyncData</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="c1">// log</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[page1 asyncData started]&#39;</span><span class="p">)</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="n">console</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="err">&#39;</span><span class="o">[</span><span class="n">page1</span><span class="w"> </span><span class="n">asyncData</span><span class="w"> </span><span class="n">started</span><span class="o">]</span><span class="err">&#39;</span><span class="p">)</span>
 <a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span><span class="c1">// début attente</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">$eventBus</span><span class="p">().</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;loading&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="n">context</span><span class="p">.</span><span class="na">app</span><span class="p">.</span><span class="na">$eventBus</span><span class="p">().</span><span class="na">$emit</span><span class="p">(</span><span class="err">&#39;</span><span class="n">loading</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
 <a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">    </span><span class="c1">// pas d&#39;erreur</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">$eventBus</span><span class="p">().</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;errorLoading&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="n">context</span><span class="p">.</span><span class="na">app</span><span class="p">.</span><span class="na">$eventBus</span><span class="p">().</span><span class="na">$emit</span><span class="p">(</span><span class="err">&#39;</span><span class="n">errorLoading</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
 <a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">    </span><span class="c1">// on rend une promesse</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">reject</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Promise</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">resolve</span><span class="p">,</span><span class="w"> </span><span class="n">reject</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">      </span><span class="c1">// on simule une fonction asynchrone</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">      </span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">      </span><span class="n">setTimeout</span><span class="p">(</span><span class="n">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">        </span><span class="c1">// fin attente</span>
-<a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">        </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">$eventBus</span><span class="p">().</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;loading&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">        </span><span class="n">context</span><span class="p">.</span><span class="na">app</span><span class="p">.</span><span class="na">$eventBus</span><span class="p">().</span><span class="na">$emit</span><span class="p">(</span><span class="err">&#39;</span><span class="n">loading</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
 <a id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="w">        </span><span class="c1">// log</span>
-<a id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[page1 asyncData finished]&#39;</span><span class="p">)</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="w">        </span><span class="n">console</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="err">&#39;</span><span class="o">[</span><span class="n">page1</span><span class="w"> </span><span class="n">asyncData</span><span class="w"> </span><span class="n">finished</span><span class="o">]</span><span class="err">&#39;</span><span class="p">)</span>
 <a id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="w">        </span><span class="c1">// on rend une erreur</span>
-<a id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="w">        </span><span class="nx">reject</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;le serveur n&#39;a pas répondu assez vite&quot;</span><span class="p">))</span>
-<a id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="w">      </span><span class="p">},</span><span class="w"> </span><span class="mf">5000</span><span class="p">)</span>
-<a id="__codelineno-8-19" name="__codelineno-8-19"></a><span class="w">    </span><span class="p">}).</span><span class="k">catch</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">error</span><span class="p">({</span><span class="w"> </span><span class="nx">statusCode</span><span class="o">:</span><span class="w"> </span><span class="mf">500</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="w"> </span><span class="p">}))</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="w">        </span><span class="n">reject</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="s">&quot;le serveur n&#39;a pas répondu assez vite&quot;</span><span class="p">))</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="w">      </span><span class="p">},</span><span class="w"> </span><span class="mi">5000</span><span class="p">)</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19"></a><span class="w">    </span><span class="p">}).</span><span class="na">catch</span><span class="p">((</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="na">error</span><span class="p">({</span><span class="w"> </span><span class="n">statusCode</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">:</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">message</span><span class="w"> </span><span class="p">}))</span>
 <a id="__codelineno-8-20" name="__codelineno-8-20"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Les logs du client sont les suivants :</p>
