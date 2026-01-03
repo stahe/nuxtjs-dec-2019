@@ -6,13 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Introduction au framework NUXT.JS par l'exemple">
       
-      
-        <meta name="author" content="Serge Tahé">
-      
-      
-        <link rel="canonical" href="https://stahe.github.io/nuxtjs-dec-2019/exemple-nuxt-20-portage-de-lexemple-vuejs-22.html">
       
       
         <link rel="prev" href="exemple-nuxt-13-controle-de-la-navigation-de-nuxt-12.html">
@@ -195,18 +189,6 @@
       
     
     
-      <div class="md-header__source">
-        <a href="https://github.com/stahe/nuxtjs-dec-2019" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-      </div>
-    
   </nav>
   
 </header>
@@ -242,18 +224,6 @@
     </a>
     Introduction au framework NUXT.JS par l'exemple
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/stahe/nuxtjs-dec-2019" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -927,56 +897,81 @@
                   
 
 
-  
-  
-
 
 <h1 id="17-exemple-nuxt-20-portage-de-lexemple-vuejs-22">17. Exemple [nuxt-20] : portage de l’exemple [vuejs-22]</h1>
 <h2 id="171-presentation">17.1. Présentation</h2>
 <p>Nous nous proposons ici de porter l’exemple [vuejs-22] qui était une application [vue.js] de type SPA, dans un contexte [nuxt] SSR. [vuejs-22] était une application cliente du serveur de calcul de l’impôt qui présentait les vues suivantes :</p>
 <p>La 1ère vue est la vue d’authentification :</p>
-<p><img src="images/1000000000000770000004AA35461DA4.png" style="width:12.591cm;height:7.901cm;" alt="Image" /></p>
+<p><img src="images/1000000000000770000004AA35461DA4.png" style="width:12.591cm;" /></p>
 <p>La seconde vue est celle du calcul de l’impôt :</p>
-<p><img src="images/10000000000008AD0000055E31785C13.png" style="width:14.69cm;height:9.09cm;" alt="Image" /></p>
+<p><img src="images/10000000000008AD0000055E31785C13.png" style="width:14.69cm;" /></p>
 <p>La 3ième vue est celle qui affiche la liste des simulations faites par l’utilisateur :</p>
-<p><img src="images/100000000000089D000004D19CD113E8.png" style="width:14.581cm;height:8.161cm;" alt="Image" /></p>
+<p><img src="images/100000000000089D000004D19CD113E8.png" style="width:14.581cm;" /></p>
 <p>L’écran ci-dessus montre qu’on peut supprimer la simulation n° 1. On obtient alors la vue suivante :</p>
-<p><img src="images/100000000000088F000004622293E2BB.png" style="width:14.491cm;height:7.421cm;" alt="Image" /></p>
+<p><img src="images/100000000000088F000004622293E2BB.png" style="width:14.491cm;" /></p>
 <p>Si on supprime maintenant la dernière simulation, on obtient la nouvelle vue suivante :</p>
-<p><img src="images/10000000000008BE0000036F87B3657D.png" style="width:14.802cm;height:5.822cm;" alt="Image" /></p>
-<p>Nous allons porter l’application [vuejs-22] vers l’application [nuxt-20] de façon progressive. Nous n’expliquerons pas de nouveau les codes de [vuejs-22]. Le lecteur est invité à relire le document |<a href="https://tahe.developpez.com/tutoriels-cours/vuejs">Introduction au framework </a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"><strong><em>*VUE.JS</em></strong>*</a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"> par l’exemple</a>|. Les différentes étapes devraient montrer les différences entre une application [vuejs] et une application [nuxt].</p>
+<p><img src="images/10000000000008BE0000036F87B3657D.png" style="width:14.802cm;" /></p>
+<p>Nous allons porter l’application [vuejs-22] vers l’application [nuxt-20] de façon progressive. Nous n’expliquerons pas de nouveau les codes de [vuejs-22]. Le lecteur est invité à relire le document |<a href="https://tahe.developpez.com/tutoriels-cours/vuejs">Introduction au framework </a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"><strong>VUE.JS</strong></a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"> par l’exemple</a>|. Les différentes étapes devraient montrer les différences entre une application [vuejs] et une application [nuxt].</p>
 <h2 id="172-etape-1">17.2. étape 1</h2>
 <p>Le projet [nuxt-20] est initialement obtenu par recopie du projet [nuxt-12]. Celui-ci est en effet un bon point de départ :</p>
 <ul>
-<li>il sait dialoguer avec le serveur de calcul de l’impôt ;</li>
-<li>il gère correctement les erreurs que celui-ci envoie ;</li>
-<li>les client et serveur [nuxt] savent communiquer via une session [nuxt] ;</li>
+<li>
+<p>il sait dialoguer avec le serveur de calcul de l’impôt ;</p>
+</li>
+<li>
+<p>il gère correctement les erreurs que celui-ci envoie ;</p>
+</li>
+<li>
+<p>les client et serveur [nuxt] savent communiquer via une session [nuxt] ;</p>
+</li>
 </ul>
 <p>On a donc une bonne infrastructure de départ. Notre principal travail devrait être de modifier :</p>
 <ul>
-<li>les pages. On prendra celles du projet [vuejs-22] qu’il faudra adapter au nouvel environnement ;</li>
-<li>la gestion du store. Des informations supplémentaires devraient apparaître (liste des simulations) et d’autres pourraient devenir inutiles ;</li>
-<li>la gestion du routage du client et du serveur [nuxt] ;</li>
+<li>
+<p>les pages. On prendra celles du projet [vuejs-22] qu’il faudra adapter au nouvel environnement ;</p>
+</li>
+<li>
+<p>la gestion du store. Des informations supplémentaires devraient apparaître (liste des simulations) et d’autres pourraient devenir inutiles ;</p>
+</li>
+<li>
+<p>la gestion du routage du client et du serveur [nuxt] ;</p>
+</li>
 </ul>
 <p>Donc tout d’abord, on crée le projet [nuxt-20] en recopiant le projet [nuxt-12] :</p>
-<p><img src="images/10000000000004D4000001F7303D816A.png" style="width:16.35cm;height:6.661cm;" alt="Image" /></p>
+<p><img src="images/10000000000004D4000001F7303D816A.png" style="width:16.35cm;" /></p>
 <p>Puis on supprime les pages et composants devenus inutiles [2] :</p>
 <ul>
-<li>le composant [components/navigation] disparaît ;</li>
-<li>le layout [layout/default] disparaît ;</li>
-<li>les pages [index, authentification, get-admindata, fin-session] disparaissent ;</li>
+<li>
+<p>le composant [components/navigation] disparaît ;</p>
+</li>
+<li>
+<p>le layout [layout/default] disparaît ;</p>
+</li>
+<li>
+<p>les pages [index, authentification, get-admindata, fin-session] disparaissent ;</p>
+</li>
 </ul>
 <p>Puis on intègre dans [nuxt-20] des éléments de [vuejs-22] [3] :</p>
 <ul>
-<li>les trois pages [Authentification, CalculImpot, ListeSimulations] de l’application [vuejs-22] vont dans le dossier [pages] ;</li>
-<li>les composants [FormCalculImpot, Menu, Layout] de l’application [vuejs-22] vont dans le dossier [components] ;</li>
-<li>la page [Main] de [vuejs-22] qui servait de [layout] à l’application [vuejs-22] va dans le dossier [layouts] ;</li>
+<li>
+<p>les trois pages [Authentification, CalculImpot, ListeSimulations] de l’application [vuejs-22] vont dans le dossier [pages] ;</p>
+</li>
+<li>
+<p>les composants [FormCalculImpot, Menu, Layout] de l’application [vuejs-22] vont dans le dossier [components] ;</p>
+</li>
+<li>
+<p>la page [Main] de [vuejs-22] qui servait de [layout] à l’application [vuejs-22] va dans le dossier [layouts] ;</p>
+</li>
 </ul>
 <p>On renomme les éléments intégrés [4] :</p>
-<p><img src="images/10000000000001D4000002AD055E8306.png" style="width:4.95cm;height:7.25cm;" alt="Image" /></p>
+<p><img src="images/10000000000001D4000002AD055E8306.png" style="width:4.95cm;" /></p>
 <ul>
-<li>dans [layouts], [Main] est devenue [default] puisque c’est le nom par défaut du layout d’une application [nuxt] ;</li>
-<li>dans [pages], la page [Authentification] est devenue [index], car [Authentification] jouait ce rôle dans l’application [vuejs-22] ;</li>
+<li>
+<p>dans [layouts], [Main] est devenue [default] puisque c’est le nom par défaut du layout d’une application [nuxt] ;</p>
+</li>
+<li>
+<p>dans [pages], la page [Authentification] est devenue [index], car [Authentification] jouait ce rôle dans l’application [vuejs-22] ;</p>
+</li>
 </ul>
 <p>A ce point là, on peut faire une compilation du projet pour voir les premières erreurs. On modifie le fichier [nuxt.config] de l’exemple [nuxt-12] afin d’exécuter désormais [nuxt-20] :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
@@ -1172,7 +1167,7 @@
 <a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>On fait ensuite un [build] du projet :</p>
-<p><img src="images/10000000000003020000019244B0B405.png" style="width:6.111cm;height:3.192cm;" alt="Image" /></p>
+<p><img src="images/10000000000003020000019244B0B405.png" style="width:6.111cm;" /></p>
 <p>Les erreurs signalées sont les suivantes :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
@@ -1189,13 +1184,21 @@
 <a id="__codelineno-1-7" name="__codelineno-1-7"></a>Module not found: Error: Can&#39;t resolve &#39;./Menu&#39; @ ./nuxt-20/pages/calcul-impot.vue
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>l’erreur de la ligne 1 indique qu’on référence une image inexistante. On la récupèrera dans [vuejs-22] ;</li>
-<li>l’erreur de la ligne 2 montre que le composant [./FormCalculImpot] n’existe pas. Effectivement, ce composant est désormais dans [@/components/form-calcul-impot] ;</li>
-<li>les erreurs des lignes [3-5] montrent que le composant [./Layout] n’existe pas. Effectivement, ce composant est désormais dans [@/components/layout] ;</li>
-<li>les erreurs des lignes [6-7] montrent que le composant [./Menu] n’existe pas. Effectivement, il s’appelle maintenant [@/components/menu] ;</li>
+<li>
+<p>l’erreur de la ligne 1 indique qu’on référence une image inexistante. On la récupèrera dans [vuejs-22] ;</p>
+</li>
+<li>
+<p>l’erreur de la ligne 2 montre que le composant [./FormCalculImpot] n’existe pas. Effectivement, ce composant est désormais dans [@/components/form-calcul-impot] ;</p>
+</li>
+<li>
+<p>les erreurs des lignes [3-5] montrent que le composant [./Layout] n’existe pas. Effectivement, ce composant est désormais dans [@/components/layout] ;</p>
+</li>
+<li>
+<p>les erreurs des lignes [6-7] montrent que le composant [./Menu] n’existe pas. Effectivement, il s’appelle maintenant [@/components/menu] ;</p>
+</li>
 </ul>
-<p>On ajoute l’image [assets/logo.jpg] au projet [nuxt-20] :</p>
-<p><img src="images/10000000000001C70000012349C3FFE8.png" style="width:6.021cm;height:3.851cm;" alt="Image" /></p>
+<p>On ajoute l’image [<mark>assets/logo.jpg</mark>] au projet [nuxt-20] :</p>
+<p><img src="images/10000000000001C70000012349C3FFE8.png" style="width:6.021cm;" /></p>
 <p>Par ailleurs, dans toutes les pages on va corriger le chemin des composants. Prenons l’exemple de la page [calcul-impot] :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
@@ -1280,7 +1283,7 @@
 </code></pre></div></td></tr></table></div>
 <p>On vérifie et éventuellement corrige ainsi les [import] de tous les composants, layouts et pages. Une fois ces corrections faites, on peut tenter un nouveau [build]. Normalement il n’y a plus d’erreurs.</p>
 <p>On peut alors tenter une exécution :</p>
-<p><img src="images/1000000000000304000000E348146A0B.png" style="width:10.21cm;height:3.001cm;" alt="Image" /></p>
+<p><img src="images/1000000000000304000000E348146A0B.png" style="width:10.21cm;" /></p>
 <p>Des erreurs apparaissent :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
@@ -1300,28 +1303,40 @@
 <span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>c:\Data\st-2019\dev\nuxtjs\dvp\nuxt-20\components\menu.vue
 <a id="__codelineno-5-2" name="__codelineno-5-2"></a>14:5  warning  Prop &#39;options&#39; requires default value to be set  vue/require-default-prop
 </code></pre></div></td></tr></table></div>
-<p><img src="images/10000000000004670000010924A6CF66.png" style="width:14.911cm;height:3.511cm;" alt="Image" /></p>
+<p><img src="images/10000000000004670000010924A6CF66.png" style="width:14.911cm;" /></p>
 <p>On corrige cette erreur avec le [Quick fix] du module [eslint] [2].</p>
 <p>On relance l’exécution du projet. On n’a plus d’erreur de compilation. On demande alors l’URL [http://localhost:81/nuxt-20/] avec un navigateur. On obtient une erreur d’exécution :</p>
-<p><img src="images/100000000000056F00000364C8CEAED2.png" style="width:11.041cm;height:6.891cm;" alt="Image" /></p>
-<p>L’erreur se trouve dans [index.vue] [2]. L’erreur [1] vient du fait que dans [vuejs-22], la couche [dao] était disponible dans [this.\$dao] alors que dans [nuxt-12] dont nous avons adopté l’infrastructure, elle est disponible dans la fonction [this.\$dao()].</p>
+<p><img src="images/100000000000056F00000364C8CEAED2.png" style="width:11.041cm;" /></p>
+<p>L’erreur se trouve dans [index.vue] [2]. L’erreur [1] vient du fait que dans [vuejs-22], la couche [dao] était disponible dans [this.$dao] alors que dans [nuxt-12] dont nous avons adopté l’infrastructure, elle est disponible dans la fonction [this.$dao()].</p>
 <p>L’erreur est dans la fonction [created] du cycle de vie de la page [index] :</p>
-<p><img src="images/1000000000000461000001DE3F753021.png" style="width:14.832cm;height:6.321cm;" alt="Image" /></p>
+<p><img src="images/1000000000000461000001DE3F753021.png" style="width:14.832cm;" /></p>
 <p>Pour l’instant, on se contente de renommer [created] en [created2] pour que la fonction du cycle de vie [created] ne soit pas exécutée [3].</p>
 <p>On sauve la modification et on recharge la page [index] dans le navigateur. Cette fois-ci c’est bon :</p>
-<p><img src="images/10000000000007C400000509C14D0463.png" style="width:13.151cm;height:8.531cm;" alt="Image" /></p>
+<p><img src="images/10000000000007C400000509C14D0463.png" style="width:13.151cm;" /></p>
 <h2 id="173-etape-2">17.3. étape 2</h2>
 <p>Les pages du projet [vuejs-22] utilisaient les éléments injectés suivants :</p>
 <ul>
-<li>\$dao : pour la couche [dao] du client [vue.js] ;</li>
-<li>\$session : pour une session stockée dans le [localStorage] du navigateur ;</li>
+<li>
+<p>$dao : pour la couche [dao] du client [vue.js] ;</p>
+</li>
+<li>
+<p>$session : pour une session stockée dans le [localStorage] du navigateur ;</p>
+</li>
 </ul>
 <p>Ces éléments n’existent plus dans l’infrastructure du projet [nuxt-12] que nous avons recopiée :</p>
 <ul>
-<li>il y a désormais deux couches [dao], l’une pour le client [nuxt], l’autre pour le serveur [nuxt]. Toutes deux sont disponibles via une <strong>fonction</strong> injectée appelée [\$dao]. Cela signifie que dans les pages de l’application [this.\$dao] doit être remplacé par [<strong>this.\$dao()</strong>] ;</li>
-<li>la session [nuxt] gérée par l’application [nuxt-20] n’a plus rien à voir avec l’objet [\$session] de l’application [vuejs-22] où il n’y avait pas de notion de cookie de session. Néanmoins, elles ont une fonctionnalité analogue : stocker des informations persistantes au fil des actions de l’utilisateur. La session [nuxt] stocke les informations dans le store plutôt que directement dans la session. Dans les pages de l’application [this.\$session] doit être remplacé par [<strong>this.\$store</strong>] lorsqu’il s’agit de mémoriser des informations dans la session et par [<strong>this.\$session()</strong>] lorsqu’il s’agit de manipuler la session elle-même ;</li>
-<li>pour connaître l’état d’une propriété P du store, il faudra écrire [<strong>this.\$store.state.P</strong>] ;</li>
-<li>pour changer la propriété P du store, il faudra écrire [<strong>this.\$store.commit(‘replace’, {P:value}</strong>] ;</li>
+<li>
+<p>il y a désormais deux couches [dao], l’une pour le client [nuxt], l’autre pour le serveur [nuxt]. Toutes deux sont disponibles via une <strong>fonction</strong> injectée appelée [$dao]. Cela signifie que dans les pages de l’application [this.$dao] doit être remplacé par [<strong>this.$dao()</strong>] ;</p>
+</li>
+<li>
+<p>la session [nuxt] gérée par l’application [nuxt-20] n’a plus rien à voir avec l’objet [$session] de l’application [vuejs-22] où il n’y avait pas de notion de cookie de session. Néanmoins, elles ont une fonctionnalité analogue : stocker des informations persistantes au fil des actions de l’utilisateur. La session [nuxt] stocke les informations dans le store plutôt que directement dans la session. Dans les pages de l’application [this.$session] doit être remplacé par [<strong>this.$store</strong>] lorsqu’il s’agit de mémoriser des informations dans la session et par [<strong>this.$session()</strong>] lorsqu’il s’agit de manipuler la session elle-même ;</p>
+</li>
+<li>
+<p>pour connaître l’état d’une propriété P du store, il faudra écrire [<strong>this.$store.state.P</strong>] ;</p>
+</li>
+<li>
+<p>pour changer la propriété P du store, il faudra écrire [<strong>this.$store.commit(‘replace’, {P:value}</strong>] ;</p>
+</li>
 </ul>
 <p>Nous faisons ces modifications dans la page [index] :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">  1</a></span>
@@ -1680,27 +1695,35 @@
 </code></pre></div></td></tr></table></div>
 <p>Notons les points suivants :</p>
 <ul>
-<li>ligne 69 : la fonction [created2] a été renommée [mounted], ceci pour que le serveur [nuxt] ne l’exécute pas (il n’exécute ni [beforeMount] ni [mounted]). Seul le client [nuxt] l’exécutera comme c’était le cas avec l’exemple [vuejs-22] ;</li>
-<li>ligne 73 : on référence [this.\$métier] qui pour l’instant n’existe pas ;</li>
-<li>ligne 75 : nous n’avons jamais utilisé cette méthode dans une application [nuxt]. Il faudra voir si elle fonctionne dans un contexte [nuxt] ;</li>
-<li>ligne 112, 172 : dans [vuejs-22], la session du projet était sauvegardée de cette façon. Avec le projet [nuxt-20], la méthode [save] doit recevoir le contexte courant. On sait que dans une page [nuxt], l’objet [context] est disponible dans [<strong>this.\$nuxt.context</strong>] ;</li>
+<li>
+<p>ligne 69 : la fonction [created2] a été renommée [mounted], ceci pour que le serveur [nuxt] ne l’exécute pas (il n’exécute ni [beforeMount] ni [mounted]). Seul le client [nuxt] l’exécutera comme c’était le cas avec l’exemple [vuejs-22] ;</p>
+</li>
+<li>
+<p>ligne 73 : on référence [this.$métier] qui pour l’instant n’existe pas ;</p>
+</li>
+<li>
+<p>ligne 75 : nous n’avons jamais utilisé cette méthode dans une application [nuxt]. Il faudra voir si elle fonctionne dans un contexte [nuxt] ;</p>
+</li>
+<li>
+<p>ligne 112, 172 : dans [vuejs-22], la session du projet était sauvegardée de cette façon. Avec le projet [nuxt-20], la méthode [save] doit recevoir le contexte courant. On sait que dans une page [nuxt], l’objet [context] est disponible dans [<strong>this.$nuxt.context</strong>] ;</p>
+</li>
 </ul>
 <p>Les lignes 112 et 172 sont donc réécrites de la façon suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>this.$session().save(this.$nuxt.context)
 </code></pre></div></td></tr></table></div>
-<p>On notera que ce code n’est pas optimisé. Plutôt que d’utiliser plusieurs fois la fonction [this.\$session()], il serait préférable d’écrire :</p>
+<p>On notera que ce code n’est pas optimisé. Plutôt que d’utiliser plusieurs fois la fonction [<mark>this</mark><mark>.$session()</mark>], il serait préférable d’écrire :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">session</span><span class="o">=</span><span class="k">this</span><span class="p">.</span><span class="nx">$session</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
-<p>puis utiliser ensuite la variable [session]. On peut tenir le même raisonnement pour la fonction [<strong>this.\$dao()</strong>].</p>
+<p>puis utiliser ensuite la variable [session]. On peut tenir le même raisonnement pour la fonction [<strong>this.$dao()</strong>].</p>
 <p>Ces corrections faites, nous pouvons recharger l’URL [http://localhost:81/nuxt-20/] avec un navigateur. Nous obtenons toujours la même page que précédemment :</p>
-<p><img src="images/10000000000007CD00000519C4108692.png" style="width:13.211cm;height:8.631cm;" alt="Image" /></p>
+<p><img src="images/10000000000007CD00000519C4108692.png" style="width:13.211cm;" /></p>
 <p>Regardons les logs du navigateur :</p>
-<p><img src="images/1000000000000468000002E39DD3A458.png" style="width:8.951cm;height:5.86cm;" alt="Image" /></p>
+<p><img src="images/1000000000000468000002E39DD3A458.png" style="width:8.951cm;" /></p>
 <p>Le log [1] est le dernier log fait par le client [nuxt]. En [2], on voit que la propriété [started] est à [vrai], ce qui veut dire que la fonction [mounted] a réussi à démarrer une session jSON avec le serveur de calcul de l’impôt. On voit également que le store a des propriétés qu’il faudra soit abandonner soit renommer. Rappelons que nous utilisons le store de l’exemple [nuxt-12].</p>
 <p>Maintenant redemandons l’URL [http://localhost:81/nuxt-20/] alors que le serveur de calcul de l’impôt n’est pas lancé. On prend soin tout d’abord de supprimer le cookie de la session [nuxt] :</p>
-<p><img src="images/100000000000050E0000020FBB8D80C3.png" style="width:13.69cm;height:5.58cm;" alt="Image" /></p>
+<p><img src="images/100000000000050E0000020FBB8D80C3.png" style="width:13.69cm;" /></p>
 <p>La copie d’écran ci-dessus est une copie d’écran Chrome. Ceci fait, l’URL [http://localhost:81/nuxt-20/] donne le résultat suivant :</p>
-<p><img src="images/100000000000072B00000398677385A3.png" style="width:12.131cm;height:6.081cm;" alt="Image" /></p>
+<p><img src="images/100000000000072B00000398677385A3.png" style="width:12.131cm;" /></p>
 <p>L’erreur était correctement gérée par le projet [vuejs-22]. Elle reste correctement gérée par le projet [nuxt-20].</p>
 <h2 id="174-etape-3">17.4. étape 3</h2>
 <p>Maintenant que nous avons la page d’authentification, il faut regarder le code exécuté lorsque l’utilisateur clique sur le bouton [Valider] :</p>
@@ -1822,14 +1845,18 @@
 <a id="__codelineno-9-58" name="__codelineno-9-58"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-9-59" name="__codelineno-9-59"></a><span class="w">  </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>Le principal problème ici semble être l’absence de la donnée [this.\$métier]. Pour y remédier nous allons :</p>
+<p>Le principal problème ici semble être l’absence de la donnée [this.$métier]. Pour y remédier nous allons :</p>
 <ul>
-<li>inclure la classe [Métier] de l’exemple [vuejs-22]. Nous la mettrons dans le dossier [api] ;</li>
-<li>injecter une fonction [\$métier] dans le contexte du client [nuxt] qui donnera accès à cette classe ;</li>
+<li>
+<p>inclure la classe [Métier] de l’exemple [vuejs-22]. Nous la mettrons dans le dossier [api] ;</p>
+</li>
+<li>
+<p>injecter une fonction [$métier] dans le contexte du client [nuxt] qui donnera accès à cette classe ;</p>
+</li>
 </ul>
 <p>Tout d’abord la copie de la classe [Métier] dans le dossier [api] :</p>
-<p><img src="images/10000000000002CC000000E4FF74401A.png" style="width:9.471cm;height:3.021cm;" alt="Image" /></p>
-<p>Une fois la classe [Métier] présente dans le projet, on crée un nouveau plugin pour le client [nuxt]. Ce plugin appelé [pluginMétier] va injecter une fonction [\$métier] qui donnera accès à la classe [Métier] :</p>
+<p><img src="images/10000000000002CC000000E4FF74401A.png" style="width:9.471cm;" /></p>
+<p>Une fois la classe [Métier] présente dans le projet, on crée un nouveau plugin pour le client [nuxt]. Ce plugin appelé [pluginMétier] va injecter une fonction [$métier] qui donnera accès à la classe [Métier] :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
@@ -2002,15 +2029,19 @@
 <a id="__codelineno-11-74" name="__codelineno-11-74"></a><span class="w">  </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 43, 61, 69, [this.\$métier] a été remplacé par [this.\$métier<strong>()</strong>] ;</li>
-<li>lignes 8, 63 : le nom de la page [CalculImpot] du projet [vuejs-22] est devenue la page [calcul-impot] dans le projet [nuxt-20] ;</li>
+<li>
+<p>lignes 43, 61, 69, [this.$métier] a été remplacé par [this.$métier<strong><mark>()</mark></strong>] ;</p>
+</li>
+<li>
+<p>lignes 8, 63 : le nom de la page [CalculImpot] du projet [vuejs-22] est devenue la page [calcul-impot] dans le projet [nuxt-20] ;</p>
+</li>
 </ul>
 <p>Ces corrections faites, on peut tenter de valider la page d’authentification :</p>
-<p><img src="images/1000000000000774000005860EEBD26C.png" style="width:12.621cm;height:9.351cm;" alt="Image" /></p>
+<p><img src="images/1000000000000774000005860EEBD26C.png" style="width:12.621cm;" /></p>
 <p>La page obtenue est la suivante :</p>
-<p><img src="images/100000000000099700000630848F13E2.png" style="width:12.99cm;height:8.381cm;" alt="Image" /></p>
+<p><img src="images/100000000000099700000630848F13E2.png" style="width:12.99cm;" /></p>
 <p>On a bien obtenu la page de calcul de l’impôt. Maintenant regardons les logs :</p>
-<p><img src="images/100000000000093900000288327278F0.png" style="width:15.62cm;height:4.291cm;" alt="Image" /></p>
+<p><img src="images/100000000000093900000288327278F0.png" style="width:15.62cm;" /></p>
 <p>En [2], on voit que le fait d’être authentifié a été correctement mémorisé. En [3-4], on voit qu’on a récupéré la donnée [taxAdminData] qui permet le calcul de l’impôt par la classe [Métier].</p>
 <h2 id="175-etape-4">17.5. étape 4</h2>
 <p>Examinons la page [calcul-impot] que nous avons obtenue :</p>
@@ -2179,9 +2210,15 @@
 <a id="__codelineno-12-82" name="__codelineno-12-82"></a><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 44 et 48 : les liens du menu de navigation sont corrects. La page [/fin-session] n’existe pas. Le projet [vuejs-22] réglait ce problème avec du routage. Nous ferons de même avec le projet [nuxt-20] ;</li>
-<li>ligne 76 : on référence une mutation [addSimulation] qui n’existe pas pour l’instant. Nous allons la créer ;</li>
-<li>ligne 78 : comme dans la page [index], il faut écrire [this.\$session().save(this.\$nuxt.context)] ;</li>
+<li>
+<p>lignes 44 et 48 : les liens du menu de navigation sont corrects. La page [/fin-session] n’existe pas. Le projet [vuejs-22] réglait ce problème avec du routage. Nous ferons de même avec le projet [nuxt-20] ;</p>
+</li>
+<li>
+<p>ligne 76 : on référence une mutation [addSimulation] qui n’existe pas pour l’instant. Nous allons la créer ;</p>
+</li>
+<li>
+<p>ligne 78 : comme dans la page [index], il faut écrire [<mark>this</mark><mark>.$session().save(this.$nuxt.context)</mark>] ;</p>
+</li>
 </ul>
 <p>Modifions le store [store/index]. Hérité du projet [nuxt-12], il est pour l’instant le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
@@ -2305,8 +2342,8 @@
 <a id="__codelineno-13-60" name="__codelineno-13-60"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>
-<p>lignes 3-27 : nous allons reprendre le state et les mutations de l’application [vuejs-22] (cf document [3]) :
+<li>lignes 3-27 : nous allons reprendre le state et les mutations de l’application [vuejs-22] (cf document [3]) :</li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
@@ -2400,17 +2437,29 @@
 <a id="__codelineno-14-45" name="__codelineno-14-45"></a><span class="w">    </span><span class="nx">state</span><span class="p">.</span><span class="nx">simulations</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">simulation</span><span class="p">)</span>
 <a id="__codelineno-14-46" name="__codelineno-14-46"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-14-47" name="__codelineno-14-47"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div></p>
-</li>
+</code></pre></div></td></tr></table></div>
+<ul>
 <li>
 <p>lignes 4 et 6 : nous introduisons les propriétés déjà utilisées ;</p>
 </li>
-<li>ligne 8 : nous gardons le cookie de session PHP. Il est fondamental pour que le client et le serveur [nuxt] aient la même session PHP avec le serveur de calcul de l’impôt ;</li>
-<li>ligne 10 : la liste des simulations faites par l’utilisateur ;</li>
-<li>ligne 12 : le n° de la dernière simulation faite par l’utiliasteur ;</li>
-<li>ligne 14 : la couche [métier] ;</li>
-<li>lignes 30-47 : les mutations présentes dans le store du projet [vuejs-22] et référencées par les pages de l’application. Le projet [vuejs-22] avait une mutation appelée [clear] qui vidait la liste des simulations. On ne la met pas car la mutation [reset] déjà présente devrait faire l’affaire ;</li>
-<li>lignes 26-28 : la mutation [reset] est modifiée pour prendre en compte le nouveau contenu du state ;</li>
+<li>
+<p>ligne 8 : nous gardons le cookie de session PHP. Il est fondamental pour que le client et le serveur [nuxt] aient la même session PHP avec le serveur de calcul de l’impôt ;</p>
+</li>
+<li>
+<p>ligne 10 : la liste des simulations faites par l’utilisateur ;</p>
+</li>
+<li>
+<p>ligne 12 : le n° de la dernière simulation faite par l’utiliasteur ;</p>
+</li>
+<li>
+<p>ligne 14 : la couche [métier] ;</p>
+</li>
+<li>
+<p>lignes 30-47 : les mutations présentes dans le store du projet [vuejs-22] et référencées par les pages de l’application. Le projet [vuejs-22] avait une mutation appelée [clear] qui vidait la liste des simulations. On ne la met pas car la mutation [reset] déjà présente devrait faire l’affaire ;</p>
+</li>
+<li>
+<p>lignes 26-28 : la mutation [reset] est modifiée pour prendre en compte le nouveau contenu du state ;</p>
+</li>
 </ul>
 <p>La page [calcul-impot] utilise le composant [form-calcul-impot] suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">  1</a></span>
@@ -2616,21 +2665,25 @@
 <a id="__codelineno-15-101" name="__codelineno-15-101"></a><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 65, 89 : la référence [this.\$métier] doit être changée en [<strong>this.\$métier</strong><strong>()</strong>] ;</li>
+<li>lignes 65, 89 : la référence [this.$métier] doit être changée en [<strong>this.$métier<mark>()</mark></strong>] ;</li>
 </ul>
 <p>Ces corrections faites, on peut tenter une simulation :</p>
-<p><img src="images/1000000000000797000004F58BE8C108.png" style="width:12.851cm;height:8.392cm;" alt="Image" /></p>
+<p><img src="images/1000000000000797000004F58BE8C108.png" style="width:12.851cm;" /></p>
 <p>On obtient la réponse suivante :</p>
-<p><img src="images/1000000000000300000002BAF4B67CA3.png" style="width:6.1cm;height:5.541cm;" alt="Image" /></p>
+<p><img src="images/1000000000000300000002BAF4B67CA3.png" style="width:6.1cm;" /></p>
 <p>Si on regarde les logs :</p>
-<p><img src="images/10000000000008DF0000030F35E62CDE.png" style="width:18.031cm;height:6.211cm;" alt="Image" /></p>
+<p><img src="images/10000000000008DF0000030F35E62CDE.png" style="width:18.031cm;" /></p>
 <ul>
-<li>en [9-10], on voit que la 1ère simulation se trouve bien dans le [store] ;</li>
-<li>en [5], le n° de la dernière simulation a bien été incrémenté ;</li>
+<li>
+<p>en [9-10], on voit que la 1ère simulation se trouve bien dans le [store] ;</p>
+</li>
+<li>
+<p>en [5], le n° de la dernière simulation a bien été incrémenté ;</p>
+</li>
 </ul>
 <h2 id="176-etape-5">17.6. étape 5</h2>
 <p>Maintenant que nous avons fait une simulation, cliquons sur le lien [Liste des simulations]. Nous obtenons la page suivante :</p>
-<p><img src="images/10000000000009B1000004942FFAF358.png" style="width:16.41cm;height:7.751cm;" alt="Image" /></p>
+<p><img src="images/10000000000009B1000004942FFAF358.png" style="width:16.41cm;" /></p>
 <p>Le routage du client [nuxt] s’est fait correctement. Regardons le code de la page [liste-des-simulations] :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
@@ -2823,24 +2876,32 @@
 <a id="__codelineno-16-95" name="__codelineno-16-95"></a><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 47-56 : les cibles du menu de navigation sont correctes ;</li>
-<li>ligne 75 : le store est correctement référencé ;</li>
-<li>ligne 89 : on utilise une mutation [deleteSimulation] que nous avons intégrée lors de l’étape précédente ;</li>
-<li>ligne 91 : cette ligne doit être réécrite comme [this.\$session().save(this.\$nuxt.context)] ;</li>
+<li>
+<p>lignes 47-56 : les cibles du menu de navigation sont correctes ;</p>
+</li>
+<li>
+<p>ligne 75 : le store est correctement référencé ;</p>
+</li>
+<li>
+<p>ligne 89 : on utilise une mutation [deleteSimulation] que nous avons intégrée lors de l’étape précédente ;</p>
+</li>
+<li>
+<p>ligne 91 : cette ligne doit être réécrite comme [this.$session<mark>()</mark>.save(<mark>this</mark><mark>.$nuxt.context)</mark>] ;</p>
+</li>
 </ul>
 <p>Nous faisons les modifications nécessaires, puis nous tentons de supprimer la simulation affichée :</p>
-<p><img src="images/10000000000009710000048AEA84B9C2.png" style="width:15.99cm;height:7.691cm;" alt="Image" /></p>
+<p><img src="images/10000000000009710000048AEA84B9C2.png" style="width:15.99cm;" /></p>
 <p>On obtient alors la page suivante :</p>
-<p><img src="images/1000000000000752000003E1FEB28ECD.png" style="width:12.39cm;height:6.571cm;" alt="Image" /></p>
+<p><img src="images/1000000000000752000003E1FEB28ECD.png" style="width:12.39cm;" /></p>
 <p>Regardons les logs :</p>
-<p><img src="images/100000000000065B000002EDE0C714C8.png" style="width:12.911cm;height:5.942cm;" alt="Image" /></p>
+<p><img src="images/100000000000065B000002EDE0C714C8.png" style="width:12.911cm;" /></p>
 <ul>
 <li>en [6], on voit que le tableau des simulations est vide ;</li>
 </ul>
 <p>Maintenant revenons au formulaire de calcul de l’impôt :</p>
-<p><img src="images/10000000000006AC000003B87B10A3B3.png" style="width:11.3cm;height:6.301cm;" alt="Image" /></p>
+<p><img src="images/10000000000006AC000003B87B10A3B3.png" style="width:11.3cm;" /></p>
 <p>On obtient la page suivante :</p>
-<p><img src="images/100000000000076F0000062923B49C95.png" style="width:12.591cm;height:10.431cm;" alt="Image" /></p>
+<p><img src="images/100000000000076F0000062923B49C95.png" style="width:12.591cm;" /></p>
 <p>Donc le routage a fonctionné.</p>
 <h2 id="177-etape-6">17.7. étape 6</h2>
 <p>Il nous reste à gérer l’option de navigation [Fin de session] du menu de navigation :</p>
@@ -2867,8 +2928,8 @@
 <a id="__codelineno-17-11" name="__codelineno-17-11"></a>]
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>
-<p>ligne 9, la page [/fin-session] n’existe pas. Le projet [vuejs-22] gérait ce cas avec des règles de routage dans un fichier [router.js]:
+<li>ligne 9, la page [/fin-session] n’existe pas. Le projet [vuejs-22] gérait ce cas avec des règles de routage dans un fichier [router.js]:</li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-18-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-18-3"> 3</a></span>
@@ -3026,16 +3087,20 @@
 <a id="__codelineno-18-77" name="__codelineno-18-77"></a>
 <a id="__codelineno-18-78" name="__codelineno-18-78"></a><span class="o">//</span> <span class="n">export</span> <span class="n">du</span> <span class="n">router</span>
 <a id="__codelineno-18-79" name="__codelineno-18-79"></a><span class="n">export</span> <span class="n">default</span> <span class="n">router</span>
-</code></pre></div></td></tr></table></div></p>
-</li>
+</code></pre></div></td></tr></table></div>
+<ul>
 <li>
 <p>les lignes 64-76 géraient le cas particulier de la route vers le chemin [/fin-session] ;</p>
 </li>
-<li>ligne 66 : on vide la session courante ;</li>
-<li>lignes 68-70 : on affiche la vue [authentification] ;</li>
+<li>
+<p>ligne 66 : on vide la session courante ;</p>
+</li>
+<li>
+<p>lignes 68-70 : on affiche la vue [authentification] ;</p>
+</li>
 </ul>
 <p>Nous allons essayer de faire quelque chose d’analogue dans le fichier de routage du client [nuxt] :</p>
-<p><img src="images/100000000000011F0000008ED5040C37.png" style="width:3.8cm;height:1.881cm;" alt="Image" /></p>
+<p><img src="images/100000000000011F0000008ED5040C37.png" style="width:3.8cm;" /></p>
 <p>Le script [client/routing.js] devient le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-19-2"> 2</a></span>
@@ -3094,11 +3159,21 @@
 <a id="__codelineno-19-28" name="__codelineno-19-28"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>on a rajouté les lignes [19-27] au code existant ;</li>
-<li>ligne 20 : on récupère le [path] de la cible de la route courante ;</li>
-<li>ligne 21 : on regarde si c’est [/fin-session]. Si oui :</li>
-<li>lignes 23-24 : la session est réinitialisée ;</li>
-<li>ligne 26 : on redirige le client [nuxt] vers la page d’accueil ;</li>
+<li>
+<p>on a rajouté les lignes [19-27] au code existant ;</p>
+</li>
+<li>
+<p>ligne 20 : on récupère le [path] de la cible de la route courante ;</p>
+</li>
+<li>
+<p>ligne 21 : on regarde si c’est [/fin-session]. Si oui :</p>
+</li>
+<li>
+<p>lignes 23-24 : la session est réinitialisée ;</p>
+</li>
+<li>
+<p>ligne 26 : on redirige le client [nuxt] vers la page d’accueil ;</p>
+</li>
 </ul>
 <p>La méthode [session.reset(context)] (ligne 24) de la session est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
@@ -3127,18 +3202,32 @@
 <a id="__codelineno-21-4" name="__codelineno-21-4"></a>}
 </code></pre></div></td></tr></table></div>
 <p>Lorsqu’on utilise maintenant le lien [Fin de session], la page d’accueil est affichée avec les logs suivants :</p>
-<p><img src="images/10000000000004500000022C969E6F48.png" style="width:8.76cm;height:4.41cm;" alt="Image" /></p>
+<p><img src="images/10000000000004500000022C969E6F48.png" style="width:8.76cm;" /></p>
 <ul>
-<li>en [3], on voit qu’on n’est plus authentifié ;</li>
-<li>en [4], on voit que la session jSON est démarrée ;</li>
-<li>en [6], la couche [métier] n’est plus présente dans le store (elle est toujours présente dans les pages avec [this.\$métier()]) ;</li>
-<li>en [5, 7], il n’y a plus de simulations ;</li>
+<li>
+<p>en [3], on voit qu’on n’est plus authentifié ;</p>
+</li>
+<li>
+<p>en [4], on voit que la session jSON est démarrée ;</p>
+</li>
+<li>
+<p>en [6], la couche [métier] n’est plus présente dans le store (elle est toujours présente dans les pages avec [this.$métier()]) ;</p>
+</li>
+<li>
+<p>en [5, 7], il n’y a plus de simulations ;</p>
+</li>
 </ul>
 <p>Il faut bien comprendre ce qui se passe dans une fin de session :</p>
 <ul>
-<li>la session [nuxt] est réinitialisée : la propriété [started] du store passe à [false] ;</li>
-<li>il y a redirection vers la page [index] ;</li>
-<li>la méthode [mounted] de la page [index] est exécutée. Celle-ci démarre une nouvelle session jSON avec le serveur de calcul de l’impôt. Si l’opération réussit, la propriété [started] du store passe à [true] ;</li>
+<li>
+<p>la session [nuxt] est réinitialisée : la propriété [started] du store passe à [false] ;</p>
+</li>
+<li>
+<p>il y a redirection vers la page [index] ;</p>
+</li>
+<li>
+<p>la méthode [mounted] de la page [index] est exécutée. Celle-ci démarre une nouvelle session jSON avec le serveur de calcul de l’impôt. Si l’opération réussit, la propriété [started] du store passe à [true] ;</p>
+</li>
 </ul>
 <h2 id="178-etape-7">17.8. étape 7</h2>
 <p>A ce stade, l’application [nuxt-20] a toutes les fonctionnalités de l’application [vuejs-22]. Le portage semble terminé.</p>
@@ -3281,10 +3370,18 @@
 <a id="__codelineno-22-68" name="__codelineno-22-68"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 13, 33, 40 : il faut changer la propriété [jsonSessionStarted] en [started] ;</li>
-<li>ligne 13 : dans l’application [nuxt-12], seul le serveur [nuxt] exécutait la page [index] et sa fonction [asyncData]. Le client [nuxt] n’exécutait la page [index] qu’après l’avoir reçue du serveur [nuxt] et alors il n’exécutait pas la fonction [asyncData]. Dans [nuxt-20], c’est différent : le lien [Fin de session] va afficher la page [index] dans l’environnement du client [nuxt]. La fonction [asyncData] va alors être exécutée. Cependant, lorsqu’on arrive à la page [index] de cette façon, la session [nuxt] a été réinitialisée entre-temps et la propriété [started] du store vaut [false] et la condition de la ligne 13 sera forcément fausse. On peut donc laisser [process.server] et ainsi le client [nuxt] ne fera pas ce test ;</li>
-<li>lignes 15, 35, 42 : une propriété [result] est mise dans les propriétés [data] de la page [index]. Dans [nuxt-20], cette propriété ne sera pas utilisée et nous l’enlèverons du résultat rendu par la fonction ;</li>
-<li>lignes 61-67 : cette méthode [mounted] doit être conservée car c’est elle qui permet au client [nuxt] d’afficher le message d’erreur. Néanmoins la façon de gérer l’erreur sera modfiée ;</li>
+<li>
+<p>lignes 13, 33, 40 : il faut changer la propriété [<mark>jsonSessionStarted</mark>] en [s<mark>tarted</mark>] ;</p>
+</li>
+<li>
+<p>ligne 13 : dans l’application [nuxt-12], seul le serveur [nuxt] exécutait la page [index] et sa fonction [asyncData]. Le client [nuxt] n’exécutait la page [index] qu’après l’avoir reçue du serveur [nuxt] et alors il n’exécutait pas la fonction [asyncData]. Dans [nuxt-20], c’est différent : le lien [Fin de session] va afficher la page [index] dans l’environnement du client [nuxt]. La fonction [asyncData] va alors être exécutée. Cependant, lorsqu’on arrive à la page [index] de cette façon, la session [nuxt] a été réinitialisée entre-temps et la propriété [started] du store vaut [false] et la condition de la ligne 13 sera forcément fausse. On peut donc laisser [process.server] et ainsi le client [nuxt] ne fera pas ce test ;</p>
+</li>
+<li>
+<p>lignes 15, 35, 42 : une propriété [result] est mise dans les propriétés [data] de la page [index]. Dans [nuxt-20], cette propriété ne sera pas utilisée et nous l’enlèverons du résultat rendu par la fonction ;</p>
+</li>
+<li>
+<p>lignes 61-67 : cette méthode [mounted] doit être conservée car c’est elle qui permet au client [nuxt] d’afficher le message d’erreur. Néanmoins la façon de gérer l’erreur sera modfiée ;</p>
+</li>
 </ul>
 <p>Dans la page [index] actuelle, nous intégrons la fonction [asyncData] ci-dessus en lieu et place de l’ancienne fonction [mounted] et nous ajoutons une nouvelle fonction [mounted]. Le code de la page [index] de l’exemple [nuxt-20] devient alors le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">  1</a></span>
@@ -3492,26 +3589,38 @@
 <a id="__codelineno-23-102" name="__codelineno-23-102"></a><span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 58, 65 : la fonction [asyncData] ne rend plus la propriété [result] inutilisée ici ;</li>
-<li>ligne 81 : la méthode [beforeMount] du client [nuxt]. Elle a été préférée à la méthode [mounted] pour gérer l’erreur éventuelle de [asyncData] ;</li>
-<li>ligne 85 : on teste si la propriété [errorLoading] a été positionnée. Elle ne peut l’être que par la fonction [asyncData] ;</li>
-<li>lignes 85-90 : si fonction [asyncData] a signalé une erreur, on la passe à la page [default] via l’événement [error]. C’était comme cela que l’ancienne fonction [created] que nous venons de remplacer, gérait l’éventuelle erreur ;</li>
+<li>
+<p>lignes 58, 65 : la fonction [asyncData] ne rend plus la propriété [result] inutilisée ici ;</p>
+</li>
+<li>
+<p>ligne 81 : la méthode [beforeMount] du client [nuxt]. Elle a été préférée à la méthode [mounted] pour gérer l’erreur éventuelle de [asyncData] ;</p>
+</li>
+<li>
+<p>ligne 85 : on teste si la propriété [errorLoading] a été positionnée. Elle ne peut l’être que par la fonction [asyncData] ;</p>
+</li>
+<li>
+<p>lignes 85-90 : si fonction [asyncData] a signalé une erreur, on la passe à la page [default] via l’événement [error]. C’était comme cela que l’ancienne fonction [created] que nous venons de remplacer, gérait l’éventuelle erreur ;</p>
+</li>
 </ul>
 <p>Faisons quelques tests.</p>
 <p>Nous supprimons d’abord et le cookie de la session [nuxt] et le cookie de session PHP s’ils existent. Nous demandons ensuite la page [http://localhost:81/nuxt-20/] alors que le serveur de calcul de l’impôt n’est pas lancé. Nous obtenons la page suivante :</p>
-<p><img src="images/10000000000006A80000039180951CD3.png" style="width:11.281cm;height:6.04cm;" alt="Image" /></p>
+<p><img src="images/10000000000006A80000039180951CD3.png" style="width:11.281cm;" /></p>
 <p>Nous rechargeons la même page après avoir lancé le serveur de calcul de l’impôt :</p>
-<p><img src="images/10000000000006AE0000057F6455B3EC.png" style="width:11.311cm;height:9.311cm;" alt="Image" /></p>
+<p><img src="images/10000000000006AE0000057F6455B3EC.png" style="width:11.311cm;" /></p>
 <p>Regardons les logs :</p>
-<p><img src="images/10000000000003FA000002923D563EEB.png" style="width:8.081cm;height:5.22cm;" alt="Image" /></p>
+<p><img src="images/10000000000003FA000002923D563EEB.png" style="width:8.081cm;" /></p>
 <ul>
-<li>en [2-3], on voit que la session jSON a été démarrée ;</li>
-<li>en [4], on voit le cookie de session PHP que le serveur [nuxt] a récupéré lors de son échange avec le serveur de calcul de l’impôt. Le client [nuxt] va désormais l’utiliser ;</li>
+<li>
+<p>en [2-3], on voit que la session jSON a été démarrée ;</p>
+</li>
+<li>
+<p>en [4], on voit le cookie de session PHP que le serveur [nuxt] a récupéré lors de son échange avec le serveur de calcul de l’impôt. Le client [nuxt] va désormais l’utiliser ;</p>
+</li>
 </ul>
 <p>Maintenant identifions-nous :</p>
-<p><img src="images/10000000000006470000059A64681117.png" style="width:10.621cm;height:9.48cm;" alt="Image" /></p>
+<p><img src="images/10000000000006470000059A64681117.png" style="width:10.621cm;" /></p>
 <p>Nous obtenons la page suivante :</p>
-<p><img src="images/10000000000006C5000006116076031B.png" style="width:11.461cm;height:10.281cm;" alt="Image" /></p>
+<p><img src="images/10000000000006C5000006116076031B.png" style="width:11.461cm;" /></p>
 <p>En [1], nous avons obtenu un message d’erreur. Cela veut dire que le navigateur n’a pas envoyé le bon cookie de la session PHP démarrée par le serveur [nuxt] à l’étape précédente. Dans [nuxt-12], le passage du cookie de session PHP du serveur [nuxt] au client [nuxt] se faisait dans le routage du client [nuxt] du script [middleware/client/routing] :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-24-2"> 2</a></span>
@@ -3600,12 +3709,16 @@
 <p>Lignes 5-10, on récupère dans le store le cookie de la session PHP initiée par le serveur [nuxt]. Cette modification faite, on récupère bien la page du calcul de l’impôt, signifiant que l’authentification a fonctionné.</p>
 <h2 id="179-etape-8">17.9. étape 8</h2>
 <p>Nous avons une application fonctionnelle et qui travaille dans un esprit [nuxt]. Comme nous l’avons fait pour l’application [nuxt-13], nous allons nous intéresser à la navigation du serveur [nuxt]. Comme il a déjà été dit, l’utilisateur n’est pas censé taper à la main les URL de l’application. Il est censé utiliser les liens qui lui sont présentés et qui sont exécutés par le client [nuxt] qui fonctionne alors en mode SPA. Néanmoins, on va faire en sorte que la navigation du serveur [nuxt] laisse toujours l’application dans un état stable.</p>
-<p>De l’étude faite pour [nuxt-13] (cf paragraphe <a href="../../../../../st-2020/st-2020/cours/nuxtjs/masters/02/chap-16.docx#nuxt13_routage_nuxtserver"><u><u>lien</u></u></a>), nous savons qu’il faut :</p>
+<p>De l’étude faite pour [nuxt-13] (cf paragraphe <a href="../../../../../st-2020/st-2020/cours/nuxtjs/masters/02/chap-16.docx#nuxt13_routage_nuxtserver"><u>lien</u></a>), nous savons qu’il faut :</p>
 <ul>
-<li>modifier le script [midleware/routing] ;</li>
-<li>ajouter un script [middleware/server/routing] ;</li>
+<li>
+<p>modifier le script [midleware/routing] ;</p>
+</li>
+<li>
+<p>ajouter un script [middleware/server/routing] ;</p>
+</li>
 </ul>
-<p><img src="images/10000000000001430000012B7EBA7EC6.png" style="width:4.271cm;height:3.961cm;" alt="Image" /></p>
+<p><img src="images/10000000000001430000012B7EBA7EC6.png" style="width:4.271cm;" /></p>
 <p>Le script [middleware/routing] est modifié de la façon suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-26-2"> 2</a></span>
@@ -3642,8 +3755,12 @@
 <a id="__codelineno-26-17" name="__codelineno-26-17"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 4 : on importe le script de routage du serveur [nuxt] ;</li>
-<li>lignes 10-12 : si c’est le serveur [nuxt] qui exécute le code, on utilise sa fonction de routage ;</li>
+<li>
+<p>ligne 4 : on importe le script de routage du serveur [nuxt] ;</p>
+</li>
+<li>
+<p>lignes 10-12 : si c’est le serveur [nuxt] qui exécute le code, on utilise sa fonction de routage ;</p>
+</li>
 </ul>
 <p>Le script [middleware/server/routing] est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">  1</a></span>
@@ -3855,39 +3972,87 @@
 <a id="__codelineno-27-104" name="__codelineno-27-104"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>nous reprenons dans ce script les idées déjà développées et utilisées dans le routage du serveur [nuxt] de l’application [nuxt-13] ;</li>
-<li>nous ajoutons deux propriétés au store de l’application :</li>
-<li>[<strong>from</strong>] : le nom de la dernière page affichée. On sait que le client [nuxt] a cette information mais pas le serveur [nuxt]. On va lui ajouter cette information en stockant dans le store, à chaque routage du serveur [nuxt], le nom de la page qui va être affichée. On fera de même à chaque routage du client [nuxt]. Ainsi au routage suivant du serveur [nuxt], celui-ci trouvera dans le store, le nom de la dernière page affichée par l’application ;</li>
-<li>[<strong>serverRedirection</strong>] : lorsqu’une destination de routage sera refusée par le serveur [nuxt], celui-ci opèrera une redirection. Il indiquera alors dans le store que la prochaine destination du serveur [nuxt] est une page de redirection. Cette redirection va provoquer une nouvelle exécution du routeur du serveur [nuxt]. Si celui-ci découvre que la destination en cours est issue d’une redirection, il laissera faire ;</li>
-<li>lignes 6-11 : on récupère les informations utiles pour le routage ;</li>
-<li>lignes 13-16 : la cible [/fin-session] n’est pas associée à une page qui s’appellerait [fin-session]. Elle n’a donc pas de nom. On lui en donne un ;</li>
-<li>ligne 19 : la cible d’une éventuelle redirection ;</li>
-<li>ligne 21 : [done=true] lorsque les tests du routage sont terminés ;</li>
-<li>lignes 23-27 : comme il a été dit, si le routage en cours est issu d’une redirection, il n’y a rien à faire. En effet, lors du routage précédent, le routeur a décidé qu’il fallait rediriger le navigateur client. Il n’y a pas lieu de reconsidérer cette décision ;</li>
-<li>lignes 29-33 : s’il s’agit d’un rechargement de page, on laisse faire. Ce n’est pas un axiome valable pour toute application [nuxt] : il faut regarder pour chaque page les effets d’un rechargement. Ici, il se trouve que le rechargement des pages [index, calcul-impot, liste-des-simulations] ne provoque pas d’effets indésirables ;</li>
-<li>lignes 35-85 : le routage du serveur [nuxt] reprend le routage du client [nuxt]. Lorsqu’on est sur une page, le routage du serveur [nuxt] doit refléter le menu de navigation offert par le client [nuxt] lorsqu’on est sur cette page ;</li>
-<li>lignes 38-47 : on traite d’abord le cas de la cible [fin-session] qui ne correspond pas à une page existante. Si les conditions sont réunies (session démarrée, utilisateur authentifié), on nettoie la session et on redirige l’utilisateur vers la page [index] ;</li>
-<li>lignes 49-55 : si la session jSON avec le serveur de calcul de l’impôt n’a pas commencé, alors la seule destination possible est la page [index] ;</li>
-<li>lignes 57-62 : si la session jSON a été démarrée et que l’utilisateur n’est pas authentifié et qu’il n’a pas demandé la page d’authentification, alors on redirige vers la page d’authentification qui est la page [index] ;</li>
-<li>lignes 64-70 : si l’utilisateur est authentifié mais que la donnée [adminData] n’a pas été obtenue, alors on redirige vers la page d’authentification. L’authentification fait deux choses : elle authentifie et si l’authentification a réussi elle demande de plus la donnée [adminData]. Si cette dernière n’a pas été obtenue alors il faut recommencer l’authentification ;</li>
-<li>lignes 72-85 : si la donnée [adminData] a été obtenue, alors les seules cibles possibles sont [calcul-impot] et [liste-des-simulations]. Si ce n’est pas le cas, on refuse le routage ;</li>
-<li>lignes 88-95 : on met à jour le store selon qu’il va y avoir redirection ou non ;</li>
-<li>ligne 94 : il n’y a pas redirection. Aussi le [to] actuel va devenir le [from] du prochain routage ;</li>
-<li>lignes 96-99 : les informations du store sont sauvegardées dans le cookie de la session [nuxt] ;</li>
-<li>lignes 100-103 : si on doit faire une redirection, on la fait ;</li>
+<li>
+<p>nous reprenons dans ce script les idées déjà développées et utilisées dans le routage du serveur [nuxt] de l’application [nuxt-13] ;</p>
+</li>
+<li>
+<p>nous ajoutons deux propriétés au store de l’application :</p>
+</li>
+<li>
+<p>[<strong>from</strong>] : le nom de la dernière page affichée. On sait que le client [nuxt] a cette information mais pas le serveur [nuxt]. On va lui ajouter cette information en stockant dans le store, à chaque routage du serveur [nuxt], le nom de la page qui va être affichée. On fera de même à chaque routage du client [nuxt]. Ainsi au routage suivant du serveur [nuxt], celui-ci trouvera dans le store, le nom de la dernière page affichée par l’application ;</p>
+</li>
+<li>
+<p>[<strong>serverRedirection</strong>] : lorsqu’une destination de routage sera refusée par le serveur [nuxt], celui-ci opèrera une redirection. Il indiquera alors dans le store que la prochaine destination du serveur [nuxt] est une page de redirection. Cette redirection va provoquer une nouvelle exécution du routeur du serveur [nuxt]. Si celui-ci découvre que la destination en cours est issue d’une redirection, il laissera faire ;</p>
+</li>
+<li>
+<p>lignes 6-11 : on récupère les informations utiles pour le routage ;</p>
+</li>
+<li>
+<p>lignes 13-16 : la cible [/fin-session] n’est pas associée à une page qui s’appellerait [fin-session]. Elle n’a donc pas de nom. On lui en donne un ;</p>
+</li>
+<li>
+<p>ligne 19 : la cible d’une éventuelle redirection ;</p>
+</li>
+<li>
+<p>ligne 21 : [done=true] lorsque les tests du routage sont terminés ;</p>
+</li>
+<li>
+<p>lignes 23-27 : comme il a été dit, si le routage en cours est issu d’une redirection, il n’y a rien à faire. En effet, lors du routage précédent, le routeur a décidé qu’il fallait rediriger le navigateur client. Il n’y a pas lieu de reconsidérer cette décision ;</p>
+</li>
+<li>
+<p>lignes 29-33 : s’il s’agit d’un rechargement de page, on laisse faire. Ce n’est pas un axiome valable pour toute application [nuxt] : il faut regarder pour chaque page les effets d’un rechargement. Ici, il se trouve que le rechargement des pages [index, calcul-impot, liste-des-simulations] ne provoque pas d’effets indésirables ;</p>
+</li>
+<li>
+<p>lignes 35-85 : le routage du serveur [nuxt] reprend le routage du client [nuxt]. Lorsqu’on est sur une page, le routage du serveur [nuxt] doit refléter le menu de navigation offert par le client [nuxt] lorsqu’on est sur cette page ;</p>
+</li>
+<li>
+<p>lignes 38-47 : on traite d’abord le cas de la cible [fin-session] qui ne correspond pas à une page existante. Si les conditions sont réunies (session démarrée, utilisateur authentifié), on nettoie la session et on redirige l’utilisateur vers la page [index] ;</p>
+</li>
+<li>
+<p>lignes 49-55 : si la session jSON avec le serveur de calcul de l’impôt n’a pas commencé, alors la seule destination possible est la page [index] ;</p>
+</li>
+<li>
+<p>lignes 57-62 : si la session jSON a été démarrée et que l’utilisateur n’est pas authentifié et qu’il n’a pas demandé la page d’authentification, alors on redirige vers la page d’authentification qui est la page [index] ;</p>
+</li>
+<li>
+<p>lignes 64-70 : si l’utilisateur est authentifié mais que la donnée [adminData] n’a pas été obtenue, alors on redirige vers la page d’authentification. L’authentification fait deux choses : elle authentifie et si l’authentification a réussi elle demande de plus la donnée [adminData]. Si cette dernière n’a pas été obtenue alors il faut recommencer l’authentification ;</p>
+</li>
+<li>
+<p>lignes 72-85 : si la donnée [adminData] a été obtenue, alors les seules cibles possibles sont [calcul-impot] et [liste-des-simulations]. Si ce n’est pas le cas, on refuse le routage ;</p>
+</li>
+<li>
+<p>lignes 88-95 : on met à jour le store selon qu’il va y avoir redirection ou non ;</p>
+</li>
+<li>
+<p>ligne 94 : il n’y a pas redirection. Aussi le [to] actuel va devenir le [from] du prochain routage ;</p>
+</li>
+<li>
+<p>lignes 96-99 : les informations du store sont sauvegardées dans le cookie de la session [nuxt] ;</p>
+</li>
+<li>
+<p>lignes 100-103 : si on doit faire une redirection, on la fait ;</p>
+</li>
 </ul>
 <p>Pour faire les tests, il faut prendre soin de partir d’une situation vierge en supprimant le cookie de la session [nuxt] et le cookie de la session PHP avec le serveur de calcul de l’impôt :</p>
-<p><img src="images/100000000000050E0000020FBB8D80C3.png" style="width:10.27cm;height:4.181cm;" alt="Image" /></p>
+<p><img src="images/100000000000050E0000020FBB8D80C3.png" style="width:10.27cm;" /></p>
 <p>Pour tester le routage du serveur [nuxt], sur chaque page essayez toutes les URL possibles [/, /calcul-impot, /liste-des-simulations]. A chaque fois, l’application doit rester dans un état cohérent.</p>
 <h2 id="1710-etape-9">17.10. étape 9</h2>
-<p>L’étape 9 est celle du déploiement de l’application [nuxt-20]. Celle-ci nécessite un hébergement offrant un environnement [node.js] pour exécuter le serveur [nuxt]. Je ne l’ai pas. Le lecteur pourra suivre les procédures décrites au paragraphe <a href="../../../../../st-2020/st-2020/cours/nuxtjs/masters/02/chap-03.docx#nuxt00_deploiement"><u><u>lien</u></u></a>, pour déployer l’application [nuxt-20] sur sa machine de développement et la sécuriser avec un protocole HTTPS.</p>
+<p>L’étape 9 est celle du déploiement de l’application [nuxt-20]. Celle-ci nécessite un hébergement offrant un environnement [node.js] pour exécuter le serveur [nuxt]. Je ne l’ai pas. Le lecteur pourra suivre les procédures décrites au paragraphe <a href="../../../../../st-2020/st-2020/cours/nuxtjs/masters/02/chap-03.docx#nuxt00_deploiement"><u>lien</u></a>, pour déployer l’application [nuxt-20] sur sa machine de développement et la sécuriser avec un protocole HTTPS.</p>
 <h2 id="1711-conclusion">17.11. Conclusion</h2>
 <p>Le portage de l’application [vuejs-22] vers l’application [nuxt-20] est désormais terminé. Retenons quelques points de ce portage :</p>
 <ul>
-<li>les pages de [vuejs-22] ont été gardées ;</li>
-<li>les opérations asynchrones  qui existaient dans les pages de [vuejs-22] ont été migrées dans une fonction [asyncData] ;</li>
-<li>dans [nuxt-20] il a fallu gérer deux entités : le client [nuxt] et le serveur [nuxt]. Cette dernière entité n’existait pas dans [vuejs-22]. Pour garder une cohérence entre les deux entités, nous avons eu besoin d’une session [nuxt] ;</li>
-<li>il nous a fallu gérer le routage du serveur [nuxt] ;</li>
+<li>
+<p>les pages de [vuejs-22] ont été gardées ;</p>
+</li>
+<li>
+<p>les opérations asynchrones  qui existaient dans les pages de [vuejs-22] ont été migrées dans une fonction [asyncData] ;</p>
+</li>
+<li>
+<p>dans [nuxt-20] il a fallu gérer deux entités : le client [nuxt] et le serveur [nuxt]. Cette dernière entité n’existait pas dans [vuejs-22]. Pour garder une cohérence entre les deux entités, nous avons eu besoin d’une session [nuxt] ;</p>
+</li>
+<li>
+<p>il nous a fallu gérer le routage du serveur [nuxt] ;</p>
+</li>
 </ul>
 <p>Dans la pratique, il est sans doute préférable de démarrer directement sur une architecture [nuxt] que de faire une architecture [vue.js] portée ensuite dans un environnement [nuxt].</p>
 

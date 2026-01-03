@@ -6,13 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Introduction au framework NUXT.JS par l'exemple">
       
-      
-        <meta name="author" content="Serge Tahé">
-      
-      
-        <link rel="canonical" href="https://stahe.github.io/nuxtjs-dec-2019/exemple-nuxt-13-controle-de-la-navigation-de-nuxt-12.html">
       
       
         <link rel="prev" href="exemple-nuxt-12-requetes-http-avec-axios.html">
@@ -197,18 +191,6 @@
       
     
     
-      <div class="md-header__source">
-        <a href="https://github.com/stahe/nuxtjs-dec-2019" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-      </div>
-    
   </nav>
   
 </header>
@@ -244,18 +226,6 @@
     </a>
     Introduction au framework NUXT.JS par l'exemple
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/stahe/nuxtjs-dec-2019" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -863,21 +833,26 @@
                   
 
 
-  
-  
-
 
 <h1 id="16-exemple-nuxt-13-controle-de-la-navigation-de-nuxt-12">16. Exemple [nuxt-13] : contrôle de la navigation de [nuxt-12]</h1>
 <p>Dans cet exemple, nous nous intéressons à la navigation de [nuxt-12]. On ne l’a pas fait dans [nuxt-12] parce que le contrôle de la navigation aurait complexifié un exemple déjà complexe.</p>
 <p><strong>Objectif</strong> : nous voulons que l’utilisateur ne puisse faire que des actions autorisées :</p>
 <ul>
-<li>si la session jSON n’a pas démarré, alors seule l’URL [/] est autorisée ;</li>
-<li>si la session jSON a démarré mais que l’utilisateur n’est pas authentifié, alors seule l’URL [/authentification] est autorisée ;</li>
-<li>si la session jSON a démarré et que l’utilisateur est authentifié, alors seules les URL [/get-admindata, /fin-session] sont autorisées ;</li>
-<li>lorsque la cible du routage du moment n’est pas autorisée, alors on procèdera à une redirection vers une URL autorisée ;</li>
+<li>
+<p>si la session jSON n’a pas démarré, alors seule l’URL [/] est autorisée ;</p>
+</li>
+<li>
+<p>si la session jSON a démarré mais que l’utilisateur n’est pas authentifié, alors seule l’URL [/authentification] est autorisée ;</p>
+</li>
+<li>
+<p>si la session jSON a démarré et que l’utilisateur est authentifié, alors seules les URL [/get-admindata, /fin-session] sont autorisées ;</p>
+</li>
+<li>
+<p>lorsque la cible du routage du moment n’est pas autorisée, alors on procèdera à une redirection vers une URL autorisée ;</p>
+</li>
 </ul>
 <p>L’exemple [nuxt-13] est obtenu initialement par recopie de l’exemple [nuxt-12] :</p>
-<p><img src="images/100000000000016A000002088749E060.png" style="width:3.83cm;height:5.501cm;" alt="Image" /></p>
+<p><img src="images/100000000000016A000002088749E060.png" style="width:3.83cm;" /></p>
 <p>C’est dans le dossier du routage [middleware] que vont prendre place les modifications.</p>
 <h2 id="161-routage-de-lapplication-nuxt">16.1. Routage de l’application [nuxt]</h2>
 <p>Le routage de l’application est configuré de la façon suivante dans le fichier [nuxt.config] :</p>
@@ -934,9 +909,15 @@
 <a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 10-16 : on traite différemment les routages du client et du serveur [nuxt]. C’est un point où ils diffèrent grandement ;</li>
-<li>ligne 4 : le routage du serveur est implémenté par le script [middleware/server/routing] ;</li>
-<li>ligne 5 : le routage du client est implémenté par le script [middleware/client/routing] ;</li>
+<li>
+<p>lignes 10-16 : on traite différemment les routages du client et du serveur [nuxt]. C’est un point où ils diffèrent grandement ;</p>
+</li>
+<li>
+<p>ligne 4 : le routage du serveur est implémenté par le script [middleware/server/routing] ;</p>
+</li>
+<li>
+<p>ligne 5 : le routage du client est implémenté par le script [middleware/client/routing] ;</p>
+</li>
 </ul>
 <h2 id="162-routage-du-client-nuxt">16.2. Routage du client [nuxt]</h2>
 <p>Le routage du client [nuxt] reste ce qu’il était dans [nuxt-12] :</p>
@@ -1020,16 +1001,26 @@
 <a id="__codelineno-3-19" name="__codelineno-3-19"></a>&lt;/template&gt;
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 4 : l’option [Authentification] n’est offerte que si la session jSON a démarré mais que l’utilisateur n’est pas authentifié. Si la session jSON n’a pas démarré ou que l’utilisateur est déjà authentifié alors l’option n’est pas offerte ;</li>
-<li>lignes 7-11 : l’option [Requête AdminData] n’est offerte que si la session jSON a démarré, que l’utilisateur est authentifié et qu’on n’a pas encore récupéré la donnée [AdminData]. Si l’une de ces trois conditions n’est pas satisfaite (session jSON pas démarrée, utilisateur pas authentifié ou la donnée [AdminData] déjà récupérée, l’option n’est pas offerte ;</li>
-<li>ligne 15 : l’option [Fin session impôt] est offerte dès que la session jSON a démarré et que l’utilisateur est authentifié, sinon elle ne l’est pas ;</li>
+<li>
+<p>ligne 4 : l’option [Authentification] n’est offerte que si la session jSON a démarré mais que l’utilisateur n’est pas authentifié. Si la session jSON n’a pas démarré ou que l’utilisateur est déjà authentifié alors l’option n’est pas offerte ;</p>
+</li>
+<li>
+<p>lignes 7-11 : l’option [Requête AdminData] n’est offerte que si la session jSON a démarré, que l’utilisateur est authentifié et qu’on n’a pas encore récupéré la donnée [AdminData]. Si l’une de ces trois conditions n’est pas satisfaite (session jSON pas démarrée, utilisateur pas authentifié ou la donnée [AdminData] déjà récupérée, l’option n’est pas offerte ;</p>
+</li>
+<li>
+<p>ligne 15 : l’option [Fin session impôt] est offerte dès que la session jSON a démarré et que l’utilisateur est authentifié, sinon elle ne l’est pas ;</p>
+</li>
 </ul>
 <h2 id="163-routage-du-serveur-nuxt">16.3. Routage du serveur [nuxt]</h2>
 <p>Le routage du serveur est en général plus complexe que celle du client car l’utilisateur peut taper n’importe quelle URL dans la barre d’adresses de son navigateur. On peut laisser faire (après tout l’utilisateur n’est pas censé faire ça) ou essayer de contrôler les choses. C’est ce que nous allons faire ici, pour l’exemple, car dans le cas de l’application [nuxt-12], on peut très bien s’en passer puisque le serveur de calcul de l’impôt est bien protégé contre ces URL à la main et sait envoyer les messages d’erreur adéquats. Nous l’avons vu dans [next-12] où il n’y avait aucun contrôle de routage.</p>
 <p>Le routage d’un serveur [nuxt] est très différent d’un client [nuxt] quant à la notion de redirection :</p>
 <ul>
-<li>lorsque un serveur [nuxt] est redirigé, il envoie un ordre de redirection au navigateur client avec la cible de la redirection. Le navigateur fait alors une nouvelle requête au serveur [nuxt] en lui demandant la cible qui lui a été transmise. Tout se passe comme si l’utilisateur avait tapé à la main l’URL de la cible de la redirection : toute l’application [nuxt] redémarre et donc tout son cycle de vie (plugins serveur, store, routage serveur, pages) ;</li>
-<li>lorsqu’un client [nuxt] est redirigé, rien de tel n’arrive. Il y a un simple changement de page, le même que celui qui aurait été obtenu si l’utilisateur avait cliqué sur un lien menant à la cible de la redirection. Le cycle de vie est alors différent (routage client, affichage cible de la route) ;</li>
+<li>
+<p>lorsque un serveur [nuxt] est redirigé, il envoie un ordre de redirection au navigateur client avec la cible de la redirection. Le navigateur fait alors une nouvelle requête au serveur [nuxt] en lui demandant la cible qui lui a été transmise. Tout se passe comme si l’utilisateur avait tapé à la main l’URL de la cible de la redirection : toute l’application [nuxt] redémarre et donc tout son cycle de vie (plugins serveur, store, routage serveur, pages) ;</p>
+</li>
+<li>
+<p>lorsqu’un client [nuxt] est redirigé, rien de tel n’arrive. Il y a un simple changement de page, le même que celui qui aurait été obtenu si l’utilisateur avait cliqué sur un lien menant à la cible de la redirection. Le cycle de vie est alors différent (routage client, affichage cible de la route) ;</p>
+</li>
 </ul>
 <p>Pour cette raison, il est préférable de séparer le routage client du routage serveur même si les deux codes peuvent paraître analogues.</p>
 <p>Le script de routage du serveur [middleware/server/routing] sera le suivant :</p>
@@ -1056,10 +1047,18 @@
 <a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>dans le routage du client, la fonction de routage reçoit le contexte [context] avec la propriété [context.from] qui est la route de la page d’où l’on vient. La route où l’on va est obtenue par [context.route] ;</li>
-<li>dans le routage du serveur, la fonction de routage reçoit le contexte [context] <strong>sans</strong> la propriété [context.from]. Le routage du serveur n’intervient que lorsqu’une URL est demandée à la main au serveur [nuxt]. On sait qu’alors toute l’application [nuxt] est réinitialisée. C’est comme si on repartait de zéro et il n’y a donc pas de notion de ‘page précédente’ ;</li>
-<li>grâce à la session [nuxt] on sait que le serveur peut récupérer cette session et donc ne pas repartir de zéro. C’est donc dans cette session [nuxt] et plus particulièrement dans le store de cette session que nous stockerons le nom de la dernière page affichée par le navigateur client avant qu’une URL soit demandée au serveur [nuxt] ;</li>
-<li>lignes 7-9 : on récupère le nom de la dernière page affichée par le navigateur client. Au démarrage de l’application, cette information [from] n’existe pas dans le store. On affecte alors le nom [nowhere] à la variable [from] ;</li>
+<li>
+<p>dans le routage du client, la fonction de routage reçoit le contexte [context] avec la propriété [context.from] qui est la route de la page d’où l’on vient. La route où l’on va est obtenue par [context.route] ;</p>
+</li>
+<li>
+<p>dans le routage du serveur, la fonction de routage reçoit le contexte [context] <strong>sans</strong> la propriété [context.from]. Le routage du serveur n’intervient que lorsqu’une URL est demandée à la main au serveur [nuxt]. On sait qu’alors toute l’application [nuxt] est réinitialisée. C’est comme si on repartait de zéro et il n’y a donc pas de notion de ‘page précédente’ ;</p>
+</li>
+<li>
+<p>grâce à la session [nuxt] on sait que le serveur peut récupérer cette session et donc ne pas repartir de zéro. C’est donc dans cette session [nuxt] et plus particulièrement dans le store de cette session que nous stockerons le nom de la dernière page affichée par le navigateur client avant qu’une URL soit demandée au serveur [nuxt] ;</p>
+</li>
+<li>
+<p>lignes 7-9 : on récupère le nom de la dernière page affichée par le navigateur client. Au démarrage de l’application, cette information [from] n’existe pas dans le store. On affecte alors le nom [nowhere] à la variable [from] ;</p>
+</li>
 </ul>
 <p>Pour que le serveur [nuxt] puisse récupérer dans le store le nom de la dernière page affichée par le navigateur client, il faut que le client [nuxt] mette également cette information dans le store. Le script de routage du client [nuxt] est donc complété de la façon suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
@@ -1113,9 +1112,15 @@
 <a id="__codelineno-5-25" name="__codelineno-5-25"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>les lignes 19-24 sont ajoutées ;</li>
-<li>ligne 20 : on met dans le store le nom de la page [context.route.name] qui va s’afficher et qui sera donc lors du routage suivant, la page d’où l’on vient. Par ailleurs, on va voir que dans le routage du serveur [nuxt], celui-ci a besoin de savoir si le routage en cours est issu d’une précédente redirection du serveur [nuxt]. Ici ce n’est pas le cas, et on met donc la propriété [serverRedirection] à [false] ;</li>
-<li>lignes 22-24 : l’état du store est mis dans la session [nuxt] (ligne 23) puis la session [nuxt] est sauvegardée dans un cookie (ligne 24) qui lui-même sera sauvegardé dans le navigateur du client [nuxt] ;</li>
+<li>
+<p>les lignes 19-24 sont ajoutées ;</p>
+</li>
+<li>
+<p>ligne 20 : on met dans le store le nom de la page [context.route.name] qui va s’afficher et qui sera donc lors du routage suivant, la page d’où l’on vient. Par ailleurs, on va voir que dans le routage du serveur [nuxt], celui-ci a besoin de savoir si le routage en cours est issu d’une précédente redirection du serveur [nuxt]. Ici ce n’est pas le cas, et on met donc la propriété [serverRedirection] à [false] ;</p>
+</li>
+<li>
+<p>lignes 22-24 : l’état du store est mis dans la session [nuxt] (ligne 23) puis la session [nuxt] est sauvegardée dans un cookie (ligne 24) qui lui-même sera sauvegardé dans le navigateur du client [nuxt] ;</p>
+</li>
 </ul>
 <p>Revenons sur le script de routage du serveur [nuxt] :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
@@ -1281,27 +1286,61 @@
 <a id="__codelineno-6-81" name="__codelineno-6-81"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 6-9 : on récupère la valeur de [from] dans le store du serveur [nuxt] ;</li>
-<li>ligne 11 : on note la cible du routage courant ;</li>
-<li>ligne 13 : le routage peut amener à une redirection du navigateur client. [redirection] sera la cible de cette redirection ;</li>
-<li>ligne 15 : [done] à [true] indique que le routage est terminé ;</li>
-<li>lignes 17-21 : on regarde d’abord si le routage courant est issu d’une demande de redirection envoyée au navigateur client. Cette information est stockée dans la propriété [serverRedirection] du store. Si cette propriété est à vrai, alors c’est que le serveur [nuxt] a envoyé une redirection au navigateur client lors de la précédente requête au serveur [nuxt]. Dans ce cas, il n’y a pas de routage à faire. Lors de la précédente requête, le routeur du serveur [nuxt] a décidé que le navigateur client devait être redirigé. Cette décision n’a pas à être remise en cause par un nouveau routage ;</li>
-<li>lignes 23-27 : on regarde si le routage en cours est un rechargement de page. Si oui, on laisse faire ;</li>
-<li>à partir de la ligne 29, on reprend les règles appliquées dans le composant [navigation] du client [nuxt] (cf paragraphe précédent) ;</li>
-<li>lignes 32-38 : on traite le cas où la session jSON n’a pas démarré et que la cible du routage n’est pas la page [index]. Dans ce cas, on redirige le navigateur client vers la page [index] ;</li>
-<li>lignes 40-46 : on traite le cas où la session jSON a démarré, l’utilisateur n’est pas authentifié et la cible du routage courant n’est pas la page [authentification]. Dans ce cas, on refuse le routage et on reste là où on était ;</li>
-<li>lignes 48-54 : on traite le cas où la session jSON a démarré, l’utilisateur est authentifié et la cible du routage courant n’est ni la page [get-admindata], ni la page [fin-session] qui sont alors les seules destinations possibles. Dans ce cas, on refuse le routage demandé et on revient là où on était précédemment ;</li>
-<li>lignes 56-62 : on traite le cas où [adminData] a été obtenu. Dans ce cas, il n’y a qu’une cible possible pour le routage : la page [fin-session]. Si ce n’était pas elle qui était demandée, on refuse le routage et on revient là où on était précédemment ;</li>
-<li>lignes 64-72 : s’il y a eu redirection, on le note dans le store du serveur [nuxt] : [serverRedirection: true]. On notera qu’on ne donne pas de valeur à la propriété [from] du store. La raison en est qu’il va y avoir redirection du navigateur client et on a vu que dans ce cas, il n’y avait pas de routage (lignes 17-20) et la propriété [from] du store n’est pas utilisée ;</li>
-<li>lignes 66-69 : s’il n’y a pas de redirection, alors on le note également dans le store du serveur [nuxt] : [serverRedirection: false]. Par ailleurs, le routage en cours va afficher la page [to] qui pour la requête suivante (client ou serveur [nuxt]) deviendra la page précédente. C’est pourquoi on écrit [from: to] ;</li>
-<li>lignes 73-76 : on sauvegarde le store dans la session [nuxt] elle-même sauvegardée dans un cookie ;</li>
-<li>lignes 77-80 : si [redirection] n’est pas vide, alors on demande au navigateur de se rediriger. Sinon (on ne le voit pas ici), le cycle de vie du serveur [nuxt] va se poursuivre : la page [to] va être traitée par le serveur [nuxt] et envoyée au navigateur du client [nuxt] avec le cookie de session [nuxt] ;</li>
+<li>
+<p>lignes 6-9 : on récupère la valeur de [from] dans le store du serveur [nuxt] ;</p>
+</li>
+<li>
+<p>ligne 11 : on note la cible du routage courant ;</p>
+</li>
+<li>
+<p>ligne 13 : le routage peut amener à une redirection du navigateur client. [redirection] sera la cible de cette redirection ;</p>
+</li>
+<li>
+<p>ligne 15 : [done] à [true] indique que le routage est terminé ;</p>
+</li>
+<li>
+<p>lignes 17-21 : on regarde d’abord si le routage courant est issu d’une demande de redirection envoyée au navigateur client. Cette information est stockée dans la propriété [serverRedirection] du store. Si cette propriété est à vrai, alors c’est que le serveur [nuxt] a envoyé une redirection au navigateur client lors de la précédente requête au serveur [nuxt]. Dans ce cas, il n’y a pas de routage à faire. Lors de la précédente requête, le routeur du serveur [nuxt] a décidé que le navigateur client devait être redirigé. Cette décision n’a pas à être remise en cause par un nouveau routage ;</p>
+</li>
+<li>
+<p>lignes 23-27 : on regarde si le routage en cours est un rechargement de page. Si oui, on laisse faire ;</p>
+</li>
+<li>
+<p>à partir de la ligne 29, on reprend les règles appliquées dans le composant [navigation] du client [nuxt] (cf paragraphe précédent) ;</p>
+</li>
+<li>
+<p>lignes 32-38 : on traite le cas où la session jSON n’a pas démarré et que la cible du routage n’est pas la page [index]. Dans ce cas, on redirige le navigateur client vers la page [index] ;</p>
+</li>
+<li>
+<p>lignes 40-46 : on traite le cas où la session jSON a démarré, l’utilisateur n’est pas authentifié et la cible du routage courant n’est pas la page [authentification]. Dans ce cas, on refuse le routage et on reste là où on était ;</p>
+</li>
+<li>
+<p>lignes 48-54 : on traite le cas où la session jSON a démarré, l’utilisateur est authentifié et la cible du routage courant n’est ni la page [get-admindata], ni la page [fin-session] qui sont alors les seules destinations possibles. Dans ce cas, on refuse le routage demandé et on revient là où on était précédemment ;</p>
+</li>
+<li>
+<p>lignes 56-62 : on traite le cas où [adminData] a été obtenu. Dans ce cas, il n’y a qu’une cible possible pour le routage : la page [fin-session]. Si ce n’était pas elle qui était demandée, on refuse le routage et on revient là où on était précédemment ;</p>
+</li>
+<li>
+<p>lignes 64-72 : s’il y a eu redirection, on le note dans le store du serveur [nuxt] : [serverRedirection: true]. On notera qu’on ne donne pas de valeur à la propriété [from] du store. La raison en est qu’il va y avoir redirection du navigateur client et on a vu que dans ce cas, il n’y avait pas de routage (lignes 17-20) et la propriété [from] du store n’est pas utilisée ;</p>
+</li>
+<li>
+<p>lignes 66-69 : s’il n’y a pas de redirection, alors on le note également dans le store du serveur [nuxt] : [serverRedirection: false]. Par ailleurs, le routage en cours va afficher la page [to] qui pour la requête suivante (client ou serveur [nuxt]) deviendra la page précédente. C’est pourquoi on écrit [<mark>from: to</mark>] ;</p>
+</li>
+<li>
+<p>lignes 73-76 : on sauvegarde le store dans la session [nuxt] elle-même sauvegardée dans un cookie ;</p>
+</li>
+<li>
+<p>lignes 77-80 : si [redirection] n’est pas vide, alors on demande au navigateur de se rediriger. Sinon (on ne le voit pas ici), le cycle de vie du serveur [nuxt] va se poursuivre : la page [to] va être traitée par le serveur [nuxt] et envoyée au navigateur du client [nuxt] avec le cookie de session [nuxt] ;</p>
+</li>
 </ul>
 <p>Le routage choisi ici pour le serveur [nuxt] est arbitraire. On aurait pu en choisir un autre ou comme il a été dit ne pas en faire du tout. Celui choisi ci-dessus a le mérite de toujours laisser l’application dans un état stable quelque soit l’URL demandée par l’utilisateur.</p>
 <p>On peut améliorer un point lorsque la page chargée au final est la page d’origine. Il y a deux cas :</p>
 <ul>
-<li>l’utilisateur a provoqué un rechargement de la page (to===from) ;</li>
-<li>il y a redirections vers la page d’origine (redirection===from) ;</li>
+<li>
+<p>l’utilisateur a provoqué un rechargement de la page (to===from) ;</p>
+</li>
+<li>
+<p>il y a redirections vers la page d’origine (redirection===from) ;</p>
+</li>
 </ul>
 <p>Dans les deux cas la page d’origine va être de nouveau exécutée avec son appel asynchrone au serveur de calcul de l’impôt. Prenons un exemple. Si une fois authentifié, l’utilisateur recharge la page (F5). Dans ce cas dans le routage ci-dessus, on a : [to]=[from]=[authentification]. Il n’y a pas redirection. La page [to=authentification] va être exécutée par le serveur [nuxt]. Si on ne fait rien, la fonction [asyncData] va s’exécuter de nouveau. C’est inutile puisque l’authentification a déjà été faite.</p>
 <p>On peut améliorer les choses en modifiant légèrement la page [authentification] :</p>
@@ -1444,7 +1483,7 @@
 </code></pre></div></td></tr></table></div>
 <h2 id="164-execution">16.4. Exécution</h2>
 <p>Pour exécuter cet exemple, il faut prendre soin avant l’exécution de supprimer le cookie de session [nuxt] et le cookie PHP du navigateur exécutant le client [nuxt] afin de partir d’une situation nette. Ci-dessous un exemple avec le navigateur Chrome :</p>
-<p><img src="images/1000000000000380000001D2F02C8ECA.png" style="width:9.48cm;height:4.931cm;" alt="Image" /></p>
+<p><img src="images/1000000000000380000001D2F02C8ECA.png" style="width:9.48cm;" /></p>
 <h2 id="165-conclusion">16.5. Conclusion</h2>
 <p>Le routage du serveur [nuxt] est complexe car il faut prévoir toutes les URL que peut taper à la main l’utilisateur. C’est un cas d’école. Une application [nuxt] n’est pas destinée à être utilisée de cette façon. Une fois la page [index] servie par le routeur du serveur [nuxt], on pourrait rediriger les appels suivants faits au serveur vers une page d’erreur.</p>
 <p>Dans le cas précis de notre exemple [nuxt-13], le routage du serveur [nuxt] était inutile. Celui fait par défaut (absence de routage en fait) dans l’exemple [nuxt-12] convenait très bien.</p>

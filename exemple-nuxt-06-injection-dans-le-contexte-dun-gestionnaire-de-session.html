@@ -6,13 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Introduction au framework NUXT.JS par l'exemple">
       
-      
-        <meta name="author" content="Serge Tahé">
-      
-      
-        <link rel="canonical" href="https://stahe.github.io/nuxtjs-dec-2019/exemple-nuxt-06-injection-dans-le-contexte-dun-gestionnaire-de-session.html">
       
       
         <link rel="prev" href="exemple-nuxt-05-persistance-du-store-avec-un-cookie-de-session.html">
@@ -197,18 +191,6 @@
       
     
     
-      <div class="md-header__source">
-        <a href="https://github.com/stahe/nuxtjs-dec-2019" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-      </div>
-    
   </nav>
   
 </header>
@@ -244,18 +226,6 @@
     </a>
     Introduction au framework NUXT.JS par l'exemple
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/stahe/nuxtjs-dec-2019" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -907,17 +877,14 @@
                   
 
 
-  
-  
-
 
 <h1 id="9-exemple-nuxt-06-injection-dans-le-contexte-dun-gestionnaire-de-session">9. Exemple [nuxt-06] : injection dans le contexte d’un gestionnaire de session</h1>
 <h2 id="91-presentation">9.1. Présentation</h2>
 <p>L’exemple [nuxt-05] a montré qu’on pouvait persister le store même lorsque l’utilisateur force des appels au serveur. Les éléments du store sont réactifs pour que s’ils sont intégrés à des vues celles-ci soient réactives aux changements du store. On peut vouloir aussi persister des éléments au fil des échanges client / serveur sans pour autant vouloir qu’ils soient réactifs, tout simplement parce qu’ils ne sont pas affichés par des vues. On peut alors stocker ceux-ci dans la session sans qu’ils soient pour autant dans le store.</p>
-<p>Le store est accessible facilement au travers de propriétés telles que [context.app.\$store] en-dehors des vues ou [this.\$store] dans les vues. On voudrait quelque chose d’analogue pour la session, quelque chose comme [context.app.\$session] ou [this.\$session]. On va voir que c’est possible grâce au concept d’injection. Seulement on ne peut pas injecter des objets dans le contexte, seulement des fonctions. Celle-ci sera alors disponible au travers des expressions [context.app.\$session<strong>()</strong>] ou [this.\$session<strong>()</strong>].</p>
+<p>Le store est accessible facilement au travers de propriétés telles que [context.app.$store] en-dehors des vues ou [this.$store] dans les vues. On voudrait quelque chose d’analogue pour la session, quelque chose comme [context.app.$session] ou [this.$session]. On va voir que c’est possible grâce au concept d’injection. Seulement on ne peut pas injecter des objets dans le contexte, seulement des fonctions. Celle-ci sera alors disponible au travers des expressions [context.app.$session<strong>()</strong>] ou [this.$session<strong>()</strong>].</p>
 <p>Enfin, nous allons présenter le concept [nuxt] de [plugin].</p>
 <p>L’exemple [nuxt-06] est obtenu initialement par recopie du projet [nuxt-05] :</p>
-<p><img src="images/10000000000001640000024717468ECB.png" style="width:3.77cm;height:6.171cm;" alt="Image" /></p>
+<p><img src="images/10000000000001640000024717468ECB.png" style="width:3.77cm;" /></p>
 <ul>
 <li>en [1], nous ajouterons un dossier [plugins] ;</li>
 </ul>
@@ -938,13 +905,23 @@
 <a id="__codelineno-0-7" name="__codelineno-0-7"></a>],
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 5-6 : un plugin est désigné par son chemin [src] et son mode d’exécution [mode]. [mode] peut avoir trois valeurs :</li>
-<li>[client] : le plugin doit être exécuté côté client uniquement ;</li>
-<li>[server] : le plugin doit être exécuté côté serveur uniquement ;</li>
-<li>absence de la clé [mode] : dans ce cas, le plugin doit être exécuté à la fois côté client et serveur ;</li>
-<li>lignes 5-6 : nous avons placé nos deux plugins dans un dossier [plugins]. Il n’y a aucune obligation à cela. Les plugins peuvent être placés n’importe où dans l’arborescence du projet. De même les noms des sous-dossiers [client, server] sont ici arbitraires ;</li>
+<li>
+<p>lignes 5-6 : un plugin est désigné par son chemin [src] et son mode d’exécution [mode]. [mode] peut avoir trois valeurs :</p>
+</li>
+<li>
+<p>[client] : le plugin doit être exécuté côté client uniquement ;</p>
+</li>
+<li>
+<p>[server] : le plugin doit être exécuté côté serveur uniquement ;</p>
+</li>
+<li>
+<p>absence de la clé [mode] : dans ce cas, le plugin doit être exécuté à la fois côté client et serveur ;</p>
+</li>
+<li>
+<p>lignes 5-6 : nous avons placé nos deux plugins dans un dossier [plugins]. Il n’y a aucune obligation à cela. Les plugins peuvent être placés n’importe où dans l’arborescence du projet. De même les noms des sous-dossiers [client, server] sont ici arbitraires ;</p>
+</li>
 </ul>
-<p><img src="images/10000000000001640000024711C4FD7E.png" style="width:3.77cm;height:6.171cm;" alt="Image" /></p>
+<p><img src="images/10000000000001640000024711C4FD7E.png" style="width:3.77cm;" /></p>
 <h2 id="93-le-plugin-session-du-serveur">9.3. Le plugin [session] du serveur</h2>
 <p>Le plugin [server / session.js] est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
@@ -1010,31 +987,81 @@
 <a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 2 : les plugins sont exécutés à chaque fois qu’il y a un appel au serveur : au démarrage et à chaque fois que l’utilisateur force un appel au serveur en tapant une URL à la main :</li>
-<li>c’est d’abord le (ou les) plugin(s) du serveur qui est (sont) exécuté(s) en premier ;</li>
-<li>lorsque le navigateur client a reçu la réponse du serveur, c’est au tour du (ou des) plugin(s) du client de s’exécuter ;</li>
-<li>ligne 2 : tout plugin, client ou serveur, reçoit deux paramètres :</li>
-<li>[context] : le contexte du serveur ou du client selon qui exécute le plugin ;</li>
-<li>[inject] : une fonction qui permet d’injecter une fonction dans le contexte du serveur ou du client ;</li>
-<li>le but du plugin [server / session] est double :</li>
-<li>définir une session (lignes 16-23) ;</li>
-<li>définir au sein du contexte, une fonction [\$session] qui rendra comme résultat, la session de la ligne 16. C’est la ligne 25 qui fait cela ;</li>
-<li>lignes 16-23 : la session encapsulera ses données dans l’objet [value] de la ligne 18 ;</li>
-<li>lignes 20-22 : elle dispose d’une fonction [save] qui reçoit en paramètre un objet [context]. C’est le code appelant qui lui fournit ce contexte. Avec celui-ci, la fonction [save] sauvegarde la valeur de la session, l’objet [value], dans le cookie de session ;</li>
-<li>ligne 6 : lorsque le plugin [server / session] s’exécute, il commence par regarder si le serveur a reçu un cookie de session ;</li>
-<li>si oui, l’objet [value] de la ligne 6 représente la valeur de la session, l’ensemble des données encapsulées dans celle-ci ;</li>
-<li>si non, lignes 7-11, on fixe la valeur initiale de la session. Celle-ci sera l’objet [initValue] des lignes 29-31. Les éléments de la session seront définis dans la fonction [nuxtServerInit] qui est exécutée après le plugin serveur ;</li>
-<li>ligne 18 : la notation [value] est un raccourci pour la notation [value:value]. Le [value] de gauche est le nom d’une clé d’objet, le [value] de droite est l’objet [value] déclaré ligne 6 ;</li>
-<li>ligne 25 : lorsqu’on arrive à cette ligne, la session a été soit créée parce qu’elle n’existait pas, soit récupérée dans la requête HTTP du navigateur client ;</li>
-<li>ligne 25 : on injecte dans le contexte serveur une nouvelle fonction :</li>
-<li>le 1er paramètre de [inject] est le nom de la fonction qu’on crée, ici ‘session’. [nuxt] lui donnera en fait le nom ‘<strong>\$</strong>session’ ;</li>
-<li>le 2ième paramètre est la définition de la fonction. Ici la fonction [\$session]</li>
-<li>n’admettra aucun paramètre ;</li>
-<li>rendra l’objet [session] de la ligne 16 ;</li>
-<li>une fois le plugin exécuté :</li>
-<li>la fonction [\$session] est disponible dans [<strong>context.app.\$session</strong>] là où l’objet [context] est disponible, ou [<strong>this.\$session</strong>] dans une vue ou dans le store [vuex] ;</li>
-<li>la fonction [\$session] rend un objet [session] avec une unique clé [value] ;</li>
-<li>à la création initiale de la session, l’objet [value] n’a qu’une clé [initStoreDone] (lignes 29-31). La clé [initStoreDone:false] sert à indiquer que le store n’a pas encore été placé dans la session. Cela va être fait par la fonction [nuxtServerInit] ;</li>
+<li>
+<p>ligne 2 : les plugins sont exécutés à chaque fois qu’il y a un appel au serveur : au démarrage et à chaque fois que l’utilisateur force un appel au serveur en tapant une URL à la main :</p>
+</li>
+<li>
+<p>c’est d’abord le (ou les) plugin(s) du serveur qui est (sont) exécuté(s) en premier ;</p>
+</li>
+<li>
+<p>lorsque le navigateur client a reçu la réponse du serveur, c’est au tour du (ou des) plugin(s) du client de s’exécuter ;</p>
+</li>
+<li>
+<p>ligne 2 : tout plugin, client ou serveur, reçoit deux paramètres :</p>
+</li>
+<li>
+<p>[context] : le contexte du serveur ou du client selon qui exécute le plugin ;</p>
+</li>
+<li>
+<p>[inject] : une fonction qui permet d’injecter une fonction dans le contexte du serveur ou du client ;</p>
+</li>
+<li>
+<p>le but du plugin [server / session] est double :</p>
+</li>
+<li>
+<p>définir une session (lignes 16-23) ;</p>
+</li>
+<li>
+<p>définir au sein du contexte, une fonction [$session] qui rendra comme résultat, la session de la ligne 16. C’est la ligne 25 qui fait cela ;</p>
+</li>
+<li>
+<p>lignes 16-23 : la session encapsulera ses données dans l’objet [value] de la ligne 18 ;</p>
+</li>
+<li>
+<p>lignes 20-22 : elle dispose d’une fonction [save] qui reçoit en paramètre un objet [context]. C’est le code appelant qui lui fournit ce contexte. Avec celui-ci, la fonction [save] sauvegarde la valeur de la session, l’objet [value], dans le cookie de session ;</p>
+</li>
+<li>
+<p>ligne 6 : lorsque le plugin [server / session] s’exécute, il commence par regarder si le serveur a reçu un cookie de session ;</p>
+</li>
+<li>
+<p>si oui, l’objet [value] de la ligne 6 représente la valeur de la session, l’ensemble des données encapsulées dans celle-ci ;</p>
+</li>
+<li>
+<p>si non, lignes 7-11, on fixe la valeur initiale de la session. Celle-ci sera l’objet [initValue] des lignes 29-31. Les éléments de la session seront définis dans la fonction [nuxtServerInit] qui est exécutée après le plugin serveur ;</p>
+</li>
+<li>
+<p>ligne 18 : la notation [value] est un raccourci pour la notation [value:value]. Le [value] de gauche est le nom d’une clé d’objet, le [value] de droite est l’objet [value] déclaré ligne 6 ;</p>
+</li>
+<li>
+<p>ligne 25 : lorsqu’on arrive à cette ligne, la session a été soit créée parce qu’elle n’existait pas, soit récupérée dans la requête HTTP du navigateur client ;</p>
+</li>
+<li>
+<p>ligne 25 : on injecte dans le contexte serveur une nouvelle fonction :</p>
+</li>
+<li>
+<p>le 1er paramètre de [inject] est le nom de la fonction qu’on crée, ici ‘session’. [nuxt] lui donnera en fait le nom ‘<strong>$</strong>session’ ;</p>
+</li>
+<li>
+<p>le 2ième paramètre est la définition de la fonction. Ici la fonction [$session]</p>
+</li>
+<li>
+<p>n’admettra aucun paramètre ;</p>
+</li>
+<li>
+<p>rendra l’objet [session] de la ligne 16 ;</p>
+</li>
+<li>
+<p>une fois le plugin exécuté :</p>
+</li>
+<li>
+<p>la fonction [$session] est disponible dans [<strong>context.app.$session</strong>] là où l’objet [context] est disponible, ou [<strong>this.$session</strong>] dans une vue ou dans le store [vuex] ;</p>
+</li>
+<li>
+<p>la fonction [$session] rend un objet [session] avec une unique clé [value] ;</p>
+</li>
+<li>
+<p>à la création initiale de la session, l’objet [value] n’a qu’une clé [initStoreDone] (lignes 29-31). La clé [initStoreDone:false] sert à indiquer que le store n’a pas encore été placé dans la session. Cela va être fait par la fonction [nuxtServerInit] ;</p>
+</li>
 </ul>
 <h2 id="94-initialisation-de-la-session">9.4. Initialisation de la session</h2>
 <p>Une fois le plugin [session / server] exécuté par le serveur, celui-ci va exécuter le script [store / index.js] suivant :</p>
@@ -1166,18 +1193,38 @@
 <a id="__codelineno-2-63" name="__codelineno-2-63"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;initSession terminé, store=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">store</span><span class="p">.</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;session=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">session</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
 <a id="__codelineno-2-64" name="__codelineno-2-64"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>Par rapport au store du projet [nuxt-05], seule la fonction [initSession] (anciennement initStore) des lignes 38-60 change :</p>
+<p>Par rapport au store du projet [nuxt-05], seule la fonction [initSession] (anciennement <em>initStore</em>) des lignes 38-60 change :</p>
 <ul>
-<li>ligne 42 : on récupère la session grâce à la fonction [\$session] qui a été injectée dans le contexte du serveur ;</li>
-<li>ligne 44 : on regarde si la session a déjà été initialisée ;</li>
-<li>lignes 45-54 : si ce n’est pas le cas :</li>
-<li>ligne 48 : le store est initialisé ;</li>
-<li>ligne 50 : l’état du store est mis dans la session ;</li>
-<li>ligne 52 : on ajoute un autre objet [somethingImportant] dans la session. Celui-ci ne fera pas partie du store ;</li>
-<li>ligne 54 : on note le fait que la session est désormais initialisée ;</li>
-<li>lignes 55-59 : si la session était déjà initialisée :</li>
-<li>ligne 58 : le nouveau store est initialisé avec le contenu de la session ;</li>
-<li>ligne 61 : la session est sauvegardée dans le cookie de session. On rappelle que cela consiste à placer le cookie dans la réponse HTTP que le serveur va faire au navigateur client ;</li>
+<li>
+<p>ligne 42 : on récupère la session grâce à la fonction [$session] qui a été injectée dans le contexte du serveur ;</p>
+</li>
+<li>
+<p>ligne 44 : on regarde si la session a déjà été initialisée ;</p>
+</li>
+<li>
+<p>lignes 45-54 : si ce n’est pas le cas :</p>
+</li>
+<li>
+<p>ligne 48 : le store est initialisé ;</p>
+</li>
+<li>
+<p>ligne 50 : l’état du store est mis dans la session ;</p>
+</li>
+<li>
+<p>ligne 52 : on ajoute un autre objet [somethingImportant] dans la session. Celui-ci ne fera pas partie du store ;</p>
+</li>
+<li>
+<p>ligne 54 : on note le fait que la session est désormais initialisée ;</p>
+</li>
+<li>
+<p>lignes 55-59 : si la session était déjà initialisée :</p>
+</li>
+<li>
+<p>ligne 58 : le nouveau store est initialisé avec le contenu de la session ;</p>
+</li>
+<li>
+<p>ligne 61 : la session est sauvegardée dans le cookie de session. On rappelle que cela consiste à placer le cookie dans la réponse HTTP que le serveur va faire au navigateur client ;</p>
+</li>
 </ul>
 <h2 id="95-le-plugin-client-session-du-client">9.5. Le plugin [client / session] du client</h2>
 <p>Une fois que le serveur a exécuté les scripts [plugins / server / session] et [store / index], il va envoyer l’une des pages [index, page1] au navigateur client. Dans la réponse HTTP du serveur, il y aura le cookie de session. Une fois la page reçue par le navigateur client, les scripts client embarqués dans la page vont s’exécuter. Le plugin [client / session] va alors s’exécuter :</p>
@@ -1222,12 +1269,24 @@
 <a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lorsque le plugin client s’exécute, le cookie de session a déjà été reçu par le navigateur client ;</li>
-<li>l’objectif du plugin [client] est d’injecter lui-aussi une fonction [\$session] dans le contexte du client. Cette fonction rendrait la session envoyée par le serveur ;</li>
-<li>ligne 19 : la fonction injectée [\$session] rendra la session des lignes 9-16 ;</li>
-<li>lignes 9-16 : l’objet [session] géré par le client. Ce sera une copie de la session envoyée par le serveur ;</li>
-<li>ligne 11 : la valeur de la session client est prise dans le cookie de session envoyé par le serveur [nuxt] ;</li>
-<li>lignes 13-15 : comme pour la session du serveur, la session du client a une fonction [save] qui permet de sauvegarder la valeur de la session, [this.value] ligne 14, dans le cookie de session stocké sur le navigateur ;</li>
+<li>
+<p>lorsque le plugin client s’exécute, le cookie de session a déjà été reçu par le navigateur client ;</p>
+</li>
+<li>
+<p>l’objectif du plugin [client] est d’injecter lui-aussi une fonction [$session] dans le contexte du client. Cette fonction rendrait la session envoyée par le serveur ;</p>
+</li>
+<li>
+<p>ligne 19 : la fonction injectée [$session] rendra la session des lignes 9-16 ;</p>
+</li>
+<li>
+<p>lignes 9-16 : l’objet [session] géré par le client. Ce sera une copie de la session envoyée par le serveur ;</p>
+</li>
+<li>
+<p>ligne 11 : la valeur de la session client est prise dans le cookie de session envoyé par le serveur [nuxt] ;</p>
+</li>
+<li>
+<p>lignes 13-15 : comme pour la session du serveur, la session du client a une fonction [save] qui permet de sauvegarder la valeur de la session, [this.value] ligne 14, dans le cookie de session stocké sur le navigateur ;</p>
+</li>
 </ul>
 <h2 id="96-la-page-index">9.6. La page [index]</h2>
 <p>La page [index] évolue de la façon suivante :</p>
@@ -1367,15 +1426,33 @@
 </code></pre></div></td></tr></table></div>
 <p>Il faut se rappeler que cette page est exécutée aussi bien côté serveur que côté client.</p>
 <ul>
-<li>ligne 8 : on affiche maintenant et la session et le store ;</li>
-<li>ligne 30 : [jsonSession] est une propriété calculée qui rend la chaîne jSON de la valeur de la session ;</li>
-<li>ligne 41 : on affiche la valeur de la session à l’aide de la fonction injectée [this.\$session]. Celle-ci existe aussi bien dans le contexte du serveur que dans celui du client ;</li>
-<li>ligne 53 : la méthode [incrementCounter] n’est elle exécutée que côté client ;</li>
-<li>ligne 56 : le compteur du store est incrémenté et affiché comme auparavant ;</li>
-<li>ligne 58 : on récupère la session grâce à la fonction injectée [this.\$session] ;</li>
-<li>ligne 59 : le store de la session est mis à jour ;</li>
-<li>lignes 60-61 : on incrémente les attributs [somethingImportant.x, somethingImportant.y] de la session. Cela juste pour montrer qu’une session peut servir à transporter autre chose que le store ;</li>
-<li>ligne 63 : la session est sauvegardée dans le cookie de session stocké sur le navigateur. Dans une vue client, le contexte de celui-ci est disponible dans [this.\$nuxt.context] ;</li>
+<li>
+<p>ligne 8 : on affiche maintenant et la session et le store ;</p>
+</li>
+<li>
+<p>ligne 30 : [jsonSession] est une propriété calculée qui rend la chaîne jSON de la valeur de la session ;</p>
+</li>
+<li>
+<p>ligne 41 : on affiche la valeur de la session à l’aide de la fonction injectée [this.$session]. Celle-ci existe aussi bien dans le contexte du serveur que dans celui du client ;</p>
+</li>
+<li>
+<p>ligne 53 : la méthode [incrementCounter] n’est elle exécutée que côté client ;</p>
+</li>
+<li>
+<p>ligne 56 : le compteur du store est incrémenté et affiché comme auparavant ;</p>
+</li>
+<li>
+<p>ligne 58 : on récupère la session grâce à la fonction injectée [this.$session] ;</p>
+</li>
+<li>
+<p>ligne 59 : le store de la session est mis à jour ;</p>
+</li>
+<li>
+<p>lignes 60-61 : on incrémente les attributs [somethingImportant.x, somethingImportant.y] de la session. Cela juste pour montrer qu’une session peut servir à transporter autre chose que le store ;</p>
+</li>
+<li>
+<p>ligne 63 : la session est sauvegardée dans le cookie de session stocké sur le navigateur. Dans une vue client, le contexte de celui-ci est disponible dans [this.$nuxt.context] ;</p>
+</li>
 </ul>
 <p>Le but de la page [index] est de montrer que la session n’est pas réactive alors que le store l’est. Lorsqu’on va incrémenter les éléments de la session, on découvrira que la vue n’est pas mise à jour. La vue [page1] présente une solution à ce problème.</p>
 <h2 id="97-la-page-page1">9.7. La page [page1]</h2>
@@ -1533,66 +1610,94 @@
 </ul>
 <h2 id="98-execution-du-projet">9.8. Exécution du projet</h2>
 <p>Avant d’exécuter le projet, vérifiez le cookie de session de votre navigateur et s’il existe supprimez-le pour que le serveur crée une session neuve :</p>
-<p><img src="images/10000000000005B000000269DCC3E5FE.png" style="width:11.561cm;height:4.901cm;" alt="Image" /></p>
+<p><img src="images/10000000000005B000000269DCC3E5FE.png" style="width:11.561cm;" /></p>
 <p>Maintenant demandons l’URL [http://localhost:81/nuxt-06/] :</p>
-<p><img src="images/100000000000092300000281C960AAD6.png" style="width:15.47cm;height:4.241cm;" alt="Image" /></p>
+<p><img src="images/100000000000092300000281C960AAD6.png" style="width:15.47cm;" /></p>
 <p>Les logs dans le navigateur sont alors les suivants :</p>
-<p><img src="images/10000000000004F4000003E43312D2E8.png" style="width:10.06cm;height:7.91cm;" alt="Image" /></p>
+<p><img src="images/10000000000004F4000003E43312D2E8.png" style="width:10.06cm;" /></p>
 <ul>
-<li>en [2], le serveur démarre une nouvelle session dans le plugin [session] du serveur ;</li>
-<li>en [3], cette nouvelle session est initialisée dans [nuxtServerInit] ;</li>
-<li>en [4], la nouvelle session telle qu’elle est connue sur le serveur ;</li>
-<li>en [5], le client a correctement récupéré cette session ;</li>
+<li>
+<p>en [2], le serveur démarre une nouvelle session dans le plugin [session] du serveur ;</p>
+</li>
+<li>
+<p>en [3], cette nouvelle session est initialisée dans [nuxtServerInit] ;</p>
+</li>
+<li>
+<p>en [4], la nouvelle session telle qu’elle est connue sur le serveur ;</p>
+</li>
+<li>
+<p>en [5], le client a correctement récupéré cette session ;</p>
+</li>
 </ul>
 <p>Maintenant incrémentons le compteur trois fois :</p>
-<p><img src="images/10000000000009A40000028069157B07.png" style="width:16.32cm;height:4.231cm;" alt="Image" /></p>
+<p><img src="images/10000000000009A40000028069157B07.png" style="width:16.32cm;" /></p>
 <ul>
 <li>en [3], le compteur a bien été incrémenté mais pas la session en [2]. Alors que [3] affiche le store qui est réactif, [2] affiche la session qui elle n’est pas réactive :</li>
 </ul>
 <p>Maintenant rechargeons la page (F5). Les logs sont les suivants suite à ce rechargement :</p>
-<p><img src="images/10000000000004DC000003D69FCEB1CF.png" style="width:9.871cm;height:7.79cm;" alt="Image" /></p>
+<p><img src="images/10000000000004DC000003D69FCEB1CF.png" style="width:9.871cm;" /></p>
 <ul>
-<li>en [2], on voit que le serveur a reçu un cookie de session envoyé par le navigateur client ;</li>
-<li>en [4], on voit que le store n’est pas réinitialisé mais repris dans la session reçue ;</li>
-<li>en [4-5] : on voit que les attributs de la session ont bien tous été incrémentés trois fois ;</li>
+<li>
+<p>en [2], on voit que le serveur a reçu un cookie de session envoyé par le navigateur client ;</p>
+</li>
+<li>
+<p>en [4], on voit que le store n’est pas réinitialisé mais repris dans la session reçue ;</p>
+</li>
+<li>
+<p>en [4-5] : on voit que les attributs de la session ont bien tous été incrémentés trois fois ;</p>
+</li>
 </ul>
 <p>La page envoyée par le serveur est alors la suivante ;</p>
-<p><img src="images/10000000000009340000026FAD722BCF.png" style="width:15.581cm;height:4.121cm;" alt="Image" /></p>
+<p><img src="images/10000000000009340000026FAD722BCF.png" style="width:15.581cm;" /></p>
 <p>La conclusion issue de cette page est que la session peut transporter d’autres éléments que le store mais ceux-ci ne sont pas réactifs.</p>
 <p>Maintenant cliquons sur le lien [Page 1] [4]. La nouvelle page affichée est alors la suivante :</p>
-<p><img src="images/10000000000008380000023A4AB5718A.png" style="width:13.921cm;height:3.77cm;" alt="Image" /></p>
+<p><img src="images/10000000000008380000023A4AB5718A.png" style="width:13.921cm;" /></p>
 <p>Puis utilisons le bouton [Incrémenter] trois fois. La page devient la suivante :</p>
-<p><img src="images/1000000000000864000002439DF02F45.png" style="width:14.211cm;height:3.83cm;" alt="Image" /></p>
+<p><img src="images/1000000000000864000002439DF02F45.png" style="width:14.211cm;" /></p>
 <p>Cette fois-ci la session s’affiche correctement en [2]. Elle est ici réactive. Cela se voit dans les logs :</p>
-<p><img src="images/100000000000048E0000040829D81976.png" style="width:9.261cm;height:8.191cm;" alt="Image" /></p>
+<p><img src="images/100000000000048E0000040829D81976.png" style="width:9.261cm;" /></p>
 <ul>
-<li>en [1-3], les valeurs de la session ;</li>
-<li>en [4-6], les getters et setters réactifs des éléments de la session ;</li>
+<li>
+<p>en [1-3], les valeurs de la session ;</p>
+</li>
+<li>
+<p>en [4-6], les getters et setters réactifs des éléments de la session ;</p>
+</li>
 </ul>
 <p>Maintenant cliquons sur le lien [Home] [4]. Nous obtenons la page suivante :</p>
-<p><img src="images/100000000000099B000002872FBB8CC2.png" style="width:16.26cm;height:4.28cm;" alt="Image" /></p>
+<p><img src="images/100000000000099B000002872FBB8CC2.png" style="width:16.26cm;" /></p>
 <p>Puis cliquons deux fois sur le bouton [Incrémenter] [4]. La page devient la suivante :</p>
-<p><img src="images/100000000000083A000002373763BAAB.png" style="width:13.93cm;height:3.751cm;" alt="Image" /></p>
+<p><img src="images/100000000000083A000002373763BAAB.png" style="width:13.93cm;" /></p>
 <p>On constate que là également la session est devenue réactive [2].</p>
-<p>Demandons la valeur rendue par la fonction [this.\$session()] :</p>
-<p><img src="images/10000000000006B40000035665CD6F32.png" style="width:13.622cm;height:6.781cm;" alt="Image" /></p>
+<p>Demandons la valeur rendue par la fonction [this.$session()] :</p>
+<p><img src="images/10000000000006B40000035665CD6F32.png" style="width:13.622cm;" /></p>
 <ul>
-<li>dans l’onglet [Vue], on sélectionne la page courante [Home] pour en obtenir la référence [\$vm0] [3] ;</li>
+<li>dans l’onglet [Vue], on sélectionne la page courante [Home] pour en obtenir la référence [$vm0] [3] ;</li>
 </ul>
-<p>Puis dans l’onglet [Console] [4], demandons la valeur de la fonction [\$vm0.\$session()] :</p>
-<p><img src="images/10000000000004DD00000257D109F034.png" style="width:16.47cm;height:7.931cm;" alt="Image" /></p>
+<p>Puis dans l’onglet [Console] [4], demandons la valeur de la fonction [$vm0.$session()] :</p>
+<p><img src="images/10000000000004DD00000257D109F034.png" style="width:16.47cm;" /></p>
 <ul>
-<li>en [5], on voit que la session est devenue réactive alors qu’elle ne l’était pas initialement ;</li>
-<li>en [6], on demande à voir la valeur de la session ;</li>
-<li>en [7-8], on découvre que cette valeur est elle également devenue réactive ;</li>
+<li>
+<p>en [5], on voit que la session est devenue réactive alors qu’elle ne l’était pas initialement ;</p>
+</li>
+<li>
+<p>en [6], on demande à voir la valeur de la session ;</p>
+</li>
+<li>
+<p>en [7-8], on découvre que cette valeur est elle également devenue réactive ;</p>
+</li>
 </ul>
 <p>On a donc là un résultat inattendu : si un élément devient réactif dans une page parce qu’il a été placé dans les propriétés de la page, alors il devient également réactif dans les pages où il ne fait pas partie des propriétés.</p>
 <h2 id="99-conclusion">9.9. Conclusion</h2>
 <p>L’exemple [nuxt-05] a montré qu’on pouvait persister le store au fil des requêtes faites au serveur. L’exemple [nuxt-06] fait la même chose avec un objet qu’on a appelé [session] par analogie avec la session web. On a vu que cette session pouvait avoir les mêmes propriétés que le store [Vuex] et devenir réactive elle aussi alors que nativement elle ne l’était pas.</p>
 <p>Alors quel est l’intérêt du store [Vuex] ? Je dois avouer que pour l’instant il ne m’est pas apparu. Il est probable que quelque chose m’a échappé. Donc dans le doute, je conseillerai d’utiliser :</p>
 <ul>
-<li>un <strong>store [Vuex]</strong> pour y mettre tout ce qui doit être partagé entre les pages du client, et ce qui éventuellement doit être partagé entre le client et le serveur ;</li>
-<li>un <strong>cookie de session</strong> si le store doit être persisté lors d’un appel du client vers le serveur, la session ne contenant alors que le store ;</li>
+<li>
+<p>un <strong>store [Vuex]</strong> pour y mettre tout ce qui doit être partagé entre les pages du client, et ce qui éventuellement doit être partagé entre le client et le serveur ;</p>
+</li>
+<li>
+<p>un <strong>cookie de session</strong> si le store doit être persisté lors d’un appel du client vers le serveur, la session ne contenant alors que le store ;</p>
+</li>
 </ul>
 <p>Les exemples [nuxt-05] et [nuxt-06] avaient pour but de montrer comment on pouvait assurer la continuité de l’application lorsque l’utilisateur force l’appel au serveur en tapant manuellement des URL. On rappelle que le comportement par défaut dans ce cas est un redémarrage de l’application, son état du moment étant alors perdu.</p>
 

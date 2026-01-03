@@ -6,13 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Introduction au framework NUXT.JS par l'exemple">
       
-      
-        <meta name="author" content="Serge Tahé">
-      
-      
-        <link rel="canonical" href="https://stahe.github.io/nuxtjs-dec-2019/exemple-nuxt-05-persistance-du-store-avec-un-cookie-de-session.html">
       
       
         <link rel="prev" href="exemple-nuxt-04-maintien-dune-session-client--serveur.html">
@@ -197,18 +191,6 @@
       
     
     
-      <div class="md-header__source">
-        <a href="https://github.com/stahe/nuxtjs-dec-2019" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-      </div>
-    
   </nav>
   
 </header>
@@ -244,18 +226,6 @@
     </a>
     Introduction au framework NUXT.JS par l'exemple
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/stahe/nuxtjs-dec-2019" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -874,23 +844,26 @@
                   
 
 
-  
-  
-
 
 <h1 id="8-exemple-nuxt-05-persistance-du-store-avec-un-cookie-de-session">8. Exemple [nuxt-05] : persistance du store avec un cookie de session</h1>
 <p><strong>Objectif</strong> : on voudrait que le store [Vuex] ne soit pas réinitialisé à chaque requête vers le serveur. Pour ce faire nous allons utiliser un cookie de session :</p>
 <ul>
-<li>le store sera initialisé par le serveur et mis par celui-ci dans un cookie de session ;</li>
-<li>le navigateur client recevra ce cookie de session et mécaniquement l’enverra à chaque nouvelle requête vers le serveur ;</li>
-<li>le serveur pourra alors récupérer ce cookie de session et travailler avec le store qu’il contient, un store mis à jour par le client ;</li>
+<li>
+<p>le store sera initialisé par le serveur et mis par celui-ci dans un cookie de session ;</p>
+</li>
+<li>
+<p>le navigateur client recevra ce cookie de session et mécaniquement l’enverra à chaque nouvelle requête vers le serveur ;</p>
+</li>
+<li>
+<p>le serveur pourra alors récupérer ce cookie de session et travailler avec le store qu’il contient, un store mis à jour par le client ;</p>
+</li>
 </ul>
 <h2 id="81-presentation">8.1. Présentation</h2>
 <p>Le projet [nuxt-05] est obtenu initialement par recopie du projet [nuxt-04] :</p>
-<p><img src="images/100000000000014D00000194D2B72658.png" style="width:3.53cm;height:4.271cm;" alt="Image" /></p>
+<p><img src="images/100000000000014D00000194D2B72658.png" style="width:3.53cm;" /></p>
 <p>Nous allons voir que seul le fichier [store / index.js] va changer.</p>
 <p>Pour utiliser des cookies avec [nuxt], nous allons utiliser le module [cookie-universal-nuxt] que nous installlons avec [yarn] dans un terminal VSCode :</p>
-<p><img src="images/10000000000004C800000124EE164342.png" style="width:16.192cm;height:3.86cm;" alt="Image" /></p>
+<p><img src="images/10000000000004C800000124EE164342.png" style="width:16.192cm;" /></p>
 <ul>
 <li>en [4], on tape la commande [yarn add cookie-universal-nuxt] ;</li>
 </ul>
@@ -1112,24 +1085,44 @@
 <a id="__codelineno-2-82" name="__codelineno-2-82"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 79 : on a ajouté la clé [env] au fichier. Cette clé est un mot réservé. Les éléments déclarés dans cet objet sont disponibles à partir de l’objet [context.env] dans les éléments de l’application ;</li>
-<li>ligne 80 : l’attribut [maxAge] sera la durée de vie maximale du cookie de session, durée qui se mesure à partir de la dernière fois que le cookie a été initialisé. Cette durée s’exprime en secondes. On a mis ici une durée de vie de 5 minutes ;</li>
+<li>
+<p>ligne 79 : on a ajouté la clé [env] au fichier. Cette clé est un mot réservé. Les éléments déclarés dans cet objet sont disponibles à partir de l’objet [context.env] dans les éléments de l’application ;</p>
+</li>
+<li>
+<p>ligne 80 : l’attribut [maxAge] sera la durée de vie maximale du cookie de session, durée qui se mesure à partir de la dernière fois que le cookie a été initialisé. Cette durée s’exprime en secondes. On a mis ici une durée de vie de 5 minutes ;</p>
+</li>
 </ul>
 <h2 id="83-le-principe-de-la-persistance-du-store">8.3. Le principe de la persistance du store</h2>
 <p>Les cookies échangés entre le client et le serveur sont disponibles de chaque côté (client et serveur) dans :</p>
 <ul>
-<li>[context.app.\$cookies] là ou l’objet [context] est disponible, ç-à-d à peu près partout ;</li>
-<li>[this.\$cookies] à l’intérieur d’une vue ;</li>
+<li>
+<p>[context.app.$cookies] là ou l’objet [context] est disponible, ç-à-d à peu près partout ;</p>
+</li>
+<li>
+<p>[this.$cookies] à l’intérieur d’une vue ;</p>
+</li>
 </ul>
-<p>On obtient un cookie particulier avec l’expression [...\$cookies.<strong>get</strong>(‘nom_du_cookie’)]. On fixe la valeur d’un cookie avec l’expression [...\$cookies.<strong>set</strong>(‘nom_du_cookie’, valeur_du_cookie)].</p>
+<p>On obtient un cookie particulier avec l’expression [...$cookies.<strong>get</strong>(‘nom_du_cookie’)]. On fixe la valeur d’un cookie avec l’expression [...$cookies.<strong>set</strong>(‘nom_du_cookie’, valeur_du_cookie)].</p>
 <p>Le principe du cookie de persistance du store sera le suivant :</p>
 <ul>
-<li>lorsque le serveur va initialiser le store dans la fonction [nuxtServerInit], l’état du store sera stocké dans un cookie nommé ‘session’ ;</li>
-<li>le cookie ‘session’ fera alors partie de la réponse HTTP du serveur. On sait qu’un navigateur renvoie au serveur les cookies que celui-ci lui a envoyés. Il le fait à chaque nouvelle requête qu’il fait au serveur. On sait également que le serveur envoie le store à l’intérieur la page qu’il envoie au client ;</li>
-<li>au sein du navigateur, l’application cliente récupère le store envoyé par le serveur et va ensuite faire son travail. On fera en sorte qu’à chaque fois qu’elle modifie le store, le nouvel état de celui-ci soit stocké dans le cookie ‘session’ enregistré par le navigateur ;</li>
-<li>si l’utilisateur force un appel au serveur, le navigateur client renverra automatiquement tous les cookies que le serveur lui a précédemment envoyés, notamment le cookie nommé ‘session’ ;</li>
-<li>lorsque suite à cet appel, le serveur va réinitialiser de nouveau le store, il récupèrera le cookie nommé ‘session’ et initialisera l’état du store avec la valeur de celui-ci ;</li>
-<li>il y aura donc continuité du store entre le client et le serveur ;</li>
+<li>
+<p>lorsque le serveur va initialiser le store dans la fonction [nuxtServerInit], l’état du store sera stocké dans un cookie nommé ‘session’ ;</p>
+</li>
+<li>
+<p>le cookie ‘session’ fera alors partie de la réponse HTTP du serveur. On sait qu’un navigateur renvoie au serveur les cookies que celui-ci lui a envoyés. Il le fait à chaque nouvelle requête qu’il fait au serveur. On sait également que le serveur envoie le store à l’intérieur la page qu’il envoie au client ;</p>
+</li>
+<li>
+<p>au sein du navigateur, l’application cliente récupère le store envoyé par le serveur et va ensuite faire son travail. On fera en sorte qu’à chaque fois qu’elle modifie le store, le nouvel état de celui-ci soit stocké dans le cookie ‘session’ enregistré par le navigateur ;</p>
+</li>
+<li>
+<p>si l’utilisateur force un appel au serveur, le navigateur client renverra automatiquement tous les cookies que le serveur lui a précédemment envoyés, notamment le cookie nommé ‘session’ ;</p>
+</li>
+<li>
+<p>lorsque suite à cet appel, le serveur va réinitialiser de nouveau le store, il récupèrera le cookie nommé ‘session’ et initialisera l’état du store avec la valeur de celui-ci ;</p>
+</li>
+<li>
+<p>il y aura donc continuité du store entre le client et le serveur ;</p>
+</li>
 </ul>
 <h2 id="84-initialisation-du-store">8.4. Initialisation du store</h2>
 <p>Le store est implémenté dans le fichier [store / index.js] :</p>
@@ -1247,23 +1240,49 @@
 </code></pre></div></td></tr></table></div>
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>lignes 2-5 : le store sera constitué d’un compteur ;</li>
-<li>lignes 9-11 : ce compteur pourra être incrémenté ;</li>
-<li>lignes 13-17 : l’état du store pourra être initialisé à partir d’un nouvel état. Cette fonction est là pour montrer une initialisation possible du store lorsque celui-ci n’est pas limité au seul compteur comme ici ;</li>
-<li>lignes 21-35 : la fonction [nuxtServerInit] n’a pas changé ;</li>
-<li>ligne 30 : lorsque le temps d’attente d’une seconde est écoulé, on initialise le store à l’aide de la fonction des lignes 38-56 ;</li>
-<li>lignes 40-41 : on commence par récupérer le cookie nommé ‘session’ :</li>
-<li>lors de la 1ère exécution de l’application et lors de la 1ère requête faite au serveur, ce cookie <strong>n’existera pas encore</strong>. Il sera alors créé (ligne 53) et sera envoyé au navigateur client ;</li>
-<li>lors de la même exécution de l’application et lors des requêtes n°s 2, 3, ... faites au serveur, ce cookie <strong>existera</strong> car le navigateur client le renverra avec chaque nouvelle requête faite au serveur ;</li>
-<li>lors d’une seconde exécution de l’application et lors de la 1ère requête faite au serveur, ce cookie <strong>peut exister également</strong>. En effet, à l’issue de l’étape 1, le cookie a été stocké sur le navigateur avec une certaine durée de vie. Si cette durée de vie n’est pas dépassée, le cookie nommé ‘session’ sera envoyé avec la 1ère requête faite au serveur</li>
+<li>
+<p>lignes 2-5 : le store sera constitué d’un compteur ;</p>
+</li>
+<li>
+<p>lignes 9-11 : ce compteur pourra être incrémenté ;</p>
+</li>
+<li>
+<p>lignes 13-17 : l’état du store pourra être initialisé à partir d’un nouvel état. Cette fonction est là pour montrer une initialisation possible du store lorsque celui-ci n’est pas limité au seul compteur comme ici ;</p>
+</li>
+<li>
+<p>lignes 21-35 : la fonction [nuxtServerInit] n’a pas changé ;</p>
+</li>
+<li>
+<p>ligne 30 : lorsque le temps d’attente d’une seconde est écoulé, on initialise le store à l’aide de la fonction des lignes 38-56 ;</p>
+</li>
+<li>
+<p>lignes 40-41 : on commence par récupérer le cookie nommé ‘session’ :</p>
+</li>
+<li>
+<p>lors de la 1ère exécution de l’application et lors de la 1ère requête faite au serveur, ce cookie <strong>n’existera pas encore</strong>. Il sera alors créé (ligne 53) et sera envoyé au navigateur client ;</p>
+</li>
+<li>
+<p>lors de la même exécution de l’application et lors des requêtes n°s 2, 3, ... faites au serveur, ce cookie <strong>existera</strong> car le navigateur client le renverra avec chaque nouvelle requête faite au serveur ;</p>
+</li>
+<li>
+<p>lors d’une seconde exécution de l’application et lors de la 1ère requête faite au serveur, ce cookie <strong>peut exister également</strong>. En effet, à l’issue de l’étape 1, le cookie a été stocké sur le navigateur avec une certaine durée de vie. Si cette durée de vie n’est pas dépassée, le cookie nommé ‘session’ sera envoyé avec la 1ère requête faite au serveur</p>
+</li>
 </ul>
 <p>En résumé, pour chaque requête faite au serveur : si le cookie ‘session’ est déjà stocké sur le navigateur client alors le serveur va le recevoir, sinon il ne le recevra pas.</p>
 <ul>
-<li>lignes 42-47 : si le serveur ne reçoit pas le cookie de session, alors le store est initialisé par la ligne 46 ;</li>
-<li>puis ligne 53, un cookie nommé ‘session’ sera créé et placé dans la réponse HTTP du serveur. La valeur du cookie est l’objet [{ store: store.state }]. C’est donc l’état du store et non le store lui-même qui est mis dans le cookie de session ;</li>
-<li>le 3ième paramètre de la fonction [set] est un objet d’options :</li>
 <li>
-<p>[path] indique à quelle URL ce cookie devra être renvoyé. [context.base] est l’URL de base de l’application [nuxt-05]. Celle-ci est définie dans le fichier [nuxt.config.js] :
+<p>lignes 42-47 : si le serveur ne reçoit pas le cookie de session, alors le store est initialisé par la ligne 46 ;</p>
+</li>
+<li>
+<p>puis ligne 53, un cookie nommé ‘session’ sera créé et placé dans la réponse HTTP du serveur. La valeur du cookie est l’objet [{ store: store.state }]. C’est donc l’état du store et non le store lui-même qui est mis dans le cookie de session ;</p>
+</li>
+<li>
+<p>le 3ième paramètre de la fonction [set] est un objet d’options :</p>
+</li>
+<li>
+<p>[path] indique à quelle URL ce cookie devra être renvoyé. [context.base] est l’URL de base de l’application [nuxt-05]. Celle-ci est définie dans le fichier [nuxt.config.js] :</p>
+</li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
 <span class="normal"><a href="#__codelineno-4-3">3</a></span>
@@ -1273,10 +1292,10 @@
 <a id="__codelineno-4-3" name="__codelineno-4-3"></a>    // racine des URL de l&#39;application
 <a id="__codelineno-4-4" name="__codelineno-4-4"></a>    base: &#39;/nuxt-05/&#39;
 <a id="__codelineno-4-5" name="__codelineno-4-5"></a>},
-</code></pre></div></td></tr></table></div></p>
-</li>
-<li>
-<p>[maxAge] est la durée de vie en secondes du cookie sur le navigateur. Passée cette durée, le navigateur ne le renvoie plus au serveur. [context.env.maxAge] renvoie là encore une valeur inscrite dans le fichier [nuxt.config.js] :
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>[maxAge] est la durée de vie en secondes du cookie sur le navigateur. Passée cette durée, le navigateur ne le renvoie plus au serveur. [context.env.maxAge] renvoie là encore une valeur inscrite dans le fichier [nuxt.config.js] :</li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span>
 <span class="normal"><a href="#__codelineno-5-3">3</a></span>
@@ -1284,15 +1303,21 @@
 <a id="__codelineno-5-2" name="__codelineno-5-2"></a>  env: {
 <a id="__codelineno-5-3" name="__codelineno-5-3"></a>    maxAge: 60 * 5
 <a id="__codelineno-5-4" name="__codelineno-5-4"></a>}
-</code></pre></div></td></tr></table></div></p>
-</li>
-</ul>
+</code></pre></div></td></tr></table></div>
 <p>[env] est un mot clé réservé du fichier de configuration. On fixe ici la durée de vie à 5 minutes. Cette durée est mesurée par rapport à la dernière fois où le navigateur a reçu le cookie de session. Passée cette durée, le cookie ne sera pas renvoyé au serveur qui devra alors démarrer une nouvelle session ;</p>
 <ul>
-<li>lignes 48-50 : si le serveur reçoit le cookie de session, alors l’état du store est initialisé avec l’objet [store] du cookie de session. On se rappelle que cet objet contient l’état sauvegardé du store ;</li>
-<li>puis ligne 53, le cookie de session sera placé dans la réponse faite au navigateur client :</li>
-<li>la fonction [get] va chercher le cookie de session dans la <strong>requête reçue</strong> par le serveur ;</li>
-<li>la fonction [set] met le cookie de session dans la <strong>réponse</strong> que le serveur fait au navigateur client ;</li>
+<li>
+<p>lignes 48-50 : si le serveur reçoit le cookie de session, alors l’état du store est initialisé avec l’objet [store] du cookie de session. On se rappelle que cet objet contient l’état sauvegardé du store ;</p>
+</li>
+<li>
+<p>puis ligne 53, le cookie de session sera placé dans la réponse faite au navigateur client :</p>
+</li>
+<li>
+<p>la fonction [get] va chercher le cookie de session dans la <strong>requête reçue</strong> par le serveur ;</p>
+</li>
+<li>
+<p>la fonction [set] met le cookie de session dans la <strong>réponse</strong> que le serveur fait au navigateur client ;</p>
+</li>
 </ul>
 <h2 id="85-incrementation-du-compteur-du-store">8.5. Incrémentation du compteur du store</h2>
 <p>L’incrémentation du compteur dans la page [index.vue] évolue de la façon suivante :</p>
@@ -1322,44 +1347,70 @@
 </code></pre></div></td></tr></table></div>
 <p>Du côté client, à chaque fois qu’on modifie le store, il faut le sauvegarder dans le cookie de session. En effet, l’utilisateur peut demander une URL à la main à tout moment et on doit être alors capable d’envoyer au serveur un store à jour. C’est pourquoi, ligne 10, après l’incrémentation du compteur du store, on sauvegarde l’état de celui-ci dans le cookie de session :</p>
 <ul>
-<li>les cookies sont disponibles dans la propriété [this.\$cookies] ;</li>
-<li>l’état du store [this.\$store.state] est sauvegardé dans le cookie associé à la clé [store] ;</li>
-<li>le chemin du cookie est [context.base]. Dans une vue, le contexte est disponible dans [this.\$nuxt.context] ;</li>
-<li>la durée de vie du cookie est [context.env.maxAge] disponible ici dans la propriété [this.\$nuxt.context.env.maxAge] ;</li>
+<li>
+<p>les cookies sont disponibles dans la propriété [this.$cookies] ;</p>
+</li>
+<li>
+<p>l’état du store [this.$store.state] est sauvegardé dans le cookie associé à la clé [store] ;</p>
+</li>
+<li>
+<p>le chemin du cookie est [context.base]. Dans une vue, le contexte est disponible dans [this.$nuxt.context] ;</p>
+</li>
+<li>
+<p>la durée de vie du cookie est [context.env.maxAge] disponible ici dans la propriété [this.$nuxt.context.env.maxAge] ;</p>
+</li>
 </ul>
 <h2 id="86-execution-de-lexemple-nuxt-05">8.6. Exécution de l’exemple [nuxt-05]</h2>
 <p>Nous lançons l’application [nuxt-05] :</p>
-<p><img src="images/10000000000004A4000000C393512E1D.png" style="width:15.721cm;height:2.581cm;" alt="Image" /></p>
+<p><img src="images/10000000000004A4000000C393512E1D.png" style="width:15.721cm;" /></p>
 <p>Les copies d’écran qui suivent sont celles d’un navigateur Chrome. Nous demandons l’URL [http://localhost:81/nuxt-05/]. <strong>N’oubliez pas</strong> le dernier / derrière /nuxt-05, sinon vous n’aurez pas les résultats escomptés :</p>
-<p><img src="images/10000000000007EA000002AD420D8580.png" style="width:16.08cm;height:5.441cm;" alt="Image" /></p>
+<p><img src="images/10000000000007EA000002AD420D8580.png" style="width:16.08cm;" /></p>
 <ul>
 <li>en [4], nous avons obtenu la valeur initiale du store (77) ;</li>
 </ul>
 <p>Examinons les logs du navigateur (F12) :</p>
-<p><img src="images/10000000000003A8000002BFF206F300.png" style="width:7.43cm;height:5.58cm;" alt="Image" /></p>
+<p><img src="images/10000000000003A8000002BFF206F300.png" style="width:7.43cm;" /></p>
 <ul>
-<li>en [5-6], les logs du serveur ;</li>
-<li>en [7], on voit que le serveur démarre une nouvelle session. Cela veut dire qu’il n’a pas reçu de cookie de session ;</li>
-<li>en [8], initialisation du compteur avec la valeur 77 ;</li>
-<li>en [9], la page [index] du serveur (9) et celle du client (10) affichent bien la même valeur du compteur ;</li>
+<li>
+<p>en [5-6], les logs du serveur ;</p>
+</li>
+<li>
+<p>en [7], on voit que le serveur démarre une nouvelle session. Cela veut dire qu’il n’a pas reçu de cookie de session ;</p>
+</li>
+<li>
+<p>en [8], initialisation du compteur avec la valeur 77 ;</p>
+</li>
+<li>
+<p>en [9], la page [index] du serveur (9) et celle du client (10) affichent bien la même valeur du compteur ;</p>
+</li>
 </ul>
 <p>Maintenant regardons les cookies reçus par le navigateur :</p>
-<p><img src="images/100000000000071C0000026550FCE5E8.png" style="width:14.451cm;height:4.86cm;" alt="Image" /></p>
+<p><img src="images/100000000000071C0000026550FCE5E8.png" style="width:14.451cm;" /></p>
 <ul>
-<li>en [1], choisissez l’onglet [Application] puis l’option [Cookies] [2]. Parmi tous les cookies de votre navigateur, choisissez celui du domaine [http://localhost:81];</li>
-<li>en [4], le cookie nommé ‘session’. Si vous ne l’avez pas, rechargez la page [F5] : peut-être avez-vous dépassé sa durée de vie qui est de 5 mn ;</li>
-<li>en [5], la valeur du cookie. Bien que ce ne soit pas très lisible à cause de l’encodage des caractères { :, on distingue la valeur 77 du compteur ;</li>
-<li>en [6], l’URL du cookie : à chaque fois que cette URL sera demandée, le navigateur enverra le cookie au serveur ;</li>
-<li>en [7], l’heure de fin de validité du cookie. Lorsque cette heure sera dépassée, le cookie sera détruit sur le navigateur ;</li>
+<li>
+<p>en [1], choisissez l’onglet [Application] puis l’option [Cookies] [2]. Parmi tous les cookies de votre navigateur, choisissez celui du domaine [http://localhost:81];</p>
+</li>
+<li>
+<p>en [4], le cookie nommé ‘session’. Si vous ne l’avez pas, rechargez la page [F5] : peut-être avez-vous dépassé sa durée de vie qui est de 5 mn ;</p>
+</li>
+<li>
+<p>en [5], la valeur du cookie. Bien que ce ne soit pas très lisible à cause de l’encodage des caractères { :, on distingue la valeur 77 du compteur ;</p>
+</li>
+<li>
+<p>en [6], l’URL du cookie : à chaque fois que cette URL sera demandée, le navigateur enverra le cookie au serveur ;</p>
+</li>
+<li>
+<p>en [7], l’heure de fin de validité du cookie. Lorsque cette heure sera dépassée, le cookie sera détruit sur le navigateur ;</p>
+</li>
 </ul>
 <p>Assurez-vous d’avoir ce cookie. Si vous ne l’avez pas, rechargez la page (F5). Lorsque vous avez la page avec son cookie, rechargez de nouveau la page (F5). Les logs deviennent alors les suivants :</p>
-<p><img src="images/10000000000003F5000002D011D4BFB8.png" style="width:8.041cm;height:5.721cm;" alt="Image" /></p>
+<p><img src="images/10000000000003F5000002D011D4BFB8.png" style="width:8.041cm;" /></p>
 <p>Cette fois-ci en [3], le serveur a bien récupéré le cookie de session. C’est le navigateur client qui le lui a envoyé.</p>
 <p>Maintenant, procédez à des incrémentations du compteur, puis de temps en temps rechargez la page courante (F5), que ce soit [index] ou [page1], vous devez constater que le compteur ne revient pas à 77 comme dans l’exemple [nuxt-04] mais garde la valeur qu’il avait sur le navigateur client avant le rechargement de la page :</p>
-<p><img src="images/10000000000007E2000002B5201B12CF.png" style="width:16.02cm;height:5.501cm;" alt="Image" /></p>
-<p><img src="images/10000000000007F9000002B492061390.png" style="width:16.2cm;height:5.49cm;" alt="Image" /></p>
+<p><img src="images/10000000000007E2000002B5201B12CF.png" style="width:16.02cm;" /></p>
+<p><img src="images/10000000000007F9000002B492061390.png" style="width:16.2cm;" /></p>
 <p>Les logs du navigateur sont alors les suivants :</p>
-<p><img src="images/1000000000000530000001B45ACF1350.png" style="width:17.571cm;height:5.77cm;" alt="Image" /></p>
+<p><img src="images/1000000000000530000001B45ACF1350.png" style="width:17.571cm;" /></p>
 <p><strong>Note</strong> : pour les tests vous pouvez avoir besoin de supprimer [5] le cookie de session stocké sur le navigateur pour repartir avec une nouvelle session, initialisée par le serveur, lors de la prochaine requête vers celui-ci.</p>
 <p>Enfin montrons l’influence de la fonction [incrementCounter] de la page [index] sur le cookie de session stocké sur le navigateur client :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
@@ -1390,12 +1441,12 @@
 <li>ligne 10 : la modification du compteur est répercutée sur le cookie de session ;</li>
 </ul>
 <p>Vérifions ce point. On part de la situation suivante :</p>
-<p><img src="images/10000000000007EF000005E5DA78BB73.png" style="width:16.121cm;height:11.981cm;" alt="Image" /></p>
+<p><img src="images/10000000000007EF000005E5DA78BB73.png" style="width:16.121cm;" /></p>
 <ul>
 <li>en [4], le compteur du cookie de session reflète bien la valeur affichée [1] ;</li>
 </ul>
 <p>Maintenant, incrémentons le compteur une fois [5]. Le cookie de session en [4] évolue de la façon suivante :</p>
-<p><img src="images/10000000000007EC000005DCC967A8FF.png" style="width:16.102cm;height:11.911cm;" alt="Image" /></p>
+<p><img src="images/10000000000007EC000005DCC967A8FF.png" style="width:16.102cm;" /></p>
 <ul>
 <li>en [7], le compteur du cookie de session est bien passé à 84. Pour le voir, il faut rafraîchir la vue [8]. Pour cela sélectionnez une autre option du [Storage] [9], puis resélectionnez l’option [8]. La nouvelle valeur du cookie de session devrait alors apparaître ;</li>
 </ul>
