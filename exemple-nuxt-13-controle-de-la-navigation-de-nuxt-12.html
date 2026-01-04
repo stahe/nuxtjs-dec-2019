@@ -999,25 +999,25 @@
 <span class="normal"><a href="#__codelineno-3-16">16</a></span>
 <span class="normal"><a href="#__codelineno-3-17">17</a></span>
 <span class="normal"><a href="#__codelineno-3-18">18</a></span>
-<span class="normal"><a href="#__codelineno-3-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>&lt;template&gt;
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>  &lt;!-- menu Bootstrap à trois options --&gt;
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a>  &lt;b-nav vertical&gt;
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a>    &lt;b-nav-item v-if=&quot;$store.state.jsonSessionStarted &amp;&amp; !$store.state.userAuthenticated&quot; to=&quot;/authentification&quot; exact exact-active-class=&quot;active&quot;&gt;
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a>      Authentification
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a>    &lt;/b-nav-item&gt;
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a>    &lt;b-nav-item
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a>      v-if=&quot;$store.state.jsonSessionStarted &amp;&amp; $store.state.userAuthenticated &amp;&amp; !$store.state.adminData&quot;
-<a id="__codelineno-3-9" name="__codelineno-3-9"></a>      to=&quot;/get-admindata&quot;
-<a id="__codelineno-3-10" name="__codelineno-3-10"></a>      exact
-<a id="__codelineno-3-11" name="__codelineno-3-11"></a>      exact-active-class=&quot;active&quot;
-<a id="__codelineno-3-12" name="__codelineno-3-12"></a>    &gt;
-<a id="__codelineno-3-13" name="__codelineno-3-13"></a>      Requête AdminData
-<a id="__codelineno-3-14" name="__codelineno-3-14"></a>    &lt;/b-nav-item&gt;
-<a id="__codelineno-3-15" name="__codelineno-3-15"></a>    &lt;b-nav-item v-if=&quot;$store.state.jsonSessionStarted &amp;&amp; $store.state.userAuthenticated&quot; to=&quot;/fin-session&quot; exact exact-active-class=&quot;active&quot;&gt;
-<a id="__codelineno-3-16" name="__codelineno-3-16"></a>      Fin session impôt
-<a id="__codelineno-3-17" name="__codelineno-3-17"></a>    &lt;/b-nav-item&gt;
-<a id="__codelineno-3-18" name="__codelineno-3-18"></a>  &lt;/b-nav&gt;
-<a id="__codelineno-3-19" name="__codelineno-3-19"></a>&lt;/template&gt;
+<span class="normal"><a href="#__codelineno-3-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nt">&lt;template&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">  </span><span class="cm">&lt;!-- menu Bootstrap à trois options --&gt;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">  </span><span class="nt">&lt;b-nav</span><span class="w"> </span><span class="err">vertical</span><span class="nt">&gt;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="nt">&lt;b-nav-item</span><span class="w"> </span><span class="na">v-if=</span><span class="s">&quot;$store.state.jsonSessionStarted &amp;&amp; !$store.state.userAuthenticated&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;/authentification&quot;</span><span class="w"> </span><span class="err">exact</span><span class="w"> </span><span class="na">exact-active-class=</span><span class="s">&quot;active&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">      </span>Authentification
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="nt">&lt;/b-nav-item&gt;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="nt">&lt;b-nav-item</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">      </span><span class="na">v-if=</span><span class="s">&quot;$store.state.jsonSessionStarted &amp;&amp; $store.state.userAuthenticated &amp;&amp; !$store.state.adminData&quot;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">      </span><span class="na">to=</span><span class="s">&quot;/get-admindata&quot;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">      </span><span class="err">exact</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">      </span><span class="na">exact-active-class=</span><span class="s">&quot;active&quot;</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">    </span><span class="nt">&gt;</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">      </span>Requête<span class="w"> </span>AdminData
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">    </span><span class="nt">&lt;/b-nav-item&gt;</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">    </span><span class="nt">&lt;b-nav-item</span><span class="w"> </span><span class="na">v-if=</span><span class="s">&quot;$store.state.jsonSessionStarted &amp;&amp; $store.state.userAuthenticated&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;/fin-session&quot;</span><span class="w"> </span><span class="err">exact</span><span class="w"> </span><span class="na">exact-active-class=</span><span class="s">&quot;active&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">      </span>Fin<span class="w"> </span>session<span class="w"> </span>impôt
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">    </span><span class="nt">&lt;/b-nav-item&gt;</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">  </span><span class="nt">&lt;/b-nav&gt;</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="nt">&lt;/template&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 4 : l’option [Authentification] n’est offerte que si la session jSON a démarré mais que l’utilisateur n’est pas authentifié. Si la session jSON n’a pas démarré ou que l’utilisateur est déjà authentifié alors l’option n’est pas offerte ;</li>
