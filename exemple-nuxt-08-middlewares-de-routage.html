@@ -6,13 +6,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Introduction au langage Java et à l'écosystème Spring au travers d'une étude de cas">
+        <meta name="description" content="Introduction au framework NUXT.JS par l'exemple">
       
       
         <meta name="author" content="Serge Tahé">
       
       
-        <link rel="canonical" href="https://stahe.github.io/java-spring-dec-2015/exemple-nuxt-08-middlewares-de-routage.html">
+        <link rel="canonical" href="https://stahe.github.io/nuxtjs-dec-2019/exemple-nuxt-08-middlewares-de-routage.html">
       
       
         <link rel="prev" href="exemple-nuxt-07-les-contextes-client-et-serveur.html">
@@ -29,7 +29,7 @@
     
     
       
-        <title>11. Exemple [nuxt-08] : middlewares de routage - Introduction au langage Java et à l'écosystème Spring au travers d'une étude de cas</title>
+        <title>11. Exemple [nuxt-08] : middlewares de routage - Introduction au framework NUXT.JS par l'exemple</title>
       
     
     
@@ -60,6 +60,20 @@
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
+    var siteName = "Introduction au framework NUXT.JS par l'exemple";
+
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+    console.log("[GA Debug] page_title forced to: " + siteName);
+  </script>
 
     
     
@@ -98,7 +112,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="index.html" title="Introduction au langage Java et à l&#39;écosystème Spring au travers d&#39;une étude de cas" class="md-header__button md-logo" aria-label="Introduction au langage Java et à l'écosystème Spring au travers d'une étude de cas" data-md-component="logo">
+    <a href="index.html" title="Introduction au framework NUXT.JS par l&#39;exemple" class="md-header__button md-logo" aria-label="Introduction au framework NUXT.JS par l'exemple" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +126,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Introduction au langage Java et à l'écosystème Spring au travers d'une étude de cas
+            Introduction au framework NUXT.JS par l'exemple
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -198,7 +212,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/stahe/java-spring-dec-2015" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/stahe/nuxtjs-dec-2019" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -236,17 +250,17 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="index.html" title="Introduction au langage Java et à l&#39;écosystème Spring au travers d&#39;une étude de cas" class="md-nav__button md-logo" aria-label="Introduction au langage Java et à l'écosystème Spring au travers d'une étude de cas" data-md-component="logo">
+    <a href="index.html" title="Introduction au framework NUXT.JS par l&#39;exemple" class="md-nav__button md-logo" aria-label="Introduction au framework NUXT.JS par l'exemple" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Introduction au langage Java et à l'écosystème Spring au travers d'une étude de cas
+    Introduction au framework NUXT.JS par l'exemple
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/stahe/java-spring-dec-2015" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/stahe/nuxtjs-dec-2019" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -859,10 +873,10 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
-<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>  router: {
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    base: &#39;/nuxt-08/&#39;,
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    middleware: [&#39;routing&#39;]
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>},
+<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>  <span class="n">router</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">base</span><span class="p">:</span> <span class="s1">&#39;/nuxt-08/&#39;</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">middleware</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;routing&#39;</span><span class="p">]</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="p">},</span>
 </code></pre></div></td></tr></table></div>
 <p>Les middlewares de routage général sont une propriété du routeur (ligne 1). Il peut y avoir plusieurs middlewares de routage. C’est pourquoi ligne 3, la valeur de la propriété [middleware] est un tableau. On voit qu’on n’utilise pas de chemin pour désigner le middleware. Il sera automatiquement cherché dans le dossier [middleware] du projet ;</p>
 <p>Le middleware [routing] ne fait ici que des logs :</p>
@@ -977,47 +991,47 @@
 <span class="normal"><a href="#__codelineno-2-33">33</a></span>
 <span class="normal"><a href="#__codelineno-2-34">34</a></span>
 <span class="normal"><a href="#__codelineno-2-35">35</a></span>
-<span class="normal"><a href="#__codelineno-2-36">36</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="cm">/* eslint-disable no-undef */</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="cm">/* eslint-disable no-console */</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="cm">/* eslint-disable nuxt/no-env-in-hooks */</span>
+<span class="normal"><a href="#__codelineno-2-36">36</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="o">/*</span> <span class="n">eslint</span><span class="o">-</span><span class="n">disable</span> <span class="n">no</span><span class="o">-</span><span class="n">undef</span> <span class="o">*/</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="o">/*</span> <span class="n">eslint</span><span class="o">-</span><span class="n">disable</span> <span class="n">no</span><span class="o">-</span><span class="n">console</span> <span class="o">*/</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="o">/*</span> <span class="n">eslint</span><span class="o">-</span><span class="n">disable</span> <span class="n">nuxt</span><span class="o">/</span><span class="n">no</span><span class="o">-</span><span class="n">env</span><span class="o">-</span><span class="ow">in</span><span class="o">-</span><span class="n">hooks</span> <span class="o">*/</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="k">import</span><span class="w"> </span><span class="nx">Navigation</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@/components/navigation&#39;</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="k">import</span><span class="w"> </span><span class="nx">Layout</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@/components/layout&#39;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">Navigation</span> <span class="kn">from</span><span class="w"> </span><span class="s1">&#39;@/components/navigation&#39;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">Layout</span> <span class="kn">from</span><span class="w"> </span><span class="s1">&#39;@/components/layout&#39;</span>
 <a id="__codelineno-2-8" name="__codelineno-2-8"></a>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Home&#39;</span><span class="p">,</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">  </span><span class="c1">// composants utilisés</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">  </span><span class="nx">components</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">    </span><span class="nx">Layout</span><span class="p">,</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">    </span><span class="nx">Navigation</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">  </span><span class="c1">// cycle de vie</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">  </span><span class="nx">beforeCreate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">    </span><span class="c1">// client et serveur</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[home beforeCreate]&#39;</span><span class="p">)</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="w">  </span><span class="nx">created</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">    </span><span class="c1">// client et serveur</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[home created]&#39;</span><span class="p">)</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">  </span><span class="nx">beforeMount</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="w">    </span><span class="c1">// client seulement</span>
-<a id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[home beforeMount]&#39;</span><span class="p">)</span>
-<a id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="w">  </span><span class="nx">mounted</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="w">    </span><span class="c1">// client seulement</span>
-<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[home mounted]&#39;</span><span class="p">)</span>
-<a id="__codelineno-2-32" name="__codelineno-2-32"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-2-33" name="__codelineno-2-33"></a><span class="w">  </span><span class="c1">// routage</span>
-<a id="__codelineno-2-34" name="__codelineno-2-34"></a><span class="w">  </span><span class="nx">middleware</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;index-routing&#39;</span><span class="p">]</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>  <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Home&#39;</span><span class="p">,</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>  <span class="o">//</span> <span class="n">composants</span> <span class="n">utilisés</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>  <span class="n">components</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>    <span class="n">Layout</span><span class="p">,</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>    <span class="n">Navigation</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a>  <span class="p">},</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a>  <span class="o">//</span> <span class="n">cycle</span> <span class="n">de</span> <span class="n">vie</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a>  <span class="n">beforeCreate</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a>    <span class="o">//</span> <span class="n">client</span> <span class="n">et</span> <span class="n">serveur</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;[home beforeCreate]&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a>  <span class="p">},</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a>  <span class="n">created</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a>    <span class="o">//</span> <span class="n">client</span> <span class="n">et</span> <span class="n">serveur</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;[home created]&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24"></a>  <span class="p">},</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a>  <span class="n">beforeMount</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26"></a>    <span class="o">//</span> <span class="n">client</span> <span class="n">seulement</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;[home beforeMount]&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28"></a>  <span class="p">},</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29"></a>  <span class="n">mounted</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30"></a>    <span class="o">//</span> <span class="n">client</span> <span class="n">seulement</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;[home mounted]&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32"></a>  <span class="p">},</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33"></a>  <span class="o">//</span> <span class="n">routage</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34"></a>  <span class="n">middleware</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;index-routing&#39;</span><span class="p">]</span>
 <a id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="p">}</span>
-<a id="__codelineno-2-36" name="__codelineno-2-36"></a><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36"></a><span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 34 : la propriété [middleware] liste les scripts à exécuter à chaque fois que la prochaine page affichée est la page [index]. Là encore, ces scripts seront cherchés dans le dossier [middleware] du projet ;</li>
+<li>ligne 34 : la propriété [middleware] liste les scripts à exécuter à chaque fois que la prochaine page affichée est la page [index]. Là encore, ces scripts seront cherchés dans le dossier [middleware] du projet ;
+Le middleware [index-routing] est le suivant :</li>
 </ul>
-<p>Le middleware [index-routing] est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
@@ -1185,98 +1199,98 @@
 <span class="normal"><a href="#__codelineno-4-83">83</a></span>
 <span class="normal"><a href="#__codelineno-4-84">84</a></span>
 <span class="normal"><a href="#__codelineno-4-85">85</a></span>
-<span class="normal"><a href="#__codelineno-4-86">86</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>[routing], process.server= true process.client= false
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a>[routing server], il y a 1 argument(s)
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a>Liste des clés [[routing server], context]
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a>[ &#39;isStatic&#39;,
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a>  &#39;isDev&#39;,
-<a id="__codelineno-4-6" name="__codelineno-4-6"></a>  &#39;isHMR&#39;,
-<a id="__codelineno-4-7" name="__codelineno-4-7"></a>  &#39;app&#39;,
-<a id="__codelineno-4-8" name="__codelineno-4-8"></a>  &#39;payload&#39;,
-<a id="__codelineno-4-9" name="__codelineno-4-9"></a>  &#39;error&#39;,
-<a id="__codelineno-4-10" name="__codelineno-4-10"></a>  &#39;base&#39;,
-<a id="__codelineno-4-11" name="__codelineno-4-11"></a>  &#39;env&#39;,
-<a id="__codelineno-4-12" name="__codelineno-4-12"></a>  &#39;req&#39;,
-<a id="__codelineno-4-13" name="__codelineno-4-13"></a>  &#39;res&#39;,
-<a id="__codelineno-4-14" name="__codelineno-4-14"></a>  &#39;ssrContext&#39;,
-<a id="__codelineno-4-15" name="__codelineno-4-15"></a>  &#39;redirect&#39;,
-<a id="__codelineno-4-16" name="__codelineno-4-16"></a>  &#39;beforeNuxtRender&#39;,
-<a id="__codelineno-4-17" name="__codelineno-4-17"></a>  &#39;route&#39;,
-<a id="__codelineno-4-18" name="__codelineno-4-18"></a>  &#39;next&#39;,
-<a id="__codelineno-4-19" name="__codelineno-4-19"></a>  &#39;_redirected&#39;,
-<a id="__codelineno-4-20" name="__codelineno-4-20"></a>  &#39;_errored&#39;,
-<a id="__codelineno-4-21" name="__codelineno-4-21"></a>  &#39;params&#39;,
-<a id="__codelineno-4-22" name="__codelineno-4-22"></a>  &#39;query&#39;,
-<a id="__codelineno-4-23" name="__codelineno-4-23"></a>  &#39;$axios&#39; ]
-<a id="__codelineno-4-24" name="__codelineno-4-24"></a>Liste des clés [[routing server], context.app]
-<a id="__codelineno-4-25" name="__codelineno-4-25"></a>[ &#39;router&#39;,
-<a id="__codelineno-4-26" name="__codelineno-4-26"></a>  &#39;nuxt&#39;,
-<a id="__codelineno-4-27" name="__codelineno-4-27"></a>  &#39;head&#39;,
-<a id="__codelineno-4-28" name="__codelineno-4-28"></a>  &#39;render&#39;,
-<a id="__codelineno-4-29" name="__codelineno-4-29"></a>  &#39;data&#39;,
-<a id="__codelineno-4-30" name="__codelineno-4-30"></a>  &#39;beforeCreate&#39;,
-<a id="__codelineno-4-31" name="__codelineno-4-31"></a>  &#39;created&#39;,
-<a id="__codelineno-4-32" name="__codelineno-4-32"></a>  &#39;mounted&#39;,
-<a id="__codelineno-4-33" name="__codelineno-4-33"></a>  &#39;watch&#39;,
-<a id="__codelineno-4-34" name="__codelineno-4-34"></a>  &#39;computed&#39;,
-<a id="__codelineno-4-35" name="__codelineno-4-35"></a>  &#39;methods&#39;,
-<a id="__codelineno-4-36" name="__codelineno-4-36"></a>  &#39;components&#39;,
-<a id="__codelineno-4-37" name="__codelineno-4-37"></a>  &#39;context&#39;,
-<a id="__codelineno-4-38" name="__codelineno-4-38"></a>  &#39;$axios&#39; ]
-<a id="__codelineno-4-39" name="__codelineno-4-39"></a>Liste des clés [[routing server], context.route]
-<a id="__codelineno-4-40" name="__codelineno-4-40"></a>[ &#39;name&#39;,
-<a id="__codelineno-4-41" name="__codelineno-4-41"></a>  &#39;meta&#39;,
-<a id="__codelineno-4-42" name="__codelineno-4-42"></a>  &#39;path&#39;,
-<a id="__codelineno-4-43" name="__codelineno-4-43"></a>  &#39;hash&#39;,
-<a id="__codelineno-4-44" name="__codelineno-4-44"></a>  &#39;query&#39;,
-<a id="__codelineno-4-45" name="__codelineno-4-45"></a>  &#39;params&#39;,
-<a id="__codelineno-4-46" name="__codelineno-4-46"></a>  &#39;fullPath&#39;,
-<a id="__codelineno-4-47" name="__codelineno-4-47"></a>  &#39;matched&#39; ]
-<a id="__codelineno-4-48" name="__codelineno-4-48"></a>[routing server], context.route= { name: &#39;index&#39;,
-<a id="__codelineno-4-49" name="__codelineno-4-49"></a>  meta: [ {} ],
-<a id="__codelineno-4-50" name="__codelineno-4-50"></a>  path: &#39;/&#39;,
-<a id="__codelineno-4-51" name="__codelineno-4-51"></a>  hash: &#39;&#39;,
-<a id="__codelineno-4-52" name="__codelineno-4-52"></a>  query: {},
-<a id="__codelineno-4-53" name="__codelineno-4-53"></a>  params: {},
-<a id="__codelineno-4-54" name="__codelineno-4-54"></a>  fullPath: &#39;/&#39;,
-<a id="__codelineno-4-55" name="__codelineno-4-55"></a>  matched:
-<a id="__codelineno-4-56" name="__codelineno-4-56"></a>   [ { path: &#39;&#39;,
-<a id="__codelineno-4-57" name="__codelineno-4-57"></a>       regex: /^(?:\/(?=$))?$/i,
-<a id="__codelineno-4-58" name="__codelineno-4-58"></a>       components: [Object],
-<a id="__codelineno-4-59" name="__codelineno-4-59"></a>       instances: {},
-<a id="__codelineno-4-60" name="__codelineno-4-60"></a>       name: &#39;index&#39;,
-<a id="__codelineno-4-61" name="__codelineno-4-61"></a>       parent: undefined,
-<a id="__codelineno-4-62" name="__codelineno-4-62"></a>       matchAs: undefined,
-<a id="__codelineno-4-63" name="__codelineno-4-63"></a>       redirect: undefined,
-<a id="__codelineno-4-64" name="__codelineno-4-64"></a>       beforeEnter: undefined,
-<a id="__codelineno-4-65" name="__codelineno-4-65"></a>       meta: {},
-<a id="__codelineno-4-66" name="__codelineno-4-66"></a>       props: {} } ] }
-<a id="__codelineno-4-67" name="__codelineno-4-67"></a>Liste des clés [[routing server], context.app.router]
-<a id="__codelineno-4-68" name="__codelineno-4-68"></a>[ &#39;app&#39;,
-<a id="__codelineno-4-69" name="__codelineno-4-69"></a>  &#39;apps&#39;,
-<a id="__codelineno-4-70" name="__codelineno-4-70"></a>  &#39;options&#39;,
-<a id="__codelineno-4-71" name="__codelineno-4-71"></a>  &#39;beforeHooks&#39;,
-<a id="__codelineno-4-72" name="__codelineno-4-72"></a>  &#39;resolveHooks&#39;,
-<a id="__codelineno-4-73" name="__codelineno-4-73"></a>  &#39;afterHooks&#39;,
-<a id="__codelineno-4-74" name="__codelineno-4-74"></a>  &#39;matcher&#39;,
-<a id="__codelineno-4-75" name="__codelineno-4-75"></a>  &#39;fallback&#39;,
-<a id="__codelineno-4-76" name="__codelineno-4-76"></a>  &#39;mode&#39;,
-<a id="__codelineno-4-77" name="__codelineno-4-77"></a>  &#39;history&#39; ]
-<a id="__codelineno-4-78" name="__codelineno-4-78"></a>Liste des clés [[routing server], context.app.router.options.routes]
-<a id="__codelineno-4-79" name="__codelineno-4-79"></a>[ &#39;0&#39;, &#39;1&#39;, &#39;2&#39; ]
-<a id="__codelineno-4-80" name="__codelineno-4-80"></a>[routing server], context.app.router.options.routes= [ { path: &#39;/page1&#39;,
-<a id="__codelineno-4-81" name="__codelineno-4-81"></a>    component: [Function: _61cefe10],
-<a id="__codelineno-4-82" name="__codelineno-4-82"></a>    name: &#39;page1&#39; },
-<a id="__codelineno-4-83" name="__codelineno-4-83"></a>  { path: &#39;/page2&#39;,
-<a id="__codelineno-4-84" name="__codelineno-4-84"></a>    component: [Function: _61dd1591],
-<a id="__codelineno-4-85" name="__codelineno-4-85"></a>    name: &#39;page2&#39; },
-<a id="__codelineno-4-86" name="__codelineno-4-86"></a>  { path: &#39;/&#39;, component: [Function: _00d5e140], name: &#39;index&#39; } ]
+<span class="normal"><a href="#__codelineno-4-86">86</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="p">[</span><span class="n">routing</span><span class="p">],</span> <span class="n">process</span><span class="o">.</span><span class="n">server</span><span class="o">=</span> <span class="n">true</span> <span class="n">process</span><span class="o">.</span><span class="n">client</span><span class="o">=</span> <span class="n">false</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="p">[</span><span class="n">routing</span> <span class="n">server</span><span class="p">],</span> <span class="n">il</span> <span class="n">y</span> <span class="n">a</span> <span class="mi">1</span> <span class="n">argument</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">routing</span> <span class="n">server</span><span class="p">],</span> <span class="n">context</span><span class="p">]</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="p">[</span> <span class="s1">&#39;isStatic&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>  <span class="s1">&#39;isDev&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>  <span class="s1">&#39;isHMR&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>  <span class="s1">&#39;app&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>  <span class="s1">&#39;payload&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>  <span class="s1">&#39;error&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>  <span class="s1">&#39;base&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>  <span class="s1">&#39;env&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>  <span class="s1">&#39;req&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>  <span class="s1">&#39;res&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>  <span class="s1">&#39;ssrContext&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a>  <span class="s1">&#39;redirect&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a>  <span class="s1">&#39;beforeNuxtRender&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a>  <span class="s1">&#39;route&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a>  <span class="s1">&#39;next&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a>  <span class="s1">&#39;_redirected&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a>  <span class="s1">&#39;_errored&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21"></a>  <span class="s1">&#39;params&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22"></a>  <span class="s1">&#39;query&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23"></a>  <span class="s1">&#39;$axios&#39;</span> <span class="p">]</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">routing</span> <span class="n">server</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="p">]</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25"></a><span class="p">[</span> <span class="s1">&#39;router&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26"></a>  <span class="s1">&#39;nuxt&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27"></a>  <span class="s1">&#39;head&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28"></a>  <span class="s1">&#39;render&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29"></a>  <span class="s1">&#39;data&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30"></a>  <span class="s1">&#39;beforeCreate&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31"></a>  <span class="s1">&#39;created&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32"></a>  <span class="s1">&#39;mounted&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33"></a>  <span class="s1">&#39;watch&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34"></a>  <span class="s1">&#39;computed&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35"></a>  <span class="s1">&#39;methods&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36"></a>  <span class="s1">&#39;components&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37"></a>  <span class="s1">&#39;context&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-38" name="__codelineno-4-38"></a>  <span class="s1">&#39;$axios&#39;</span> <span class="p">]</span>
+<a id="__codelineno-4-39" name="__codelineno-4-39"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">routing</span> <span class="n">server</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">route</span><span class="p">]</span>
+<a id="__codelineno-4-40" name="__codelineno-4-40"></a><span class="p">[</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-41" name="__codelineno-4-41"></a>  <span class="s1">&#39;meta&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-42" name="__codelineno-4-42"></a>  <span class="s1">&#39;path&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-43" name="__codelineno-4-43"></a>  <span class="s1">&#39;hash&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-44" name="__codelineno-4-44"></a>  <span class="s1">&#39;query&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-45" name="__codelineno-4-45"></a>  <span class="s1">&#39;params&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-46" name="__codelineno-4-46"></a>  <span class="s1">&#39;fullPath&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-47" name="__codelineno-4-47"></a>  <span class="s1">&#39;matched&#39;</span> <span class="p">]</span>
+<a id="__codelineno-4-48" name="__codelineno-4-48"></a><span class="p">[</span><span class="n">routing</span> <span class="n">server</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">route</span><span class="o">=</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-49" name="__codelineno-4-49"></a>  <span class="n">meta</span><span class="p">:</span> <span class="p">[</span> <span class="p">{}</span> <span class="p">],</span>
+<a id="__codelineno-4-50" name="__codelineno-4-50"></a>  <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-51" name="__codelineno-4-51"></a>  <span class="nb">hash</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-52" name="__codelineno-4-52"></a>  <span class="n">query</span><span class="p">:</span> <span class="p">{},</span>
+<a id="__codelineno-4-53" name="__codelineno-4-53"></a>  <span class="n">params</span><span class="p">:</span> <span class="p">{},</span>
+<a id="__codelineno-4-54" name="__codelineno-4-54"></a>  <span class="n">fullPath</span><span class="p">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-55" name="__codelineno-4-55"></a>  <span class="n">matched</span><span class="p">:</span>
+<a id="__codelineno-4-56" name="__codelineno-4-56"></a>   <span class="p">[</span> <span class="p">{</span> <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-57" name="__codelineno-4-57"></a>       <span class="n">regex</span><span class="p">:</span> <span class="o">/^</span><span class="p">(</span><span class="err">?</span><span class="p">:</span>\<span class="o">/</span><span class="p">(</span><span class="err">?</span><span class="o">=</span><span class="err">$</span><span class="p">))</span><span class="err">?$</span><span class="o">/</span><span class="n">i</span><span class="p">,</span>
+<a id="__codelineno-4-58" name="__codelineno-4-58"></a>       <span class="n">components</span><span class="p">:</span> <span class="p">[</span><span class="n">Object</span><span class="p">],</span>
+<a id="__codelineno-4-59" name="__codelineno-4-59"></a>       <span class="n">instances</span><span class="p">:</span> <span class="p">{},</span>
+<a id="__codelineno-4-60" name="__codelineno-4-60"></a>       <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-61" name="__codelineno-4-61"></a>       <span class="n">parent</span><span class="p">:</span> <span class="n">undefined</span><span class="p">,</span>
+<a id="__codelineno-4-62" name="__codelineno-4-62"></a>       <span class="n">matchAs</span><span class="p">:</span> <span class="n">undefined</span><span class="p">,</span>
+<a id="__codelineno-4-63" name="__codelineno-4-63"></a>       <span class="n">redirect</span><span class="p">:</span> <span class="n">undefined</span><span class="p">,</span>
+<a id="__codelineno-4-64" name="__codelineno-4-64"></a>       <span class="n">beforeEnter</span><span class="p">:</span> <span class="n">undefined</span><span class="p">,</span>
+<a id="__codelineno-4-65" name="__codelineno-4-65"></a>       <span class="n">meta</span><span class="p">:</span> <span class="p">{},</span>
+<a id="__codelineno-4-66" name="__codelineno-4-66"></a>       <span class="n">props</span><span class="p">:</span> <span class="p">{}</span> <span class="p">}</span> <span class="p">]</span> <span class="p">}</span>
+<a id="__codelineno-4-67" name="__codelineno-4-67"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">routing</span> <span class="n">server</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="p">]</span>
+<a id="__codelineno-4-68" name="__codelineno-4-68"></a><span class="p">[</span> <span class="s1">&#39;app&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-69" name="__codelineno-4-69"></a>  <span class="s1">&#39;apps&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-70" name="__codelineno-4-70"></a>  <span class="s1">&#39;options&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-71" name="__codelineno-4-71"></a>  <span class="s1">&#39;beforeHooks&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-72" name="__codelineno-4-72"></a>  <span class="s1">&#39;resolveHooks&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-73" name="__codelineno-4-73"></a>  <span class="s1">&#39;afterHooks&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-74" name="__codelineno-4-74"></a>  <span class="s1">&#39;matcher&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-75" name="__codelineno-4-75"></a>  <span class="s1">&#39;fallback&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-76" name="__codelineno-4-76"></a>  <span class="s1">&#39;mode&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-77" name="__codelineno-4-77"></a>  <span class="s1">&#39;history&#39;</span> <span class="p">]</span>
+<a id="__codelineno-4-78" name="__codelineno-4-78"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">routing</span> <span class="n">server</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">routes</span><span class="p">]</span>
+<a id="__codelineno-4-79" name="__codelineno-4-79"></a><span class="p">[</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span> <span class="p">]</span>
+<a id="__codelineno-4-80" name="__codelineno-4-80"></a><span class="p">[</span><span class="n">routing</span> <span class="n">server</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">routes</span><span class="o">=</span> <span class="p">[</span> <span class="p">{</span> <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;/page1&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-81" name="__codelineno-4-81"></a>    <span class="n">component</span><span class="p">:</span> <span class="p">[</span><span class="n">Function</span><span class="p">:</span> <span class="n">_61cefe10</span><span class="p">],</span>
+<a id="__codelineno-4-82" name="__codelineno-4-82"></a>    <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;page1&#39;</span> <span class="p">},</span>
+<a id="__codelineno-4-83" name="__codelineno-4-83"></a>  <span class="p">{</span> <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;/page2&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-84" name="__codelineno-4-84"></a>    <span class="n">component</span><span class="p">:</span> <span class="p">[</span><span class="n">Function</span><span class="p">:</span> <span class="n">_61dd1591</span><span class="p">],</span>
+<a id="__codelineno-4-85" name="__codelineno-4-85"></a>    <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;page2&#39;</span> <span class="p">},</span>
+<a id="__codelineno-4-86" name="__codelineno-4-86"></a>  <span class="p">{</span> <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="p">[</span><span class="n">Function</span><span class="p">:</span> <span class="n">_00d5e140</span><span class="p">],</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;index&#39;</span> <span class="p">}</span> <span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <p>On retrouve là ce qu’on avait obtenu avec les plugins.</p>
 <ul>
-<li>ligne 15 : la propriété [redirect] est souvent utilisée dans les middlewares : elle permet de changer la cible du routage en cours ;</li>
+<li>ligne 15 : la propriété [redirect] est souvent utilisée dans les middlewares : elle permet de changer la cible du routage en cours ;
+Puis, parce que la page qui va être affichée est la page [index], le serveur exécute le script [index-routing] et affiche les logs suivants :</li>
 </ul>
-<p>Puis, parce que la page qui va être affichée est la page [index], le serveur exécute le script [index-routing] et affiche les logs suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
@@ -1362,102 +1376,102 @@
 <span class="normal"><a href="#__codelineno-5-83">83</a></span>
 <span class="normal"><a href="#__codelineno-5-84">84</a></span>
 <span class="normal"><a href="#__codelineno-5-85">85</a></span>
-<span class="normal"><a href="#__codelineno-5-86">86</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>[index-routing], process.server= true process.client= false
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a>[index-routing server], il y a 1 argument(s)
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a>Liste des clés [[index-routing server], context]
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a>[ &#39;isStatic&#39;,
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a>  &#39;isDev&#39;,
-<a id="__codelineno-5-6" name="__codelineno-5-6"></a>  &#39;isHMR&#39;,
-<a id="__codelineno-5-7" name="__codelineno-5-7"></a>  &#39;app&#39;,
-<a id="__codelineno-5-8" name="__codelineno-5-8"></a>  &#39;payload&#39;,
-<a id="__codelineno-5-9" name="__codelineno-5-9"></a>  &#39;error&#39;,
-<a id="__codelineno-5-10" name="__codelineno-5-10"></a>  &#39;base&#39;,
-<a id="__codelineno-5-11" name="__codelineno-5-11"></a>  &#39;env&#39;,
-<a id="__codelineno-5-12" name="__codelineno-5-12"></a>  &#39;req&#39;,
-<a id="__codelineno-5-13" name="__codelineno-5-13"></a>  &#39;res&#39;,
-<a id="__codelineno-5-14" name="__codelineno-5-14"></a>  &#39;ssrContext&#39;,
-<a id="__codelineno-5-15" name="__codelineno-5-15"></a>  &#39;redirect&#39;,
-<a id="__codelineno-5-16" name="__codelineno-5-16"></a>  &#39;beforeNuxtRender&#39;,
-<a id="__codelineno-5-17" name="__codelineno-5-17"></a>  &#39;route&#39;,
-<a id="__codelineno-5-18" name="__codelineno-5-18"></a>  &#39;next&#39;,
-<a id="__codelineno-5-19" name="__codelineno-5-19"></a>  &#39;_redirected&#39;,
-<a id="__codelineno-5-20" name="__codelineno-5-20"></a>  &#39;_errored&#39;,
-<a id="__codelineno-5-21" name="__codelineno-5-21"></a>  &#39;params&#39;,
-<a id="__codelineno-5-22" name="__codelineno-5-22"></a>  &#39;query&#39;,
-<a id="__codelineno-5-23" name="__codelineno-5-23"></a>  &#39;$axios&#39; ]
-<a id="__codelineno-5-24" name="__codelineno-5-24"></a>Liste des clés [[index-routing server], context.app]
-<a id="__codelineno-5-25" name="__codelineno-5-25"></a>[ &#39;router&#39;,
-<a id="__codelineno-5-26" name="__codelineno-5-26"></a>  &#39;nuxt&#39;,
-<a id="__codelineno-5-27" name="__codelineno-5-27"></a>  &#39;head&#39;,
-<a id="__codelineno-5-28" name="__codelineno-5-28"></a>  &#39;render&#39;,
-<a id="__codelineno-5-29" name="__codelineno-5-29"></a>  &#39;data&#39;,
-<a id="__codelineno-5-30" name="__codelineno-5-30"></a>  &#39;beforeCreate&#39;,
-<a id="__codelineno-5-31" name="__codelineno-5-31"></a>  &#39;created&#39;,
-<a id="__codelineno-5-32" name="__codelineno-5-32"></a>  &#39;mounted&#39;,
-<a id="__codelineno-5-33" name="__codelineno-5-33"></a>  &#39;watch&#39;,
-<a id="__codelineno-5-34" name="__codelineno-5-34"></a>  &#39;computed&#39;,
-<a id="__codelineno-5-35" name="__codelineno-5-35"></a>  &#39;methods&#39;,
-<a id="__codelineno-5-36" name="__codelineno-5-36"></a>  &#39;components&#39;,
-<a id="__codelineno-5-37" name="__codelineno-5-37"></a>  &#39;context&#39;,
-<a id="__codelineno-5-38" name="__codelineno-5-38"></a>  &#39;$axios&#39; ]
-<a id="__codelineno-5-39" name="__codelineno-5-39"></a>Liste des clés [[index-routing server], context.route]
-<a id="__codelineno-5-40" name="__codelineno-5-40"></a>[ &#39;name&#39;,
-<a id="__codelineno-5-41" name="__codelineno-5-41"></a>  &#39;meta&#39;,
-<a id="__codelineno-5-42" name="__codelineno-5-42"></a>  &#39;path&#39;,
-<a id="__codelineno-5-43" name="__codelineno-5-43"></a>  &#39;hash&#39;,
-<a id="__codelineno-5-44" name="__codelineno-5-44"></a>  &#39;query&#39;,
-<a id="__codelineno-5-45" name="__codelineno-5-45"></a>  &#39;params&#39;,
-<a id="__codelineno-5-46" name="__codelineno-5-46"></a>  &#39;fullPath&#39;,
-<a id="__codelineno-5-47" name="__codelineno-5-47"></a>  &#39;matched&#39; ]
-<a id="__codelineno-5-48" name="__codelineno-5-48"></a>[index-routing server], context.route= { name: &#39;index&#39;,
-<a id="__codelineno-5-49" name="__codelineno-5-49"></a>  meta: [ {} ],
-<a id="__codelineno-5-50" name="__codelineno-5-50"></a>  path: &#39;/&#39;,
-<a id="__codelineno-5-51" name="__codelineno-5-51"></a>  hash: &#39;&#39;,
-<a id="__codelineno-5-52" name="__codelineno-5-52"></a>  query: {},
-<a id="__codelineno-5-53" name="__codelineno-5-53"></a>  params: {},
-<a id="__codelineno-5-54" name="__codelineno-5-54"></a>  fullPath: &#39;/&#39;,
-<a id="__codelineno-5-55" name="__codelineno-5-55"></a>  matched:
-<a id="__codelineno-5-56" name="__codelineno-5-56"></a>   [ { path: &#39;&#39;,
-<a id="__codelineno-5-57" name="__codelineno-5-57"></a>       regex: /^(?:\/(?=$))?$/i,
-<a id="__codelineno-5-58" name="__codelineno-5-58"></a>       components: [Object],
-<a id="__codelineno-5-59" name="__codelineno-5-59"></a>       instances: {},
-<a id="__codelineno-5-60" name="__codelineno-5-60"></a>       name: &#39;index&#39;,
-<a id="__codelineno-5-61" name="__codelineno-5-61"></a>       parent: undefined,
-<a id="__codelineno-5-62" name="__codelineno-5-62"></a>       matchAs: undefined,
-<a id="__codelineno-5-63" name="__codelineno-5-63"></a>       redirect: undefined,
-<a id="__codelineno-5-64" name="__codelineno-5-64"></a>       beforeEnter: undefined,
-<a id="__codelineno-5-65" name="__codelineno-5-65"></a>       meta: {},
-<a id="__codelineno-5-66" name="__codelineno-5-66"></a>       props: {} } ] }
-<a id="__codelineno-5-67" name="__codelineno-5-67"></a>Liste des clés [[index-routing server], context.app.router]
-<a id="__codelineno-5-68" name="__codelineno-5-68"></a>[ &#39;app&#39;,
-<a id="__codelineno-5-69" name="__codelineno-5-69"></a>  &#39;apps&#39;,
-<a id="__codelineno-5-70" name="__codelineno-5-70"></a>  &#39;options&#39;,
-<a id="__codelineno-5-71" name="__codelineno-5-71"></a>  &#39;beforeHooks&#39;,
-<a id="__codelineno-5-72" name="__codelineno-5-72"></a>  &#39;resolveHooks&#39;,
-<a id="__codelineno-5-73" name="__codelineno-5-73"></a>  &#39;afterHooks&#39;,
-<a id="__codelineno-5-74" name="__codelineno-5-74"></a>  &#39;matcher&#39;,
-<a id="__codelineno-5-75" name="__codelineno-5-75"></a>  &#39;fallback&#39;,
-<a id="__codelineno-5-76" name="__codelineno-5-76"></a>  &#39;mode&#39;,
-<a id="__codelineno-5-77" name="__codelineno-5-77"></a>  &#39;history&#39; ]
-<a id="__codelineno-5-78" name="__codelineno-5-78"></a>Liste des clés [[index-routing server], context.app.router.options.routes]
-<a id="__codelineno-5-79" name="__codelineno-5-79"></a>[ &#39;0&#39;, &#39;1&#39;, &#39;2&#39; ]
-<a id="__codelineno-5-80" name="__codelineno-5-80"></a>[index-routing server], context.app.router.options.routes= [ { path: &#39;/page1&#39;,
-<a id="__codelineno-5-81" name="__codelineno-5-81"></a>    component: [Function: _61cefe10],
-<a id="__codelineno-5-82" name="__codelineno-5-82"></a>    name: &#39;page1&#39; },
-<a id="__codelineno-5-83" name="__codelineno-5-83"></a>  { path: &#39;/page2&#39;,
-<a id="__codelineno-5-84" name="__codelineno-5-84"></a>    component: [Function: _61dd1591],
-<a id="__codelineno-5-85" name="__codelineno-5-85"></a>    name: &#39;page2&#39; },
-<a id="__codelineno-5-86" name="__codelineno-5-86"></a>  { path: &#39;/&#39;, component: [Function: _00d5e140], name: &#39;index&#39; } ]
+<span class="normal"><a href="#__codelineno-5-86">86</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="p">[</span><span class="n">index</span><span class="o">-</span><span class="n">routing</span><span class="p">],</span> <span class="n">process</span><span class="o">.</span><span class="n">server</span><span class="o">=</span> <span class="n">true</span> <span class="n">process</span><span class="o">.</span><span class="n">client</span><span class="o">=</span> <span class="n">false</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="p">[</span><span class="n">index</span><span class="o">-</span><span class="n">routing</span> <span class="n">server</span><span class="p">],</span> <span class="n">il</span> <span class="n">y</span> <span class="n">a</span> <span class="mi">1</span> <span class="n">argument</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">index</span><span class="o">-</span><span class="n">routing</span> <span class="n">server</span><span class="p">],</span> <span class="n">context</span><span class="p">]</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="p">[</span> <span class="s1">&#39;isStatic&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>  <span class="s1">&#39;isDev&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>  <span class="s1">&#39;isHMR&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>  <span class="s1">&#39;app&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>  <span class="s1">&#39;payload&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>  <span class="s1">&#39;error&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>  <span class="s1">&#39;base&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>  <span class="s1">&#39;env&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>  <span class="s1">&#39;req&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>  <span class="s1">&#39;res&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>  <span class="s1">&#39;ssrContext&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>  <span class="s1">&#39;redirect&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>  <span class="s1">&#39;beforeNuxtRender&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a>  <span class="s1">&#39;route&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a>  <span class="s1">&#39;next&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19"></a>  <span class="s1">&#39;_redirected&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20"></a>  <span class="s1">&#39;_errored&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21"></a>  <span class="s1">&#39;params&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22"></a>  <span class="s1">&#39;query&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23"></a>  <span class="s1">&#39;$axios&#39;</span> <span class="p">]</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">index</span><span class="o">-</span><span class="n">routing</span> <span class="n">server</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="p">]</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25"></a><span class="p">[</span> <span class="s1">&#39;router&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26"></a>  <span class="s1">&#39;nuxt&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27"></a>  <span class="s1">&#39;head&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28"></a>  <span class="s1">&#39;render&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29"></a>  <span class="s1">&#39;data&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30"></a>  <span class="s1">&#39;beforeCreate&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31"></a>  <span class="s1">&#39;created&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-32" name="__codelineno-5-32"></a>  <span class="s1">&#39;mounted&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33"></a>  <span class="s1">&#39;watch&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-34" name="__codelineno-5-34"></a>  <span class="s1">&#39;computed&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-35" name="__codelineno-5-35"></a>  <span class="s1">&#39;methods&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-36" name="__codelineno-5-36"></a>  <span class="s1">&#39;components&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-37" name="__codelineno-5-37"></a>  <span class="s1">&#39;context&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-38" name="__codelineno-5-38"></a>  <span class="s1">&#39;$axios&#39;</span> <span class="p">]</span>
+<a id="__codelineno-5-39" name="__codelineno-5-39"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">index</span><span class="o">-</span><span class="n">routing</span> <span class="n">server</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">route</span><span class="p">]</span>
+<a id="__codelineno-5-40" name="__codelineno-5-40"></a><span class="p">[</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-41" name="__codelineno-5-41"></a>  <span class="s1">&#39;meta&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-42" name="__codelineno-5-42"></a>  <span class="s1">&#39;path&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-43" name="__codelineno-5-43"></a>  <span class="s1">&#39;hash&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-44" name="__codelineno-5-44"></a>  <span class="s1">&#39;query&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-45" name="__codelineno-5-45"></a>  <span class="s1">&#39;params&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-46" name="__codelineno-5-46"></a>  <span class="s1">&#39;fullPath&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-47" name="__codelineno-5-47"></a>  <span class="s1">&#39;matched&#39;</span> <span class="p">]</span>
+<a id="__codelineno-5-48" name="__codelineno-5-48"></a><span class="p">[</span><span class="n">index</span><span class="o">-</span><span class="n">routing</span> <span class="n">server</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">route</span><span class="o">=</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-49" name="__codelineno-5-49"></a>  <span class="n">meta</span><span class="p">:</span> <span class="p">[</span> <span class="p">{}</span> <span class="p">],</span>
+<a id="__codelineno-5-50" name="__codelineno-5-50"></a>  <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-51" name="__codelineno-5-51"></a>  <span class="nb">hash</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-52" name="__codelineno-5-52"></a>  <span class="n">query</span><span class="p">:</span> <span class="p">{},</span>
+<a id="__codelineno-5-53" name="__codelineno-5-53"></a>  <span class="n">params</span><span class="p">:</span> <span class="p">{},</span>
+<a id="__codelineno-5-54" name="__codelineno-5-54"></a>  <span class="n">fullPath</span><span class="p">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-55" name="__codelineno-5-55"></a>  <span class="n">matched</span><span class="p">:</span>
+<a id="__codelineno-5-56" name="__codelineno-5-56"></a>   <span class="p">[</span> <span class="p">{</span> <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-57" name="__codelineno-5-57"></a>       <span class="n">regex</span><span class="p">:</span> <span class="o">/^</span><span class="p">(</span><span class="err">?</span><span class="p">:</span>\<span class="o">/</span><span class="p">(</span><span class="err">?</span><span class="o">=</span><span class="err">$</span><span class="p">))</span><span class="err">?$</span><span class="o">/</span><span class="n">i</span><span class="p">,</span>
+<a id="__codelineno-5-58" name="__codelineno-5-58"></a>       <span class="n">components</span><span class="p">:</span> <span class="p">[</span><span class="n">Object</span><span class="p">],</span>
+<a id="__codelineno-5-59" name="__codelineno-5-59"></a>       <span class="n">instances</span><span class="p">:</span> <span class="p">{},</span>
+<a id="__codelineno-5-60" name="__codelineno-5-60"></a>       <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-61" name="__codelineno-5-61"></a>       <span class="n">parent</span><span class="p">:</span> <span class="n">undefined</span><span class="p">,</span>
+<a id="__codelineno-5-62" name="__codelineno-5-62"></a>       <span class="n">matchAs</span><span class="p">:</span> <span class="n">undefined</span><span class="p">,</span>
+<a id="__codelineno-5-63" name="__codelineno-5-63"></a>       <span class="n">redirect</span><span class="p">:</span> <span class="n">undefined</span><span class="p">,</span>
+<a id="__codelineno-5-64" name="__codelineno-5-64"></a>       <span class="n">beforeEnter</span><span class="p">:</span> <span class="n">undefined</span><span class="p">,</span>
+<a id="__codelineno-5-65" name="__codelineno-5-65"></a>       <span class="n">meta</span><span class="p">:</span> <span class="p">{},</span>
+<a id="__codelineno-5-66" name="__codelineno-5-66"></a>       <span class="n">props</span><span class="p">:</span> <span class="p">{}</span> <span class="p">}</span> <span class="p">]</span> <span class="p">}</span>
+<a id="__codelineno-5-67" name="__codelineno-5-67"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">index</span><span class="o">-</span><span class="n">routing</span> <span class="n">server</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="p">]</span>
+<a id="__codelineno-5-68" name="__codelineno-5-68"></a><span class="p">[</span> <span class="s1">&#39;app&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-69" name="__codelineno-5-69"></a>  <span class="s1">&#39;apps&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-70" name="__codelineno-5-70"></a>  <span class="s1">&#39;options&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-71" name="__codelineno-5-71"></a>  <span class="s1">&#39;beforeHooks&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-72" name="__codelineno-5-72"></a>  <span class="s1">&#39;resolveHooks&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-73" name="__codelineno-5-73"></a>  <span class="s1">&#39;afterHooks&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-74" name="__codelineno-5-74"></a>  <span class="s1">&#39;matcher&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-75" name="__codelineno-5-75"></a>  <span class="s1">&#39;fallback&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-76" name="__codelineno-5-76"></a>  <span class="s1">&#39;mode&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-77" name="__codelineno-5-77"></a>  <span class="s1">&#39;history&#39;</span> <span class="p">]</span>
+<a id="__codelineno-5-78" name="__codelineno-5-78"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">index</span><span class="o">-</span><span class="n">routing</span> <span class="n">server</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">routes</span><span class="p">]</span>
+<a id="__codelineno-5-79" name="__codelineno-5-79"></a><span class="p">[</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span> <span class="p">]</span>
+<a id="__codelineno-5-80" name="__codelineno-5-80"></a><span class="p">[</span><span class="n">index</span><span class="o">-</span><span class="n">routing</span> <span class="n">server</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">routes</span><span class="o">=</span> <span class="p">[</span> <span class="p">{</span> <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;/page1&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-81" name="__codelineno-5-81"></a>    <span class="n">component</span><span class="p">:</span> <span class="p">[</span><span class="n">Function</span><span class="p">:</span> <span class="n">_61cefe10</span><span class="p">],</span>
+<a id="__codelineno-5-82" name="__codelineno-5-82"></a>    <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;page1&#39;</span> <span class="p">},</span>
+<a id="__codelineno-5-83" name="__codelineno-5-83"></a>  <span class="p">{</span> <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;/page2&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-84" name="__codelineno-5-84"></a>    <span class="n">component</span><span class="p">:</span> <span class="p">[</span><span class="n">Function</span><span class="p">:</span> <span class="n">_61dd1591</span><span class="p">],</span>
+<a id="__codelineno-5-85" name="__codelineno-5-85"></a>    <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;page2&#39;</span> <span class="p">},</span>
+<a id="__codelineno-5-86" name="__codelineno-5-86"></a>  <span class="p">{</span> <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="p">[</span><span class="n">Function</span><span class="p">:</span> <span class="n">_00d5e140</span><span class="p">],</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;index&#39;</span> <span class="p">}</span> <span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <p>Les résultats obtenus avec le script [index-routing] sont analogues à ceux obtenus avec le script [routing].</p>
 <p>Une fois la page [index] reçue par le navigateur client, les scripts client prennent la main. Les logs deviennent les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
 <span class="normal"><a href="#__codelineno-6-2">2</a></span>
 <span class="normal"><a href="#__codelineno-6-3">3</a></span>
-<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>[home beforeCreate]
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a>[home created]
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a>[home beforeMount]
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a>[home mounted]
+<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="p">[</span><span class="n">home</span> <span class="n">beforeCreate</span><span class="p">]</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="p">[</span><span class="n">home</span> <span class="n">created</span><span class="p">]</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">[</span><span class="n">home</span> <span class="n">beforeMount</span><span class="p">]</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="p">[</span><span class="n">home</span> <span class="n">mounted</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <p>On voit donc qu’au démarrage de l’application <strong>le client n’exécute aucun middleware</strong>. Cela veut dire que cela se produira à chaque fois que l’utilisateur forcera un appel au serveur. Les middlewares ne sont exécutés par le client que lors d’une navigation au sein du client. Naviguons par exemple vers la page [page1] (nous sommes sur la page [index]) avec le lien [Page 1]. Les logs sont alors les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
@@ -1477,32 +1491,32 @@
 <span class="normal"><a href="#__codelineno-7-15">15</a></span>
 <span class="normal"><a href="#__codelineno-7-16">16</a></span>
 <span class="normal"><a href="#__codelineno-7-17">17</a></span>
-<span class="normal"><a href="#__codelineno-7-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>[routing], process.server= false process.client= true
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a>[routing client], il y a 1 argument(s)
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a>Liste des clés [[routing client], context]
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a>(18) [&quot;isStatic&quot;, &quot;isDev&quot;, &quot;isHMR&quot;, &quot;app&quot;, &quot;payload&quot;, &quot;error&quot;, &quot;base&quot;, &quot;env&quot;, &quot;redirect&quot;, &quot;nuxtState&quot;, &quot;route&quot;, &quot;next&quot;, &quot;_redirected&quot;, &quot;_errored&quot;, &quot;params&quot;, &quot;query&quot;, &quot;$axios&quot;, &quot;from&quot;]
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a>Liste des clés [[routing client], context.app]
-<a id="__codelineno-7-6" name="__codelineno-7-6"></a>(14) [&quot;router&quot;, &quot;nuxt&quot;, &quot;head&quot;, &quot;render&quot;, &quot;data&quot;, &quot;beforeCreate&quot;, &quot;created&quot;, &quot;mounted&quot;, &quot;watch&quot;, &quot;computed&quot;, &quot;methods&quot;, &quot;components&quot;, &quot;context&quot;, &quot;$axios&quot;]
-<a id="__codelineno-7-7" name="__codelineno-7-7"></a>Liste des clés [[routing client], context.route]
-<a id="__codelineno-7-8" name="__codelineno-7-8"></a>(8) [&quot;name&quot;, &quot;meta&quot;, &quot;path&quot;, &quot;hash&quot;, &quot;query&quot;, &quot;params&quot;, &quot;fullPath&quot;, &quot;matched&quot;]
-<a id="__codelineno-7-9" name="__codelineno-7-9"></a>[routing client], context.route= {name: &quot;page1&quot;, meta: Array(1), path: &quot;/page1&quot;, hash: &quot;&quot;, query: {…}, …}
-<a id="__codelineno-7-10" name="__codelineno-7-10"></a>Liste des clés [[routing client], context.app.router]
-<a id="__codelineno-7-11" name="__codelineno-7-11"></a>(10) [&quot;app&quot;, &quot;apps&quot;, &quot;options&quot;, &quot;beforeHooks&quot;, &quot;resolveHooks&quot;, &quot;afterHooks&quot;, &quot;matcher&quot;, &quot;fallback&quot;, &quot;mode&quot;, &quot;history&quot;]
-<a id="__codelineno-7-12" name="__codelineno-7-12"></a>Liste des clés [[routing client], context.app.router.options.routes]
-<a id="__codelineno-7-13" name="__codelineno-7-13"></a>(3) [&quot;0&quot;, &quot;1&quot;, &quot;2&quot;]
-<a id="__codelineno-7-14" name="__codelineno-7-14"></a>[routing client], context.app.router.options.routes= (3) [{…}, {…}, {…}]0: {path: &quot;/page1&quot;, name: &quot;page1&quot;, component: ƒ}1: {path: &quot;/page2&quot;, name: &quot;page2&quot;, component: ƒ}2: {path: &quot;/&quot;, name: &quot;index&quot;, component: ƒ}length: 3__proto__: Array(0)
-<a id="__codelineno-7-15" name="__codelineno-7-15"></a>[page1 beforeCreate]
-<a id="__codelineno-7-16" name="__codelineno-7-16"></a>[page1 created]
-<a id="__codelineno-7-17" name="__codelineno-7-17"></a>[page1 beforeMount]
-<a id="__codelineno-7-18" name="__codelineno-7-18"></a>[page1 mounted]
+<span class="normal"><a href="#__codelineno-7-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="p">[</span><span class="n">routing</span><span class="p">],</span> <span class="n">process</span><span class="o">.</span><span class="n">server</span><span class="o">=</span> <span class="n">false</span> <span class="n">process</span><span class="o">.</span><span class="n">client</span><span class="o">=</span> <span class="n">true</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="p">[</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">il</span> <span class="n">y</span> <span class="n">a</span> <span class="mi">1</span> <span class="n">argument</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="p">]</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">(</span><span class="mi">18</span><span class="p">)</span> <span class="p">[</span><span class="s2">&quot;isStatic&quot;</span><span class="p">,</span> <span class="s2">&quot;isDev&quot;</span><span class="p">,</span> <span class="s2">&quot;isHMR&quot;</span><span class="p">,</span> <span class="s2">&quot;app&quot;</span><span class="p">,</span> <span class="s2">&quot;payload&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="s2">&quot;base&quot;</span><span class="p">,</span> <span class="s2">&quot;env&quot;</span><span class="p">,</span> <span class="s2">&quot;redirect&quot;</span><span class="p">,</span> <span class="s2">&quot;nuxtState&quot;</span><span class="p">,</span> <span class="s2">&quot;route&quot;</span><span class="p">,</span> <span class="s2">&quot;next&quot;</span><span class="p">,</span> <span class="s2">&quot;_redirected&quot;</span><span class="p">,</span> <span class="s2">&quot;_errored&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">,</span> <span class="s2">&quot;query&quot;</span><span class="p">,</span> <span class="s2">&quot;$axios&quot;</span><span class="p">,</span> <span class="s2">&quot;from&quot;</span><span class="p">]</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="p">]</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="p">(</span><span class="mi">14</span><span class="p">)</span> <span class="p">[</span><span class="s2">&quot;router&quot;</span><span class="p">,</span> <span class="s2">&quot;nuxt&quot;</span><span class="p">,</span> <span class="s2">&quot;head&quot;</span><span class="p">,</span> <span class="s2">&quot;render&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;beforeCreate&quot;</span><span class="p">,</span> <span class="s2">&quot;created&quot;</span><span class="p">,</span> <span class="s2">&quot;mounted&quot;</span><span class="p">,</span> <span class="s2">&quot;watch&quot;</span><span class="p">,</span> <span class="s2">&quot;computed&quot;</span><span class="p">,</span> <span class="s2">&quot;methods&quot;</span><span class="p">,</span> <span class="s2">&quot;components&quot;</span><span class="p">,</span> <span class="s2">&quot;context&quot;</span><span class="p">,</span> <span class="s2">&quot;$axios&quot;</span><span class="p">]</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">route</span><span class="p">]</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;meta&quot;</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="s2">&quot;hash&quot;</span><span class="p">,</span> <span class="s2">&quot;query&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">,</span> <span class="s2">&quot;fullPath&quot;</span><span class="p">,</span> <span class="s2">&quot;matched&quot;</span><span class="p">]</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="p">[</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">route</span><span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="s2">&quot;page1&quot;</span><span class="p">,</span> <span class="n">meta</span><span class="p">:</span> <span class="n">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">path</span><span class="p">:</span> <span class="s2">&quot;/page1&quot;</span><span class="p">,</span> <span class="nb">hash</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="p">{</span><span class="err">…</span><span class="p">},</span> <span class="err">…</span><span class="p">}</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="p">]</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">[</span><span class="s2">&quot;app&quot;</span><span class="p">,</span> <span class="s2">&quot;apps&quot;</span><span class="p">,</span> <span class="s2">&quot;options&quot;</span><span class="p">,</span> <span class="s2">&quot;beforeHooks&quot;</span><span class="p">,</span> <span class="s2">&quot;resolveHooks&quot;</span><span class="p">,</span> <span class="s2">&quot;afterHooks&quot;</span><span class="p">,</span> <span class="s2">&quot;matcher&quot;</span><span class="p">,</span> <span class="s2">&quot;fallback&quot;</span><span class="p">,</span> <span class="s2">&quot;mode&quot;</span><span class="p">,</span> <span class="s2">&quot;history&quot;</span><span class="p">]</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">routes</span><span class="p">]</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">]</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="p">[</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">routes</span><span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">[{</span><span class="err">…</span><span class="p">},</span> <span class="p">{</span><span class="err">…</span><span class="p">},</span> <span class="p">{</span><span class="err">…</span><span class="p">}]</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s2">&quot;/page1&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;page1&quot;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">ƒ</span><span class="p">}</span><span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s2">&quot;/page2&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;page2&quot;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">ƒ</span><span class="p">}</span><span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">ƒ</span><span class="p">}</span><span class="n">length</span><span class="p">:</span> <span class="mi">3</span><span class="n">__proto__</span><span class="p">:</span> <span class="n">Array</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="p">[</span><span class="n">page1</span> <span class="n">beforeCreate</span><span class="p">]</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="p">[</span><span class="n">page1</span> <span class="n">created</span><span class="p">]</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="p">[</span><span class="n">page1</span> <span class="n">beforeMount</span><span class="p">]</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="p">[</span><span class="n">page1</span> <span class="n">mounted</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 2 : le middleware [routing] est exécuté par le client ;</li>
 <li>ligne 4 : notez la propriété [from] : c’est la route d’où l’on vient ;</li>
 <li>ligne 9 : [context.route] est la route où l’on va ;</li>
-<li>lignes 15-18 : affichage de la page [page1] ;</li>
+<li>lignes 15-18 : affichage de la page [page1] ;
+Maintenant revenons à la page [index] avec le lien [Home]. Les logs sont alors les suivants :</li>
 </ul>
-<p>Maintenant revenons à la page [index] avec le lien [Home]. Les logs sont alors les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
@@ -1535,47 +1549,47 @@
 <span class="normal"><a href="#__codelineno-8-30">30</a></span>
 <span class="normal"><a href="#__codelineno-8-31">31</a></span>
 <span class="normal"><a href="#__codelineno-8-32">32</a></span>
-<span class="normal"><a href="#__codelineno-8-33">33</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>[routing], process.server= false process.client= true
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a>[routing client], il y a 1 argument(s)
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a>Liste des clés [[routing client], context]
-<a id="__codelineno-8-4" name="__codelineno-8-4"></a>(18) [&quot;isStatic&quot;, &quot;isDev&quot;, &quot;isHMR&quot;, &quot;app&quot;, &quot;payload&quot;, &quot;error&quot;, &quot;base&quot;, &quot;env&quot;, &quot;redirect&quot;, &quot;nuxtState&quot;, &quot;route&quot;, &quot;next&quot;, &quot;_redirected&quot;, &quot;_errored&quot;, &quot;params&quot;, &quot;query&quot;, &quot;$axios&quot;, &quot;from&quot;]
-<a id="__codelineno-8-5" name="__codelineno-8-5"></a>Liste des clés [[routing client], context.app]
-<a id="__codelineno-8-6" name="__codelineno-8-6"></a>(14) [&quot;router&quot;, &quot;nuxt&quot;, &quot;head&quot;, &quot;render&quot;, &quot;data&quot;, &quot;beforeCreate&quot;, &quot;created&quot;, &quot;mounted&quot;, &quot;watch&quot;, &quot;computed&quot;, &quot;methods&quot;, &quot;components&quot;, &quot;context&quot;, &quot;$axios&quot;]
-<a id="__codelineno-8-7" name="__codelineno-8-7"></a>Liste des clés [[routing client], context.route]
-<a id="__codelineno-8-8" name="__codelineno-8-8"></a>(8) [&quot;name&quot;, &quot;meta&quot;, &quot;path&quot;, &quot;hash&quot;, &quot;query&quot;, &quot;params&quot;, &quot;fullPath&quot;, &quot;matched&quot;]
-<a id="__codelineno-8-9" name="__codelineno-8-9"></a>[routing client], context.route= {name: &quot;index&quot;, meta: Array(1), path: &quot;/&quot;, hash: &quot;&quot;, query: {…}, …}
-<a id="__codelineno-8-10" name="__codelineno-8-10"></a>Liste des clés [[routing client], context.app.router]
-<a id="__codelineno-8-11" name="__codelineno-8-11"></a>(10) [&quot;app&quot;, &quot;apps&quot;, &quot;options&quot;, &quot;beforeHooks&quot;, &quot;resolveHooks&quot;, &quot;afterHooks&quot;, &quot;matcher&quot;, &quot;fallback&quot;, &quot;mode&quot;, &quot;history&quot;]
-<a id="__codelineno-8-12" name="__codelineno-8-12"></a>Liste des clés [[routing client], context.app.router.options.routes]
-<a id="__codelineno-8-13" name="__codelineno-8-13"></a>(3) [&quot;0&quot;, &quot;1&quot;, &quot;2&quot;]
-<a id="__codelineno-8-14" name="__codelineno-8-14"></a>[routing client], context.app.router.options.routes= (3) [{…}, {…}, {…}]0: {path: &quot;/page1&quot;, name: &quot;page1&quot;, component: ƒ}1: {path: &quot;/page2&quot;, name: &quot;page2&quot;, component: ƒ}2: {path: &quot;/&quot;, name: &quot;index&quot;, component: ƒ}length: 3__proto__: Array(0)
-<a id="__codelineno-8-15" name="__codelineno-8-15"></a>[index-routing], process.server= false process.client= true
-<a id="__codelineno-8-16" name="__codelineno-8-16"></a>[index-routing client], il y a 1 argument(s)
-<a id="__codelineno-8-17" name="__codelineno-8-17"></a>Liste des clés [[index-routing client], context]
-<a id="__codelineno-8-18" name="__codelineno-8-18"></a>(18) [&quot;isStatic&quot;, &quot;isDev&quot;, &quot;isHMR&quot;, &quot;app&quot;, &quot;payload&quot;, &quot;error&quot;, &quot;base&quot;, &quot;env&quot;, &quot;redirect&quot;, &quot;nuxtState&quot;, &quot;route&quot;, &quot;next&quot;, &quot;_redirected&quot;, &quot;_errored&quot;, &quot;params&quot;, &quot;query&quot;, &quot;$axios&quot;, &quot;from&quot;]
-<a id="__codelineno-8-19" name="__codelineno-8-19"></a>Liste des clés [[index-routing client], context.app]
-<a id="__codelineno-8-20" name="__codelineno-8-20"></a>(14) [&quot;router&quot;, &quot;nuxt&quot;, &quot;head&quot;, &quot;render&quot;, &quot;data&quot;, &quot;beforeCreate&quot;, &quot;created&quot;, &quot;mounted&quot;, &quot;watch&quot;, &quot;computed&quot;, &quot;methods&quot;, &quot;components&quot;, &quot;context&quot;, &quot;$axios&quot;]
-<a id="__codelineno-8-21" name="__codelineno-8-21"></a>Liste des clés [[index-routing client], context.route]
-<a id="__codelineno-8-22" name="__codelineno-8-22"></a>(8) [&quot;name&quot;, &quot;meta&quot;, &quot;path&quot;, &quot;hash&quot;, &quot;query&quot;, &quot;params&quot;, &quot;fullPath&quot;, &quot;matched&quot;]
-<a id="__codelineno-8-23" name="__codelineno-8-23"></a>[index-routing client], context.route= {name: &quot;index&quot;, meta: Array(1), path: &quot;/&quot;, hash: &quot;&quot;, query: {…}, …}
-<a id="__codelineno-8-24" name="__codelineno-8-24"></a>Liste des clés [[index-routing client], context.app.router]
-<a id="__codelineno-8-25" name="__codelineno-8-25"></a>(10) [&quot;app&quot;, &quot;apps&quot;, &quot;options&quot;, &quot;beforeHooks&quot;, &quot;resolveHooks&quot;, &quot;afterHooks&quot;, &quot;matcher&quot;, &quot;fallback&quot;, &quot;mode&quot;, &quot;history&quot;]
-<a id="__codelineno-8-26" name="__codelineno-8-26"></a>Liste des clés [[index-routing client], context.app.router.options.routes]
-<a id="__codelineno-8-27" name="__codelineno-8-27"></a>(3) [&quot;0&quot;, &quot;1&quot;, &quot;2&quot;]
-<a id="__codelineno-8-28" name="__codelineno-8-28"></a>[index-routing client], context.app.router.options.routes= (3) [{…}, {…}, {…}]0: {path: &quot;/page1&quot;, name: &quot;page1&quot;, component: ƒ}1: {path: &quot;/page2&quot;, name: &quot;page2&quot;, component: ƒ}2: {path: &quot;/&quot;, name: &quot;index&quot;, component: ƒ}length: 3__proto__: Array(0)
-<a id="__codelineno-8-29" name="__codelineno-8-29"></a>from= {name: &quot;page1&quot;, meta: Array(1), path: &quot;/page1&quot;, hash: &quot;&quot;, query: {…}, …}
-<a id="__codelineno-8-30" name="__codelineno-8-30"></a>[home beforeCreate]
-<a id="__codelineno-8-31" name="__codelineno-8-31"></a>[home created]
-<a id="__codelineno-8-32" name="__codelineno-8-32"></a>[home beforeMount]
-<a id="__codelineno-8-33" name="__codelineno-8-33"></a>[home mounted]
+<span class="normal"><a href="#__codelineno-8-33">33</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="p">[</span><span class="n">routing</span><span class="p">],</span> <span class="n">process</span><span class="o">.</span><span class="n">server</span><span class="o">=</span> <span class="n">false</span> <span class="n">process</span><span class="o">.</span><span class="n">client</span><span class="o">=</span> <span class="n">true</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="p">[</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">il</span> <span class="n">y</span> <span class="n">a</span> <span class="mi">1</span> <span class="n">argument</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="p">]</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="p">(</span><span class="mi">18</span><span class="p">)</span> <span class="p">[</span><span class="s2">&quot;isStatic&quot;</span><span class="p">,</span> <span class="s2">&quot;isDev&quot;</span><span class="p">,</span> <span class="s2">&quot;isHMR&quot;</span><span class="p">,</span> <span class="s2">&quot;app&quot;</span><span class="p">,</span> <span class="s2">&quot;payload&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="s2">&quot;base&quot;</span><span class="p">,</span> <span class="s2">&quot;env&quot;</span><span class="p">,</span> <span class="s2">&quot;redirect&quot;</span><span class="p">,</span> <span class="s2">&quot;nuxtState&quot;</span><span class="p">,</span> <span class="s2">&quot;route&quot;</span><span class="p">,</span> <span class="s2">&quot;next&quot;</span><span class="p">,</span> <span class="s2">&quot;_redirected&quot;</span><span class="p">,</span> <span class="s2">&quot;_errored&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">,</span> <span class="s2">&quot;query&quot;</span><span class="p">,</span> <span class="s2">&quot;$axios&quot;</span><span class="p">,</span> <span class="s2">&quot;from&quot;</span><span class="p">]</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="p">]</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="p">(</span><span class="mi">14</span><span class="p">)</span> <span class="p">[</span><span class="s2">&quot;router&quot;</span><span class="p">,</span> <span class="s2">&quot;nuxt&quot;</span><span class="p">,</span> <span class="s2">&quot;head&quot;</span><span class="p">,</span> <span class="s2">&quot;render&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;beforeCreate&quot;</span><span class="p">,</span> <span class="s2">&quot;created&quot;</span><span class="p">,</span> <span class="s2">&quot;mounted&quot;</span><span class="p">,</span> <span class="s2">&quot;watch&quot;</span><span class="p">,</span> <span class="s2">&quot;computed&quot;</span><span class="p">,</span> <span class="s2">&quot;methods&quot;</span><span class="p">,</span> <span class="s2">&quot;components&quot;</span><span class="p">,</span> <span class="s2">&quot;context&quot;</span><span class="p">,</span> <span class="s2">&quot;$axios&quot;</span><span class="p">]</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">route</span><span class="p">]</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;meta&quot;</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="s2">&quot;hash&quot;</span><span class="p">,</span> <span class="s2">&quot;query&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">,</span> <span class="s2">&quot;fullPath&quot;</span><span class="p">,</span> <span class="s2">&quot;matched&quot;</span><span class="p">]</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="p">[</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">route</span><span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">meta</span><span class="p">:</span> <span class="n">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">path</span><span class="p">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="nb">hash</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="p">{</span><span class="err">…</span><span class="p">},</span> <span class="err">…</span><span class="p">}</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="p">]</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">[</span><span class="s2">&quot;app&quot;</span><span class="p">,</span> <span class="s2">&quot;apps&quot;</span><span class="p">,</span> <span class="s2">&quot;options&quot;</span><span class="p">,</span> <span class="s2">&quot;beforeHooks&quot;</span><span class="p">,</span> <span class="s2">&quot;resolveHooks&quot;</span><span class="p">,</span> <span class="s2">&quot;afterHooks&quot;</span><span class="p">,</span> <span class="s2">&quot;matcher&quot;</span><span class="p">,</span> <span class="s2">&quot;fallback&quot;</span><span class="p">,</span> <span class="s2">&quot;mode&quot;</span><span class="p">,</span> <span class="s2">&quot;history&quot;</span><span class="p">]</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">routes</span><span class="p">]</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">]</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="p">[</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">routes</span><span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">[{</span><span class="err">…</span><span class="p">},</span> <span class="p">{</span><span class="err">…</span><span class="p">},</span> <span class="p">{</span><span class="err">…</span><span class="p">}]</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s2">&quot;/page1&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;page1&quot;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">ƒ</span><span class="p">}</span><span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s2">&quot;/page2&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;page2&quot;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">ƒ</span><span class="p">}</span><span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">ƒ</span><span class="p">}</span><span class="n">length</span><span class="p">:</span> <span class="mi">3</span><span class="n">__proto__</span><span class="p">:</span> <span class="n">Array</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="p">[</span><span class="n">index</span><span class="o">-</span><span class="n">routing</span><span class="p">],</span> <span class="n">process</span><span class="o">.</span><span class="n">server</span><span class="o">=</span> <span class="n">false</span> <span class="n">process</span><span class="o">.</span><span class="n">client</span><span class="o">=</span> <span class="n">true</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="p">[</span><span class="n">index</span><span class="o">-</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">il</span> <span class="n">y</span> <span class="n">a</span> <span class="mi">1</span> <span class="n">argument</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">index</span><span class="o">-</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="p">]</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="p">(</span><span class="mi">18</span><span class="p">)</span> <span class="p">[</span><span class="s2">&quot;isStatic&quot;</span><span class="p">,</span> <span class="s2">&quot;isDev&quot;</span><span class="p">,</span> <span class="s2">&quot;isHMR&quot;</span><span class="p">,</span> <span class="s2">&quot;app&quot;</span><span class="p">,</span> <span class="s2">&quot;payload&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="s2">&quot;base&quot;</span><span class="p">,</span> <span class="s2">&quot;env&quot;</span><span class="p">,</span> <span class="s2">&quot;redirect&quot;</span><span class="p">,</span> <span class="s2">&quot;nuxtState&quot;</span><span class="p">,</span> <span class="s2">&quot;route&quot;</span><span class="p">,</span> <span class="s2">&quot;next&quot;</span><span class="p">,</span> <span class="s2">&quot;_redirected&quot;</span><span class="p">,</span> <span class="s2">&quot;_errored&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">,</span> <span class="s2">&quot;query&quot;</span><span class="p">,</span> <span class="s2">&quot;$axios&quot;</span><span class="p">,</span> <span class="s2">&quot;from&quot;</span><span class="p">]</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">index</span><span class="o">-</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="p">]</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20"></a><span class="p">(</span><span class="mi">14</span><span class="p">)</span> <span class="p">[</span><span class="s2">&quot;router&quot;</span><span class="p">,</span> <span class="s2">&quot;nuxt&quot;</span><span class="p">,</span> <span class="s2">&quot;head&quot;</span><span class="p">,</span> <span class="s2">&quot;render&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;beforeCreate&quot;</span><span class="p">,</span> <span class="s2">&quot;created&quot;</span><span class="p">,</span> <span class="s2">&quot;mounted&quot;</span><span class="p">,</span> <span class="s2">&quot;watch&quot;</span><span class="p">,</span> <span class="s2">&quot;computed&quot;</span><span class="p">,</span> <span class="s2">&quot;methods&quot;</span><span class="p">,</span> <span class="s2">&quot;components&quot;</span><span class="p">,</span> <span class="s2">&quot;context&quot;</span><span class="p">,</span> <span class="s2">&quot;$axios&quot;</span><span class="p">]</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">index</span><span class="o">-</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">route</span><span class="p">]</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22"></a><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;meta&quot;</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="s2">&quot;hash&quot;</span><span class="p">,</span> <span class="s2">&quot;query&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">,</span> <span class="s2">&quot;fullPath&quot;</span><span class="p">,</span> <span class="s2">&quot;matched&quot;</span><span class="p">]</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23"></a><span class="p">[</span><span class="n">index</span><span class="o">-</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">route</span><span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">meta</span><span class="p">:</span> <span class="n">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">path</span><span class="p">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="nb">hash</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="p">{</span><span class="err">…</span><span class="p">},</span> <span class="err">…</span><span class="p">}</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">index</span><span class="o">-</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="p">]</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25"></a><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">[</span><span class="s2">&quot;app&quot;</span><span class="p">,</span> <span class="s2">&quot;apps&quot;</span><span class="p">,</span> <span class="s2">&quot;options&quot;</span><span class="p">,</span> <span class="s2">&quot;beforeHooks&quot;</span><span class="p">,</span> <span class="s2">&quot;resolveHooks&quot;</span><span class="p">,</span> <span class="s2">&quot;afterHooks&quot;</span><span class="p">,</span> <span class="s2">&quot;matcher&quot;</span><span class="p">,</span> <span class="s2">&quot;fallback&quot;</span><span class="p">,</span> <span class="s2">&quot;mode&quot;</span><span class="p">,</span> <span class="s2">&quot;history&quot;</span><span class="p">]</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26"></a><span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">[[</span><span class="n">index</span><span class="o">-</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">routes</span><span class="p">]</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27"></a><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">]</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28"></a><span class="p">[</span><span class="n">index</span><span class="o">-</span><span class="n">routing</span> <span class="n">client</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">routes</span><span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">[{</span><span class="err">…</span><span class="p">},</span> <span class="p">{</span><span class="err">…</span><span class="p">},</span> <span class="p">{</span><span class="err">…</span><span class="p">}]</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s2">&quot;/page1&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;page1&quot;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">ƒ</span><span class="p">}</span><span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s2">&quot;/page2&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;page2&quot;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">ƒ</span><span class="p">}</span><span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">ƒ</span><span class="p">}</span><span class="n">length</span><span class="p">:</span> <span class="mi">3</span><span class="n">__proto__</span><span class="p">:</span> <span class="n">Array</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29"></a><span class="n">from</span><span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="s2">&quot;page1&quot;</span><span class="p">,</span> <span class="n">meta</span><span class="p">:</span> <span class="n">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">path</span><span class="p">:</span> <span class="s2">&quot;/page1&quot;</span><span class="p">,</span> <span class="nb">hash</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="p">{</span><span class="err">…</span><span class="p">},</span> <span class="err">…</span><span class="p">}</span>
+<a id="__codelineno-8-30" name="__codelineno-8-30"></a><span class="p">[</span><span class="n">home</span> <span class="n">beforeCreate</span><span class="p">]</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31"></a><span class="p">[</span><span class="n">home</span> <span class="n">created</span><span class="p">]</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32"></a><span class="p">[</span><span class="n">home</span> <span class="n">beforeMount</span><span class="p">]</span>
+<a id="__codelineno-8-33" name="__codelineno-8-33"></a><span class="p">[</span><span class="n">home</span> <span class="n">mounted</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>lignes 1-15 : le client exécute le middleware [routing]. C’est normal. Il est exécuté à chaque changement de route;</li>
 <li>lignes 16-29 : le client exécute le middleware [index-routing], ceci parce que :</li>
 <li>[index] est la cible de la route courante (cf ligne 23) ;</li>
-<li>la page [index] a défini un middleware, nommément [index-routing] ;</li>
+<li>la page [index] a défini un middleware, nommément [index-routing] ;
+On voit donc que les middlewares de routage général sont exécutés par le client avant les middlewares attachés aux pages.</li>
 </ul>
-<p>On voit donc que les middlewares de routage général sont exécutés par le client avant les middlewares attachés aux pages.</p>
 
 
 
@@ -1584,6 +1598,8 @@
 
 
 
+
+  
 
 
 
@@ -1631,7 +1647,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
