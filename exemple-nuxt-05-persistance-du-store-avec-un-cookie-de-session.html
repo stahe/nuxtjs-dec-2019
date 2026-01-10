@@ -65,14 +65,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
     var siteName = "Introduction au framework NUXT.JS par l'exemple";
-
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
-    console.log("[GA Debug] page_title forced to: " + siteName);
   </script>
 
     
@@ -906,9 +902,9 @@
 <p>Pour utiliser des cookies avec [nuxt], nous allons utiliser le module [cookie-universal-nuxt] que nous installlons avec [yarn] dans un terminal VSCode :</p>
 <p><img src="images/10000000000004C800000124EE164342.png" style="width:16.192cm;height:3.86cm;" alt="Image" /></p>
 <ul>
-<li>en [4], on tape la commande [yarn add cookie-universal-nuxt] ;
-Un nouveau module est ainsi ajouté au fichier [package.json] du projet [dvp] :</li>
+<li>en [4], on tape la commande [yarn add cookie-universal-nuxt] ;</li>
 </ul>
+<p>Un nouveau module est ainsi ajouté au fichier [package.json] du projet [dvp] :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
@@ -917,15 +913,15 @@ Un nouveau module est ainsi ajouté au fichier [package.json] du projet [dvp] :
 <span class="normal"><a href="#__codelineno-0-6">6</a></span>
 <span class="normal"><a href="#__codelineno-0-7">7</a></span>
 <span class="normal"><a href="#__codelineno-0-8">8</a></span>
-<span class="normal"><a href="#__codelineno-0-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="o">...</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="p">},</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>  <span class="s2">&quot;dependencies&quot;</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="s2">&quot;@nuxtjs/axios&quot;</span><span class="p">:</span> <span class="s2">&quot;^5.3.6&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="s2">&quot;bootstrap&quot;</span><span class="p">:</span> <span class="s2">&quot;^4.1.3&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="s2">&quot;bootstrap-vue&quot;</span><span class="p">:</span> <span class="s2">&quot;^2.0.0&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="s2">&quot;cookie-universal-nuxt&quot;</span><span class="p">:</span> <span class="s2">&quot;^2.0.19&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="s2">&quot;nuxt&quot;</span><span class="p">:</span> <span class="s2">&quot;^2.0.0&quot;</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="p">},</span>
+<span class="normal"><a href="#__codelineno-0-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>...
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>},
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>  &quot;dependencies&quot;: {
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    &quot;@nuxtjs/axios&quot;: &quot;^5.3.6&quot;,
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    &quot;bootstrap&quot;: &quot;^4.1.3&quot;,
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>    &quot;bootstrap-vue&quot;: &quot;^2.0.0&quot;,
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    &quot;cookie-universal-nuxt&quot;: &quot;^2.0.19&quot;,
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    &quot;nuxt&quot;: &quot;^2.0.0&quot;
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>},
 </code></pre></div></td></tr></table></div>
 <h2 id="82-le-fichier-de-configuration-nuxtconfigjs">8.2. Le fichier de configuration [nuxt.config.js]</h2>
 <p>Pour que [nuxt] puisse utiliser les cookies de [cookie-universal-nuxt], il faut déclarer ce module dans le fichier de configuration [nuxt.config.js] :</p>
@@ -942,25 +938,25 @@ Un nouveau module est ainsi ajouté au fichier [package.json] du projet [dvp] :
 <span class="normal"><a href="#__codelineno-1-11">11</a></span>
 <span class="normal"><a href="#__codelineno-1-12">12</a></span>
 <span class="normal"><a href="#__codelineno-1-13">13</a></span>
-<span class="normal"><a href="#__codelineno-1-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="o">...</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="p">],</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a>  <span class="o">/*</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a>   <span class="o">**</span> <span class="n">Nuxt</span><span class="o">.</span><span class="n">js</span> <span class="n">modules</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a>   <span class="o">*/</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a>  <span class="n">modules</span><span class="p">:</span> <span class="p">[</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a>    <span class="o">//</span> <span class="n">Doc</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">bootstrap</span><span class="o">-</span><span class="n">vue</span><span class="o">.</span><span class="n">js</span><span class="o">.</span><span class="n">org</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a>    <span class="s1">&#39;bootstrap-vue/nuxt&#39;</span><span class="p">,</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a>    <span class="o">//</span> <span class="n">Doc</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">axios</span><span class="o">.</span><span class="n">nuxtjs</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">usage</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a>    <span class="s1">&#39;@nuxtjs/axios&#39;</span><span class="p">,</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a>    <span class="o">//</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">npmjs</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">package</span><span class="o">/</span><span class="n">cookie</span><span class="o">-</span><span class="n">universal</span><span class="o">-</span><span class="n">nuxt</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a>    <span class="s1">&#39;cookie-universal-nuxt&#39;</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a>  <span class="p">],</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="o">...</span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="p">...</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="o">]</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">  </span><span class="cm">/*</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="cm">   ** Nuxt.js modules</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="cm">   */</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">  </span><span class="n">modules</span><span class="p">:</span><span class="w"> </span><span class="o">[</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="c1">// Doc: https://bootstrap-vue.js.org</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="err">&#39;</span><span class="n">bootstrap</span><span class="o">-</span><span class="n">vue</span><span class="o">/</span><span class="n">nuxt</span><span class="err">&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="c1">// Doc: https://axios.nuxtjs.org/usage</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="err">&#39;</span><span class="nd">@nuxtjs</span><span class="o">/</span><span class="n">axios</span><span class="err">&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="c1">// https://www.npmjs.com/package/cookie-universal-nuxt</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="err">&#39;</span><span class="n">cookie</span><span class="o">-</span><span class="n">universal</span><span class="o">-</span><span class="n">nuxt</span><span class="err">&#39;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">  </span><span class="o">]</span><span class="p">,</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="p">...</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 12, le module [cookie-universal-nuxt] est ajouté au tableau des modules [6] de [nuxt] ;
-Le fichier [nuxt.config.js] est au final le suivant :</li>
+<li>ligne 12, le module [cookie-universal-nuxt] est ajouté au tableau des modules [6] de [nuxt] ;</li>
 </ul>
+<p>Le fichier [nuxt.config.js] est au final le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
@@ -1042,87 +1038,87 @@ Le fichier [nuxt.config.js] est au final le suivant :</li>
 <span class="normal"><a href="#__codelineno-2-79">79</a></span>
 <span class="normal"><a href="#__codelineno-2-80">80</a></span>
 <span class="normal"><a href="#__codelineno-2-81">81</a></span>
-<span class="normal"><a href="#__codelineno-2-82">82</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>  <span class="n">mode</span><span class="p">:</span> <span class="s1">&#39;universal&#39;</span><span class="p">,</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a>  <span class="o">/*</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a>   <span class="o">**</span> <span class="n">Headers</span> <span class="n">of</span> <span class="n">the</span> <span class="n">page</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a>   <span class="o">*/</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a>  <span class="n">head</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a>    <span class="n">title</span><span class="p">:</span> <span class="s1">&#39;Introduction à [nuxt.js]&#39;</span><span class="p">,</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a>    <span class="n">meta</span><span class="p">:</span> <span class="p">[</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a>      <span class="p">{</span> <span class="n">charset</span><span class="p">:</span> <span class="s1">&#39;utf-8&#39;</span> <span class="p">},</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a>      <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;viewport&#39;</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="s1">&#39;width=device-width, initial-scale=1&#39;</span> <span class="p">},</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a>      <span class="p">{</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12"></a>        <span class="n">hid</span><span class="p">:</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13"></a>        <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14"></a>        <span class="n">content</span><span class="p">:</span> <span class="s1">&#39;ssr routing loading asyncdata middleware plugins store&#39;</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15"></a>      <span class="p">}</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16"></a>    <span class="p">],</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17"></a>    <span class="n">link</span><span class="p">:</span> <span class="p">[{</span> <span class="n">rel</span><span class="p">:</span> <span class="s1">&#39;icon&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;image/x-icon&#39;</span><span class="p">,</span> <span class="n">href</span><span class="p">:</span> <span class="s1">&#39;/favicon.ico&#39;</span> <span class="p">}]</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18"></a>  <span class="p">},</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19"></a>  <span class="o">/*</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20"></a>   <span class="o">**</span> <span class="n">Customize</span> <span class="n">the</span> <span class="n">progress</span><span class="o">-</span><span class="n">bar</span> <span class="n">color</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21"></a>   <span class="o">*/</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22"></a>  <span class="n">loading</span><span class="p">:</span> <span class="p">{</span> <span class="n">color</span><span class="p">:</span> <span class="s1">&#39;#fff&#39;</span> <span class="p">},</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23"></a>  <span class="o">/*</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24"></a>   <span class="o">**</span> <span class="n">Global</span> <span class="n">CSS</span>
-<a id="__codelineno-2-25" name="__codelineno-2-25"></a>   <span class="o">*/</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26"></a>  <span class="n">css</span><span class="p">:</span> <span class="p">[],</span>
-<a id="__codelineno-2-27" name="__codelineno-2-27"></a>  <span class="o">/*</span>
-<a id="__codelineno-2-28" name="__codelineno-2-28"></a>   <span class="o">**</span> <span class="n">Plugins</span> <span class="n">to</span> <span class="n">load</span> <span class="n">before</span> <span class="n">mounting</span> <span class="n">the</span> <span class="n">App</span>
-<a id="__codelineno-2-29" name="__codelineno-2-29"></a>   <span class="o">*/</span>
-<a id="__codelineno-2-30" name="__codelineno-2-30"></a>  <span class="n">plugins</span><span class="p">:</span> <span class="p">[],</span>
-<a id="__codelineno-2-31" name="__codelineno-2-31"></a>  <span class="o">/*</span>
-<a id="__codelineno-2-32" name="__codelineno-2-32"></a>   <span class="o">**</span> <span class="n">Nuxt</span><span class="o">.</span><span class="n">js</span> <span class="n">dev</span><span class="o">-</span><span class="n">modules</span>
-<a id="__codelineno-2-33" name="__codelineno-2-33"></a>   <span class="o">*/</span>
-<a id="__codelineno-2-34" name="__codelineno-2-34"></a>  <span class="n">buildModules</span><span class="p">:</span> <span class="p">[</span>
-<a id="__codelineno-2-35" name="__codelineno-2-35"></a>    <span class="o">//</span> <span class="n">Doc</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nuxt</span><span class="o">-</span><span class="n">community</span><span class="o">/</span><span class="n">eslint</span><span class="o">-</span><span class="n">module</span>
-<a id="__codelineno-2-36" name="__codelineno-2-36"></a>    <span class="s1">&#39;@nuxtjs/eslint-module&#39;</span>
-<a id="__codelineno-2-37" name="__codelineno-2-37"></a>  <span class="p">],</span>
-<a id="__codelineno-2-38" name="__codelineno-2-38"></a>  <span class="o">/*</span>
-<a id="__codelineno-2-39" name="__codelineno-2-39"></a>   <span class="o">**</span> <span class="n">Nuxt</span><span class="o">.</span><span class="n">js</span> <span class="n">modules</span>
-<a id="__codelineno-2-40" name="__codelineno-2-40"></a>   <span class="o">*/</span>
-<a id="__codelineno-2-41" name="__codelineno-2-41"></a>  <span class="n">modules</span><span class="p">:</span> <span class="p">[</span>
-<a id="__codelineno-2-42" name="__codelineno-2-42"></a>    <span class="o">//</span> <span class="n">Doc</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">bootstrap</span><span class="o">-</span><span class="n">vue</span><span class="o">.</span><span class="n">js</span><span class="o">.</span><span class="n">org</span>
-<a id="__codelineno-2-43" name="__codelineno-2-43"></a>    <span class="s1">&#39;bootstrap-vue/nuxt&#39;</span><span class="p">,</span>
-<a id="__codelineno-2-44" name="__codelineno-2-44"></a>    <span class="o">//</span> <span class="n">Doc</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">axios</span><span class="o">.</span><span class="n">nuxtjs</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">usage</span>
-<a id="__codelineno-2-45" name="__codelineno-2-45"></a>    <span class="s1">&#39;@nuxtjs/axios&#39;</span><span class="p">,</span>
-<a id="__codelineno-2-46" name="__codelineno-2-46"></a>    <span class="o">//</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">npmjs</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">package</span><span class="o">/</span><span class="n">cookie</span><span class="o">-</span><span class="n">universal</span><span class="o">-</span><span class="n">nuxt</span>
-<a id="__codelineno-2-47" name="__codelineno-2-47"></a>    <span class="s1">&#39;cookie-universal-nuxt&#39;</span>
-<a id="__codelineno-2-48" name="__codelineno-2-48"></a>  <span class="p">],</span>
-<a id="__codelineno-2-49" name="__codelineno-2-49"></a>  <span class="o">/*</span>
-<a id="__codelineno-2-50" name="__codelineno-2-50"></a>   <span class="o">**</span> <span class="n">Axios</span> <span class="n">module</span> <span class="n">configuration</span>
-<a id="__codelineno-2-51" name="__codelineno-2-51"></a>   <span class="o">**</span> <span class="n">See</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">axios</span><span class="o">.</span><span class="n">nuxtjs</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">options</span>
-<a id="__codelineno-2-52" name="__codelineno-2-52"></a>   <span class="o">*/</span>
-<a id="__codelineno-2-53" name="__codelineno-2-53"></a>  <span class="n">axios</span><span class="p">:</span> <span class="p">{},</span>
-<a id="__codelineno-2-54" name="__codelineno-2-54"></a>  <span class="o">/*</span>
-<a id="__codelineno-2-55" name="__codelineno-2-55"></a>   <span class="o">**</span> <span class="n">Build</span> <span class="n">configuration</span>
-<a id="__codelineno-2-56" name="__codelineno-2-56"></a>   <span class="o">*/</span>
-<a id="__codelineno-2-57" name="__codelineno-2-57"></a>  <span class="n">build</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-2-58" name="__codelineno-2-58"></a>    <span class="o">/*</span>
-<a id="__codelineno-2-59" name="__codelineno-2-59"></a>     <span class="o">**</span> <span class="n">You</span> <span class="n">can</span> <span class="n">extend</span> <span class="n">webpack</span> <span class="n">config</span> <span class="n">here</span>
-<a id="__codelineno-2-60" name="__codelineno-2-60"></a>     <span class="o">*/</span>
-<a id="__codelineno-2-61" name="__codelineno-2-61"></a>    <span class="n">extend</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span> <span class="p">{}</span>
-<a id="__codelineno-2-62" name="__codelineno-2-62"></a>  <span class="p">},</span>
-<a id="__codelineno-2-63" name="__codelineno-2-63"></a>  <span class="o">//</span> <span class="n">répertoire</span> <span class="n">du</span> <span class="n">code</span> <span class="n">source</span>
-<a id="__codelineno-2-64" name="__codelineno-2-64"></a>  <span class="n">srcDir</span><span class="p">:</span> <span class="s1">&#39;nuxt-05&#39;</span><span class="p">,</span>
-<a id="__codelineno-2-65" name="__codelineno-2-65"></a>  <span class="o">//</span> <span class="n">routeur</span>
-<a id="__codelineno-2-66" name="__codelineno-2-66"></a>  <span class="n">router</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-2-67" name="__codelineno-2-67"></a>    <span class="o">//</span> <span class="n">racine</span> <span class="n">des</span> <span class="n">URL</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;application</span>
-<a id="__codelineno-2-68" name="__codelineno-2-68"></a>    <span class="n">base</span><span class="p">:</span> <span class="s1">&#39;/nuxt-05/&#39;</span>
-<a id="__codelineno-2-69" name="__codelineno-2-69"></a>  <span class="p">},</span>
-<a id="__codelineno-2-70" name="__codelineno-2-70"></a>  <span class="o">//</span> <span class="n">serveur</span>
-<a id="__codelineno-2-71" name="__codelineno-2-71"></a>  <span class="n">server</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-2-72" name="__codelineno-2-72"></a>    <span class="o">//</span> <span class="n">port</span> <span class="n">de</span> <span class="n">service</span><span class="p">,</span> <span class="mi">3000</span> <span class="n">par</span> <span class="n">défaut</span>
-<a id="__codelineno-2-73" name="__codelineno-2-73"></a>    <span class="n">port</span><span class="p">:</span> <span class="mi">81</span><span class="p">,</span>
-<a id="__codelineno-2-74" name="__codelineno-2-74"></a>    <span class="o">//</span> <span class="n">adresses</span> <span class="n">réseau</span> <span class="n">écoutées</span><span class="p">,</span> <span class="n">par</span> <span class="n">défaut</span> <span class="n">localhost</span> <span class="p">:</span> <span class="mf">127.0.0.1</span>
-<a id="__codelineno-2-75" name="__codelineno-2-75"></a>    <span class="o">//</span> <span class="mf">0.0.0.0</span> <span class="o">=</span> <span class="n">toutes</span> <span class="n">les</span> <span class="n">adresses</span> <span class="n">réseau</span> <span class="n">de</span> <span class="n">la</span> <span class="n">machine</span>
-<a id="__codelineno-2-76" name="__codelineno-2-76"></a>    <span class="n">host</span><span class="p">:</span> <span class="s1">&#39;localhost&#39;</span>
-<a id="__codelineno-2-77" name="__codelineno-2-77"></a>  <span class="p">},</span>
-<a id="__codelineno-2-78" name="__codelineno-2-78"></a>  <span class="o">//</span> <span class="n">environnement</span>
-<a id="__codelineno-2-79" name="__codelineno-2-79"></a>  <span class="n">env</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-2-80" name="__codelineno-2-80"></a>    <span class="n">maxAge</span><span class="p">:</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">5</span>
-<a id="__codelineno-2-81" name="__codelineno-2-81"></a>  <span class="p">}</span>
+<span class="normal"><a href="#__codelineno-2-82">82</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">  </span><span class="nx">mode</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;universal&#39;</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="cm">/*</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="cm">   ** Headers of the page</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="cm">   */</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">  </span><span class="nx">head</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Introduction à [nuxt.js]&#39;</span><span class="p">,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="nx">meta</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">charset</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;utf-8&#39;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;viewport&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;width=device-width, initial-scale=1&#39;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">        </span><span class="nx">hid</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;description&#39;</span><span class="p">,</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;description&#39;</span><span class="p">,</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">        </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ssr routing loading asyncdata middleware plugins store&#39;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">    </span><span class="p">],</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">    </span><span class="nx">link</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">rel</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;icon&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;image/x-icon&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">href</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/favicon.ico&#39;</span><span class="w"> </span><span class="p">}]</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">  </span><span class="cm">/*</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="cm">   ** Customize the progress-bar color</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="cm">   */</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">  </span><span class="nx">loading</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#fff&#39;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">  </span><span class="cm">/*</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="cm">   ** Global CSS</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="cm">   */</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="w">  </span><span class="nx">css</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="w">  </span><span class="cm">/*</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="cm">   ** Plugins to load before mounting the App</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="cm">   */</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="w">  </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="w">  </span><span class="cm">/*</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32"></a><span class="cm">   ** Nuxt.js dev-modules</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33"></a><span class="cm">   */</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34"></a><span class="w">  </span><span class="nx">buildModules</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="w">    </span><span class="c1">// Doc: https://github.com/nuxt-community/eslint-module</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36"></a><span class="w">    </span><span class="s1">&#39;@nuxtjs/eslint-module&#39;</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38"></a><span class="w">  </span><span class="cm">/*</span>
+<a id="__codelineno-2-39" name="__codelineno-2-39"></a><span class="cm">   ** Nuxt.js modules</span>
+<a id="__codelineno-2-40" name="__codelineno-2-40"></a><span class="cm">   */</span>
+<a id="__codelineno-2-41" name="__codelineno-2-41"></a><span class="w">  </span><span class="nx">modules</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-42" name="__codelineno-2-42"></a><span class="w">    </span><span class="c1">// Doc: https://bootstrap-vue.js.org</span>
+<a id="__codelineno-2-43" name="__codelineno-2-43"></a><span class="w">    </span><span class="s1">&#39;bootstrap-vue/nuxt&#39;</span><span class="p">,</span>
+<a id="__codelineno-2-44" name="__codelineno-2-44"></a><span class="w">    </span><span class="c1">// Doc: https://axios.nuxtjs.org/usage</span>
+<a id="__codelineno-2-45" name="__codelineno-2-45"></a><span class="w">    </span><span class="s1">&#39;@nuxtjs/axios&#39;</span><span class="p">,</span>
+<a id="__codelineno-2-46" name="__codelineno-2-46"></a><span class="w">    </span><span class="c1">// https://www.npmjs.com/package/cookie-universal-nuxt</span>
+<a id="__codelineno-2-47" name="__codelineno-2-47"></a><span class="w">    </span><span class="s1">&#39;cookie-universal-nuxt&#39;</span>
+<a id="__codelineno-2-48" name="__codelineno-2-48"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-2-49" name="__codelineno-2-49"></a><span class="w">  </span><span class="cm">/*</span>
+<a id="__codelineno-2-50" name="__codelineno-2-50"></a><span class="cm">   ** Axios module configuration</span>
+<a id="__codelineno-2-51" name="__codelineno-2-51"></a><span class="cm">   ** See https://axios.nuxtjs.org/options</span>
+<a id="__codelineno-2-52" name="__codelineno-2-52"></a><span class="cm">   */</span>
+<a id="__codelineno-2-53" name="__codelineno-2-53"></a><span class="w">  </span><span class="nx">axios</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
+<a id="__codelineno-2-54" name="__codelineno-2-54"></a><span class="w">  </span><span class="cm">/*</span>
+<a id="__codelineno-2-55" name="__codelineno-2-55"></a><span class="cm">   ** Build configuration</span>
+<a id="__codelineno-2-56" name="__codelineno-2-56"></a><span class="cm">   */</span>
+<a id="__codelineno-2-57" name="__codelineno-2-57"></a><span class="w">  </span><span class="nx">build</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-58" name="__codelineno-2-58"></a><span class="w">    </span><span class="cm">/*</span>
+<a id="__codelineno-2-59" name="__codelineno-2-59"></a><span class="cm">     ** You can extend webpack config here</span>
+<a id="__codelineno-2-60" name="__codelineno-2-60"></a><span class="cm">     */</span>
+<a id="__codelineno-2-61" name="__codelineno-2-61"></a><span class="w">    </span><span class="nx">extend</span><span class="p">(</span><span class="nx">config</span><span class="p">,</span><span class="w"> </span><span class="nx">ctx</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-2-62" name="__codelineno-2-62"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-2-63" name="__codelineno-2-63"></a><span class="w">  </span><span class="c1">// répertoire du code source</span>
+<a id="__codelineno-2-64" name="__codelineno-2-64"></a><span class="w">  </span><span class="nx">srcDir</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;nuxt-05&#39;</span><span class="p">,</span>
+<a id="__codelineno-2-65" name="__codelineno-2-65"></a><span class="w">  </span><span class="c1">// routeur</span>
+<a id="__codelineno-2-66" name="__codelineno-2-66"></a><span class="w">  </span><span class="nx">router</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-67" name="__codelineno-2-67"></a><span class="w">    </span><span class="c1">// racine des URL de l&#39;application</span>
+<a id="__codelineno-2-68" name="__codelineno-2-68"></a><span class="w">    </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/nuxt-05/&#39;</span>
+<a id="__codelineno-2-69" name="__codelineno-2-69"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-2-70" name="__codelineno-2-70"></a><span class="w">  </span><span class="c1">// serveur</span>
+<a id="__codelineno-2-71" name="__codelineno-2-71"></a><span class="w">  </span><span class="nx">server</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-72" name="__codelineno-2-72"></a><span class="w">    </span><span class="c1">// port de service, 3000 par défaut</span>
+<a id="__codelineno-2-73" name="__codelineno-2-73"></a><span class="w">    </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="mf">81</span><span class="p">,</span>
+<a id="__codelineno-2-74" name="__codelineno-2-74"></a><span class="w">    </span><span class="c1">// adresses réseau écoutées, par défaut localhost : 127.0.0.1</span>
+<a id="__codelineno-2-75" name="__codelineno-2-75"></a><span class="w">    </span><span class="c1">// 0.0.0.0 = toutes les adresses réseau de la machine</span>
+<a id="__codelineno-2-76" name="__codelineno-2-76"></a><span class="w">    </span><span class="nx">host</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;localhost&#39;</span>
+<a id="__codelineno-2-77" name="__codelineno-2-77"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-2-78" name="__codelineno-2-78"></a><span class="w">  </span><span class="c1">// environnement</span>
+<a id="__codelineno-2-79" name="__codelineno-2-79"></a><span class="w">  </span><span class="nx">env</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-80" name="__codelineno-2-80"></a><span class="w">    </span><span class="nx">maxAge</span><span class="o">:</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">5</span>
+<a id="__codelineno-2-81" name="__codelineno-2-81"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-2-82" name="__codelineno-2-82"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
@@ -1133,9 +1129,9 @@ Le fichier [nuxt.config.js] est au final le suivant :</li>
 <p>Les cookies échangés entre le client et le serveur sont disponibles de chaque côté (client et serveur) dans :</p>
 <ul>
 <li>[context.app.$cookies] là ou l’objet [context] est disponible, ç-à-d à peu près partout ;</li>
-<li>[this.$cookies] à l’intérieur d’une vue ;
-On obtient un cookie particulier avec l’expression [...$cookies.<strong>get</strong>(‘nom_du_cookie’)]. On fixe la valeur d’un cookie avec l’expression [...$cookies.<strong>set</strong>(‘nom_du_cookie’, valeur_du_cookie)].</li>
+<li>[this.$cookies] à l’intérieur d’une vue ;</li>
 </ul>
+<p>On obtient un cookie particulier avec l’expression [...$cookies.<strong>get</strong>(‘nom_du_cookie’)]. On fixe la valeur d’un cookie avec l’expression [...$cookies.<strong>set</strong>(‘nom_du_cookie’, valeur_du_cookie)].</p>
 <p>Le principe du cookie de persistance du store sera le suivant :</p>
 <ul>
 <li>lorsque le serveur va initialiser le store dans la fonction [nuxtServerInit], l’état du store sera stocké dans un cookie nommé ‘session’ ;</li>
@@ -1202,61 +1198,61 @@ On obtient un cookie particulier avec l’expression [...$cookies.<strong>get</s
 <span class="normal"><a href="#__codelineno-3-53">53</a></span>
 <span class="normal"><a href="#__codelineno-3-54">54</a></span>
 <span class="normal"><a href="#__codelineno-3-55">55</a></span>
-<span class="normal"><a href="#__codelineno-3-56">56</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="o">/*</span> <span class="n">eslint</span><span class="o">-</span><span class="n">disable</span> <span class="n">no</span><span class="o">-</span><span class="n">console</span> <span class="o">*/</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">export</span> <span class="n">const</span> <span class="n">state</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">({</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a>  <span class="o">//</span> <span class="n">compteur</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a>  <span class="n">counter</span><span class="p">:</span> <span class="mi">0</span>
+<span class="normal"><a href="#__codelineno-3-56">56</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* eslint-disable no-console */</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">  </span><span class="c1">// compteur</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">  </span><span class="nx">counter</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="p">})</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6"></a>
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="n">export</span> <span class="n">const</span> <span class="n">mutations</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a>  <span class="o">//</span> <span class="n">incrémentation</span> <span class="n">du</span> <span class="n">compteur</span> <span class="n">d</span><span class="s1">&#39;une valeur [inc]</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9"></a>  <span class="n">increment</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">inc</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10"></a>    <span class="n">state</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="n">inc</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11"></a>  <span class="p">},</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12"></a>  <span class="o">//</span> <span class="n">remplacement</span> <span class="n">du</span> <span class="n">state</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13"></a>  <span class="n">replace</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">newState</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14"></a>    <span class="k">for</span> <span class="p">(</span><span class="n">const</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">newState</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15"></a>      <span class="n">state</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span> <span class="o">=</span> <span class="n">newState</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16"></a>    <span class="p">}</span>
-<a id="__codelineno-3-17" name="__codelineno-3-17"></a>  <span class="p">}</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">mutations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">  </span><span class="c1">// incrémentation du compteur d&#39;une valeur [inc]</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">  </span><span class="nx">increment</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">inc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="nx">state</span><span class="p">.</span><span class="nx">counter</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">inc</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">  </span><span class="c1">// remplacement du state</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">  </span><span class="nx">replace</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">newState</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">attr</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">newState</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">      </span><span class="nx">state</span><span class="p">[</span><span class="nx">attr</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newState</span><span class="p">[</span><span class="nx">attr</span><span class="p">]</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="p">}</span>
 <a id="__codelineno-3-19" name="__codelineno-3-19"></a>
-<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="n">export</span> <span class="n">const</span> <span class="n">actions</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-3-21" name="__codelineno-3-21"></a>  <span class="k">async</span> <span class="n">nuxtServerInit</span><span class="p">(</span><span class="n">store</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-3-22" name="__codelineno-3-22"></a>    <span class="o">//</span> <span class="n">qui</span> <span class="n">exécute</span> <span class="n">ce</span> <span class="n">code</span> <span class="err">?</span>
-<a id="__codelineno-3-23" name="__codelineno-3-23"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;nuxtServerInit, client=&#39;</span><span class="p">,</span> <span class="n">process</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="s1">&#39;serveur=&#39;</span><span class="p">,</span> <span class="n">process</span><span class="o">.</span><span class="n">server</span><span class="p">,</span> <span class="s1">&#39;env=&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
-<a id="__codelineno-3-24" name="__codelineno-3-24"></a>    <span class="o">//</span> <span class="n">on</span> <span class="n">attend</span> <span class="n">la</span> <span class="n">fin</span> <span class="n">d</span><span class="s1">&#39;une promesse</span>
-<a id="__codelineno-3-25" name="__codelineno-3-25"></a>    <span class="k">await</span> <span class="n">new</span> <span class="n">Promise</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">resolve</span><span class="p">,</span> <span class="n">reject</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-3-26" name="__codelineno-3-26"></a>      <span class="o">//</span> <span class="n">on</span> <span class="n">a</span> <span class="n">normalement</span> <span class="n">ici</span> <span class="n">une</span> <span class="n">fonction</span> <span class="n">asynchrone</span>
-<a id="__codelineno-3-27" name="__codelineno-3-27"></a>      <span class="o">//</span> <span class="n">on</span> <span class="n">la</span> <span class="n">simule</span> <span class="n">avec</span> <span class="n">une</span> <span class="n">attente</span> <span class="n">d</span><span class="s1">&#39;une seconde</span>
-<a id="__codelineno-3-28" name="__codelineno-3-28"></a>      <span class="n">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-<a id="__codelineno-3-29" name="__codelineno-3-29"></a>        <span class="o">//</span> <span class="n">init</span> <span class="n">session</span>
-<a id="__codelineno-3-30" name="__codelineno-3-30"></a>        <span class="n">initStore</span><span class="p">(</span><span class="n">store</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
-<a id="__codelineno-3-31" name="__codelineno-3-31"></a>        <span class="o">//</span> <span class="n">succès</span>
-<a id="__codelineno-3-32" name="__codelineno-3-32"></a>        <span class="n">resolve</span><span class="p">()</span>
-<a id="__codelineno-3-33" name="__codelineno-3-33"></a>      <span class="p">},</span> <span class="mi">1000</span><span class="p">)</span>
-<a id="__codelineno-3-34" name="__codelineno-3-34"></a>    <span class="p">})</span>
-<a id="__codelineno-3-35" name="__codelineno-3-35"></a>  <span class="p">}</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">actions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">nuxtServerInit</span><span class="p">(</span><span class="nx">store</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="w">    </span><span class="c1">// qui exécute ce code ?</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;nuxtServerInit, client=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;serveur=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;env=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">env</span><span class="p">)</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="w">    </span><span class="c1">// on attend la fin d&#39;une promesse</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">reject</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="w">      </span><span class="c1">// on a normalement ici une fonction asynchrone</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="w">      </span><span class="c1">// on la simule avec une attente d&#39;une seconde</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="w">      </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29"></a><span class="w">        </span><span class="c1">// init session</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30"></a><span class="w">        </span><span class="nx">initStore</span><span class="p">(</span><span class="nx">store</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">)</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31"></a><span class="w">        </span><span class="c1">// succès</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32"></a><span class="w">        </span><span class="nx">resolve</span><span class="p">()</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33"></a><span class="w">      </span><span class="p">},</span><span class="w"> </span><span class="mf">1000</span><span class="p">)</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34"></a><span class="w">    </span><span class="p">})</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-3-36" name="__codelineno-3-36"></a><span class="p">}</span>
 <a id="__codelineno-3-37" name="__codelineno-3-37"></a>
-<a id="__codelineno-3-38" name="__codelineno-3-38"></a><span class="n">function</span> <span class="n">initStore</span><span class="p">(</span><span class="n">store</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-3-39" name="__codelineno-3-39"></a>  <span class="o">//</span> <span class="n">y</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">il</span> <span class="n">un</span> <span class="n">cookie</span> <span class="n">de</span> <span class="n">session</span> <span class="n">dans</span> <span class="n">la</span> <span class="n">requête</span> <span class="n">en</span> <span class="n">cours</span>
-<a id="__codelineno-3-40" name="__codelineno-3-40"></a>  <span class="n">const</span> <span class="n">cookies</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="err">$</span><span class="n">cookies</span>
-<a id="__codelineno-3-41" name="__codelineno-3-41"></a>  <span class="n">const</span> <span class="n">session</span> <span class="o">=</span> <span class="n">cookies</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">)</span>
-<a id="__codelineno-3-42" name="__codelineno-3-42"></a>  <span class="k">if</span> <span class="p">(</span><span class="err">!</span><span class="n">session</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-3-43" name="__codelineno-3-43"></a>    <span class="o">//</span> <span class="n">pas</span> <span class="n">de</span> <span class="n">session</span> <span class="n">existante</span>
-<a id="__codelineno-3-44" name="__codelineno-3-44"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;nuxtServerInit, initialisation d&#39;une nouvelle session&quot;</span><span class="p">)</span>
-<a id="__codelineno-3-45" name="__codelineno-3-45"></a>    <span class="o">//</span> <span class="n">on</span> <span class="n">initialise</span> <span class="n">le</span> <span class="n">store</span>
-<a id="__codelineno-3-46" name="__codelineno-3-46"></a>    <span class="n">store</span><span class="o">.</span><span class="n">commit</span><span class="p">(</span><span class="s1">&#39;increment&#39;</span><span class="p">,</span> <span class="mi">77</span><span class="p">)</span>
-<a id="__codelineno-3-47" name="__codelineno-3-47"></a>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-<a id="__codelineno-3-48" name="__codelineno-3-48"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;nuxtServerInit, reprise d&#39;une session existante&quot;</span><span class="p">)</span>
-<a id="__codelineno-3-49" name="__codelineno-3-49"></a>    <span class="o">//</span> <span class="n">on</span> <span class="n">met</span> <span class="n">à</span> <span class="n">jour</span> <span class="n">le</span> <span class="n">store</span> <span class="n">avec</span> <span class="n">le</span> <span class="n">cookie</span> <span class="n">de</span> <span class="n">session</span>
-<a id="__codelineno-3-50" name="__codelineno-3-50"></a>    <span class="n">store</span><span class="o">.</span><span class="n">commit</span><span class="p">(</span><span class="s1">&#39;replace&#39;</span><span class="p">,</span> <span class="n">session</span><span class="o">.</span><span class="n">store</span><span class="p">)</span>
-<a id="__codelineno-3-51" name="__codelineno-3-51"></a>  <span class="p">}</span>
-<a id="__codelineno-3-52" name="__codelineno-3-52"></a>  <span class="o">//</span> <span class="n">on</span> <span class="n">met</span> <span class="n">le</span> <span class="n">store</span> <span class="n">dans</span> <span class="n">le</span> <span class="n">cookie</span> <span class="n">de</span> <span class="n">session</span>
-<a id="__codelineno-3-53" name="__codelineno-3-53"></a>  <span class="n">cookies</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="n">store</span><span class="p">:</span> <span class="n">store</span><span class="o">.</span><span class="n">state</span> <span class="p">},</span> <span class="p">{</span> <span class="n">path</span><span class="p">:</span> <span class="n">context</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="n">maxAge</span><span class="p">:</span> <span class="n">context</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">maxAge</span> <span class="p">})</span>
-<a id="__codelineno-3-54" name="__codelineno-3-54"></a>  <span class="o">//</span> <span class="n">log</span>
-<a id="__codelineno-3-55" name="__codelineno-3-55"></a>  <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;initStore terminé, store=&#39;</span><span class="p">,</span> <span class="n">store</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38"></a><span class="kd">function</span><span class="w"> </span><span class="nx">initStore</span><span class="p">(</span><span class="nx">store</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-39" name="__codelineno-3-39"></a><span class="w">  </span><span class="c1">// y-a-t-il un cookie de session dans la requête en cours</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">cookies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">$cookies</span>
+<a id="__codelineno-3-41" name="__codelineno-3-41"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cookies</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">session</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-43" name="__codelineno-3-43"></a><span class="w">    </span><span class="c1">// pas de session existante</span>
+<a id="__codelineno-3-44" name="__codelineno-3-44"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;nuxtServerInit, initialisation d&#39;une nouvelle session&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-45" name="__codelineno-3-45"></a><span class="w">    </span><span class="c1">// on initialise le store</span>
+<a id="__codelineno-3-46" name="__codelineno-3-46"></a><span class="w">    </span><span class="nx">store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;increment&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">77</span><span class="p">)</span>
+<a id="__codelineno-3-47" name="__codelineno-3-47"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-48" name="__codelineno-3-48"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;nuxtServerInit, reprise d&#39;une session existante&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-49" name="__codelineno-3-49"></a><span class="w">    </span><span class="c1">// on met à jour le store avec le cookie de session</span>
+<a id="__codelineno-3-50" name="__codelineno-3-50"></a><span class="w">    </span><span class="nx">store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;replace&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">session</span><span class="p">.</span><span class="nx">store</span><span class="p">)</span>
+<a id="__codelineno-3-51" name="__codelineno-3-51"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-52" name="__codelineno-3-52"></a><span class="w">  </span><span class="c1">// on met le store dans le cookie de session</span>
+<a id="__codelineno-3-53" name="__codelineno-3-53"></a><span class="w">  </span><span class="nx">cookies</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">store</span><span class="o">:</span><span class="w"> </span><span class="nx">store</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">base</span><span class="p">,</span><span class="w"> </span><span class="nx">maxAge</span><span class="o">:</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">maxAge</span><span class="w"> </span><span class="p">})</span>
+<a id="__codelineno-3-54" name="__codelineno-3-54"></a><span class="w">  </span><span class="c1">// log</span>
+<a id="__codelineno-3-55" name="__codelineno-3-55"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;initStore terminé, store=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">store</span><span class="p">.</span><span class="nx">state</span><span class="p">)</span>
 <a id="__codelineno-3-56" name="__codelineno-3-56"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Commentaires</strong></p>
@@ -1266,49 +1262,61 @@ On obtient un cookie particulier avec l’expression [...$cookies.<strong>get</s
 <li>lignes 13-17 : l’état du store pourra être initialisé à partir d’un nouvel état. Cette fonction est là pour montrer une initialisation possible du store lorsque celui-ci n’est pas limité au seul compteur comme ici ;</li>
 <li>lignes 21-35 : la fonction [nuxtServerInit] n’a pas changé ;</li>
 <li>ligne 30 : lorsque le temps d’attente d’une seconde est écoulé, on initialise le store à l’aide de la fonction des lignes 38-56 ;</li>
-<li>lignes 40-41 : on commence par récupérer le cookie nommé ‘session’ :</li>
+<li>
+<p>lignes 40-41 : on commence par récupérer le cookie nommé ‘session’ :</p>
+<ul>
 <li>lors de la 1ère exécution de l’application et lors de la 1ère requête faite au serveur, ce cookie <strong>n’existera pas encore</strong>. Il sera alors créé (ligne 53) et sera envoyé au navigateur client ;</li>
 <li>lors de la même exécution de l’application et lors des requêtes n°s 2, 3, ... faites au serveur, ce cookie <strong>existera</strong> car le navigateur client le renverra avec chaque nouvelle requête faite au serveur ;</li>
-<li>
-<p>lors d’une seconde exécution de l’application et lors de la 1ère requête faite au serveur, ce cookie <strong>peut exister également</strong>. En effet, à l’issue de l’étape 1, le cookie a été stocké sur le navigateur avec une certaine durée de vie. Si cette durée de vie n’est pas dépassée, le cookie nommé ‘session’ sera envoyé avec la 1ère requête faite au serveur
-En résumé, pour chaque requête faite au serveur : si le cookie ‘session’ est déjà stocké sur le navigateur client alors le serveur va le recevoir, sinon il ne le recevra pas.</p>
+<li>lors d’une seconde exécution de l’application et lors de la 1ère requête faite au serveur, ce cookie <strong>peut exister également</strong>. En effet, à l’issue de l’étape 1, le cookie a été stocké sur le navigateur avec une certaine durée de vie. Si cette durée de vie n’est pas dépassée, le cookie nommé ‘session’ sera envoyé avec la 1ère requête faite au serveur</li>
+</ul>
 </li>
-<li>
-<p>lignes 42-47 : si le serveur ne reçoit pas le cookie de session, alors le store est initialisé par la ligne 46 ;</p>
-</li>
+</ul>
+<p>En résumé, pour chaque requête faite au serveur : si le cookie ‘session’ est déjà stocké sur le navigateur client alors le serveur va le recevoir, sinon il ne le recevra pas.</p>
+<ul>
+<li>lignes 42-47 : si le serveur ne reçoit pas le cookie de session, alors le store est initialisé par la ligne 46 ;<ul>
 <li>puis ligne 53, un cookie nommé ‘session’ sera créé et placé dans la réponse HTTP du serveur. La valeur du cookie est l’objet [{ store: store.state }]. C’est donc l’état du store et non le store lui-même qui est mis dans le cookie de session ;</li>
-<li>le 3ième paramètre de la fonction [set] est un objet d’options :</li>
 <li>
-<p>[path] indique à quelle URL ce cookie devra être renvoyé. [context.base] est l’URL de base de l’application [nuxt-05]. Celle-ci est définie dans le fichier [nuxt.config.js] :
+<p>le 3ième paramètre de la fonction [set] est un objet d’options :</p>
+<ul>
+<li>
+<p>[path] indique à quelle URL ce cookie devra être renvoyé. [context.base] est l’URL de base de l’application [nuxt-05]. Celle-ci est définie dans le fichier [nuxt.config.js] :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
 <span class="normal"><a href="#__codelineno-4-3">3</a></span>
 <span class="normal"><a href="#__codelineno-4-4">4</a></span>
-<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>  <span class="o">//</span> <span class="n">routeur</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a>  <span class="n">router</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a>    <span class="o">//</span> <span class="n">racine</span> <span class="n">des</span> <span class="n">URL</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;application</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a>    <span class="n">base</span><span class="p">:</span> <span class="s1">&#39;/nuxt-05/&#39;</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="p">},</span>
-</code></pre></div></td></tr></table></div></p>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>  // routeur
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>  router: {
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>    // racine des URL de l&#39;application
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>    base: &#39;/nuxt-05/&#39;
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>},
+</code></pre></div></td></tr></table></div>
 </li>
 <li>
-<p>[maxAge] est la durée de vie en secondes du cookie sur le navigateur. Passée cette durée, le navigateur ne le renvoie plus au serveur. [context.env.maxAge] renvoie là encore une valeur inscrite dans le fichier [nuxt.config.js] :
+<p>[maxAge] est la durée de vie en secondes du cookie sur le navigateur. Passée cette durée, le navigateur ne le renvoie plus au serveur. [context.env.maxAge] renvoie là encore une valeur inscrite dans le fichier [nuxt.config.js] :</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span>
 <span class="normal"><a href="#__codelineno-5-3">3</a></span>
-<span class="normal"><a href="#__codelineno-5-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="o">//</span> <span class="n">environnement</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a>  <span class="n">env</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a>    <span class="n">maxAge</span><span class="p">:</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">5</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div></p>
-</li>
-</ul>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>// environnement
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>  env: {
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>    maxAge: 60 * 5
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>}
+</code></pre></div></td></tr></table></div>
 <p>[env] est un mot clé réservé du fichier de configuration. On fixe ici la durée de vie à 5 minutes. Cette durée est mesurée par rapport à la dernière fois où le navigateur a reçu le cookie de session. Passée cette durée, le cookie ne sera pas renvoyé au serveur qui devra alors démarrer une nouvelle session ;</p>
 <ul>
-<li>lignes 48-50 : si le serveur reçoit le cookie de session, alors l’état du store est initialisé avec l’objet [store] du cookie de session. On se rappelle que cet objet contient l’état sauvegardé du store ;</li>
-<li>puis ligne 53, le cookie de session sera placé dans la réponse faite au navigateur client :</li>
+<li>lignes 48-50 : si le serveur reçoit le cookie de session, alors l’état du store est initialisé avec l’objet [store] du cookie de session. On se rappelle que cet objet contient l’état sauvegardé du store ;<ul>
+<li>puis ligne 53, le cookie de session sera placé dans la réponse faite au navigateur client :<ul>
 <li>la fonction [get] va chercher le cookie de session dans la <strong>requête reçue</strong> par le serveur ;</li>
 <li>la fonction [set] met le cookie de session dans la <strong>réponse</strong> que le serveur fait au navigateur client ;</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h2 id="85-incrementation-du-compteur-du-store">8.5. Incrémentation du compteur du store</h2>
 <p>L’incrémentation du compteur dans la page [index.vue] évolue de la façon suivante :</p>
@@ -1323,17 +1331,17 @@ En résumé, pour chaque requête faite au serveur : si le cookie ‘session’
 <span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-6-10">10</a></span>
 <span class="normal"><a href="#__codelineno-6-11">11</a></span>
-<span class="normal"><a href="#__codelineno-6-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>  <span class="o">//</span> <span class="n">gestion</span> <span class="n">des</span> <span class="n">évts</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a>  <span class="n">methods</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a>    <span class="n">incrementCounter</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a>      <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;incrementCounter&#39;</span><span class="p">)</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a>      <span class="o">//</span> <span class="n">incrément</span> <span class="n">du</span> <span class="n">compteur</span> <span class="n">de</span> <span class="mi">1</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a>      <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">store</span><span class="o">.</span><span class="n">commit</span><span class="p">(</span><span class="s1">&#39;increment&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a>      <span class="o">//</span> <span class="n">chgt</span> <span class="n">de</span> <span class="n">la</span> <span class="n">valeur</span> <span class="n">affichée</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8"></a>      <span class="n">this</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">store</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">counter</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9"></a>      <span class="o">//</span> <span class="n">sauvegarde</span> <span class="n">du</span> <span class="n">store</span> <span class="n">dans</span> <span class="n">le</span> <span class="n">cookie</span> <span class="n">de</span> <span class="n">session</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10"></a>      <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">cookies</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="n">store</span><span class="p">:</span> <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">store</span><span class="o">.</span><span class="n">state</span> <span class="p">},</span> <span class="p">{</span> <span class="n">path</span><span class="p">:</span> <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">nuxt</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="n">maxAge</span><span class="p">:</span> <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">nuxt</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">maxAge</span> <span class="p">})</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11"></a>    <span class="p">}</span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="w">  </span><span class="c1">// gestion des évts</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">  </span><span class="nx">methods</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="nx">incrementCounter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;incrementCounter&#39;</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">      </span><span class="c1">// incrément du compteur de 1</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;increment&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">      </span><span class="c1">// chgt de la valeur affichée</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">counter</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">      </span><span class="c1">// sauvegarde du store dans le cookie de session</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">$cookies</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">store</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">$nuxt</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">base</span><span class="p">,</span><span class="w"> </span><span class="nx">maxAge</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">$nuxt</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">maxAge</span><span class="w"> </span><span class="p">})</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Du côté client, à chaque fois qu’on modifie le store, il faut le sauvegarder dans le cookie de session. En effet, l’utilisateur peut demander une URL à la main à tout moment et on doit être alors capable d’envoyer au serveur un store à jour. C’est pourquoi, ligne 10, après l’incrémentation du compteur du store, on sauvegarde l’état de celui-ci dans le cookie de session :</p>
@@ -1349,26 +1357,26 @@ En résumé, pour chaque requête faite au serveur : si le cookie ‘session’
 <p>Les copies d’écran qui suivent sont celles d’un navigateur Chrome. Nous demandons l’URL [http://localhost:81/nuxt-05/]. <strong>N’oubliez pas</strong> le dernier / derrière /nuxt-05, sinon vous n’aurez pas les résultats escomptés :</p>
 <p><img src="images/10000000000007EA000002AD420D8580.png" style="width:16.08cm;height:5.441cm;" alt="Image" /></p>
 <ul>
-<li>en [4], nous avons obtenu la valeur initiale du store (77) ;
-Examinons les logs du navigateur (F12) :</li>
+<li>en [4], nous avons obtenu la valeur initiale du store (77) ;</li>
 </ul>
+<p>Examinons les logs du navigateur (F12) :</p>
 <p><img src="images/10000000000003A8000002BFF206F300.png" style="width:7.43cm;height:5.58cm;" alt="Image" /></p>
 <ul>
 <li>en [5-6], les logs du serveur ;</li>
 <li>en [7], on voit que le serveur démarre une nouvelle session. Cela veut dire qu’il n’a pas reçu de cookie de session ;</li>
 <li>en [8], initialisation du compteur avec la valeur 77 ;</li>
-<li>en [9], la page [index] du serveur (9) et celle du client (10) affichent bien la même valeur du compteur ;
-Maintenant regardons les cookies reçus par le navigateur :</li>
+<li>en [9], la page [index] du serveur (9) et celle du client (10) affichent bien la même valeur du compteur ;</li>
 </ul>
+<p>Maintenant regardons les cookies reçus par le navigateur :</p>
 <p><img src="images/100000000000071C0000026550FCE5E8.png" style="width:14.451cm;height:4.86cm;" alt="Image" /></p>
 <ul>
 <li>en [1], choisissez l’onglet [Application] puis l’option [Cookies] [2]. Parmi tous les cookies de votre navigateur, choisissez celui du domaine [http://localhost:81];</li>
 <li>en [4], le cookie nommé ‘session’. Si vous ne l’avez pas, rechargez la page [F5] : peut-être avez-vous dépassé sa durée de vie qui est de 5 mn ;</li>
 <li>en [5], la valeur du cookie. Bien que ce ne soit pas très lisible à cause de l’encodage des caractères { :, on distingue la valeur 77 du compteur ;</li>
 <li>en [6], l’URL du cookie : à chaque fois que cette URL sera demandée, le navigateur enverra le cookie au serveur ;</li>
-<li>en [7], l’heure de fin de validité du cookie. Lorsque cette heure sera dépassée, le cookie sera détruit sur le navigateur ;
-Assurez-vous d’avoir ce cookie. Si vous ne l’avez pas, rechargez la page (F5). Lorsque vous avez la page avec son cookie, rechargez de nouveau la page (F5). Les logs deviennent alors les suivants :</li>
+<li>en [7], l’heure de fin de validité du cookie. Lorsque cette heure sera dépassée, le cookie sera détruit sur le navigateur ;</li>
 </ul>
+<p>Assurez-vous d’avoir ce cookie. Si vous ne l’avez pas, rechargez la page (F5). Lorsque vous avez la page avec son cookie, rechargez de nouveau la page (F5). Les logs deviennent alors les suivants :</p>
 <p><img src="images/10000000000003F5000002D011D4BFB8.png" style="width:8.041cm;height:5.721cm;" alt="Image" /></p>
 <p>Cette fois-ci en [3], le serveur a bien récupéré le cookie de session. C’est le navigateur client qui le lui a envoyé.</p>
 <p>Maintenant, procédez à des incrémentations du compteur, puis de temps en temps rechargez la page courante (F5), que ce soit [index] ou [page1], vous devez constater que le compteur ne revient pas à 77 comme dans l’exemple [nuxt-04] mais garde la valeur qu’il avait sur le navigateur client avant le rechargement de la page :</p>
@@ -1389,28 +1397,28 @@ Assurez-vous d’avoir ce cookie. Si vous ne l’avez pas, rechargez la page (F5
 <span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-7-10">10</a></span>
 <span class="normal"><a href="#__codelineno-7-11">11</a></span>
-<span class="normal"><a href="#__codelineno-7-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="o">//</span> <span class="n">gestion</span> <span class="n">des</span> <span class="n">évts</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a>  <span class="n">methods</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a>    <span class="n">incrementCounter</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a>      <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;incrementCounter&#39;</span><span class="p">)</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a>      <span class="o">//</span> <span class="n">incrément</span> <span class="n">du</span> <span class="n">compteur</span> <span class="n">de</span> <span class="mi">1</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6"></a>      <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">store</span><span class="o">.</span><span class="n">commit</span><span class="p">(</span><span class="s1">&#39;increment&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7"></a>      <span class="o">//</span> <span class="n">chgt</span> <span class="n">de</span> <span class="n">la</span> <span class="n">valeur</span> <span class="n">affichée</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8"></a>      <span class="n">this</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">store</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">counter</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9"></a>      <span class="o">//</span> <span class="n">sauvegarde</span> <span class="n">du</span> <span class="n">store</span> <span class="n">dans</span> <span class="n">le</span> <span class="n">cookie</span> <span class="n">de</span> <span class="n">session</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10"></a>      <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">cookies</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="n">store</span><span class="p">:</span> <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">store</span><span class="o">.</span><span class="n">state</span> <span class="p">},</span> <span class="p">{</span> <span class="n">path</span><span class="p">:</span> <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">nuxt</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="n">maxAge</span><span class="p">:</span> <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">nuxt</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">maxAge</span> <span class="p">})</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11"></a>    <span class="p">}</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12"></a>  <span class="p">}</span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1">// gestion des évts</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">  </span><span class="nx">methods</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="nx">incrementCounter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;incrementCounter&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">      </span><span class="c1">// incrément du compteur de 1</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;increment&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">      </span><span class="c1">// chgt de la valeur affichée</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">counter</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">      </span><span class="c1">// sauvegarde du store dans le cookie de session</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">$cookies</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">store</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">$nuxt</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">base</span><span class="p">,</span><span class="w"> </span><span class="nx">maxAge</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">$nuxt</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">maxAge</span><span class="w"> </span><span class="p">})</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">  </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 10 : la modification du compteur est répercutée sur le cookie de session ;
-Vérifions ce point. On part de la situation suivante :</li>
+<li>ligne 10 : la modification du compteur est répercutée sur le cookie de session ;</li>
 </ul>
+<p>Vérifions ce point. On part de la situation suivante :</p>
 <p><img src="images/10000000000007EF000005E5DA78BB73.png" style="width:16.121cm;height:11.981cm;" alt="Image" /></p>
 <ul>
-<li>en [4], le compteur du cookie de session reflète bien la valeur affichée [1] ;
-Maintenant, incrémentons le compteur une fois [5]. Le cookie de session en [4] évolue de la façon suivante :</li>
+<li>en [4], le compteur du cookie de session reflète bien la valeur affichée [1] ;</li>
 </ul>
+<p>Maintenant, incrémentons le compteur une fois [5]. Le cookie de session en [4] évolue de la façon suivante :</p>
 <p><img src="images/10000000000007EC000005DCC967A8FF.png" style="width:16.102cm;height:11.911cm;" alt="Image" /></p>
 <ul>
 <li>en [7], le compteur du cookie de session est bien passé à 84. Pour le voir, il faut rafraîchir la vue [8]. Pour cela sélectionnez une autre option du [Storage] [9], puis resélectionnez l’option [8]. La nouvelle valeur du cookie de session devrait alors apparaître ;</li>
@@ -1454,7 +1462,7 @@ Maintenant, incrémentons le compteur une fois [5]. Le cookie de session en [4] 
           https://tahe.developpez.com
         </a>
         <br>
-        Ce cours tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        Ce cours-tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
         <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
         Partage dans les Mêmes Conditions 3.0 non transposé</em>.
       </div>

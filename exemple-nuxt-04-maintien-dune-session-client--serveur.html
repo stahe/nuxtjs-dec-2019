@@ -65,14 +65,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
     var siteName = "Introduction au framework NUXT.JS par l'exemple";
-
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
-    console.log("[GA Debug] page_title forced to: " + siteName);
   </script>
 
     
@@ -794,9 +790,9 @@
 <ul>
 <li>la page [index] aura un bouton qui permettra d’incrémenter le compteur du store [Vuex] ;</li>
 <li>la page [page1] reste inchangée ;</li>
-<li>on voudrait que lorsqu’une page est demandée à la main au serveur, celui-ci renvoie la page demandée avec un store [Vuex] qui aurait pour valeur de compteur, la dernière valeur que celui-ci avait côté client ;
-Le projet [nuxt-04] est initialement créé par recopie du projet [nuxt-03] :</li>
+<li>on voudrait que lorsqu’une page est demandée à la main au serveur, celui-ci renvoie la page demandée avec un store [Vuex] qui aurait pour valeur de compteur, la dernière valeur que celui-ci avait côté client ;</li>
 </ul>
+<p>Le projet [nuxt-04] est initialement créé par recopie du projet [nuxt-03] :</p>
 <p><img src="images/10000000000001970000018C0984BDAE.png" style="width:4.31cm;height:4.19cm;" alt="Image" /></p>
 <p>Seule la page [index] change :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
@@ -929,9 +925,9 @@ Le projet [nuxt-04] est initialement créé par recopie du projet [nuxt-03] :</
 <li>ligne 10 : on a ajouté un bouton pour incrémenter le compteur du store [Vuex] ;</li>
 <li>ligne 54 : la méthode qui gère le [clic] sur le bouton [Incrémenter] ;</li>
 <li>ligne 57 : le compteur du store est incrémenté de 1 ;</li>
-<li>ligne 59 : la valeur du compteur est affectée à la propriété [value] afin qu’elle soit affichée par la ligne 8 ;
-On exécute le projet [nuxt-04] avec le fichier [nuxt.config.js] suivant :</li>
+<li>ligne 59 : la valeur du compteur est affectée à la propriété [value] afin qu’elle soit affichée par la ligne 8 ;</li>
 </ul>
+<p>On exécute le projet [nuxt-04] avec le fichier [nuxt.config.js] suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
@@ -946,21 +942,21 @@ On exécute le projet [nuxt-04] avec le fichier [nuxt.config.js] suivant :</li>
 <span class="normal"><a href="#__codelineno-1-12">12</a></span>
 <span class="normal"><a href="#__codelineno-1-13">13</a></span>
 <span class="normal"><a href="#__codelineno-1-14">14</a></span>
-<span class="normal"><a href="#__codelineno-1-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="o">//</span> <span class="n">répertoire</span> <span class="n">du</span> <span class="n">code</span> <span class="n">source</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a>  <span class="n">srcDir</span><span class="p">:</span> <span class="s1">&#39;nuxt-04&#39;</span><span class="p">,</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a>  <span class="o">//</span> <span class="n">routeur</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a>  <span class="n">router</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    <span class="o">//</span> <span class="n">racine</span> <span class="n">des</span> <span class="n">URL</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;application</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a>    <span class="n">base</span><span class="p">:</span> <span class="s1">&#39;/nuxt-04/&#39;</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a>  <span class="p">},</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a>  <span class="o">//</span> <span class="n">serveur</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a>  <span class="n">server</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a>    <span class="o">//</span> <span class="n">port</span> <span class="n">de</span> <span class="n">service</span><span class="p">,</span> <span class="mi">3000</span> <span class="n">par</span> <span class="n">défaut</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a>    <span class="n">port</span><span class="p">:</span> <span class="mi">81</span><span class="p">,</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a>    <span class="o">//</span> <span class="n">adresses</span> <span class="n">réseau</span> <span class="n">écoutées</span><span class="p">,</span> <span class="n">par</span> <span class="n">défaut</span> <span class="n">localhost</span> <span class="p">:</span> <span class="mf">127.0.0.1</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a>    <span class="o">//</span> <span class="mf">0.0.0.0</span> <span class="o">=</span> <span class="n">toutes</span> <span class="n">les</span> <span class="n">adresses</span> <span class="n">réseau</span> <span class="n">de</span> <span class="n">la</span> <span class="n">machine</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a>    <span class="n">host</span><span class="p">:</span> <span class="s1">&#39;localhost&#39;</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="p">}</span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>// répertoire du code source
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>  srcDir: &#39;nuxt-04&#39;,
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>  // routeur
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>  router: {
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    // racine des URL de l&#39;application
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>    base: &#39;/nuxt-04/&#39;
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>  },
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>  // serveur
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>  server: {
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>    // port de service, 3000 par défaut
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>    port: 81,
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>    // adresses réseau écoutées, par défaut localhost : 127.0.0.1
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>    // 0.0.0.0 = toutes les adresses réseau de la machine
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>    host: &#39;localhost&#39;
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>}
 </code></pre></div></td></tr></table></div>
 <p>A l’exécution la première page affichée est la suivante :</p>
 <p><img src="images/10000000000006140000029B71F9DB39.png" style="width:12.352cm;height:5.291cm;" alt="Image" /></p>
@@ -969,17 +965,17 @@ On exécute le projet [nuxt-04] avec le fichier [nuxt.config.js] suivant :</li>
 <p>Si on utilise le lien [3], on a la page suivante :</p>
 <p><img src="images/100000000000060C00000233F80A9994.png" style="width:12.292cm;height:4.47cm;" alt="Image" /></p>
 <ul>
-<li>en [2], la page [page1] [1] affiche bien la valeur du compteur ;
-Maintenant, rafraîchissons la page avec [3]. La nouvelle page est la suivante :</li>
+<li>en [2], la page [page1] [1] affiche bien la valeur du compteur ;</li>
 </ul>
+<p>Maintenant, rafraîchissons la page avec [3]. La nouvelle page est la suivante :</p>
 <p><img src="images/10000000000004DD0000017FF4470033.png" style="width:16.47cm;height:5.07cm;" alt="Image" /></p>
 <ul>
-<li>
-<p>en [2], on a perdu la valeur courante du compteur. On est revenu à sa valeur initiale ;
-Ce résultat est tout a fait compréhensible si on regarde les logs :</p>
-</li>
-<li>
-<p>en [1], le serveur a réexécuté la fonction [nuxtServerInit]. Or celle-ci est la suivante :
+<li>en [2], on a perdu la valeur courante du compteur. On est revenu à sa valeur initiale ;</li>
+</ul>
+<p>Ce résultat est tout a fait compréhensible si on regarde les logs :</p>
+<ul>
+<li>en [1], le serveur a réexécuté la fonction [nuxtServerInit]. Or celle-ci est la suivante :</li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
@@ -1011,41 +1007,39 @@ Ce résultat est tout a fait compréhensible si on regarde les logs :</p>
 <span class="normal"><a href="#__codelineno-2-29">29</a></span>
 <span class="normal"><a href="#__codelineno-2-30">30</a></span>
 <span class="normal"><a href="#__codelineno-2-31">31</a></span>
-<span class="normal"><a href="#__codelineno-2-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="o">/*</span> <span class="n">eslint</span><span class="o">-</span><span class="n">disable</span> <span class="n">no</span><span class="o">-</span><span class="n">console</span> <span class="o">*/</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">export</span> <span class="n">const</span> <span class="n">state</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">({</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a>  <span class="o">//</span> <span class="n">compteut</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a>  <span class="n">counter</span><span class="p">:</span> <span class="mi">0</span>
+<span class="normal"><a href="#__codelineno-2-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* eslint-disable no-console */</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="c1">// compteut</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">  </span><span class="nx">counter</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="p">})</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">export</span> <span class="n">const</span> <span class="n">mutations</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a>  <span class="o">//</span> <span class="n">incrémentation</span> <span class="n">du</span> <span class="n">compteur</span> <span class="n">d</span><span class="s1">&#39;une valeur [inc]</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a>  <span class="n">increment</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">inc</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a>    <span class="n">state</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="n">inc</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a>  <span class="p">}</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">mutations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">  </span><span class="c1">// incrémentation du compteur d&#39;une valeur [inc]</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">  </span><span class="nx">increment</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">inc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="nx">state</span><span class="p">.</span><span class="nx">counter</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">inc</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="p">}</span>
 <a id="__codelineno-2-13" name="__codelineno-2-13"></a>
-<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="n">export</span> <span class="n">const</span> <span class="n">actions</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15"></a>  <span class="k">async</span> <span class="n">nuxtServerInit</span><span class="p">(</span><span class="n">store</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16"></a>    <span class="o">//</span> <span class="n">qui</span> <span class="n">exécute</span> <span class="n">ce</span> <span class="n">code</span> <span class="err">?</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;nuxtServerInit, client=&#39;</span><span class="p">,</span> <span class="n">process</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="s1">&#39;serveur=&#39;</span><span class="p">,</span> <span class="n">process</span><span class="o">.</span><span class="n">server</span><span class="p">)</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18"></a>    <span class="o">//</span> <span class="n">on</span> <span class="n">attend</span> <span class="n">la</span> <span class="n">fin</span> <span class="n">d</span><span class="s1">&#39;une promesse</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19"></a>    <span class="k">await</span> <span class="n">new</span> <span class="n">Promise</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">resolve</span><span class="p">,</span> <span class="n">reject</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20"></a>      <span class="o">//</span> <span class="n">on</span> <span class="n">a</span> <span class="n">normalement</span> <span class="n">ici</span> <span class="n">une</span> <span class="n">fonction</span> <span class="n">asynchrone</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21"></a>      <span class="o">//</span> <span class="n">on</span> <span class="n">la</span> <span class="n">simule</span> <span class="n">avec</span> <span class="n">une</span> <span class="n">attente</span> <span class="n">d</span><span class="s1">&#39;une seconde</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22"></a>      <span class="n">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23"></a>        <span class="o">//</span> <span class="n">succès</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24"></a>        <span class="n">resolve</span><span class="p">()</span>
-<a id="__codelineno-2-25" name="__codelineno-2-25"></a>      <span class="p">},</span> <span class="mi">1000</span><span class="p">)</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26"></a>    <span class="p">})</span>
-<a id="__codelineno-2-27" name="__codelineno-2-27"></a>    <span class="o">//</span> <span class="n">on</span> <span class="n">modifie</span> <span class="n">le</span> <span class="n">store</span>
-<a id="__codelineno-2-28" name="__codelineno-2-28"></a>    <span class="n">store</span><span class="o">.</span><span class="n">commit</span><span class="p">(</span><span class="s1">&#39;increment&#39;</span><span class="p">,</span> <span class="mi">53</span><span class="p">)</span>
-<a id="__codelineno-2-29" name="__codelineno-2-29"></a>    <span class="o">//</span> <span class="n">log</span>
-<a id="__codelineno-2-30" name="__codelineno-2-30"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;nuxtServerInit commit terminé&#39;</span><span class="p">)</span>
-<a id="__codelineno-2-31" name="__codelineno-2-31"></a>  <span class="p">}</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">actions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">nuxtServerInit</span><span class="p">(</span><span class="nx">store</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">    </span><span class="c1">// qui exécute ce code ?</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;nuxtServerInit, client=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;serveur=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">server</span><span class="p">)</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">    </span><span class="c1">// on attend la fin d&#39;une promesse</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">reject</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="w">      </span><span class="c1">// on a normalement ici une fonction asynchrone</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="w">      </span><span class="c1">// on la simule avec une attente d&#39;une seconde</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">      </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">        </span><span class="c1">// succès</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">        </span><span class="nx">resolve</span><span class="p">()</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">      </span><span class="p">},</span><span class="w"> </span><span class="mf">1000</span><span class="p">)</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="w">    </span><span class="p">})</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="w">    </span><span class="c1">// on modifie le store</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="w">    </span><span class="nx">store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;increment&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">53</span><span class="p">)</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="w">    </span><span class="c1">// log</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;nuxtServerInit commit terminé&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-2-32" name="__codelineno-2-32"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div></p>
-</li>
-</ul>
+</code></pre></div></td></tr></table></div>
 <p>La ligne 28 affecte la valeur 53 au compteur.</p>
 <p>Examinons la requête HTTP faite par le navigateur lorsqu’on a rafraîchi la page [page1] :</p>
 <p><img src="images/100000000000045E0000029C0D65900B.png" style="width:8.871cm;height:5.301cm;" alt="Image" /></p>
@@ -1114,7 +1108,7 @@ Ce résultat est tout a fait compréhensible si on regarde les logs :</p>
           https://tahe.developpez.com
         </a>
         <br>
-        Ce cours tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        Ce cours-tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
         <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
         Partage dans les Mêmes Conditions 3.0 non transposé</em>.
       </div>

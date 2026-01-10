@@ -65,14 +65,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
     var siteName = "Introduction au framework NUXT.JS par l'exemple";
-
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
-    console.log("[GA Debug] page_title forced to: " + siteName);
   </script>
 
     
@@ -907,45 +903,47 @@
 <span class="normal"><a href="#__codelineno-0-29">29</a></span>
 <span class="normal"><a href="#__codelineno-0-30">30</a></span>
 <span class="normal"><a href="#__codelineno-0-31">31</a></span>
-<span class="normal"><a href="#__codelineno-0-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="o">/*</span> <span class="n">eslint</span><span class="o">-</span><span class="n">disable</span> <span class="n">no</span><span class="o">-</span><span class="n">console</span> <span class="o">*/</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">export</span> <span class="n">const</span> <span class="n">state</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">({</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>  <span class="o">//</span> <span class="n">compteur</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>  <span class="n">counter</span><span class="p">:</span> <span class="mi">0</span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cm">/* eslint-disable no-console */</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="c1">// compteur</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="nx">counter</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="p">})</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">export</span> <span class="n">const</span> <span class="n">mutations</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>  <span class="o">//</span> <span class="n">incrémentation</span> <span class="n">du</span> <span class="n">compteur</span> <span class="n">d</span><span class="s1">&#39;une valeur [inc]</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>  <span class="n">increment</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">inc</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="n">state</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="n">inc</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>  <span class="p">}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">mutations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">  </span><span class="c1">// incrémentation du compteur d&#39;une valeur [inc]</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">  </span><span class="nx">increment</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">inc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="nx">state</span><span class="p">.</span><span class="nx">counter</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">inc</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="p">}</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="n">export</span> <span class="n">const</span> <span class="n">actions</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a>  <span class="k">async</span> <span class="n">nuxtServerInit</span><span class="p">(</span><span class="n">store</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="o">//</span> <span class="n">qui</span> <span class="n">exécute</span> <span class="n">ce</span> <span class="n">code</span> <span class="err">?</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;nuxtServerInit, client=&#39;</span><span class="p">,</span> <span class="n">process</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="s1">&#39;serveur=&#39;</span><span class="p">,</span> <span class="n">process</span><span class="o">.</span><span class="n">server</span><span class="p">)</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span class="o">//</span> <span class="n">on</span> <span class="n">attend</span> <span class="n">la</span> <span class="n">fin</span> <span class="n">d</span><span class="s1">&#39;une promesse</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>    <span class="k">await</span> <span class="n">new</span> <span class="n">Promise</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">resolve</span><span class="p">,</span> <span class="n">reject</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>      <span class="o">//</span> <span class="n">on</span> <span class="n">a</span> <span class="n">normalement</span> <span class="n">ici</span> <span class="n">une</span> <span class="n">fonction</span> <span class="n">asynchrone</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>      <span class="o">//</span> <span class="n">on</span> <span class="n">la</span> <span class="n">simule</span> <span class="n">avec</span> <span class="n">une</span> <span class="n">attente</span> <span class="n">d</span><span class="s1">&#39;une seconde</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>      <span class="n">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>        <span class="o">//</span> <span class="n">succès</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="n">resolve</span><span class="p">()</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>      <span class="p">},</span> <span class="mi">1000</span><span class="p">)</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="p">})</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>    <span class="o">//</span> <span class="n">on</span> <span class="n">modifie</span> <span class="n">le</span> <span class="n">store</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="n">store</span><span class="o">.</span><span class="n">commit</span><span class="p">(</span><span class="s1">&#39;increment&#39;</span><span class="p">,</span> <span class="mi">34</span><span class="p">)</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="o">//</span> <span class="n">log</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;nuxtServerInit commit terminé&#39;</span><span class="p">)</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>  <span class="p">}</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">actions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">nuxtServerInit</span><span class="p">(</span><span class="nx">store</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">    </span><span class="c1">// qui exécute ce code ?</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;nuxtServerInit, client=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;serveur=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">server</span><span class="p">)</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">    </span><span class="c1">// on attend la fin d&#39;une promesse</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">reject</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">      </span><span class="c1">// on a normalement ici une fonction asynchrone</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">      </span><span class="c1">// on la simule avec une attente d&#39;une seconde</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">      </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">        </span><span class="c1">// succès</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">        </span><span class="nx">resolve</span><span class="p">()</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">      </span><span class="p">},</span><span class="w"> </span><span class="mf">1000</span><span class="p">)</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">    </span><span class="p">})</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">    </span><span class="c1">// on modifie le store</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">    </span><span class="nx">store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;increment&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">34</span><span class="p">)</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">    </span><span class="c1">// log</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;nuxtServerInit commit terminé&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>lignes 1-12 : sont analogues à ce qu’elles étaient dans le projet [nuxt-02] ;</li>
 <li>lignes 14-32 : on exporte un objet [actions]. C’est un terme réservé du store de [Vuex] ;</li>
-<li>ligne 15 : on définit la fonction [nuxtServerInit]. Celle-ci sera exécutée au démarrage de l’application par le serveur. Son rôle usuel est d’initialiser un store [Vuex] à l’aide de données externes obtenues avec une fonction asynchrone. [nuxt] attend que celle-ci rende ses résultats avant d’entamer le cycle de vie de la page demandée. La fonction reçoit deux paramètres :</li>
+<li>ligne 15 : on définit la fonction [nuxtServerInit]. Celle-ci sera exécutée au démarrage de l’application par le serveur. Son rôle usuel est d’initialiser un store [Vuex] à l’aide de données externes obtenues avec une fonction asynchrone. [nuxt] attend que celle-ci rende ses résultats avant d’entamer le cycle de vie de la page demandée. La fonction reçoit deux paramètres :<ul>
 <li>le store [Vuex] à initialiser ;</li>
 <li>le contexte [nuxt] du moment ;</li>
+</ul>
+</li>
 <li>lignes 19-26 : on attend la fin de l’action asynchrone, ici une attente artificielle d’une seconde (ligne 15) ;</li>
 <li>ligne 28 : on donne au compteur la valeur 34 ;</li>
 <li>lignes 17 et 30 : des logs pour suivre le déroulement de l’exécution de la fonction [nuxtServerInit] ;</li>
@@ -1173,34 +1171,34 @@
 <span class="normal"><a href="#__codelineno-3-12">12</a></span>
 <span class="normal"><a href="#__codelineno-3-13">13</a></span>
 <span class="normal"><a href="#__codelineno-3-14">14</a></span>
-<span class="normal"><a href="#__codelineno-3-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="o">//</span> <span class="n">répertoire</span> <span class="n">du</span> <span class="n">code</span> <span class="n">source</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>  <span class="n">srcDir</span><span class="p">:</span> <span class="s1">&#39;nuxt-03&#39;</span><span class="p">,</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a>  <span class="o">//</span> <span class="n">routeur</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a>  <span class="n">router</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a>    <span class="o">//</span> <span class="n">racine</span> <span class="n">des</span> <span class="n">URL</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;application</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a>    <span class="n">base</span><span class="p">:</span> <span class="s1">&#39;/nuxt-03/&#39;</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a>  <span class="p">},</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a>  <span class="o">//</span> <span class="n">serveur</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9"></a>  <span class="n">server</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10"></a>    <span class="o">//</span> <span class="n">port</span> <span class="n">de</span> <span class="n">service</span><span class="p">,</span> <span class="mi">3000</span> <span class="n">par</span> <span class="n">défaut</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11"></a>    <span class="n">port</span><span class="p">:</span> <span class="mi">81</span><span class="p">,</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12"></a>    <span class="o">//</span> <span class="n">adresses</span> <span class="n">réseau</span> <span class="n">écoutées</span><span class="p">,</span> <span class="n">par</span> <span class="n">défaut</span> <span class="n">localhost</span> <span class="p">:</span> <span class="mf">127.0.0.1</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13"></a>    <span class="o">//</span> <span class="mf">0.0.0.0</span> <span class="o">=</span> <span class="n">toutes</span> <span class="n">les</span> <span class="n">adresses</span> <span class="n">réseau</span> <span class="n">de</span> <span class="n">la</span> <span class="n">machine</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14"></a>    <span class="n">host</span><span class="p">:</span> <span class="s1">&#39;localhost&#39;</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="p">}</span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>// répertoire du code source
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>  srcDir: &#39;nuxt-03&#39;,
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>  // routeur
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>  router: {
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>    // racine des URL de l&#39;application
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>    base: &#39;/nuxt-03/&#39;
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>  },
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>  // serveur
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>  server: {
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>    // port de service, 3000 par défaut
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a>    port: 81,
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a>    // adresses réseau écoutées, par défaut localhost : 127.0.0.1
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a>    // 0.0.0.0 = toutes les adresses réseau de la machine
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a>    host: &#39;localhost&#39;
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a>}
 </code></pre></div></td></tr></table></div>
 <p>La page affichée à l’exécution est alors la suivante :</p>
 <p><img src="images/100000000000050100000172E0F6CCD9.png" style="width:16.95cm;height:4.89cm;" alt="Image" /></p>
 <ul>
 <li>en [5], on voit que la fonction [nuxtServerInit] a été exécutée par le serveur avant le cycle de vie de la page [index]. [nuxt] a attendu que la fonction asynchrone ait terminé son travail avant de passer au cycle de vie ;</li>
-<li>en [4], on voit que le client n’a pas exécuté la fonction [nuxtServerInit] ;
-Maintenant naviguons deux fois : index --&gt; page1 --&gt; index. Les logs sont alors les suivants :</li>
+<li>en [4], on voit que le client n’a pas exécuté la fonction [nuxtServerInit] ;</li>
 </ul>
+<p>Maintenant naviguons deux fois : index --&gt; page1 --&gt; index. Les logs sont alors les suivants :</p>
 <p><img src="images/1000000000000191000001CE1D9ABBD0.png" style="width:5.31cm;height:6.111cm;" alt="Image" /></p>
 <ul>
-<li>en [1-2], on voit que la fonction [nuxtServerInit] n’est pas exécutée par le client ;
-Maintenant tapons l’URL de la page [page1] à la main pour forcer un appel au serveur :</li>
+<li>en [1-2], on voit que la fonction [nuxtServerInit] n’est pas exécutée par le client ;</li>
 </ul>
+<p>Maintenant tapons l’URL de la page [page1] à la main pour forcer un appel au serveur :</p>
 <p><img src="images/10000000000004F6000001A19DF26726.png" style="width:15.121cm;height:4.961cm;" alt="Image" /></p>
 <p>en [3-4], on retrouve le même mécanisme que celui qui avait précédé le chargement de la page [index] au démarrage. On rappelle ici ce qui a déjà été dit : lorsqu’on force l’appel d’une page au serveur, tout se passe comme si l’application redémarrait avec une page d’accueil qui serait la page demandée ;</p>
 
@@ -1242,7 +1240,7 @@ Maintenant tapons l’URL de la page [page1] à la main pour forcer un appel au 
           https://tahe.developpez.com
         </a>
         <br>
-        Ce cours tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        Ce cours-tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
         <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
         Partage dans les Mêmes Conditions 3.0 non transposé</em>.
       </div>
