@@ -924,7 +924,7 @@
 <h1 id="9-exemple-nuxt-06-injection-dans-le-contexte-dun-gestionnaire-de-session">9. Exemple [nuxt-06] : injection dans le contexte d’un gestionnaire de session</h1>
 <h2 id="91-presentation">9.1. Présentation</h2>
 <p>L’exemple [nuxt-05] a montré qu’on pouvait persister le store même lorsque l’utilisateur force des appels au serveur. Les éléments du store sont réactifs pour que s’ils sont intégrés à des vues celles-ci soient réactives aux changements du store. On peut vouloir aussi persister des éléments au fil des échanges client / serveur sans pour autant vouloir qu’ils soient réactifs, tout simplement parce qu’ils ne sont pas affichés par des vues. On peut alors stocker ceux-ci dans la session sans qu’ils soient pour autant dans le store.</p>
-<p>Le store est accessible facilement au travers de propriétés telles que [context.app.$store] en-dehors des vues ou [this.$store] dans les vues. On voudrait quelque chose d’analogue pour la session, quelque chose comme [context.app.$session] ou [this.$session]. On va voir que c’est possible grâce au concept d’injection. Seulement on ne peut pas injecter des objets dans le contexte, seulement des fonctions. Celle-ci sera alors disponible au travers des expressions [context.app.$session<strong>()</strong>] ou [this.$session<strong>()</strong>].</p>
+<p>Le store est accessible facilement au travers de propriétés telles que [context.app.$store] en-dehors des vues ou [this.$store] dans les vues. On voudrait quelque chose d’analogue pour la session, quelque chose comme [context.app.$session] ou [this.$session]. On va voir que c’est possible grâce au concept d’injection. Seulement on ne peut pas injecter des objets dans le contexte, seulement des fonctions. Celle-ci sera alors disponible au travers des expressions [context.app.$session<strong><span style="color: #c9211e">()</span></strong>] ou [this.$session<strong><span style="color: #c9211e">()</span></strong>].</p>
 <p>Enfin, nous allons présenter le concept [nuxt] de [plugin].</p>
 <p>L’exemple [nuxt-06] est obtenu initialement par recopie du projet [nuxt-05] :</p>
 <p><img src="images/10000000000001640000024717468ECB.png" style="width:3.77cm;height:6.171cm;" alt="Image" /></p>
@@ -933,20 +933,16 @@
 </ul>
 <h2 id="92-la-notion-de-plugin-nuxt">9.2. la notion de plugin [nuxt]</h2>
 <p>[nuxt] nomme [plugin] tout code exécuté au démarrage de l’application, avant même l’exécution de la fonction [nuxtServerInit] par le serveur qui était jusqu’à maintenant la première fonction utilisateur à être exécutée. Les plugins de l’application doivent être déclarés dans la clé [plugins] du fichier de configuration [nuxt.config.js] :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span>
-<span class="normal"><a href="#__codelineno-0-4">4</a></span>
-<span class="normal"><a href="#__codelineno-0-5">5</a></span>
-<span class="normal"><a href="#__codelineno-0-6">6</a></span>
-<span class="normal"><a href="#__codelineno-0-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>  /*
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>   ** Plugins to load before mounting the App
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>   */
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>  plugins: [
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    { src: &#39;~/plugins/client/session&#39;, mode: &#39;client&#39; },
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>    { src: &#39;~/plugins/server/session&#39;, mode: &#39;server&#39; }
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>],
-</code></pre></div></td></tr></table></div>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
+<span class="odt-code-line">  <span style="color:#008000">/*</span></span>
+<span class="odt-code-line">   ** Plugins to load before mounting the App</span>
+<span class="odt-code-line">   */</span>
+<span class="odt-code-line">  plugins: [</span>
+<span class="odt-code-line"><span style="color:#000000">    { src: </span>&#x27;~/plugins/client/session&#x27;<span style="color:#000000">, mode: </span>&#x27;client&#x27;<span style="color:#000000"> },</span></span>
+<span class="odt-code-line"><span style="color:#000000">    { src: </span>&#x27;~/plugins/server/session&#x27;<span style="color:#000000">, mode: </span>&#x27;server&#x27;<span style="color:#000000"> }</span></span>
+<span class="odt-code-line">],</span>
+</code></pre></div>
+
 <ul>
 <li>lignes 5-6 : un plugin est désigné par son chemin [src] et son mode d’exécution [mode]. [mode] peut avoir trois valeurs :<ul>
 <li>[client] : le plugin doit être exécuté côté client uniquement ;</li>
@@ -959,68 +955,40 @@
 <p><img src="images/10000000000001640000024711C4FD7E.png" style="width:3.77cm;height:6.171cm;" alt="Image" /></p>
 <h2 id="93-le-plugin-session-du-serveur">9.3. Le plugin [session] du serveur</h2>
 <p>Le plugin [server / session.js] est le suivant :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-1-10">10</a></span>
-<span class="normal"><a href="#__codelineno-1-11">11</a></span>
-<span class="normal"><a href="#__codelineno-1-12">12</a></span>
-<span class="normal"><a href="#__codelineno-1-13">13</a></span>
-<span class="normal"><a href="#__codelineno-1-14">14</a></span>
-<span class="normal"><a href="#__codelineno-1-15">15</a></span>
-<span class="normal"><a href="#__codelineno-1-16">16</a></span>
-<span class="normal"><a href="#__codelineno-1-17">17</a></span>
-<span class="normal"><a href="#__codelineno-1-18">18</a></span>
-<span class="normal"><a href="#__codelineno-1-19">19</a></span>
-<span class="normal"><a href="#__codelineno-1-20">20</a></span>
-<span class="normal"><a href="#__codelineno-1-21">21</a></span>
-<span class="normal"><a href="#__codelineno-1-22">22</a></span>
-<span class="normal"><a href="#__codelineno-1-23">23</a></span>
-<span class="normal"><a href="#__codelineno-1-24">24</a></span>
-<span class="normal"><a href="#__codelineno-1-25">25</a></span>
-<span class="normal"><a href="#__codelineno-1-26">26</a></span>
-<span class="normal"><a href="#__codelineno-1-27">27</a></span>
-<span class="normal"><a href="#__codelineno-1-28">28</a></span>
-<span class="normal"><a href="#__codelineno-1-29">29</a></span>
-<span class="normal"><a href="#__codelineno-1-30">30</a></span>
-<span class="normal"><a href="#__codelineno-1-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* eslint-disable no-console */</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="p">(</span><span class="nx">context</span><span class="p">,</span><span class="w"> </span><span class="nx">inject</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">  </span><span class="c1">// gestion de la session serveur</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">  </span><span class="c1">// y-a-t-il une session existante ?</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">$cookies</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">)</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="c1">// nouvelle session</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;[plugin session server], démarrage d&#39;une nouvelle session&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">initValue</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="c1">// session existante</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;[plugin session server], reprise d&#39;une session existante&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">  </span><span class="c1">// définition de la session</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="c1">// contenu de la session</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">    </span><span class="nx">value</span><span class="p">,</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w">    </span><span class="c1">// sauvegarde de la session dans un cookie</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">    </span><span class="nx">save</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="w">      </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">$cookies</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">base</span><span class="p">,</span><span class="w"> </span><span class="nx">maxAge</span><span class="o">:</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">maxAge</span><span class="w"> </span><span class="p">})</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="w">  </span><span class="c1">// on injecte une fonction dans [context, Vue] qui rendra la session courante</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="w">  </span><span class="nx">inject</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">session</span><span class="p">)</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="p">}</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27"></a>
-<a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="c1">// valeur initiale de la session</span>
-<a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="kd">const</span><span class="w"> </span><span class="nx">initValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="w">  </span><span class="nx">initSessionDone</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<span class="odt-code-line">/* eslint-disable no-console */</span>
+<span class="odt-code-line"><span style="color:#0000ff">export</span> <span style="color:#0000ff">default</span> (context, inject) =&gt; {</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// gestion de la session serveur</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// y-a-t-il une session existante ?</span>
+<span class="odt-code-line">  <span style="color:#0000ff">let</span> value = context.app.$cookies.get(<span style="color:#a31515">&#x27;session&#x27;</span>)</span>
+<span class="odt-code-line">  <span style="color:#0000ff">if</span> (!value) {</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// nouvelle session</span>
+<span class="odt-code-line"><span style="color:#000000">    console.log(</span>&quot;[plugin session server], démarrage d&#x27;une nouvelle session&quot;<span style="color:#000000">)</span></span>
+<span class="odt-code-line">    value = initValue</span>
+<span class="odt-code-line">  } <span style="color:#0000ff">else</span> {</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// session existante</span>
+<span class="odt-code-line"><span style="color:#000000">    console.log(</span>&quot;[plugin session server], reprise d&#x27;une session existante&quot;<span style="color:#000000">)</span></span>
+<span class="odt-code-line">  }</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// définition de la session</span>
+<span class="odt-code-line">  <span style="color:#0000ff">const</span> session = {</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// contenu de la session</span>
+<span class="odt-code-line">    value,</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// sauvegarde de la session dans un cookie</span>
+<span class="odt-code-line">    save(context) {</span>
+<span class="odt-code-line">      context.app.$cookies.set(<span style="color:#a31515">&#x27;session&#x27;</span>, <span style="color:#0000ff">this</span>.value, { path: context.base, maxAge: context.env.maxAge })</span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line">  }</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// on injecte une fonction dans [context, Vue] qui rendra la session courante</span>
+<span class="odt-code-line">  inject(<span style="color:#a31515">&#x27;session&#x27;</span>, () =&gt; session)</span>
+<span class="odt-code-line">}</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line">// valeur initiale de la session</span>
+<span class="odt-code-line"><span style="color:#0000ff">const</span> initValue = {</span>
+<span class="odt-code-line">  initSessionDone: <span style="color:#0000ff">false</span></span>
+<span class="odt-code-line">}</span>
+</code></pre></div>
+
 <ul>
 <li>ligne 2 : les plugins sont exécutés à chaque fois qu’il y a un appel au serveur : au démarrage et à chaque fois que l’utilisateur force un appel au serveur en tapant une URL à la main :<ul>
 <li>c’est d’abord le (ou les) plugin(s) du serveur qui est (sont) exécuté(s) en premier ;</li>
@@ -1064,134 +1032,73 @@
 </ul>
 <h2 id="94-initialisation-de-la-session">9.4. Initialisation de la session</h2>
 <p>Une fois le plugin [session / server] exécuté par le serveur, celui-ci va exécuter le script [store / index.js] suivant :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-2-10">10</a></span>
-<span class="normal"><a href="#__codelineno-2-11">11</a></span>
-<span class="normal"><a href="#__codelineno-2-12">12</a></span>
-<span class="normal"><a href="#__codelineno-2-13">13</a></span>
-<span class="normal"><a href="#__codelineno-2-14">14</a></span>
-<span class="normal"><a href="#__codelineno-2-15">15</a></span>
-<span class="normal"><a href="#__codelineno-2-16">16</a></span>
-<span class="normal"><a href="#__codelineno-2-17">17</a></span>
-<span class="normal"><a href="#__codelineno-2-18">18</a></span>
-<span class="normal"><a href="#__codelineno-2-19">19</a></span>
-<span class="normal"><a href="#__codelineno-2-20">20</a></span>
-<span class="normal"><a href="#__codelineno-2-21">21</a></span>
-<span class="normal"><a href="#__codelineno-2-22">22</a></span>
-<span class="normal"><a href="#__codelineno-2-23">23</a></span>
-<span class="normal"><a href="#__codelineno-2-24">24</a></span>
-<span class="normal"><a href="#__codelineno-2-25">25</a></span>
-<span class="normal"><a href="#__codelineno-2-26">26</a></span>
-<span class="normal"><a href="#__codelineno-2-27">27</a></span>
-<span class="normal"><a href="#__codelineno-2-28">28</a></span>
-<span class="normal"><a href="#__codelineno-2-29">29</a></span>
-<span class="normal"><a href="#__codelineno-2-30">30</a></span>
-<span class="normal"><a href="#__codelineno-2-31">31</a></span>
-<span class="normal"><a href="#__codelineno-2-32">32</a></span>
-<span class="normal"><a href="#__codelineno-2-33">33</a></span>
-<span class="normal"><a href="#__codelineno-2-34">34</a></span>
-<span class="normal"><a href="#__codelineno-2-35">35</a></span>
-<span class="normal"><a href="#__codelineno-2-36">36</a></span>
-<span class="normal"><a href="#__codelineno-2-37">37</a></span>
-<span class="normal"><a href="#__codelineno-2-38">38</a></span>
-<span class="normal"><a href="#__codelineno-2-39">39</a></span>
-<span class="normal"><a href="#__codelineno-2-40">40</a></span>
-<span class="normal"><a href="#__codelineno-2-41">41</a></span>
-<span class="normal"><a href="#__codelineno-2-42">42</a></span>
-<span class="normal"><a href="#__codelineno-2-43">43</a></span>
-<span class="normal"><a href="#__codelineno-2-44">44</a></span>
-<span class="normal"><a href="#__codelineno-2-45">45</a></span>
-<span class="normal"><a href="#__codelineno-2-46">46</a></span>
-<span class="normal"><a href="#__codelineno-2-47">47</a></span>
-<span class="normal"><a href="#__codelineno-2-48">48</a></span>
-<span class="normal"><a href="#__codelineno-2-49">49</a></span>
-<span class="normal"><a href="#__codelineno-2-50">50</a></span>
-<span class="normal"><a href="#__codelineno-2-51">51</a></span>
-<span class="normal"><a href="#__codelineno-2-52">52</a></span>
-<span class="normal"><a href="#__codelineno-2-53">53</a></span>
-<span class="normal"><a href="#__codelineno-2-54">54</a></span>
-<span class="normal"><a href="#__codelineno-2-55">55</a></span>
-<span class="normal"><a href="#__codelineno-2-56">56</a></span>
-<span class="normal"><a href="#__codelineno-2-57">57</a></span>
-<span class="normal"><a href="#__codelineno-2-58">58</a></span>
-<span class="normal"><a href="#__codelineno-2-59">59</a></span>
-<span class="normal"><a href="#__codelineno-2-60">60</a></span>
-<span class="normal"><a href="#__codelineno-2-61">61</a></span>
-<span class="normal"><a href="#__codelineno-2-62">62</a></span>
-<span class="normal"><a href="#__codelineno-2-63">63</a></span>
-<span class="normal"><a href="#__codelineno-2-64">64</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* eslint-disable no-console */</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="c1">// compteur</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">  </span><span class="nx">counter</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="p">})</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">mutations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">  </span><span class="c1">// incrémentation du compteur d&#39;une valeur [inc]</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">  </span><span class="nx">increment</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">inc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="nx">state</span><span class="p">.</span><span class="nx">counter</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">inc</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">  </span><span class="c1">// remplacement du state</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">  </span><span class="nx">replace</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">newState</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">attr</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">newState</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">      </span><span class="nx">state</span><span class="p">[</span><span class="nx">attr</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newState</span><span class="p">[</span><span class="nx">attr</span><span class="p">]</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="p">}</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19"></a>
-<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">actions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">nuxtServerInit</span><span class="p">(</span><span class="nx">store</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">    </span><span class="c1">// qui exécute ce code ?</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;nuxtServerInit, client=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;serveur=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;env=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">env</span><span class="p">)</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">    </span><span class="c1">// on attend la fin d&#39;une promesse</span>
-<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">reject</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="w">      </span><span class="c1">// on a normalement ici une fonction asynchrone</span>
-<a id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="w">      </span><span class="c1">// on la simule avec une attente d&#39;une seconde</span>
-<a id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="w">      </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="w">        </span><span class="c1">// init session</span>
-<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="w">        </span><span class="nx">initSession</span><span class="p">(</span><span class="nx">store</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">)</span>
-<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="w">        </span><span class="c1">// succès</span>
-<a id="__codelineno-2-32" name="__codelineno-2-32"></a><span class="w">        </span><span class="nx">resolve</span><span class="p">()</span>
-<a id="__codelineno-2-33" name="__codelineno-2-33"></a><span class="w">      </span><span class="p">},</span><span class="w"> </span><span class="mf">1000</span><span class="p">)</span>
-<a id="__codelineno-2-34" name="__codelineno-2-34"></a><span class="w">    </span><span class="p">})</span>
-<a id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-2-36" name="__codelineno-2-36"></a><span class="p">}</span>
-<a id="__codelineno-2-37" name="__codelineno-2-37"></a>
-<a id="__codelineno-2-38" name="__codelineno-2-38"></a><span class="kd">function</span><span class="w"> </span><span class="nx">initSession</span><span class="p">(</span><span class="nx">store</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-39" name="__codelineno-2-39"></a><span class="w">  </span><span class="c1">// store est le store à initialiser</span>
-<a id="__codelineno-2-40" name="__codelineno-2-40"></a>
-<a id="__codelineno-2-41" name="__codelineno-2-41"></a><span class="w">  </span><span class="c1">// on récupère la session</span>
-<a id="__codelineno-2-42" name="__codelineno-2-42"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">$session</span><span class="p">()</span>
-<a id="__codelineno-2-43" name="__codelineno-2-43"></a><span class="w">  </span><span class="c1">// la session a-t-elle été déjà initialisée ?</span>
-<a id="__codelineno-2-44" name="__codelineno-2-44"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">session</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">initSessionDone</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-45" name="__codelineno-2-45"></a><span class="w">    </span><span class="c1">// on démarre un nouveau store</span>
-<a id="__codelineno-2-46" name="__codelineno-2-46"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;nuxtServerInit, initialisation d&#39;une nouvelle session&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-47" name="__codelineno-2-47"></a><span class="w">    </span><span class="c1">// on initialise le store</span>
-<a id="__codelineno-2-48" name="__codelineno-2-48"></a><span class="w">    </span><span class="nx">store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;increment&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">77</span><span class="p">)</span>
-<a id="__codelineno-2-49" name="__codelineno-2-49"></a><span class="w">    </span><span class="c1">// on met le store dans la session</span>
-<a id="__codelineno-2-50" name="__codelineno-2-50"></a><span class="w">    </span><span class="nx">session</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">store</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">store</span><span class="p">.</span><span class="nx">state</span>
-<a id="__codelineno-2-51" name="__codelineno-2-51"></a><span class="w">    </span><span class="c1">// on initialise une nouvelle session</span>
-<a id="__codelineno-2-52" name="__codelineno-2-52"></a><span class="w">    </span><span class="nx">session</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">somethingImportant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-2-53" name="__codelineno-2-53"></a><span class="w">    </span><span class="c1">// la session est désormais initialisée</span>
-<a id="__codelineno-2-54" name="__codelineno-2-54"></a><span class="w">    </span><span class="nx">session</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">initSessionDone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-2-55" name="__codelineno-2-55"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-56" name="__codelineno-2-56"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;nuxtServerInit, reprise d&#39;un store existant&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-57" name="__codelineno-2-57"></a><span class="w">    </span><span class="c1">// on met à jour le store avec le store de la session</span>
-<a id="__codelineno-2-58" name="__codelineno-2-58"></a><span class="w">    </span><span class="nx">store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;replace&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">session</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">store</span><span class="p">)</span>
-<a id="__codelineno-2-59" name="__codelineno-2-59"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-2-60" name="__codelineno-2-60"></a><span class="w">  </span><span class="c1">// on sauvegarde la session</span>
-<a id="__codelineno-2-61" name="__codelineno-2-61"></a><span class="w">  </span><span class="nx">session</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span>
-<a id="__codelineno-2-62" name="__codelineno-2-62"></a><span class="w">  </span><span class="c1">// log</span>
-<a id="__codelineno-2-63" name="__codelineno-2-63"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;initSession terminé, store=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">store</span><span class="p">.</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;session=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">session</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
-<a id="__codelineno-2-64" name="__codelineno-2-64"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<span class="odt-code-line">/* eslint-disable no-console */</span>
+<span class="odt-code-line"><span style="color:#0000ff">export</span> <span style="color:#0000ff">const</span> state = () =&gt; ({</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// compteur</span>
+<span class="odt-code-line">  counter: 0</span>
+<span class="odt-code-line">})</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#0000ff">export</span> <span style="color:#0000ff">const</span> mutations = {</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// incrémentation du compteur d&#x27;une valeur [inc]</span>
+<span class="odt-code-line">  increment(state, inc) {</span>
+<span class="odt-code-line">    state.counter += inc</span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// remplacement du state</span>
+<span class="odt-code-line">  replace(state, newState) {</span>
+<span class="odt-code-line">    <span style="color:#0000ff">for</span> (<span style="color:#0000ff">const</span> attr <span style="color:#0000ff">in</span> newState) {</span>
+<span class="odt-code-line">      state[attr] = newState[attr]</span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line">  }</span>
+<span class="odt-code-line">}</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#0000ff">export</span> <span style="color:#0000ff">const</span> actions = {</span>
+<span class="odt-code-line">  <span style="color:#0000ff">async</span> nuxtServerInit(store, context) {</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// qui exécute ce code ?</span>
+<span class="odt-code-line">    console.log(<span style="color:#a31515">&#x27;nuxtServerInit, client=&#x27;</span>, process.client, <span style="color:#a31515">&#x27;serveur=&#x27;</span>, process.server, <span style="color:#a31515">&#x27;env=&#x27;</span>, context.env)</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// on attend la fin d&#x27;une promesse</span>
+<span class="odt-code-line">    <span style="color:#0000ff">await</span> <span style="color:#0000ff">new</span> Promise(<span style="color:#0000ff">function</span>(resolve, reject) {</span>
+<span class="odt-code-line"><span style="color:#000000">      </span>// on a normalement ici une fonction asynchrone</span>
+<span class="odt-code-line"><span style="color:#000000">      </span>// on la simule avec une attente d&#x27;une seconde</span>
+<span class="odt-code-line">      setTimeout(() =&gt; {</span>
+<span class="odt-code-line"><span style="color:#000000">        </span>// init session</span>
+<span class="odt-code-line">        initSession(store, context)</span>
+<span class="odt-code-line"><span style="color:#000000">        </span>// succès</span>
+<span class="odt-code-line">        resolve()</span>
+<span class="odt-code-line">      }, 1000)</span>
+<span class="odt-code-line">    })</span>
+<span class="odt-code-line">  }</span>
+<span class="odt-code-line">}</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#0000ff">function</span> initSession(store, context) {</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// store est le store à initialiser</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// on récupère la session</span>
+<span class="odt-code-line">  <span style="color:#0000ff">const</span> session = context.app.$session()</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// la session a-t-elle été déjà initialisée ?</span>
+<span class="odt-code-line">  <span style="color:#0000ff">if</span> (!session.value.initSessionDone) {</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// on démarre un nouveau store</span>
+<span class="odt-code-line"><span style="color:#000000">    console.log(</span>&quot;nuxtServerInit, initialisation d&#x27;une nouvelle session&quot;<span style="color:#000000">)</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// on initialise le store</span>
+<span class="odt-code-line">    store.commit(<span style="color:#a31515">&#x27;increment&#x27;</span>, 77)</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// on met le store dans la session</span>
+<span class="odt-code-line">    session.value.store = store.state</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// on initialise une nouvelle session</span>
+<span class="odt-code-line">    session.value.somethingImportant = { x: 2, y: 4 }</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// la session est désormais initialisée</span>
+<span class="odt-code-line">    session.value.initSessionDone = <span style="color:#0000ff">true</span></span>
+<span class="odt-code-line">  } <span style="color:#0000ff">else</span> {</span>
+<span class="odt-code-line"><span style="color:#000000">    console.log(</span>&quot;nuxtServerInit, reprise d&#x27;un store existant&quot;<span style="color:#000000">)</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// on met à jour le store avec le store de la session</span>
+<span class="odt-code-line">    store.commit(<span style="color:#a31515">&#x27;replace&#x27;</span>, session.value.store)</span>
+<span class="odt-code-line">  }</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// on sauvegarde la session</span>
+<span class="odt-code-line">  session.save(context)</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// log</span>
+<span class="odt-code-line">  console.log(<span style="color:#a31515">&#x27;initSession terminé, store=&#x27;</span>, store.state, <span style="color:#a31515">&#x27;session=&#x27;</span>, session.value)</span>
+<span class="odt-code-line">}</span>
+</code></pre></div>
+
 <p>Par rapport au store du projet [nuxt-05], seule la fonction [initSession] (anciennement <em>initStore</em>) des lignes 38-60 change :</p>
 <ul>
 <li>ligne 42 : on récupère la session grâce à la fonction [$session] qui a été injectée dans le contexte du serveur ;</li>
@@ -1211,46 +1118,29 @@
 </ul>
 <h2 id="95-le-plugin-client-session-du-client">9.5. Le plugin [client / session] du client</h2>
 <p>Une fois que le serveur a exécuté les scripts [plugins / server / session] et [store / index], il va envoyer l’une des pages [index, page1] au navigateur client. Dans la réponse HTTP du serveur, il y aura le cookie de session. Une fois la page reçue par le navigateur client, les scripts client embarqués dans la page vont s’exécuter. Le plugin [client / session] va alors s’exécuter :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-3-10">10</a></span>
-<span class="normal"><a href="#__codelineno-3-11">11</a></span>
-<span class="normal"><a href="#__codelineno-3-12">12</a></span>
-<span class="normal"><a href="#__codelineno-3-13">13</a></span>
-<span class="normal"><a href="#__codelineno-3-14">14</a></span>
-<span class="normal"><a href="#__codelineno-3-15">15</a></span>
-<span class="normal"><a href="#__codelineno-3-16">16</a></span>
-<span class="normal"><a href="#__codelineno-3-17">17</a></span>
-<span class="normal"><a href="#__codelineno-3-18">18</a></span>
-<span class="normal"><a href="#__codelineno-3-19">19</a></span>
-<span class="normal"><a href="#__codelineno-3-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* eslint-disable no-console */</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="p">(</span><span class="nx">context</span><span class="p">,</span><span class="w"> </span><span class="nx">inject</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">  </span><span class="c1">// gestion de la session client</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">  </span><span class="c1">// la session existe forcément, initialisée par le serveur</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[plugin session client], reprise de la session du serveur&#39;</span><span class="p">)</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a>
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">  </span><span class="c1">// définition de la session</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="c1">// contenu de la session</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">    </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">$cookies</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">),</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">    </span><span class="c1">// sauvegarde de la session dans un cookie</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">    </span><span class="nx">save</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">      </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">$cookies</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">base</span><span class="p">,</span><span class="w"> </span><span class="nx">maxAge</span><span class="o">:</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">maxAge</span><span class="w"> </span><span class="p">})</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-3-17" name="__codelineno-3-17"></a>
-<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">  </span><span class="c1">// on injecte une fonction dans [context, Vue] qui rendra la session courante</span>
-<a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="w">  </span><span class="nx">inject</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">session</span><span class="p">)</span>
-<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<span class="odt-code-line">/* eslint-disable no-console */</span>
+<span class="odt-code-line"><span style="color:#0000ff">export</span> <span style="color:#0000ff">default</span> (context, inject) =&gt; {</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// gestion de la session client</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// la session existe forcément, initialisée par le serveur</span>
+<span class="odt-code-line"><span style="color:#000000">  console.log(</span>&#x27;[plugin session client], reprise de la session du serveur&#x27;<span style="color:#000000">)</span></span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// définition de la session</span>
+<span class="odt-code-line">  <span style="color:#0000ff">const</span> session = {</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// contenu de la session</span>
+<span class="odt-code-line">    value: context.app.$cookies.get(<span style="color:#a31515">&#x27;session&#x27;</span>),</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// sauvegarde de la session dans un cookie</span>
+<span class="odt-code-line">    save(context) {</span>
+<span class="odt-code-line">      context.app.$cookies.set(<span style="color:#a31515">&#x27;session&#x27;</span>, <span style="color:#0000ff">this</span>.value, { path: context.base, maxAge: context.env.maxAge })</span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line">  }</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// on injecte une fonction dans [context, Vue] qui rendra la session courante</span>
+<span class="odt-code-line">  inject(<span style="color:#a31515">&#x27;session&#x27;</span>, () =&gt; session)</span>
+<span class="odt-code-line">}</span>
+</code></pre></div>
+
 <ul>
 <li>lorsque le plugin client s’exécute, le cookie de session a déjà été reçu par le navigateur client ;</li>
 <li>l’objectif du plugin [client] est d’injecter lui-aussi une fonction [$session] dans le contexte du client. Cette fonction rendrait la session envoyée par le serveur ;</li>
@@ -1261,140 +1151,76 @@
 </ul>
 <h2 id="96-la-page-index">9.6. La page [index]</h2>
 <p>La page [index] évolue de la façon suivante :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-4-10">10</a></span>
-<span class="normal"><a href="#__codelineno-4-11">11</a></span>
-<span class="normal"><a href="#__codelineno-4-12">12</a></span>
-<span class="normal"><a href="#__codelineno-4-13">13</a></span>
-<span class="normal"><a href="#__codelineno-4-14">14</a></span>
-<span class="normal"><a href="#__codelineno-4-15">15</a></span>
-<span class="normal"><a href="#__codelineno-4-16">16</a></span>
-<span class="normal"><a href="#__codelineno-4-17">17</a></span>
-<span class="normal"><a href="#__codelineno-4-18">18</a></span>
-<span class="normal"><a href="#__codelineno-4-19">19</a></span>
-<span class="normal"><a href="#__codelineno-4-20">20</a></span>
-<span class="normal"><a href="#__codelineno-4-21">21</a></span>
-<span class="normal"><a href="#__codelineno-4-22">22</a></span>
-<span class="normal"><a href="#__codelineno-4-23">23</a></span>
-<span class="normal"><a href="#__codelineno-4-24">24</a></span>
-<span class="normal"><a href="#__codelineno-4-25">25</a></span>
-<span class="normal"><a href="#__codelineno-4-26">26</a></span>
-<span class="normal"><a href="#__codelineno-4-27">27</a></span>
-<span class="normal"><a href="#__codelineno-4-28">28</a></span>
-<span class="normal"><a href="#__codelineno-4-29">29</a></span>
-<span class="normal"><a href="#__codelineno-4-30">30</a></span>
-<span class="normal"><a href="#__codelineno-4-31">31</a></span>
-<span class="normal"><a href="#__codelineno-4-32">32</a></span>
-<span class="normal"><a href="#__codelineno-4-33">33</a></span>
-<span class="normal"><a href="#__codelineno-4-34">34</a></span>
-<span class="normal"><a href="#__codelineno-4-35">35</a></span>
-<span class="normal"><a href="#__codelineno-4-36">36</a></span>
-<span class="normal"><a href="#__codelineno-4-37">37</a></span>
-<span class="normal"><a href="#__codelineno-4-38">38</a></span>
-<span class="normal"><a href="#__codelineno-4-39">39</a></span>
-<span class="normal"><a href="#__codelineno-4-40">40</a></span>
-<span class="normal"><a href="#__codelineno-4-41">41</a></span>
-<span class="normal"><a href="#__codelineno-4-42">42</a></span>
-<span class="normal"><a href="#__codelineno-4-43">43</a></span>
-<span class="normal"><a href="#__codelineno-4-44">44</a></span>
-<span class="normal"><a href="#__codelineno-4-45">45</a></span>
-<span class="normal"><a href="#__codelineno-4-46">46</a></span>
-<span class="normal"><a href="#__codelineno-4-47">47</a></span>
-<span class="normal"><a href="#__codelineno-4-48">48</a></span>
-<span class="normal"><a href="#__codelineno-4-49">49</a></span>
-<span class="normal"><a href="#__codelineno-4-50">50</a></span>
-<span class="normal"><a href="#__codelineno-4-51">51</a></span>
-<span class="normal"><a href="#__codelineno-4-52">52</a></span>
-<span class="normal"><a href="#__codelineno-4-53">53</a></span>
-<span class="normal"><a href="#__codelineno-4-54">54</a></span>
-<span class="normal"><a href="#__codelineno-4-55">55</a></span>
-<span class="normal"><a href="#__codelineno-4-56">56</a></span>
-<span class="normal"><a href="#__codelineno-4-57">57</a></span>
-<span class="normal"><a href="#__codelineno-4-58">58</a></span>
-<span class="normal"><a href="#__codelineno-4-59">59</a></span>
-<span class="normal"><a href="#__codelineno-4-60">60</a></span>
-<span class="normal"><a href="#__codelineno-4-61">61</a></span>
-<span class="normal"><a href="#__codelineno-4-62">62</a></span>
-<span class="normal"><a href="#__codelineno-4-63">63</a></span>
-<span class="normal"><a href="#__codelineno-4-64">64</a></span>
-<span class="normal"><a href="#__codelineno-4-65">65</a></span>
-<span class="normal"><a href="#__codelineno-4-66">66</a></span>
-<span class="normal"><a href="#__codelineno-4-67">67</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">page</span> <span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">--&gt;</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a>  <span class="o">&lt;</span><span class="n">Layout</span> <span class="p">:</span><span class="n">left</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> <span class="p">:</span><span class="n">right</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a>    <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">navigation</span> <span class="o">--&gt;</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span class="o">&lt;</span><span class="n">Navigation</span> <span class="n">slot</span><span class="o">=</span><span class="s2">&quot;left&quot;</span> <span class="o">/&gt;</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6"></a>    <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">message</span><span class="o">--&gt;</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7"></a>    <span class="o">&lt;</span><span class="n">template</span> <span class="n">slot</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8"></a>      <span class="o">&lt;</span><span class="n">b</span><span class="o">-</span><span class="n">alert</span> <span class="n">show</span> <span class="n">variant</span><span class="o">=</span><span class="s2">&quot;warning&quot;</span><span class="o">&gt;</span> <span class="n">Home</span> <span class="o">-</span> <span class="n">session</span><span class="o">=</span> <span class="p">{{</span> <span class="n">jsonSession</span> <span class="p">}},</span> <span class="n">counter</span><span class="o">=</span> <span class="p">{{</span> <span class="err">$</span><span class="n">store</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">counter</span> <span class="p">}}</span> <span class="o">&lt;/</span><span class="n">b</span><span class="o">-</span><span class="n">alert</span><span class="o">&gt;</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9"></a>      <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">bouton</span> <span class="o">--&gt;</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10"></a>      <span class="o">&lt;</span><span class="n">b</span><span class="o">-</span><span class="n">button</span> <span class="nd">@click</span><span class="o">=</span><span class="s2">&quot;incrementCounter&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;ml-3&quot;</span> <span class="n">variant</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span><span class="o">&gt;</span><span class="n">Incrémenter</span><span class="o">&lt;/</span><span class="n">b</span><span class="o">-</span><span class="n">button</span><span class="o">&gt;</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11"></a>    <span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12"></a>  <span class="o">&lt;/</span><span class="n">Layout</span><span class="o">&gt;</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14"></a>
-<a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
-<a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="o">/*</span> <span class="n">eslint</span><span class="o">-</span><span class="n">disable</span> <span class="n">no</span><span class="o">-</span><span class="n">undef</span> <span class="o">*/</span>
-<a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="o">/*</span> <span class="n">eslint</span><span class="o">-</span><span class="n">disable</span> <span class="n">no</span><span class="o">-</span><span class="n">console</span> <span class="o">*/</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="o">/*</span> <span class="n">eslint</span><span class="o">-</span><span class="n">disable</span> <span class="n">nuxt</span><span class="o">/</span><span class="n">no</span><span class="o">-</span><span class="n">env</span><span class="o">-</span><span class="ow">in</span><span class="o">-</span><span class="n">hooks</span> <span class="o">*/</span>
-<a id="__codelineno-4-19" name="__codelineno-4-19"></a>
-<a id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="kn">import</span><span class="w"> </span><span class="nn">Layout</span> <span class="kn">from</span><span class="w"> </span><span class="s1">&#39;@/components/layout&#39;</span>
-<a id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="kn">import</span><span class="w"> </span><span class="nn">Navigation</span> <span class="kn">from</span><span class="w"> </span><span class="s1">&#39;@/components/navigation&#39;</span>
-<a id="__codelineno-4-22" name="__codelineno-4-22"></a><span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
-<a id="__codelineno-4-23" name="__codelineno-4-23"></a>  <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Home&#39;</span><span class="p">,</span>
-<a id="__codelineno-4-24" name="__codelineno-4-24"></a>  <span class="o">//</span> <span class="n">composants</span> <span class="n">utilisés</span>
-<a id="__codelineno-4-25" name="__codelineno-4-25"></a>  <span class="n">components</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-4-26" name="__codelineno-4-26"></a>    <span class="n">Layout</span><span class="p">,</span>
-<a id="__codelineno-4-27" name="__codelineno-4-27"></a>    <span class="n">Navigation</span>
-<a id="__codelineno-4-28" name="__codelineno-4-28"></a>  <span class="p">},</span>
-<a id="__codelineno-4-29" name="__codelineno-4-29"></a>  <span class="n">computed</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-4-30" name="__codelineno-4-30"></a>    <span class="n">jsonSession</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-4-31" name="__codelineno-4-31"></a>      <span class="k">return</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">session</span><span class="p">()</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-<a id="__codelineno-4-32" name="__codelineno-4-32"></a>    <span class="p">}</span>
-<a id="__codelineno-4-33" name="__codelineno-4-33"></a>  <span class="p">},</span>
-<a id="__codelineno-4-34" name="__codelineno-4-34"></a>  <span class="o">//</span> <span class="n">cycle</span> <span class="n">de</span> <span class="n">vie</span>
-<a id="__codelineno-4-35" name="__codelineno-4-35"></a>  <span class="n">beforeCreate</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-4-36" name="__codelineno-4-36"></a>    <span class="o">//</span> <span class="n">client</span> <span class="n">et</span> <span class="n">serveur</span>
-<a id="__codelineno-4-37" name="__codelineno-4-37"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;[home beforeCreate]&#39;</span><span class="p">)</span>
-<a id="__codelineno-4-38" name="__codelineno-4-38"></a>  <span class="p">},</span>
-<a id="__codelineno-4-39" name="__codelineno-4-39"></a>  <span class="n">created</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-4-40" name="__codelineno-4-40"></a>    <span class="o">//</span> <span class="n">client</span> <span class="n">et</span> <span class="n">serveur</span>
-<a id="__codelineno-4-41" name="__codelineno-4-41"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;[home created], session=&#39;</span><span class="p">,</span> <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">session</span><span class="p">()</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-<a id="__codelineno-4-42" name="__codelineno-4-42"></a>  <span class="p">},</span>
-<a id="__codelineno-4-43" name="__codelineno-4-43"></a>  <span class="n">beforeMount</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-4-44" name="__codelineno-4-44"></a>    <span class="o">//</span> <span class="n">client</span> <span class="n">seulement</span>
-<a id="__codelineno-4-45" name="__codelineno-4-45"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;[home beforeMount]&#39;</span><span class="p">)</span>
-<a id="__codelineno-4-46" name="__codelineno-4-46"></a>  <span class="p">},</span>
-<a id="__codelineno-4-47" name="__codelineno-4-47"></a>  <span class="n">mounted</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-4-48" name="__codelineno-4-48"></a>    <span class="o">//</span> <span class="n">client</span> <span class="n">seulement</span>
-<a id="__codelineno-4-49" name="__codelineno-4-49"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;[home mounted]&#39;</span><span class="p">)</span>
-<a id="__codelineno-4-50" name="__codelineno-4-50"></a>  <span class="p">},</span>
-<a id="__codelineno-4-51" name="__codelineno-4-51"></a>  <span class="o">//</span> <span class="n">gestion</span> <span class="n">des</span> <span class="n">évts</span>
-<a id="__codelineno-4-52" name="__codelineno-4-52"></a>  <span class="n">methods</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-4-53" name="__codelineno-4-53"></a>    <span class="n">incrementCounter</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-4-54" name="__codelineno-4-54"></a>      <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;incrementCounter&#39;</span><span class="p">)</span>
-<a id="__codelineno-4-55" name="__codelineno-4-55"></a>      <span class="o">//</span> <span class="n">incrément</span> <span class="n">du</span> <span class="n">compteur</span> <span class="n">de</span> <span class="mi">1</span>
-<a id="__codelineno-4-56" name="__codelineno-4-56"></a>      <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">store</span><span class="o">.</span><span class="n">commit</span><span class="p">(</span><span class="s1">&#39;increment&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-4-57" name="__codelineno-4-57"></a>      <span class="o">//</span> <span class="n">modification</span> <span class="n">session</span>
-<a id="__codelineno-4-58" name="__codelineno-4-58"></a>      <span class="n">const</span> <span class="n">session</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">session</span><span class="p">()</span>
-<a id="__codelineno-4-59" name="__codelineno-4-59"></a>      <span class="n">session</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">store</span><span class="o">.</span><span class="n">state</span>
-<a id="__codelineno-4-60" name="__codelineno-4-60"></a>      <span class="n">session</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">somethingImportant</span><span class="o">.</span><span class="n">x</span><span class="o">++</span>
-<a id="__codelineno-4-61" name="__codelineno-4-61"></a>      <span class="n">session</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">somethingImportant</span><span class="o">.</span><span class="n">y</span><span class="o">++</span>
-<a id="__codelineno-4-62" name="__codelineno-4-62"></a>      <span class="o">//</span> <span class="n">sauvegarde</span> <span class="n">de</span> <span class="n">la</span> <span class="n">session</span> <span class="n">dans</span> <span class="n">le</span> <span class="n">cookie</span> <span class="n">de</span> <span class="n">session</span>
-<a id="__codelineno-4-63" name="__codelineno-4-63"></a>      <span class="n">session</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">nuxt</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
-<a id="__codelineno-4-64" name="__codelineno-4-64"></a>    <span class="p">}</span>
-<a id="__codelineno-4-65" name="__codelineno-4-65"></a>  <span class="p">}</span>
-<a id="__codelineno-4-66" name="__codelineno-4-66"></a><span class="p">}</span>
-<a id="__codelineno-4-67" name="__codelineno-4-67"></a><span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-</code></pre></div></td></tr></table></div>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line">&lt;!-- page [index] --&gt;</span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;</span>template<span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">  </span>&lt;<span style="color:#800000">Layout</span><span style="color:#000000"> </span><span style="color:#ff0000">:left</span>=&quot;true&quot;<span style="color:#000000"> </span><span style="color:#ff0000">:right</span>=&quot;true&quot;&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>&lt;!-- navigation --&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>&lt;<span style="color:#800000">Navigation</span><span style="color:#000000"> </span><span style="color:#ff0000">slot</span>=&quot;left&quot;<span style="color:#000000"> </span>/&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>&lt;!-- message--&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>&lt;<span style="color:#800000">template</span><span style="color:#000000"> </span><span style="color:#ff0000">slot</span>=&quot;right&quot;&gt;</span>
+<span class="odt-code-line">      <span style="color:#0000ff">&lt;</span><span style="color:#800000">b-alert</span> <span style="color:#ff0000">show</span> <span style="color:#ff0000">variant</span><span style="color:#0000ff">=&quot;warning&quot;&gt;</span> Home - session= <span style="font-weight:bold">{{</span> <span style="color:#800080">jsonSession</span> <span style="font-weight:bold">}}</span>, counter= <span style="font-weight:bold">{{</span> <span style="color:#800080">$store.state.counter</span> <span style="font-weight:bold">}}</span> <span style="color:#0000ff">&lt;/</span><span style="color:#800000">b-alert</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">      </span>&lt;!-- bouton --&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">      </span>&lt;<span style="color:#800000">b-button</span><span style="color:#000000"> </span><span style="color:#ff0000">@click</span>=&quot;incrementCounter&quot;<span style="color:#000000"> </span><span style="color:#ff0000">class</span>=&quot;ml-3&quot;<span style="color:#000000"> </span><span style="color:#ff0000">variant</span>=&quot;primary&quot;&gt;<span style="color:#000000">Incrémenter</span>&lt;/<span style="color:#800000">b-button</span>&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#0000ff">&lt;/</span>template<span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">  </span><span style="color:#0000ff">&lt;/</span>Layout<span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;/</span>template<span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;</span>script<span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">/* eslint-disable no-undef */</span>
+<span class="odt-code-line">/* eslint-disable no-console */</span>
+<span class="odt-code-line">/* eslint-disable nuxt/no-env-in-hooks */</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#0000ff">import</span><span style="color:#000000"> Layout </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span>&#x27;@/components/layout&#x27;</span>
+<span class="odt-code-line"><span style="color:#0000ff">import</span><span style="color:#000000"> Navigation </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span>&#x27;@/components/navigation&#x27;</span>
+<span class="odt-code-line">export<span style="color:#000000"> </span>default<span style="color:#000000"> {</span></span>
+<span class="odt-code-line">  name: <span style="color:#a31515">&#x27;Home&#x27;</span>,</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// composants utilisés</span>
+<span class="odt-code-line">  components: {</span>
+<span class="odt-code-line">    Layout,</span>
+<span class="odt-code-line">    Navigation</span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line">  computed: {</span>
+<span class="odt-code-line">    jsonSession() {</span>
+<span class="odt-code-line">      <span style="color:#0000ff">return</span> JSON.stringify(<span style="color:#0000ff">this</span>.$session().value)</span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// cycle de vie</span>
+<span class="odt-code-line">  beforeCreate() {</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// client et serveur</span>
+<span class="odt-code-line"><span style="color:#000000">    console.log(</span>&#x27;[home beforeCreate]&#x27;<span style="color:#000000">)</span></span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line">  created() {</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// client et serveur</span>
+<span class="odt-code-line">    console.log(<span style="color:#a31515">&#x27;[home created], session=&#x27;</span>, <span style="color:#0000ff">this</span>.$session().value)</span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line">  beforeMount() {</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// client seulement</span>
+<span class="odt-code-line"><span style="color:#000000">    console.log(</span>&#x27;[home beforeMount]&#x27;<span style="color:#000000">)</span></span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line">  mounted() {</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// client seulement</span>
+<span class="odt-code-line">    console.log(<span style="color:#a31515">&#x27;[home mounted]&#x27;</span>)</span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// gestion des évts</span>
+<span class="odt-code-line">  methods: {</span>
+<span class="odt-code-line">    incrementCounter() {</span>
+<span class="odt-code-line">      console.log(<span style="color:#a31515">&#x27;incrementCounter&#x27;</span>)</span>
+<span class="odt-code-line"><span style="color:#000000">      </span>// incrément du compteur de 1</span>
+<span class="odt-code-line">      <span style="color:#0000ff">this</span>.$store.commit(<span style="color:#a31515">&#x27;increment&#x27;</span>, 1)</span>
+<span class="odt-code-line"><span style="color:#000000">      </span>// modification session</span>
+<span class="odt-code-line">      <span style="color:#0000ff">const</span> session = <span style="color:#0000ff">this</span>.$session()</span>
+<span class="odt-code-line">      session.value.store = <span style="color:#0000ff">this</span>.$store.state</span>
+<span class="odt-code-line">      session.value.somethingImportant.x++</span>
+<span class="odt-code-line">      session.value.somethingImportant.y++</span>
+<span class="odt-code-line"><span style="color:#000000">      </span>// sauvegarde de la session dans le cookie de session</span>
+<span class="odt-code-line">      session.save(<span style="color:#0000ff">this</span>.$nuxt.context)</span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line">  }</span>
+<span class="odt-code-line">}</span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;/</span>script<span style="color:#0000ff">&gt;</span></span>
+</code></pre></div>
+
 <p>Il faut se rappeler que cette page est exécutée aussi bien côté serveur que côté client.</p>
 <ul>
 <li>ligne 8 : on affiche maintenant et la session et le store ;</li>
@@ -1410,154 +1236,83 @@
 <p>Le but de la page [index] est de montrer que la session n’est pas réactive alors que le store l’est. Lorsqu’on va incrémenter les éléments de la session, on découvrira que la vue n’est pas mise à jour. La vue [page1] présente une solution à ce problème.</p>
 <h2 id="97-la-page-page1">9.7. La page [page1]</h2>
 <p>La page [page1] est obtenue par recopie de la page [index] puis quelque peu modifiée :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-5-10">10</a></span>
-<span class="normal"><a href="#__codelineno-5-11">11</a></span>
-<span class="normal"><a href="#__codelineno-5-12">12</a></span>
-<span class="normal"><a href="#__codelineno-5-13">13</a></span>
-<span class="normal"><a href="#__codelineno-5-14">14</a></span>
-<span class="normal"><a href="#__codelineno-5-15">15</a></span>
-<span class="normal"><a href="#__codelineno-5-16">16</a></span>
-<span class="normal"><a href="#__codelineno-5-17">17</a></span>
-<span class="normal"><a href="#__codelineno-5-18">18</a></span>
-<span class="normal"><a href="#__codelineno-5-19">19</a></span>
-<span class="normal"><a href="#__codelineno-5-20">20</a></span>
-<span class="normal"><a href="#__codelineno-5-21">21</a></span>
-<span class="normal"><a href="#__codelineno-5-22">22</a></span>
-<span class="normal"><a href="#__codelineno-5-23">23</a></span>
-<span class="normal"><a href="#__codelineno-5-24">24</a></span>
-<span class="normal"><a href="#__codelineno-5-25">25</a></span>
-<span class="normal"><a href="#__codelineno-5-26">26</a></span>
-<span class="normal"><a href="#__codelineno-5-27">27</a></span>
-<span class="normal"><a href="#__codelineno-5-28">28</a></span>
-<span class="normal"><a href="#__codelineno-5-29">29</a></span>
-<span class="normal"><a href="#__codelineno-5-30">30</a></span>
-<span class="normal"><a href="#__codelineno-5-31">31</a></span>
-<span class="normal"><a href="#__codelineno-5-32">32</a></span>
-<span class="normal"><a href="#__codelineno-5-33">33</a></span>
-<span class="normal"><a href="#__codelineno-5-34">34</a></span>
-<span class="normal"><a href="#__codelineno-5-35">35</a></span>
-<span class="normal"><a href="#__codelineno-5-36">36</a></span>
-<span class="normal"><a href="#__codelineno-5-37">37</a></span>
-<span class="normal"><a href="#__codelineno-5-38">38</a></span>
-<span class="normal"><a href="#__codelineno-5-39">39</a></span>
-<span class="normal"><a href="#__codelineno-5-40">40</a></span>
-<span class="normal"><a href="#__codelineno-5-41">41</a></span>
-<span class="normal"><a href="#__codelineno-5-42">42</a></span>
-<span class="normal"><a href="#__codelineno-5-43">43</a></span>
-<span class="normal"><a href="#__codelineno-5-44">44</a></span>
-<span class="normal"><a href="#__codelineno-5-45">45</a></span>
-<span class="normal"><a href="#__codelineno-5-46">46</a></span>
-<span class="normal"><a href="#__codelineno-5-47">47</a></span>
-<span class="normal"><a href="#__codelineno-5-48">48</a></span>
-<span class="normal"><a href="#__codelineno-5-49">49</a></span>
-<span class="normal"><a href="#__codelineno-5-50">50</a></span>
-<span class="normal"><a href="#__codelineno-5-51">51</a></span>
-<span class="normal"><a href="#__codelineno-5-52">52</a></span>
-<span class="normal"><a href="#__codelineno-5-53">53</a></span>
-<span class="normal"><a href="#__codelineno-5-54">54</a></span>
-<span class="normal"><a href="#__codelineno-5-55">55</a></span>
-<span class="normal"><a href="#__codelineno-5-56">56</a></span>
-<span class="normal"><a href="#__codelineno-5-57">57</a></span>
-<span class="normal"><a href="#__codelineno-5-58">58</a></span>
-<span class="normal"><a href="#__codelineno-5-59">59</a></span>
-<span class="normal"><a href="#__codelineno-5-60">60</a></span>
-<span class="normal"><a href="#__codelineno-5-61">61</a></span>
-<span class="normal"><a href="#__codelineno-5-62">62</a></span>
-<span class="normal"><a href="#__codelineno-5-63">63</a></span>
-<span class="normal"><a href="#__codelineno-5-64">64</a></span>
-<span class="normal"><a href="#__codelineno-5-65">65</a></span>
-<span class="normal"><a href="#__codelineno-5-66">66</a></span>
-<span class="normal"><a href="#__codelineno-5-67">67</a></span>
-<span class="normal"><a href="#__codelineno-5-68">68</a></span>
-<span class="normal"><a href="#__codelineno-5-69">69</a></span>
-<span class="normal"><a href="#__codelineno-5-70">70</a></span>
-<span class="normal"><a href="#__codelineno-5-71">71</a></span>
-<span class="normal"><a href="#__codelineno-5-72">72</a></span>
-<span class="normal"><a href="#__codelineno-5-73">73</a></span>
-<span class="normal"><a href="#__codelineno-5-74">74</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">page</span> <span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">--&gt;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a>  <span class="o">&lt;</span><span class="n">Layout</span> <span class="p">:</span><span class="n">left</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> <span class="p">:</span><span class="n">right</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a>    <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">navigation</span> <span class="o">--&gt;</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a>    <span class="o">&lt;</span><span class="n">Navigation</span> <span class="n">slot</span><span class="o">=</span><span class="s2">&quot;left&quot;</span> <span class="o">/&gt;</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6"></a>    <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">message</span><span class="o">--&gt;</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7"></a>    <span class="o">&lt;</span><span class="n">template</span> <span class="n">slot</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8"></a>      <span class="o">&lt;</span><span class="n">b</span><span class="o">-</span><span class="n">alert</span> <span class="n">show</span> <span class="n">variant</span><span class="o">=</span><span class="s2">&quot;warning&quot;</span><span class="o">&gt;</span> <span class="n">Page1</span> <span class="o">-</span> <span class="n">session</span><span class="o">=</span> <span class="p">{{</span> <span class="n">jsonSession</span> <span class="p">}},</span> <span class="n">counter</span><span class="o">=</span> <span class="p">{{</span> <span class="err">$</span><span class="n">store</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">counter</span> <span class="p">}}</span> <span class="o">&lt;/</span><span class="n">b</span><span class="o">-</span><span class="n">alert</span><span class="o">&gt;</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9"></a>      <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">bouton</span> <span class="o">--&gt;</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10"></a>      <span class="o">&lt;</span><span class="n">b</span><span class="o">-</span><span class="n">button</span> <span class="nd">@click</span><span class="o">=</span><span class="s2">&quot;incrementCounter&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;ml-3&quot;</span> <span class="n">variant</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span><span class="o">&gt;</span><span class="n">Incrémenter</span><span class="o">&lt;/</span><span class="n">b</span><span class="o">-</span><span class="n">button</span><span class="o">&gt;</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11"></a>    <span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12"></a>  <span class="o">&lt;/</span><span class="n">Layout</span><span class="o">&gt;</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14"></a>
-<a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="o">/*</span> <span class="n">eslint</span><span class="o">-</span><span class="n">disable</span> <span class="n">no</span><span class="o">-</span><span class="n">undef</span> <span class="o">*/</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="o">/*</span> <span class="n">eslint</span><span class="o">-</span><span class="n">disable</span> <span class="n">no</span><span class="o">-</span><span class="n">console</span> <span class="o">*/</span>
-<a id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="o">/*</span> <span class="n">eslint</span><span class="o">-</span><span class="n">disable</span> <span class="n">nuxt</span><span class="o">/</span><span class="n">no</span><span class="o">-</span><span class="n">env</span><span class="o">-</span><span class="ow">in</span><span class="o">-</span><span class="n">hooks</span> <span class="o">*/</span>
-<a id="__codelineno-5-19" name="__codelineno-5-19"></a>
-<a id="__codelineno-5-20" name="__codelineno-5-20"></a><span class="kn">import</span><span class="w"> </span><span class="nn">Layout</span> <span class="kn">from</span><span class="w"> </span><span class="s1">&#39;@/components/layout&#39;</span>
-<a id="__codelineno-5-21" name="__codelineno-5-21"></a><span class="kn">import</span><span class="w"> </span><span class="nn">Navigation</span> <span class="kn">from</span><span class="w"> </span><span class="s1">&#39;@/components/navigation&#39;</span>
-<a id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
-<a id="__codelineno-5-23" name="__codelineno-5-23"></a>  <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Page1&#39;</span><span class="p">,</span>
-<a id="__codelineno-5-24" name="__codelineno-5-24"></a>  <span class="o">//</span> <span class="n">composants</span> <span class="n">utilisés</span>
-<a id="__codelineno-5-25" name="__codelineno-5-25"></a>  <span class="n">components</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-5-26" name="__codelineno-5-26"></a>    <span class="n">Layout</span><span class="p">,</span>
-<a id="__codelineno-5-27" name="__codelineno-5-27"></a>    <span class="n">Navigation</span>
-<a id="__codelineno-5-28" name="__codelineno-5-28"></a>  <span class="p">},</span>
-<a id="__codelineno-5-29" name="__codelineno-5-29"></a>  <span class="n">data</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-5-30" name="__codelineno-5-30"></a>    <span class="k">return</span> <span class="p">{</span>
-<a id="__codelineno-5-31" name="__codelineno-5-31"></a>      <span class="n">session</span><span class="p">:</span> <span class="p">{}</span>
-<a id="__codelineno-5-32" name="__codelineno-5-32"></a>    <span class="p">}</span>
-<a id="__codelineno-5-33" name="__codelineno-5-33"></a>  <span class="p">},</span>
-<a id="__codelineno-5-34" name="__codelineno-5-34"></a>  <span class="n">computed</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-5-35" name="__codelineno-5-35"></a>    <span class="n">jsonSession</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-5-36" name="__codelineno-5-36"></a>      <span class="k">return</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-<a id="__codelineno-5-37" name="__codelineno-5-37"></a>    <span class="p">}</span>
-<a id="__codelineno-5-38" name="__codelineno-5-38"></a>  <span class="p">},</span>
-<a id="__codelineno-5-39" name="__codelineno-5-39"></a>  <span class="o">//</span> <span class="n">cycle</span> <span class="n">de</span> <span class="n">vie</span>
-<a id="__codelineno-5-40" name="__codelineno-5-40"></a>  <span class="n">beforeCreate</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-5-41" name="__codelineno-5-41"></a>    <span class="o">//</span> <span class="n">client</span> <span class="n">et</span> <span class="n">serveur</span>
-<a id="__codelineno-5-42" name="__codelineno-5-42"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;[page1 beforeCreate]&#39;</span><span class="p">)</span>
-<a id="__codelineno-5-43" name="__codelineno-5-43"></a>  <span class="p">},</span>
-<a id="__codelineno-5-44" name="__codelineno-5-44"></a>  <span class="n">created</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-5-45" name="__codelineno-5-45"></a>    <span class="o">//</span> <span class="n">client</span> <span class="n">et</span> <span class="n">serveur</span>
-<a id="__codelineno-5-46" name="__codelineno-5-46"></a>    <span class="o">//</span> <span class="n">on</span> <span class="n">met</span> <span class="n">la</span> <span class="n">session</span> <span class="n">dans</span> <span class="n">les</span> <span class="n">propriétés</span> <span class="n">réactives</span> <span class="n">de</span> <span class="n">la</span> <span class="n">page</span>
-<a id="__codelineno-5-47" name="__codelineno-5-47"></a>    <span class="n">this</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">session</span><span class="p">()</span>
-<a id="__codelineno-5-48" name="__codelineno-5-48"></a>    <span class="o">//</span> <span class="n">log</span>
-<a id="__codelineno-5-49" name="__codelineno-5-49"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;[page1 created], session=&#39;</span><span class="p">,</span> <span class="n">this</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-<a id="__codelineno-5-50" name="__codelineno-5-50"></a>  <span class="p">},</span>
-<a id="__codelineno-5-51" name="__codelineno-5-51"></a>  <span class="n">beforeMount</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-5-52" name="__codelineno-5-52"></a>    <span class="o">//</span> <span class="n">client</span> <span class="n">seulement</span>
-<a id="__codelineno-5-53" name="__codelineno-5-53"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;[page1 beforeMount]&#39;</span><span class="p">)</span>
-<a id="__codelineno-5-54" name="__codelineno-5-54"></a>  <span class="p">},</span>
-<a id="__codelineno-5-55" name="__codelineno-5-55"></a>  <span class="n">mounted</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-5-56" name="__codelineno-5-56"></a>    <span class="o">//</span> <span class="n">client</span> <span class="n">seulement</span>
-<a id="__codelineno-5-57" name="__codelineno-5-57"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;[page1 mounted]&#39;</span><span class="p">)</span>
-<a id="__codelineno-5-58" name="__codelineno-5-58"></a>  <span class="p">},</span>
-<a id="__codelineno-5-59" name="__codelineno-5-59"></a>  <span class="o">//</span> <span class="n">gestion</span> <span class="n">des</span> <span class="n">évts</span>
-<a id="__codelineno-5-60" name="__codelineno-5-60"></a>  <span class="n">methods</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-5-61" name="__codelineno-5-61"></a>    <span class="n">incrementCounter</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-5-62" name="__codelineno-5-62"></a>      <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;incrementCounter&#39;</span><span class="p">)</span>
-<a id="__codelineno-5-63" name="__codelineno-5-63"></a>      <span class="o">//</span> <span class="n">incrément</span> <span class="n">du</span> <span class="n">compteur</span> <span class="n">de</span> <span class="mi">1</span>
-<a id="__codelineno-5-64" name="__codelineno-5-64"></a>      <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">store</span><span class="o">.</span><span class="n">commit</span><span class="p">(</span><span class="s1">&#39;increment&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-5-65" name="__codelineno-5-65"></a>      <span class="o">//</span> <span class="n">modification</span> <span class="n">session</span>
-<a id="__codelineno-5-66" name="__codelineno-5-66"></a>      <span class="n">this</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">store</span><span class="o">.</span><span class="n">state</span>
-<a id="__codelineno-5-67" name="__codelineno-5-67"></a>      <span class="n">this</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">somethingImportant</span><span class="o">.</span><span class="n">x</span><span class="o">++</span>
-<a id="__codelineno-5-68" name="__codelineno-5-68"></a>      <span class="n">this</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">somethingImportant</span><span class="o">.</span><span class="n">y</span><span class="o">++</span>
-<a id="__codelineno-5-69" name="__codelineno-5-69"></a>      <span class="o">//</span> <span class="n">sauvegarde</span> <span class="n">de</span> <span class="n">la</span> <span class="n">session</span> <span class="n">dans</span> <span class="n">le</span> <span class="n">cookie</span> <span class="n">de</span> <span class="n">session</span>
-<a id="__codelineno-5-70" name="__codelineno-5-70"></a>      <span class="n">this</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">nuxt</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
-<a id="__codelineno-5-71" name="__codelineno-5-71"></a>    <span class="p">}</span>
-<a id="__codelineno-5-72" name="__codelineno-5-72"></a>  <span class="p">}</span>
-<a id="__codelineno-5-73" name="__codelineno-5-73"></a><span class="p">}</span>
-<a id="__codelineno-5-74" name="__codelineno-5-74"></a><span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-</code></pre></div></td></tr></table></div>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line">&lt;!-- page [index] --&gt;</span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;</span>template<span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">  </span>&lt;<span style="color:#800000">Layout</span><span style="color:#000000"> </span><span style="color:#ff0000">:left</span>=&quot;true&quot;<span style="color:#000000"> </span><span style="color:#ff0000">:right</span>=&quot;true&quot;&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>&lt;!-- navigation --&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>&lt;<span style="color:#800000">Navigation</span><span style="color:#000000"> </span><span style="color:#ff0000">slot</span>=&quot;left&quot;<span style="color:#000000"> </span>/&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>&lt;!-- message--&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>&lt;<span style="color:#800000">template</span><span style="color:#000000"> </span><span style="color:#ff0000">slot</span>=&quot;right&quot;&gt;</span>
+<span class="odt-code-line">      <span style="color:#0000ff">&lt;</span><span style="color:#800000">b-alert</span> <span style="color:#ff0000">show</span> <span style="color:#ff0000">variant</span><span style="color:#0000ff">=&quot;warning&quot;&gt;</span> Page1 - session= <span style="font-weight:bold">{{</span> <span style="color:#800080">jsonSession</span> <span style="font-weight:bold">}}</span>, counter= <span style="font-weight:bold">{{</span> <span style="color:#800080">$store.state.counter</span> <span style="font-weight:bold">}}</span> <span style="color:#0000ff">&lt;/</span><span style="color:#800000">b-alert</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">      </span>&lt;!-- bouton --&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">      </span>&lt;<span style="color:#800000">b-button</span><span style="color:#000000"> </span><span style="color:#ff0000">@click</span>=&quot;incrementCounter&quot;<span style="color:#000000"> </span><span style="color:#ff0000">class</span>=&quot;ml-3&quot;<span style="color:#000000"> </span><span style="color:#ff0000">variant</span>=&quot;primary&quot;&gt;<span style="color:#000000">Incrémenter</span>&lt;/<span style="color:#800000">b-button</span>&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#0000ff">&lt;/</span>template<span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">  </span><span style="color:#0000ff">&lt;/</span>Layout<span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;/</span>template<span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;</span>script<span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">/* eslint-disable no-undef */</span>
+<span class="odt-code-line">/* eslint-disable no-console */</span>
+<span class="odt-code-line">/* eslint-disable nuxt/no-env-in-hooks */</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#0000ff">import</span><span style="color:#000000"> Layout </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span>&#x27;@/components/layout&#x27;</span>
+<span class="odt-code-line"><span style="color:#0000ff">import</span><span style="color:#000000"> Navigation </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span>&#x27;@/components/navigation&#x27;</span>
+<span class="odt-code-line">export<span style="color:#000000"> </span>default<span style="color:#000000"> {</span></span>
+<span class="odt-code-line">  name: <span style="color:#a31515">&#x27;Page1&#x27;</span>,</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// composants utilisés</span>
+<span class="odt-code-line">  components: {</span>
+<span class="odt-code-line">    Layout,</span>
+<span class="odt-code-line">    Navigation</span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line">  data() {</span>
+<span class="odt-code-line">    <span style="color:#0000ff">return</span> {</span>
+<span class="odt-code-line">      session: {}</span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line">  computed: {</span>
+<span class="odt-code-line">    jsonSession() {</span>
+<span class="odt-code-line">      <span style="color:#0000ff">return</span> JSON.stringify(<span style="color:#0000ff">this</span>.session.value)</span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// cycle de vie</span>
+<span class="odt-code-line">  beforeCreate() {</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// client et serveur</span>
+<span class="odt-code-line"><span style="color:#000000">    console.log(</span>&#x27;[page1 beforeCreate]&#x27;<span style="color:#000000">)</span></span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line">  created() {</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// client et serveur</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// on met la session dans les propriétés réactives de la page</span>
+<span class="odt-code-line">    <span style="color:#0000ff">this</span>.session = <span style="color:#0000ff">this</span>.$session()</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// log</span>
+<span class="odt-code-line">    console.log(<span style="color:#a31515">&#x27;[page1 created], session=&#x27;</span>, <span style="color:#0000ff">this</span>.session.value)</span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line">  beforeMount() {</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// client seulement</span>
+<span class="odt-code-line"><span style="color:#000000">    console.log(</span>&#x27;[page1 beforeMount]&#x27;<span style="color:#000000">)</span></span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line">  mounted() {</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// client seulement</span>
+<span class="odt-code-line">    console.log(<span style="color:#a31515">&#x27;[page1 mounted]&#x27;</span>)</span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// gestion des évts</span>
+<span class="odt-code-line">  methods: {</span>
+<span class="odt-code-line">    incrementCounter() {</span>
+<span class="odt-code-line">      console.log(<span style="color:#a31515">&#x27;incrementCounter&#x27;</span>)</span>
+<span class="odt-code-line"><span style="color:#000000">      </span>// incrément du compteur de 1</span>
+<span class="odt-code-line">      <span style="color:#0000ff">this</span>.$store.commit(<span style="color:#a31515">&#x27;increment&#x27;</span>, 1)</span>
+<span class="odt-code-line"><span style="color:#000000">      </span>// modification session</span>
+<span class="odt-code-line">      <span style="color:#0000ff">this</span>.session.value.store = <span style="color:#0000ff">this</span>.$store.state</span>
+<span class="odt-code-line">      <span style="color:#0000ff">this</span>.session.value.somethingImportant.x++</span>
+<span class="odt-code-line">      <span style="color:#0000ff">this</span>.session.value.somethingImportant.y++</span>
+<span class="odt-code-line"><span style="color:#000000">      </span>// sauvegarde de la session dans le cookie de session</span>
+<span class="odt-code-line">      <span style="color:#0000ff">this</span>.session.save(<span style="color:#0000ff">this</span>.$nuxt.context)</span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line">  }</span>
+<span class="odt-code-line">}</span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;/</span>script<span style="color:#0000ff">&gt;</span></span>
+</code></pre></div>
+
 <ul>
 <li>ligne 47 : la principale différence vient du fait qu’on met la session courante dans les propriétés de la page (lignes 29-33). Cela va avoir pour effet que désormais la session va devenir réactive. Lorsque la fonction [incrementCounter] va incrémenter les éléments de la session, la vue [page1] sera mise à jour ;</li>
 </ul>
@@ -1682,7 +1437,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>

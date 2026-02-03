@@ -786,13 +786,13 @@
 
 
 <h1 id="1-introduction-au-framework-nuxtjs">1. Introduction au framework NUXT.JS</h1>
-<p>Le PDF de ce document est disponible |<a href="https://stahe.github.io/nuxtjs-dec-2019/nuxtjs-dec-2019.pdf"><u>ICI</u></a>|.</p>
+<p>Le PDF de ce document est disponible |<a href="https://stahe.github.io/nuxtjs-dec-2019/nuxtjs-dec-2019.pdf">ICI</a>|.</p>
 <p>Ce document fait partie d’une série de quatre articles :</p>
 <ol>
-<li>|<a href="https://tahe.developpez.com/tutoriels-cours/php7">Introduction au langage </a><a href="https://tahe.developpez.com/tutoriels-cours/php7"><strong>PHP7</strong></a><a href="https://tahe.developpez.com/tutoriels-cours/php7"> par l’exemple</a>| ;</li>
-<li>|<a href="https://tahe.developpez.com/tutoriels-cours/ecmascript6">Introduction au langage </a><a href="https://tahe.developpez.com/tutoriels-cours/ecmascript6"><strong>ECMASCRIPT 6</strong></a><a href="https://tahe.developpez.com/tutoriels-cours/ecmascript6"> par l’exemple</a>| ;</li>
-<li>|<a href="https://tahe.developpez.com/tutoriels-cours/vuejs">Introduction au framework </a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"><strong>VUE.JS</strong></a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"> par l’exemple</a>| ;</li>
-<li>|<a href="https://tahe.developpez.com/tutoriels-cours/nuxtjs">Introduction au framework </a><a href="https://tahe.developpez.com/tutoriels-cours/nuxtjs"><strong>NUXT.JS</strong></a><a href="https://tahe.developpez.com/tutoriels-cours/nuxtjs"> par l’exemple</a>|. <strong>C’est le document présent</strong> ;</li>
+<li><a id="hlk43130230"></a>|<a href="https://tahe.developpez.com/tutoriels-cours/php7">Introduction au langage </a><a href="https://tahe.developpez.com/tutoriels-cours/php7">PHP7</a><a href="https://tahe.developpez.com/tutoriels-cours/php7"> par l’exemple</a>| ;</li>
+<li><a id="hlk43129410"></a>|<a href="https://tahe.developpez.com/tutoriels-cours/ecmascript6">Introduction au langage </a><a href="https://tahe.developpez.com/tutoriels-cours/ecmascript6">ECMASCRIPT 6</a><a href="https://tahe.developpez.com/tutoriels-cours/ecmascript6"> par l’exemple</a>| ;</li>
+<li>|<a href="https://tahe.developpez.com/tutoriels-cours/vuejs">Introduction au framework </a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs">VUE.JS</a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"> par l’exemple</a>| ;</li>
+<li>|<a href="https://tahe.developpez.com/tutoriels-cours/nuxtjs">Introduction au framework </a><a href="https://tahe.developpez.com/tutoriels-cours/nuxtjs">NUXT.JS</a><a href="https://tahe.developpez.com/tutoriels-cours/nuxtjs"> par l’exemple</a>|. <strong>C’est le document présent</strong> ;</li>
 </ol>
 <p>Ce sont tous des documents pour <strong>débutants</strong>. Les articles ont une suite logique mais <strong>sont faiblement couplés</strong> :</p>
 <ul>
@@ -817,45 +817,31 @@
 <li>une fois la 1ère page chargée dans le navigateur, l’application se comporte comme une application [vue.js] classique. Dans notre schéma ci-dessus, elle va alors dialoguer avec le serveur de données [2] ;</li>
 </ul>
 <p>Au final, l’application se comporte comme une application [vue.js] sauf pour la 1ère page et lorsque l’utilisateur tape des URL à la main. Dans ces cas, la page est cherchée sur le serveur [3]. Lorsque qu’un moteur de recherche demande les différentes pages de l’aplication, il reçoit les pages du serveur [3]. Celles-ci ont pu être optimisées pour le SEO (Search Engine Optimization). Dans une application [vue.js], le moteur de recherche reçoit une page avec peu de signification SEO. Par exemple, dans l’application du client du serveur de calcul de l’impôt du document [3], la page reçue par le navigateur lors du démarrage de l’application était la suivante :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span>
-<span class="normal"><a href="#__codelineno-0-12">12</a></span>
-<span class="normal"><a href="#__codelineno-0-13">13</a></span>
-<span class="normal"><a href="#__codelineno-0-14">14</a></span>
-<span class="normal"><a href="#__codelineno-0-15">15</a></span>
-<span class="normal"><a href="#__codelineno-0-16">16</a></span>
-<span class="normal"><a href="#__codelineno-0-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width,initial-scale=1.0&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/client-vuejs-impot/favicon.ico&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>vuejs<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/client-vuejs-impot/app.js&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;preload&quot;</span> <span class="na">as</span><span class="o">=</span><span class="s">&quot;script&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="p">&lt;</span><span class="nt">noscript</span><span class="p">&gt;</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>      <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>We&#39;re sorry but vuejs doesn&#39;t work properly without JavaScript enabled. Please enable it to continue.<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="p">&lt;/</span><span class="nt">noscript</span><span class="p">&gt;</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="cm">&lt;!-- built files will be auto injected --&gt;</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/client-vuejs-impot/app.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</code></pre></div></td></tr></table></div>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span style="color:#000000">&lt;</span>!DOCTYPE<span style="font-style:italic;color:#008080"> </span><span style="color:#000000">html&gt;</span></span>
+<span class="odt-code-line">&lt;<span style="color:#800080">html</span><span style="font-style:italic;color:#008080"> </span>lang=<span style="color:#000080">&quot;en&quot;</span>&gt;</span>
+<span class="odt-code-line">  &lt;<span style="color:#800080">head</span>&gt;</span>
+<span class="odt-code-line">    &lt;<span style="color:#800080">meta</span><span style="font-style:italic;color:#008080"> </span>charset=<span style="color:#000080">&quot;utf-8&quot;</span>&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#000000">&lt;</span><span style="font-weight:bold;color:#800080">meta</span><span style="font-style:italic;color:#008080"> </span><span style="font-weight:bold;color:#000000">http-equiv=</span>&quot;X-UA-Compatible&quot;<span style="font-style:italic;color:#008080"> </span><span style="font-weight:bold;color:#000000">content=</span>&quot;IE=edge&quot;<span style="font-weight:bold;color:#000000">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#000000">&lt;</span><span style="font-weight:bold;color:#800080">meta</span><span style="font-style:italic;color:#008080"> </span><span style="font-weight:bold;color:#000000">name=</span>&quot;viewport&quot;<span style="font-style:italic;color:#008080"> </span><span style="font-weight:bold;color:#000000">content=</span>&quot;width=device-width,initial-scale=1.0&quot;<span style="font-weight:bold;color:#000000">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="font-weight:bold;color:#000000">&lt;</span><span style="font-weight:bold;color:#800080">link</span><span style="font-style:italic;color:#008080"> </span><span style="font-weight:bold;color:#000000">rel=</span>&quot;icon&quot;<span style="font-style:italic;color:#008080"> </span><span style="font-weight:bold;color:#000000">href=</span>&quot;/client-vuejs-impot/favicon.ico&quot;<span style="font-weight:bold;color:#000000">&gt;</span></span>
+<span class="odt-code-line">    &lt;<span style="color:#800080">title</span>&gt;vuejs&lt;<span style="color:#800080">/title</span>&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">  </span><span style="font-weight:bold;color:#000000">&lt;</span><span style="font-weight:bold;color:#800080">link</span><span style="font-style:italic;color:#008080"> </span><span style="font-weight:bold;color:#000000">href=</span>&quot;/client-vuejs-impot/app.js&quot;<span style="font-style:italic;color:#008080"> </span><span style="font-weight:bold;color:#000000">rel=</span>&quot;preload&quot;<span style="font-style:italic;color:#008080"> </span><span style="font-weight:bold;color:#000000">as=</span>&quot;script&quot;<span style="font-weight:bold;color:#000000">&gt;&lt;</span><span style="font-weight:bold;color:#800080">/head</span><span style="font-weight:bold;color:#000000">&gt;</span></span>
+<span class="odt-code-line">  &lt;<span style="color:#800080">body</span>&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">    &lt;</span>noscript<span style="color:#000000">&gt;</span></span>
+<span class="odt-code-line">      <span style="font-weight:bold">&lt;</span><span style="font-weight:bold;color:#800080">strong</span><span style="font-weight:bold">&gt;</span>We&#x27;re sorry but vuejs doesn&#x27;t work properly without JavaScript enabled. Please enable it to continue.<span style="font-weight:bold">&lt;</span><span style="font-weight:bold;color:#800080">/strong</span><span style="font-weight:bold">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">    &lt;</span>/noscript<span style="color:#000000">&gt;</span></span>
+<span class="odt-code-line">    &lt;<span style="color:#800080">div</span><span style="font-style:italic;color:#008080"> </span>id=<span style="color:#000080">&quot;app&quot;</span>&gt;&lt;<span style="color:#800080">/div</span>&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>&lt;!-- built files will be auto injected --&gt;</span>
+<span class="odt-code-line">  &lt;script type=&quot;text/javascript&quot; src=&quot;/client-vuejs-impot/app.js&quot;&gt;&lt;/script&gt;<span style="font-weight:bold">&lt;</span><span style="font-weight:bold;color:#800080">/body</span><span style="font-weight:bold">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">&lt;</span>/html<span style="color:#000000">&gt;</span></span>
+</code></pre></div>
+
 <p>C’est l’unique page chargée par le navigateur. Toutes les autres pages de l’application sont générées dynamiquement par le Javascript sans l’aide du navigateur. Certains moteurs de recherche se contentent de cette page. D’autres vont plus loin en exécutant le Javascript contenu dans la page (ligne 9 ci-dessus). Une autre page est alors obtenue. Celle-ci peut contenir une opération asynchrone pour aller chercher les données que la page va afficher. Dans ce cas les moteurs de recherche n’attendent pas. On se retrouve alors avec une page incomplète. On se rappelle peut-être que c’est le cas de notre client [vue.js] du serveur de calcul de l’impôt : de façon asynchrone, il initialise au cours du chargement de la 1ère page, une session jSON avec le serveur de calcul de l’impôt. Dans ce cas précis, cela n’influe pas sur la page récupérée par le moteur de recherche. Pour d’autres applications, cela pourrait être pénalisant en termes SEO.</p>
 <p>Avec [nuxt.js] on peut servir au moteur de recherche une page plus signifiante pour chacune des pages de l’application.</p>
 <p>Les scripts de ce document sont commentés et leur exécution console reproduite. Des explications supplémentaires sont parfois fournies. Le document nécessite une lecture active : pour comprendre un script, il faut à la fois lire son code, ses commentaires et ses résultats d&#x27;exécution.</p>
-<p>Les exemples du document sont disponibles |<a href="https://tahe.developpez.com/tutoriels-cours/nuxtjs/documents/nuxtjs.rar"><strong><em>*ici</em></strong>*</a><strong>|</strong>.</p>
-<p>L’application serveur PHP 7 peut être testée |<a href="https://sergetahe.com/apps/impot/serveur-php7/"><strong><em>*ici</em></strong>*</a><strong>|</strong>.</p>
+<p>Les exemples du document sont disponibles |<a href="https://tahe.developpez.com/tutoriels-cours/nuxtjs/documents/nuxtjs.rar"><strong>ici</strong></a><strong>|</strong>.</p>
+<p>L’application serveur PHP 7 peut être testée |<a href="https://sergetahe.com/apps/impot/serveur-php7/"><strong>ici</strong></a><strong>|</strong>.</p>
 <p>Serge Tahé, décembre 2019</p>
 
 
@@ -914,7 +900,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>

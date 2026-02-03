@@ -904,96 +904,59 @@
 </ul>
 <h2 id="102-le-plugin-common-mainjs">10.2. Le plugin [common / main.js]</h2>
 <p>Le plugin [common / main.js] est exécuté à la fois par le client et le serveur : cela est dû à la configuration [nuxt.config.js] suivante :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span>
-<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>/*
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>   ** Plugins to load before mounting the App
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>   */
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>plugins: [{ src: &#39;~/plugins/common/main.js&#39; }],
-</code></pre></div></td></tr></table></div>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
+<span class="odt-code-line">/*</span>
+<span class="odt-code-line">   ** Plugins to load before mounting the App</span>
+<span class="odt-code-line">   */</span>
+<span class="odt-code-line"><span style="color:#000000">plugins: [{ src: </span>&#x27;~/plugins/common/main.js&#x27;<span style="color:#000000"> }],</span></span>
+</code></pre></div>
+
 <ul>
-<li>ligne 4 : l’absence de la propriété [mode] fait que le plugin [~/plugins/common/main.js] sera exécuté à la fois par le client et le serveur : le serveur d’abord, le client ensuite ;</li>
+<li>ligne 4 : l’absence de la propriété [mode] fait que le plugin [<span style="color: #a31515">~/plugins/common/main.js</span>] sera exécuté à la fois par le client et le serveur : le serveur d’abord, le client ensuite ;</li>
 </ul>
 <p>Ce plugin sera le suivant :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-1-10">10</a></span>
-<span class="normal"><a href="#__codelineno-1-11">11</a></span>
-<span class="normal"><a href="#__codelineno-1-12">12</a></span>
-<span class="normal"><a href="#__codelineno-1-13">13</a></span>
-<span class="normal"><a href="#__codelineno-1-14">14</a></span>
-<span class="normal"><a href="#__codelineno-1-15">15</a></span>
-<span class="normal"><a href="#__codelineno-1-16">16</a></span>
-<span class="normal"><a href="#__codelineno-1-17">17</a></span>
-<span class="normal"><a href="#__codelineno-1-18">18</a></span>
-<span class="normal"><a href="#__codelineno-1-19">19</a></span>
-<span class="normal"><a href="#__codelineno-1-20">20</a></span>
-<span class="normal"><a href="#__codelineno-1-21">21</a></span>
-<span class="normal"><a href="#__codelineno-1-22">22</a></span>
-<span class="normal"><a href="#__codelineno-1-23">23</a></span>
-<span class="normal"><a href="#__codelineno-1-24">24</a></span>
-<span class="normal"><a href="#__codelineno-1-25">25</a></span>
-<span class="normal"><a href="#__codelineno-1-26">26</a></span>
-<span class="normal"><a href="#__codelineno-1-27">27</a></span>
-<span class="normal"><a href="#__codelineno-1-28">28</a></span>
-<span class="normal"><a href="#__codelineno-1-29">29</a></span>
-<span class="normal"><a href="#__codelineno-1-30">30</a></span>
-<span class="normal"><a href="#__codelineno-1-31">31</a></span>
-<span class="normal"><a href="#__codelineno-1-32">32</a></span>
-<span class="normal"><a href="#__codelineno-1-33">33</a></span>
-<span class="normal"><a href="#__codelineno-1-34">34</a></span>
-<span class="normal"><a href="#__codelineno-1-35">35</a></span>
-<span class="normal"><a href="#__codelineno-1-36">36</a></span>
-<span class="normal"><a href="#__codelineno-1-37">37</a></span>
-<span class="normal"><a href="#__codelineno-1-38">38</a></span>
-<span class="normal"><a href="#__codelineno-1-39">39</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* eslint-disable no-undef */</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="cm">/* eslint-disable no-console */</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="p">(...</span><span class="nx">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">  </span><span class="c1">// qui exécute ce code ?</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[main server], process.server=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;process.client=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">client</span><span class="p">)</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">who</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">server</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;server&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;client&#39;</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;[main &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">who</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;]&#39;</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">  </span><span class="c1">// nbre d&#39;arguments</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">main</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;, il y a&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">args</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;arguments&#39;</span><span class="p">)</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">  </span><span class="c1">// 1er argument</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">args</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">  </span><span class="c1">// clés du contexte</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">  </span><span class="nx">dumpkeys</span><span class="p">(</span><span class="nx">main</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;, context&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">)</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">  </span><span class="c1">// l&#39;application</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">  </span><span class="nx">dumpkeys</span><span class="p">(</span><span class="nx">main</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;, context.app&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">)</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">  </span><span class="c1">// la route</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">  </span><span class="nx">dumpkeys</span><span class="p">(</span><span class="nx">main</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;, context.route&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">route</span><span class="p">)</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">main</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;, context.route=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">route</span><span class="p">)</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">  </span><span class="c1">// le router</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="w">  </span><span class="nx">dumpkeys</span><span class="p">(</span><span class="nx">main</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;, context.app.router&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">router</span><span class="p">)</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="w">  </span><span class="c1">// le router.options.routes</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="w">  </span><span class="nx">dumpkeys</span><span class="p">(</span><span class="nx">main</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;, context.app.router.options.routes&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">routes</span><span class="p">)</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">main</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;, context.app.router.options.routes=&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">routes</span><span class="p">)</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25"></a>
-<a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="w">  </span><span class="c1">// 2ième argument</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">inject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">args</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;inject=&#39;</span><span class="p">,</span><span class="w"> </span><span class="ow">typeof</span><span class="w"> </span><span class="nx">inject</span><span class="p">)</span>
-<a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="p">}</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30"></a>
-<a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="kd">function</span><span class="w"> </span><span class="nx">dumpkeys</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="nx">object</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="w">  </span><span class="c1">// liste des clés de [object]</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">ligne</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Liste des clés [&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;]&#39;</span>
-<a id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ligne</span><span class="p">)</span>
-<a id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="w">  </span><span class="c1">// liste des clés</span>
-<a id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">object</span><span class="p">))</span>
-<a id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<span class="odt-code-line">/* eslint-disable no-undef */</span>
+<span class="odt-code-line">/* eslint-disable no-console */</span>
+<span class="odt-code-line">export<span style="color:#000000"> </span>default<span style="color:#000000"> </span>function<span style="color:#000000">(...args) {</span></span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// qui exécute ce code ?</span>
+<span class="odt-code-line">  console.log(<span style="color:#a31515">&#x27;[main server], process.server=&#x27;</span>, process.server, <span style="color:#a31515">&#x27;process.client=&#x27;</span>, process.client)</span>
+<span class="odt-code-line">  <span style="color:#0000ff">const</span> who = process.server ? <span style="color:#a31515">&#x27;server&#x27;</span> : <span style="color:#a31515">&#x27;client&#x27;</span></span>
+<span class="odt-code-line">  <span style="color:#0000ff">const</span> main = <span style="color:#a31515">&#x27;[main &#x27;</span> + who + <span style="color:#a31515">&#x27;]&#x27;</span></span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// nbre d&#x27;arguments</span>
+<span class="odt-code-line">  console.log(main + <span style="color:#a31515">&#x27;, il y a&#x27;</span>, args.length, <span style="color:#a31515">&#x27;arguments&#x27;</span>)</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// 1er argument</span>
+<span class="odt-code-line">  <span style="color:#0000ff">const</span> context = args[0]</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// clés du contexte</span>
+<span class="odt-code-line">  dumpkeys(main + <span style="color:#a31515">&#x27;, context&#x27;</span>, context)</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// l&#x27;application</span>
+<span class="odt-code-line">  dumpkeys(main + <span style="color:#a31515">&#x27;, context.app&#x27;</span>, context.app)</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// la route</span>
+<span class="odt-code-line">  dumpkeys(main + <span style="color:#a31515">&#x27;, context.route&#x27;</span>, context.route)</span>
+<span class="odt-code-line">  console.log(main + <span style="color:#a31515">&#x27;, context.route=&#x27;</span>, context.route)</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// le router</span>
+<span class="odt-code-line">  dumpkeys(main + <span style="color:#a31515">&#x27;, context.app.router&#x27;</span>, context.app.router)</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// le router.options.routes</span>
+<span class="odt-code-line">  dumpkeys(main + <span style="color:#a31515">&#x27;, context.app.router.options.routes&#x27;</span>, context.app.router.options.routes)</span>
+<span class="odt-code-line">  console.log(main + <span style="color:#a31515">&#x27;, context.app.router.options.routes=&#x27;</span>, context.app.router.options.routes)</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// 2ième argument</span>
+<span class="odt-code-line">  <span style="color:#0000ff">const</span> inject = args[1]</span>
+<span class="odt-code-line">  console.log(<span style="color:#a31515">&#x27;inject=&#x27;</span>, <span style="color:#0000ff">typeof</span> inject)</span>
+<span class="odt-code-line">}</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#0000ff">function</span> dumpkeys(message, object) {</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// liste des clés de [object]</span>
+<span class="odt-code-line">  <span style="color:#0000ff">const</span> ligne = <span style="color:#a31515">&#x27;Liste des clés [&#x27;</span> + message + <span style="color:#a31515">&#x27;]&#x27;</span></span>
+<span class="odt-code-line">  console.log(ligne)</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// liste des clés</span>
+<span class="odt-code-line">  <span style="color:#0000ff">if</span> (object) {</span>
+<span class="odt-code-line">    console.log(Object.keys(object))</span>
+<span class="odt-code-line">  }</span>
+<span class="odt-code-line">}</span>
+</code></pre></div>
+
 <ul>
 <li>lignes 31-39 : la fonction [dumpkeys] liste les propriétés de l’objet passé en 2ième paramètre. Cette liste est précédée du message passé en 1er paramètre ;</li>
 <li>ligne 3 : on veut savoir combien d’arguments reçoit la fonction. Pour cela, on utilise la notation [...args] qui va avoir pour effet de mettre les paramètres effectifs de la fonction dans le tableau [args]. On va découvrir qu’il y a deux arguments ;</li>
@@ -1010,6 +973,102 @@
 </ul>
 <h2 id="103-le-plugin-execute-par-le-serveur">10.3. Le plugin exécuté par le serveur</h2>
 <p>A l’exécution, le serveur affiche la chose suivante :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>[main server], process.server= true process.client= false
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>[main server], il y a 2 arguments
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>Liste des clés [[main server], context]
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>[
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>  &#39;isStatic&#39;,
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>  &#39;isDev&#39;,
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>  &#39;isHMR&#39;,
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>  &#39;app&#39;,
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>  &#39;payload&#39;,
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>  &#39;error&#39;,
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>  &#39;base&#39;,
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>  &#39;env&#39;,
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>  &#39;req&#39;,
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>  &#39;res&#39;,
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>  &#39;ssrContext&#39;,
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>  &#39;redirect&#39;,
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>  &#39;beforeNuxtRender&#39;,
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>  &#39;route&#39;,
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>  &#39;next&#39;,
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>  &#39;_redirected&#39;,
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>  &#39;_errored&#39;,
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>  &#39;params&#39;,
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>  &#39;query&#39;,
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>  &#39;$axios&#39;
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>]
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>lignes 11-12 : nous avons déjà eu l’occasion d’utiliser les propriétés [base] et [env] dont les valeurs proviennent du fichier [nuxt.config.js] ;</li>
+<li>ligne 8 : la propriété [app] désigne l’application [nuxt] ;</li>
+<li>ligne 18 : la propriété [route] désigne la route courante du routeur, ç-à-d la page que va envoyer le serveur ;</li>
+<li>ligne 13 : la requête HTTP du navigateur client ;</li>
+<li>ligne 14 : la réponse HTTP du serveur ;</li>
+</ul>
+<p>La liste des propriétés de [context.app] est la suivante :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>Liste des clés [[main server], context.app]
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>[
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>  &#39;router&#39;,
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>  &#39;nuxt&#39;,
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>  &#39;head&#39;,
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>  &#39;render&#39;,
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>  &#39;data&#39;,
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>  &#39;beforeCreate&#39;,
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>  &#39;created&#39;,
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>  &#39;mounted&#39;,
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>  &#39;watch&#39;,
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>  &#39;computed&#39;,
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>  &#39;methods&#39;,
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>  &#39;components&#39;,
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>  &#39;context&#39;,
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>  &#39;$axios&#39;
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a>]
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 3 : la propriété [router] nous donne accès au router de l’application. C’est important sous [nuxt] puisque le routeur est défini par [nuxt] lui-même et non par le développeur. Cette propriété est un accès donné au développeur pour modifier le routeur ;</li>
+</ul>
+<p>La liste des propriétés de [context.route] sont les suivantes :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
@@ -1020,54 +1079,19 @@
 <span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-2-10">10</a></span>
-<span class="normal"><a href="#__codelineno-2-11">11</a></span>
-<span class="normal"><a href="#__codelineno-2-12">12</a></span>
-<span class="normal"><a href="#__codelineno-2-13">13</a></span>
-<span class="normal"><a href="#__codelineno-2-14">14</a></span>
-<span class="normal"><a href="#__codelineno-2-15">15</a></span>
-<span class="normal"><a href="#__codelineno-2-16">16</a></span>
-<span class="normal"><a href="#__codelineno-2-17">17</a></span>
-<span class="normal"><a href="#__codelineno-2-18">18</a></span>
-<span class="normal"><a href="#__codelineno-2-19">19</a></span>
-<span class="normal"><a href="#__codelineno-2-20">20</a></span>
-<span class="normal"><a href="#__codelineno-2-21">21</a></span>
-<span class="normal"><a href="#__codelineno-2-22">22</a></span>
-<span class="normal"><a href="#__codelineno-2-23">23</a></span>
-<span class="normal"><a href="#__codelineno-2-24">24</a></span>
-<span class="normal"><a href="#__codelineno-2-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>[main server], process.server= true process.client= false
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>[main server], il y a 2 arguments
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a>Liste des clés [[main server], context]
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a>[
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a>  &#39;isStatic&#39;,
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a>  &#39;isDev&#39;,
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a>  &#39;isHMR&#39;,
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a>  &#39;app&#39;,
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a>  &#39;payload&#39;,
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a>  &#39;error&#39;,
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a>  &#39;base&#39;,
-<a id="__codelineno-2-12" name="__codelineno-2-12"></a>  &#39;env&#39;,
-<a id="__codelineno-2-13" name="__codelineno-2-13"></a>  &#39;req&#39;,
-<a id="__codelineno-2-14" name="__codelineno-2-14"></a>  &#39;res&#39;,
-<a id="__codelineno-2-15" name="__codelineno-2-15"></a>  &#39;ssrContext&#39;,
-<a id="__codelineno-2-16" name="__codelineno-2-16"></a>  &#39;redirect&#39;,
-<a id="__codelineno-2-17" name="__codelineno-2-17"></a>  &#39;beforeNuxtRender&#39;,
-<a id="__codelineno-2-18" name="__codelineno-2-18"></a>  &#39;route&#39;,
-<a id="__codelineno-2-19" name="__codelineno-2-19"></a>  &#39;next&#39;,
-<a id="__codelineno-2-20" name="__codelineno-2-20"></a>  &#39;_redirected&#39;,
-<a id="__codelineno-2-21" name="__codelineno-2-21"></a>  &#39;_errored&#39;,
-<a id="__codelineno-2-22" name="__codelineno-2-22"></a>  &#39;params&#39;,
-<a id="__codelineno-2-23" name="__codelineno-2-23"></a>  &#39;query&#39;,
-<a id="__codelineno-2-24" name="__codelineno-2-24"></a>  &#39;$axios&#39;
-<a id="__codelineno-2-25" name="__codelineno-2-25"></a>]
+<span class="normal"><a href="#__codelineno-2-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>Liste des clés [[main server], context.route]
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>[
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>  &#39;name&#39;,
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>  &#39;meta&#39;,
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>  &#39;path&#39;,
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>  &#39;hash&#39;,
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>  &#39;query&#39;,
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>  &#39;params&#39;,
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>  &#39;fullPath&#39;,
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>  &#39;matched&#39;
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>]
 </code></pre></div></td></tr></table></div>
-<ul>
-<li>lignes 11-12 : nous avons déjà eu l’occasion d’utiliser les propriétés [base] et [env] dont les valeurs proviennent du fichier [nuxt.config.js] ;</li>
-<li>ligne 8 : la propriété [app] désigne l’application [nuxt] ;</li>
-<li>ligne 18 : la propriété [route] désigne la route courante du routeur, ç-à-d la page que va envoyer le serveur ;</li>
-<li>ligne 13 : la requête HTTP du navigateur client ;</li>
-<li>ligne 14 : la réponse HTTP du serveur ;</li>
-</ul>
-<p>La liste des propriétés de [context.app] est la suivante :</p>
+<p>La route [context.route] au démarrage du serveur est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
@@ -1084,28 +1108,47 @@
 <span class="normal"><a href="#__codelineno-3-14">14</a></span>
 <span class="normal"><a href="#__codelineno-3-15">15</a></span>
 <span class="normal"><a href="#__codelineno-3-16">16</a></span>
-<span class="normal"><a href="#__codelineno-3-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>Liste des clés [[main server], context.app]
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>[
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a>  &#39;router&#39;,
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a>  &#39;nuxt&#39;,
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a>  &#39;head&#39;,
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a>  &#39;render&#39;,
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a>  &#39;data&#39;,
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a>  &#39;beforeCreate&#39;,
-<a id="__codelineno-3-9" name="__codelineno-3-9"></a>  &#39;created&#39;,
-<a id="__codelineno-3-10" name="__codelineno-3-10"></a>  &#39;mounted&#39;,
-<a id="__codelineno-3-11" name="__codelineno-3-11"></a>  &#39;watch&#39;,
-<a id="__codelineno-3-12" name="__codelineno-3-12"></a>  &#39;computed&#39;,
-<a id="__codelineno-3-13" name="__codelineno-3-13"></a>  &#39;methods&#39;,
-<a id="__codelineno-3-14" name="__codelineno-3-14"></a>  &#39;components&#39;,
-<a id="__codelineno-3-15" name="__codelineno-3-15"></a>  &#39;context&#39;,
-<a id="__codelineno-3-16" name="__codelineno-3-16"></a>  &#39;$axios&#39;
-<a id="__codelineno-3-17" name="__codelineno-3-17"></a>]
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span>
+<span class="normal"><a href="#__codelineno-3-22">22</a></span>
+<span class="normal"><a href="#__codelineno-3-23">23</a></span>
+<span class="normal"><a href="#__codelineno-3-24">24</a></span>
+<span class="normal"><a href="#__codelineno-3-25">25</a></span>
+<span class="normal"><a href="#__codelineno-3-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="p">[</span><span class="n">main</span> <span class="n">server</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">route</span><span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>  <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>  <span class="n">meta</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>    <span class="p">{}</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>  <span class="p">],</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>  <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>  <span class="nb">hash</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>  <span class="n">query</span><span class="p">:</span> <span class="p">{},</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>  <span class="n">params</span><span class="p">:</span> <span class="p">{},</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>  <span class="n">fullPath</span><span class="p">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a>  <span class="n">matched</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a>    <span class="p">{</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a>      <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a>      <span class="n">regex</span><span class="p">:</span> <span class="o">/^</span><span class="p">(</span><span class="err">?</span><span class="p">:</span>\<span class="o">/</span><span class="p">(</span><span class="err">?</span><span class="o">=</span><span class="err">$</span><span class="p">))</span><span class="err">?$</span><span class="o">/</span><span class="n">i</span><span class="p">,</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a>      <span class="n">components</span><span class="p">:</span> <span class="p">[</span><span class="n">Object</span><span class="p">],</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a>      <span class="n">instances</span><span class="p">:</span> <span class="p">{},</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a>      <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a>      <span class="n">parent</span><span class="p">:</span> <span class="n">undefined</span><span class="p">,</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a>      <span class="n">matchAs</span><span class="p">:</span> <span class="n">undefined</span><span class="p">,</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a>      <span class="n">redirect</span><span class="p">:</span> <span class="n">undefined</span><span class="p">,</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a>      <span class="n">beforeEnter</span><span class="p">:</span> <span class="n">undefined</span><span class="p">,</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a>      <span class="n">meta</span><span class="p">:</span> <span class="p">{},</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a>      <span class="n">props</span><span class="p">:</span> <span class="p">{}</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a>    <span class="p">}</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a>  <span class="p">]</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 3 : la propriété [router] nous donne accès au router de l’application. C’est important sous [nuxt] puisque le routeur est défini par [nuxt] lui-même et non par le développeur. Cette propriété est un accès donné au développeur pour modifier le routeur ;</li>
+<li>ligne 2 : on voit que la prochaine page du serveur est [index] et que son chemin est [/] (ligne 10) ;</li>
+<li>ligne 22 : la propriété [meta] permet d’ajouter des propriétés aux routes ;</li>
 </ul>
-<p>La liste des propriétés de [context.route] sont les suivantes :</p>
+<p>Les propriétés du routeur [context.app.router] du serveur sont les suivantes :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
@@ -1116,19 +1159,23 @@
 <span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-4-10">10</a></span>
-<span class="normal"><a href="#__codelineno-4-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>Liste des clés [[main server], context.route]
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>Liste des clés [[main server], context.app.router]
 <a id="__codelineno-4-2" name="__codelineno-4-2"></a>[
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a>  &#39;name&#39;,
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a>  &#39;meta&#39;,
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a>  &#39;path&#39;,
-<a id="__codelineno-4-6" name="__codelineno-4-6"></a>  &#39;hash&#39;,
-<a id="__codelineno-4-7" name="__codelineno-4-7"></a>  &#39;query&#39;,
-<a id="__codelineno-4-8" name="__codelineno-4-8"></a>  &#39;params&#39;,
-<a id="__codelineno-4-9" name="__codelineno-4-9"></a>  &#39;fullPath&#39;,
-<a id="__codelineno-4-10" name="__codelineno-4-10"></a>  &#39;matched&#39;
-<a id="__codelineno-4-11" name="__codelineno-4-11"></a>]
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>  &#39;app&#39;,
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>  &#39;apps&#39;,
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>  &#39;options&#39;,
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>  &#39;beforeHooks&#39;,
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>  &#39;resolveHooks&#39;,
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>  &#39;afterHooks&#39;,
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>  &#39;matcher&#39;,
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>  &#39;fallback&#39;,
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>  &#39;mode&#39;,
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>  &#39;history&#39;
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>]
 </code></pre></div></td></tr></table></div>
-<p>La route [context.route] au démarrage du serveur est la suivante :</p>
+<p>C’est dans la propriété [context.app.router.options.routes] qu’on trouve les différentes routes de l’application :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
@@ -1151,68 +1198,107 @@
 <span class="normal"><a href="#__codelineno-5-20">20</a></span>
 <span class="normal"><a href="#__codelineno-5-21">21</a></span>
 <span class="normal"><a href="#__codelineno-5-22">22</a></span>
-<span class="normal"><a href="#__codelineno-5-23">23</a></span>
-<span class="normal"><a href="#__codelineno-5-24">24</a></span>
-<span class="normal"><a href="#__codelineno-5-25">25</a></span>
-<span class="normal"><a href="#__codelineno-5-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="p">[</span><span class="n">main</span> <span class="n">server</span><span class="p">],</span> <span class="n">context</span><span class="o">.</span><span class="n">route</span><span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a>  <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a>  <span class="n">meta</span><span class="p">:</span> <span class="p">[</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a>    <span class="p">{}</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a>  <span class="p">],</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6"></a>  <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7"></a>  <span class="nb">hash</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8"></a>  <span class="n">query</span><span class="p">:</span> <span class="p">{},</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9"></a>  <span class="n">params</span><span class="p">:</span> <span class="p">{},</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10"></a>  <span class="n">fullPath</span><span class="p">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11"></a>  <span class="n">matched</span><span class="p">:</span> <span class="p">[</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12"></a>    <span class="p">{</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13"></a>      <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14"></a>      <span class="n">regex</span><span class="p">:</span> <span class="o">/^</span><span class="p">(</span><span class="err">?</span><span class="p">:</span>\<span class="o">/</span><span class="p">(</span><span class="err">?</span><span class="o">=</span><span class="err">$</span><span class="p">))</span><span class="err">?$</span><span class="o">/</span><span class="n">i</span><span class="p">,</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15"></a>      <span class="n">components</span><span class="p">:</span> <span class="p">[</span><span class="n">Object</span><span class="p">],</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16"></a>      <span class="n">instances</span><span class="p">:</span> <span class="p">{},</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17"></a>      <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span>
-<a id="__codelineno-5-18" name="__codelineno-5-18"></a>      <span class="n">parent</span><span class="p">:</span> <span class="n">undefined</span><span class="p">,</span>
-<a id="__codelineno-5-19" name="__codelineno-5-19"></a>      <span class="n">matchAs</span><span class="p">:</span> <span class="n">undefined</span><span class="p">,</span>
-<a id="__codelineno-5-20" name="__codelineno-5-20"></a>      <span class="n">redirect</span><span class="p">:</span> <span class="n">undefined</span><span class="p">,</span>
-<a id="__codelineno-5-21" name="__codelineno-5-21"></a>      <span class="n">beforeEnter</span><span class="p">:</span> <span class="n">undefined</span><span class="p">,</span>
-<a id="__codelineno-5-22" name="__codelineno-5-22"></a>      <span class="n">meta</span><span class="p">:</span> <span class="p">{},</span>
-<a id="__codelineno-5-23" name="__codelineno-5-23"></a>      <span class="n">props</span><span class="p">:</span> <span class="p">{}</span>
-<a id="__codelineno-5-24" name="__codelineno-5-24"></a>    <span class="p">}</span>
-<a id="__codelineno-5-25" name="__codelineno-5-25"></a>  <span class="p">]</span>
-<a id="__codelineno-5-26" name="__codelineno-5-26"></a><span class="p">}</span>
+<span class="normal"><a href="#__codelineno-5-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>Liste des clés [[main server], context.app.router.options.routes]
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>[
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>  &#39;0&#39;,
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>  &#39;1&#39;,
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>  &#39;2&#39;
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>]
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>[main server], context.app.router.options.routes= [
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>  {
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>    path: &#39;/page1&#39;,
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>    component: [Function: _d7b6c762],
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>    name: &#39;page1&#39;
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>  },
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>  {
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>    path: &#39;/page2&#39;,
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>    component: [Function: _d79a9860],
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>    name: &#39;page2&#39;
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a>  },
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a>  {
+<a id="__codelineno-5-19" name="__codelineno-5-19"></a>    path: &#39;/&#39;,
+<a id="__codelineno-5-20" name="__codelineno-5-20"></a>    component: [Function: _31eaad9f],
+<a id="__codelineno-5-21" name="__codelineno-5-21"></a>    name: &#39;index&#39;
+<a id="__codelineno-5-22" name="__codelineno-5-22"></a>  }
+<a id="__codelineno-5-23" name="__codelineno-5-23"></a>]
 </code></pre></div></td></tr></table></div>
+<p>Enfin le 2ième argument :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nx">inject</span><span class="o">=</span><span class="w"> </span><span class="kd">function</span>
+</code></pre></div>
+<h2 id="104-la-page-index-du-serveur">10.4. La page [index] du serveur</h2>
+<p>La page [index] est la suivante :</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line">&lt;!-- page principale --&gt;</span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;</span>template<span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">  </span>&lt;<span style="color:#800000">Layout</span><span style="color:#000000"> </span><span style="color:#ff0000">:left</span>=&quot;true&quot;<span style="color:#000000"> </span><span style="color:#ff0000">:right</span>=&quot;true&quot;&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>&lt;!-- navigation --&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>&lt;<span style="color:#800000">Navigation</span><span style="color:#000000"> </span><span style="color:#ff0000">slot</span>=&quot;left&quot;<span style="color:#000000"> </span>/&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>&lt;!-- message--&gt;</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>&lt;<span style="color:#800000">b-alert</span><span style="color:#000000"> </span><span style="color:#ff0000">slot</span>=&quot;right&quot;<span style="color:#000000"> </span><span style="color:#ff0000">show</span><span style="color:#000000"> </span><span style="color:#ff0000">variant</span>=&quot;warning&quot;&gt;</span>
+<span class="odt-code-line">      Home</span>
+<span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#0000ff">&lt;/</span>b-alert<span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#000000">  </span><span style="color:#0000ff">&lt;/</span>Layout<span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;/</span>template<span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;</span>script<span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">/* eslint-disable no-undef */</span>
+<span class="odt-code-line">/* eslint-disable no-console */</span>
+<span class="odt-code-line">/* eslint-disable nuxt/no-env-in-hooks */</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#0000ff">import</span><span style="color:#000000"> Navigation </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span>&#x27;@/components/navigation&#x27;</span>
+<span class="odt-code-line"><span style="color:#0000ff">import</span><span style="color:#000000"> Layout </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span>&#x27;@/components/layout&#x27;</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line">export<span style="color:#000000"> </span>default<span style="color:#000000"> {</span></span>
+<span class="odt-code-line">  name: <span style="color:#a31515">&#x27;Home&#x27;</span>,</span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// composants utilisés</span>
+<span class="odt-code-line">  components: {</span>
+<span class="odt-code-line">    Layout,</span>
+<span class="odt-code-line">    Navigation</span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line">  data() {</span>
+<span class="odt-code-line">    <span style="color:#0000ff">return</span> {</span>
+<span class="odt-code-line">      who: process.server ? <span style="color:#a31515">&#x27;server&#x27;</span> : <span style="color:#a31515">&#x27;client&#x27;</span></span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#000000">  </span>// cycle de vie</span>
+<span class="odt-code-line">  beforeCreate() {</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// client et serveur</span>
+<span class="odt-code-line"><span style="color:#000000">    console.log(</span>&#x27;[home beforeCreate]&#x27;<span style="color:#000000">)</span></span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line">  created() {</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// client et serveur</span>
+<span class="odt-code-line">    console.log(<span style="color:#a31515">&#x27;[home &#x27;</span> + <span style="color:#0000ff">this</span>.who + <span style="color:#a31515">&#x27; created]&#x27;</span>)</span>
+<span class="odt-code-line">    <span style="color:#0000ff">this</span>.dumpkeys(<span style="color:#a31515">&#x27;[home &#x27;</span> + <span style="color:#0000ff">this</span>.who + <span style="color:#a31515">&#x27; created], this.$nuxt&#x27;</span>, <span style="color:#0000ff">this</span>.$nuxt)</span>
+<span class="odt-code-line">    <span style="color:#0000ff">this</span>.dumpkeys(<span style="color:#a31515">&#x27;[home &#x27;</span> + <span style="color:#0000ff">this</span>.who + <span style="color:#a31515">&#x27; created], this.$nuxt.context&#x27;</span>, <span style="color:#0000ff">this</span>.$nuxt.context)</span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line">  beforeMount() {</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// client seulement</span>
+<span class="odt-code-line">    console.log(<span style="color:#a31515">&#x27;[home &#x27;</span> + <span style="color:#0000ff">this</span>.who + <span style="color:#a31515">&#x27; beforeMount]&#x27;</span>)</span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line">  mounted() {</span>
+<span class="odt-code-line"><span style="color:#000000">    </span>// client seulement</span>
+<span class="odt-code-line">    console.log(<span style="color:#a31515">&#x27;[home &#x27;</span> + <span style="color:#0000ff">this</span>.who + <span style="color:#a31515">&#x27; mounted]&#x27;</span>)</span>
+<span class="odt-code-line">  },</span>
+<span class="odt-code-line">  methods: {</span>
+<span class="odt-code-line">    dumpkeys(message, object) {</span>
+<span class="odt-code-line"><span style="color:#000000">      </span>// liste des clés de [object]</span>
+<span class="odt-code-line">      <span style="color:#0000ff">const</span> ligne = <span style="color:#a31515">&#x27;Liste des clés [&#x27;</span> + message + <span style="color:#a31515">&#x27;]&#x27;</span></span>
+<span class="odt-code-line">      console.log(ligne)</span>
+<span class="odt-code-line">      <span style="color:#0000ff">if</span> (object) {</span>
+<span class="odt-code-line">        console.log(Object.keys(object))</span>
+<span class="odt-code-line">      }</span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line">  }</span>
+<span class="odt-code-line">}</span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;/</span>script<span style="color:#0000ff">&gt;</span></span>
+</code></pre></div>
+
 <ul>
-<li>ligne 2 : on voit que la prochaine page du serveur est [index] et que son chemin est [/] (ligne 10) ;</li>
-<li>ligne 22 : la propriété [meta] permet d’ajouter des propriétés aux routes ;</li>
+<li>ligne 43 : on a déjà vu que le contexte d’une page pouvait être trouvé dans [this.$nuxt.context] ;</li>
+<li>ligne 42 : on affiche également les propriétés de l’objet [this.$nuxt] ;</li>
 </ul>
-<p>Les propriétés du routeur [context.app.router] du serveur sont les suivantes :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-6-10">10</a></span>
-<span class="normal"><a href="#__codelineno-6-11">11</a></span>
-<span class="normal"><a href="#__codelineno-6-12">12</a></span>
-<span class="normal"><a href="#__codelineno-6-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>Liste des clés [[main server], context.app.router]
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a>[
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a>  &#39;app&#39;,
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a>  &#39;apps&#39;,
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a>  &#39;options&#39;,
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a>  &#39;beforeHooks&#39;,
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a>  &#39;resolveHooks&#39;,
-<a id="__codelineno-6-8" name="__codelineno-6-8"></a>  &#39;afterHooks&#39;,
-<a id="__codelineno-6-9" name="__codelineno-6-9"></a>  &#39;matcher&#39;,
-<a id="__codelineno-6-10" name="__codelineno-6-10"></a>  &#39;fallback&#39;,
-<a id="__codelineno-6-11" name="__codelineno-6-11"></a>  &#39;mode&#39;,
-<a id="__codelineno-6-12" name="__codelineno-6-12"></a>  &#39;history&#39;
-<a id="__codelineno-6-13" name="__codelineno-6-13"></a>]
-</code></pre></div></td></tr></table></div>
-<p>C’est dans la propriété [context.app.router.options.routes] qu’on trouve les différentes routes de l’application :</p>
+<p>Exécutée par le serveur, cette page donne naissance aux logs suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
@@ -1235,35 +1321,138 @@
 <span class="normal"><a href="#__codelineno-7-20">20</a></span>
 <span class="normal"><a href="#__codelineno-7-21">21</a></span>
 <span class="normal"><a href="#__codelineno-7-22">22</a></span>
-<span class="normal"><a href="#__codelineno-7-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>Liste des clés [[main server], context.app.router.options.routes]
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a>[
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a>  &#39;0&#39;,
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a>  &#39;1&#39;,
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a>  &#39;2&#39;
-<a id="__codelineno-7-6" name="__codelineno-7-6"></a>]
-<a id="__codelineno-7-7" name="__codelineno-7-7"></a>[main server], context.app.router.options.routes= [
-<a id="__codelineno-7-8" name="__codelineno-7-8"></a>  {
-<a id="__codelineno-7-9" name="__codelineno-7-9"></a>    path: &#39;/page1&#39;,
-<a id="__codelineno-7-10" name="__codelineno-7-10"></a>    component: [Function: _d7b6c762],
-<a id="__codelineno-7-11" name="__codelineno-7-11"></a>    name: &#39;page1&#39;
-<a id="__codelineno-7-12" name="__codelineno-7-12"></a>  },
-<a id="__codelineno-7-13" name="__codelineno-7-13"></a>  {
-<a id="__codelineno-7-14" name="__codelineno-7-14"></a>    path: &#39;/page2&#39;,
-<a id="__codelineno-7-15" name="__codelineno-7-15"></a>    component: [Function: _d79a9860],
-<a id="__codelineno-7-16" name="__codelineno-7-16"></a>    name: &#39;page2&#39;
-<a id="__codelineno-7-17" name="__codelineno-7-17"></a>  },
-<a id="__codelineno-7-18" name="__codelineno-7-18"></a>  {
-<a id="__codelineno-7-19" name="__codelineno-7-19"></a>    path: &#39;/&#39;,
-<a id="__codelineno-7-20" name="__codelineno-7-20"></a>    component: [Function: _31eaad9f],
-<a id="__codelineno-7-21" name="__codelineno-7-21"></a>    name: &#39;index&#39;
-<a id="__codelineno-7-22" name="__codelineno-7-22"></a>  }
-<a id="__codelineno-7-23" name="__codelineno-7-23"></a>]
+<span class="normal"><a href="#__codelineno-7-23">23</a></span>
+<span class="normal"><a href="#__codelineno-7-24">24</a></span>
+<span class="normal"><a href="#__codelineno-7-25">25</a></span>
+<span class="normal"><a href="#__codelineno-7-26">26</a></span>
+<span class="normal"><a href="#__codelineno-7-27">27</a></span>
+<span class="normal"><a href="#__codelineno-7-28">28</a></span>
+<span class="normal"><a href="#__codelineno-7-29">29</a></span>
+<span class="normal"><a href="#__codelineno-7-30">30</a></span>
+<span class="normal"><a href="#__codelineno-7-31">31</a></span>
+<span class="normal"><a href="#__codelineno-7-32">32</a></span>
+<span class="normal"><a href="#__codelineno-7-33">33</a></span>
+<span class="normal"><a href="#__codelineno-7-34">34</a></span>
+<span class="normal"><a href="#__codelineno-7-35">35</a></span>
+<span class="normal"><a href="#__codelineno-7-36">36</a></span>
+<span class="normal"><a href="#__codelineno-7-37">37</a></span>
+<span class="normal"><a href="#__codelineno-7-38">38</a></span>
+<span class="normal"><a href="#__codelineno-7-39">39</a></span>
+<span class="normal"><a href="#__codelineno-7-40">40</a></span>
+<span class="normal"><a href="#__codelineno-7-41">41</a></span>
+<span class="normal"><a href="#__codelineno-7-42">42</a></span>
+<span class="normal"><a href="#__codelineno-7-43">43</a></span>
+<span class="normal"><a href="#__codelineno-7-44">44</a></span>
+<span class="normal"><a href="#__codelineno-7-45">45</a></span>
+<span class="normal"><a href="#__codelineno-7-46">46</a></span>
+<span class="normal"><a href="#__codelineno-7-47">47</a></span>
+<span class="normal"><a href="#__codelineno-7-48">48</a></span>
+<span class="normal"><a href="#__codelineno-7-49">49</a></span>
+<span class="normal"><a href="#__codelineno-7-50">50</a></span>
+<span class="normal"><a href="#__codelineno-7-51">51</a></span>
+<span class="normal"><a href="#__codelineno-7-52">52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>[home beforeCreate]
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>[home server created]
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>Liste des clés [[home server created], this.$nuxt]
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>[
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>  &#39;_uid&#39;,
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>  &#39;_isVue&#39;,
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>  &#39;$options&#39;,
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>  &#39;_renderProxy&#39;,
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>  &#39;_self&#39;,
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>  &#39;$parent&#39;,
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>  &#39;$root&#39;,
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>  &#39;$children&#39;,
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a>  &#39;$refs&#39;,
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a>  &#39;_watcher&#39;,
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a>  &#39;_inactive&#39;,
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a>  &#39;_directInactive&#39;,
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a>  &#39;_isMounted&#39;,
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a>  &#39;_isDestroyed&#39;,
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a>  &#39;_isBeingDestroyed&#39;,
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a>  &#39;_events&#39;,
+<a id="__codelineno-7-21" name="__codelineno-7-21"></a>  &#39;_hasHookEvent&#39;,
+<a id="__codelineno-7-22" name="__codelineno-7-22"></a>  &#39;_vnode&#39;,
+<a id="__codelineno-7-23" name="__codelineno-7-23"></a>  &#39;_staticTrees&#39;,
+<a id="__codelineno-7-24" name="__codelineno-7-24"></a>  &#39;$vnode&#39;,
+<a id="__codelineno-7-25" name="__codelineno-7-25"></a>  &#39;$slots&#39;,
+<a id="__codelineno-7-26" name="__codelineno-7-26"></a>  &#39;$scopedSlots&#39;,
+<a id="__codelineno-7-27" name="__codelineno-7-27"></a>  &#39;_c&#39;,
+<a id="__codelineno-7-28" name="__codelineno-7-28"></a>  &#39;$createElement&#39;,
+<a id="__codelineno-7-29" name="__codelineno-7-29"></a>  &#39;$attrs&#39;,
+<a id="__codelineno-7-30" name="__codelineno-7-30"></a>  &#39;$listeners&#39;,
+<a id="__codelineno-7-31" name="__codelineno-7-31"></a>  &#39;_routerRoot&#39;,
+<a id="__codelineno-7-32" name="__codelineno-7-32"></a>  &#39;_router&#39;,
+<a id="__codelineno-7-33" name="__codelineno-7-33"></a>  &#39;_route&#39;,
+<a id="__codelineno-7-34" name="__codelineno-7-34"></a>  &#39;<span class="ge">_bv_</span>_modal&#39;,
+<a id="__codelineno-7-35" name="__codelineno-7-35"></a>  &#39;<span class="ge">_bv_</span>_toast&#39;,
+<a id="__codelineno-7-36" name="__codelineno-7-36"></a>  &#39;_vueMeta&#39;,
+<a id="__codelineno-7-37" name="__codelineno-7-37"></a>  &#39;nuxt&#39;,
+<a id="__codelineno-7-38" name="__codelineno-7-38"></a>  &#39;_watchers&#39;,
+<a id="__codelineno-7-39" name="__codelineno-7-39"></a>  &#39;refreshOnlineStatus&#39;,
+<a id="__codelineno-7-40" name="__codelineno-7-40"></a>  &#39;refresh&#39;,
+<a id="__codelineno-7-41" name="__codelineno-7-41"></a>  &#39;errorChanged&#39;,
+<a id="__codelineno-7-42" name="__codelineno-7-42"></a>  &#39;setLayout&#39;,
+<a id="__codelineno-7-43" name="__codelineno-7-43"></a>  &#39;loadLayout&#39;,
+<a id="__codelineno-7-44" name="__codelineno-7-44"></a>  &#39;_data&#39;,
+<a id="__codelineno-7-45" name="__codelineno-7-45"></a>  &#39;layoutName&#39;,
+<a id="__codelineno-7-46" name="__codelineno-7-46"></a>  &#39;layout&#39;,
+<a id="__codelineno-7-47" name="__codelineno-7-47"></a>  &#39;isOnline&#39;,
+<a id="__codelineno-7-48" name="__codelineno-7-48"></a>  &#39;_computedWatchers&#39;,
+<a id="__codelineno-7-49" name="__codelineno-7-49"></a>  &#39;isOffline&#39;,
+<a id="__codelineno-7-50" name="__codelineno-7-50"></a>  &#39;error&#39;,
+<a id="__codelineno-7-51" name="__codelineno-7-51"></a>  &#39;context&#39;
+<a id="__codelineno-7-52" name="__codelineno-7-52"></a>]
 </code></pre></div></td></tr></table></div>
-<p>Enfin le 2ième argument :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nx">inject</span><span class="o">=</span><span class="w"> </span><span class="kd">function</span>
+<p>Les propriétés du contexte serveur dans la page [index] sont les suivantes :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span>
+<span class="normal"><a href="#__codelineno-8-15">15</a></span>
+<span class="normal"><a href="#__codelineno-8-16">16</a></span>
+<span class="normal"><a href="#__codelineno-8-17">17</a></span>
+<span class="normal"><a href="#__codelineno-8-18">18</a></span>
+<span class="normal"><a href="#__codelineno-8-19">19</a></span>
+<span class="normal"><a href="#__codelineno-8-20">20</a></span>
+<span class="normal"><a href="#__codelineno-8-21">21</a></span>
+<span class="normal"><a href="#__codelineno-8-22">22</a></span>
+<span class="normal"><a href="#__codelineno-8-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>Liste des clés [[home server created], this.$nuxt.context]
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>[
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>  &#39;isStatic&#39;,
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>  &#39;isDev&#39;,
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>  &#39;isHMR&#39;,
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>  &#39;app&#39;,
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>  &#39;payload&#39;,
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>  &#39;error&#39;,
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>  &#39;base&#39;,
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a>  &#39;env&#39;,
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a>  &#39;req&#39;,
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a>  &#39;res&#39;,
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a>  &#39;ssrContext&#39;,
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a>  &#39;redirect&#39;,
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a>  &#39;beforeNuxtRender&#39;,
+<a id="__codelineno-8-16" name="__codelineno-8-16"></a>  &#39;route&#39;,
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a>  &#39;next&#39;,
+<a id="__codelineno-8-18" name="__codelineno-8-18"></a>  &#39;_redirected&#39;,
+<a id="__codelineno-8-19" name="__codelineno-8-19"></a>  &#39;_errored&#39;,
+<a id="__codelineno-8-20" name="__codelineno-8-20"></a>  &#39;params&#39;,
+<a id="__codelineno-8-21" name="__codelineno-8-21"></a>  &#39;query&#39;,
+<a id="__codelineno-8-22" name="__codelineno-8-22"></a>  &#39;$axios&#39;
+<a id="__codelineno-8-23" name="__codelineno-8-23"></a>]
 </code></pre></div></td></tr></table></div>
-<h2 id="104-la-page-index-du-serveur">10.4. La page [index] du serveur</h2>
-<p>La page [index] est la suivante :</p>
+<p>Ce sont les mêmes propriétés que dans l’objet [context] du plugin.</p>
+<h2 id="105-le-plugin-execute-par-le-client">10.5. Le plugin exécuté par le client</h2>
+<p>Une fois que le serveur a envoyé la page [index] au navigateur client, les scripts client prennent la main. Le plugin [main.js] va alors être exécuté. Ces logs sont les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
@@ -1278,327 +1467,40 @@
 <span class="normal"><a href="#__codelineno-9-12">12</a></span>
 <span class="normal"><a href="#__codelineno-9-13">13</a></span>
 <span class="normal"><a href="#__codelineno-9-14">14</a></span>
-<span class="normal"><a href="#__codelineno-9-15">15</a></span>
-<span class="normal"><a href="#__codelineno-9-16">16</a></span>
-<span class="normal"><a href="#__codelineno-9-17">17</a></span>
-<span class="normal"><a href="#__codelineno-9-18">18</a></span>
-<span class="normal"><a href="#__codelineno-9-19">19</a></span>
-<span class="normal"><a href="#__codelineno-9-20">20</a></span>
-<span class="normal"><a href="#__codelineno-9-21">21</a></span>
-<span class="normal"><a href="#__codelineno-9-22">22</a></span>
-<span class="normal"><a href="#__codelineno-9-23">23</a></span>
-<span class="normal"><a href="#__codelineno-9-24">24</a></span>
-<span class="normal"><a href="#__codelineno-9-25">25</a></span>
-<span class="normal"><a href="#__codelineno-9-26">26</a></span>
-<span class="normal"><a href="#__codelineno-9-27">27</a></span>
-<span class="normal"><a href="#__codelineno-9-28">28</a></span>
-<span class="normal"><a href="#__codelineno-9-29">29</a></span>
-<span class="normal"><a href="#__codelineno-9-30">30</a></span>
-<span class="normal"><a href="#__codelineno-9-31">31</a></span>
-<span class="normal"><a href="#__codelineno-9-32">32</a></span>
-<span class="normal"><a href="#__codelineno-9-33">33</a></span>
-<span class="normal"><a href="#__codelineno-9-34">34</a></span>
-<span class="normal"><a href="#__codelineno-9-35">35</a></span>
-<span class="normal"><a href="#__codelineno-9-36">36</a></span>
-<span class="normal"><a href="#__codelineno-9-37">37</a></span>
-<span class="normal"><a href="#__codelineno-9-38">38</a></span>
-<span class="normal"><a href="#__codelineno-9-39">39</a></span>
-<span class="normal"><a href="#__codelineno-9-40">40</a></span>
-<span class="normal"><a href="#__codelineno-9-41">41</a></span>
-<span class="normal"><a href="#__codelineno-9-42">42</a></span>
-<span class="normal"><a href="#__codelineno-9-43">43</a></span>
-<span class="normal"><a href="#__codelineno-9-44">44</a></span>
-<span class="normal"><a href="#__codelineno-9-45">45</a></span>
-<span class="normal"><a href="#__codelineno-9-46">46</a></span>
-<span class="normal"><a href="#__codelineno-9-47">47</a></span>
-<span class="normal"><a href="#__codelineno-9-48">48</a></span>
-<span class="normal"><a href="#__codelineno-9-49">49</a></span>
-<span class="normal"><a href="#__codelineno-9-50">50</a></span>
-<span class="normal"><a href="#__codelineno-9-51">51</a></span>
-<span class="normal"><a href="#__codelineno-9-52">52</a></span>
-<span class="normal"><a href="#__codelineno-9-53">53</a></span>
-<span class="normal"><a href="#__codelineno-9-54">54</a></span>
-<span class="normal"><a href="#__codelineno-9-55">55</a></span>
-<span class="normal"><a href="#__codelineno-9-56">56</a></span>
-<span class="normal"><a href="#__codelineno-9-57">57</a></span>
-<span class="normal"><a href="#__codelineno-9-58">58</a></span>
-<span class="normal"><a href="#__codelineno-9-59">59</a></span>
-<span class="normal"><a href="#__codelineno-9-60">60</a></span>
-<span class="normal"><a href="#__codelineno-9-61">61</a></span>
-<span class="normal"><a href="#__codelineno-9-62">62</a></span>
-<span class="normal"><a href="#__codelineno-9-63">63</a></span>
-<span class="normal"><a href="#__codelineno-9-64">64</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">page</span> <span class="n">principale</span> <span class="o">--&gt;</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a>  <span class="o">&lt;</span><span class="n">Layout</span> <span class="p">:</span><span class="n">left</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> <span class="p">:</span><span class="n">right</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4"></a>    <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">navigation</span> <span class="o">--&gt;</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5"></a>    <span class="o">&lt;</span><span class="n">Navigation</span> <span class="n">slot</span><span class="o">=</span><span class="s2">&quot;left&quot;</span> <span class="o">/&gt;</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6"></a>    <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">message</span><span class="o">--&gt;</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7"></a>    <span class="o">&lt;</span><span class="n">b</span><span class="o">-</span><span class="n">alert</span> <span class="n">slot</span><span class="o">=</span><span class="s2">&quot;right&quot;</span> <span class="n">show</span> <span class="n">variant</span><span class="o">=</span><span class="s2">&quot;warning&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8"></a>      <span class="n">Home</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9"></a>    <span class="o">&lt;/</span><span class="n">b</span><span class="o">-</span><span class="n">alert</span><span class="o">&gt;</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10"></a>  <span class="o">&lt;/</span><span class="n">Layout</span><span class="o">&gt;</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12"></a>
-<a id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
-<a id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="o">/*</span> <span class="n">eslint</span><span class="o">-</span><span class="n">disable</span> <span class="n">no</span><span class="o">-</span><span class="n">undef</span> <span class="o">*/</span>
-<a id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="o">/*</span> <span class="n">eslint</span><span class="o">-</span><span class="n">disable</span> <span class="n">no</span><span class="o">-</span><span class="n">console</span> <span class="o">*/</span>
-<a id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="o">/*</span> <span class="n">eslint</span><span class="o">-</span><span class="n">disable</span> <span class="n">nuxt</span><span class="o">/</span><span class="n">no</span><span class="o">-</span><span class="n">env</span><span class="o">-</span><span class="ow">in</span><span class="o">-</span><span class="n">hooks</span> <span class="o">*/</span>
-<a id="__codelineno-9-17" name="__codelineno-9-17"></a>
-<a id="__codelineno-9-18" name="__codelineno-9-18"></a><span class="kn">import</span><span class="w"> </span><span class="nn">Navigation</span> <span class="kn">from</span><span class="w"> </span><span class="s1">&#39;@/components/navigation&#39;</span>
-<a id="__codelineno-9-19" name="__codelineno-9-19"></a><span class="kn">import</span><span class="w"> </span><span class="nn">Layout</span> <span class="kn">from</span><span class="w"> </span><span class="s1">&#39;@/components/layout&#39;</span>
-<a id="__codelineno-9-20" name="__codelineno-9-20"></a>
-<a id="__codelineno-9-21" name="__codelineno-9-21"></a><span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
-<a id="__codelineno-9-22" name="__codelineno-9-22"></a>  <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Home&#39;</span><span class="p">,</span>
-<a id="__codelineno-9-23" name="__codelineno-9-23"></a>  <span class="o">//</span> <span class="n">composants</span> <span class="n">utilisés</span>
-<a id="__codelineno-9-24" name="__codelineno-9-24"></a>  <span class="n">components</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-9-25" name="__codelineno-9-25"></a>    <span class="n">Layout</span><span class="p">,</span>
-<a id="__codelineno-9-26" name="__codelineno-9-26"></a>    <span class="n">Navigation</span>
-<a id="__codelineno-9-27" name="__codelineno-9-27"></a>  <span class="p">},</span>
-<a id="__codelineno-9-28" name="__codelineno-9-28"></a>  <span class="n">data</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-9-29" name="__codelineno-9-29"></a>    <span class="k">return</span> <span class="p">{</span>
-<a id="__codelineno-9-30" name="__codelineno-9-30"></a>      <span class="n">who</span><span class="p">:</span> <span class="n">process</span><span class="o">.</span><span class="n">server</span> <span class="err">?</span> <span class="s1">&#39;server&#39;</span> <span class="p">:</span> <span class="s1">&#39;client&#39;</span>
-<a id="__codelineno-9-31" name="__codelineno-9-31"></a>    <span class="p">}</span>
-<a id="__codelineno-9-32" name="__codelineno-9-32"></a>  <span class="p">},</span>
-<a id="__codelineno-9-33" name="__codelineno-9-33"></a>
-<a id="__codelineno-9-34" name="__codelineno-9-34"></a>  <span class="o">//</span> <span class="n">cycle</span> <span class="n">de</span> <span class="n">vie</span>
-<a id="__codelineno-9-35" name="__codelineno-9-35"></a>  <span class="n">beforeCreate</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-9-36" name="__codelineno-9-36"></a>    <span class="o">//</span> <span class="n">client</span> <span class="n">et</span> <span class="n">serveur</span>
-<a id="__codelineno-9-37" name="__codelineno-9-37"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;[home beforeCreate]&#39;</span><span class="p">)</span>
-<a id="__codelineno-9-38" name="__codelineno-9-38"></a>  <span class="p">},</span>
-<a id="__codelineno-9-39" name="__codelineno-9-39"></a>  <span class="n">created</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-9-40" name="__codelineno-9-40"></a>    <span class="o">//</span> <span class="n">client</span> <span class="n">et</span> <span class="n">serveur</span>
-<a id="__codelineno-9-41" name="__codelineno-9-41"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;[home &#39;</span> <span class="o">+</span> <span class="n">this</span><span class="o">.</span><span class="n">who</span> <span class="o">+</span> <span class="s1">&#39; created]&#39;</span><span class="p">)</span>
-<a id="__codelineno-9-42" name="__codelineno-9-42"></a>    <span class="n">this</span><span class="o">.</span><span class="n">dumpkeys</span><span class="p">(</span><span class="s1">&#39;[home &#39;</span> <span class="o">+</span> <span class="n">this</span><span class="o">.</span><span class="n">who</span> <span class="o">+</span> <span class="s1">&#39; created], this.$nuxt&#39;</span><span class="p">,</span> <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">nuxt</span><span class="p">)</span>
-<a id="__codelineno-9-43" name="__codelineno-9-43"></a>    <span class="n">this</span><span class="o">.</span><span class="n">dumpkeys</span><span class="p">(</span><span class="s1">&#39;[home &#39;</span> <span class="o">+</span> <span class="n">this</span><span class="o">.</span><span class="n">who</span> <span class="o">+</span> <span class="s1">&#39; created], this.$nuxt.context&#39;</span><span class="p">,</span> <span class="n">this</span><span class="o">.</span><span class="err">$</span><span class="n">nuxt</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
-<a id="__codelineno-9-44" name="__codelineno-9-44"></a>  <span class="p">},</span>
-<a id="__codelineno-9-45" name="__codelineno-9-45"></a>  <span class="n">beforeMount</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-9-46" name="__codelineno-9-46"></a>    <span class="o">//</span> <span class="n">client</span> <span class="n">seulement</span>
-<a id="__codelineno-9-47" name="__codelineno-9-47"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;[home &#39;</span> <span class="o">+</span> <span class="n">this</span><span class="o">.</span><span class="n">who</span> <span class="o">+</span> <span class="s1">&#39; beforeMount]&#39;</span><span class="p">)</span>
-<a id="__codelineno-9-48" name="__codelineno-9-48"></a>  <span class="p">},</span>
-<a id="__codelineno-9-49" name="__codelineno-9-49"></a>  <span class="n">mounted</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-9-50" name="__codelineno-9-50"></a>    <span class="o">//</span> <span class="n">client</span> <span class="n">seulement</span>
-<a id="__codelineno-9-51" name="__codelineno-9-51"></a>    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;[home &#39;</span> <span class="o">+</span> <span class="n">this</span><span class="o">.</span><span class="n">who</span> <span class="o">+</span> <span class="s1">&#39; mounted]&#39;</span><span class="p">)</span>
-<a id="__codelineno-9-52" name="__codelineno-9-52"></a>  <span class="p">},</span>
-<a id="__codelineno-9-53" name="__codelineno-9-53"></a>  <span class="n">methods</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-9-54" name="__codelineno-9-54"></a>    <span class="n">dumpkeys</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="nb">object</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-9-55" name="__codelineno-9-55"></a>      <span class="o">//</span> <span class="n">liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="n">de</span> <span class="p">[</span><span class="nb">object</span><span class="p">]</span>
-<a id="__codelineno-9-56" name="__codelineno-9-56"></a>      <span class="n">const</span> <span class="n">ligne</span> <span class="o">=</span> <span class="s1">&#39;Liste des clés [&#39;</span> <span class="o">+</span> <span class="n">message</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span>
-<a id="__codelineno-9-57" name="__codelineno-9-57"></a>      <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span>
-<a id="__codelineno-9-58" name="__codelineno-9-58"></a>      <span class="k">if</span> <span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-9-59" name="__codelineno-9-59"></a>        <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Object</span><span class="o">.</span><span class="n">keys</span><span class="p">(</span><span class="nb">object</span><span class="p">))</span>
-<a id="__codelineno-9-60" name="__codelineno-9-60"></a>      <span class="p">}</span>
-<a id="__codelineno-9-61" name="__codelineno-9-61"></a>    <span class="p">}</span>
-<a id="__codelineno-9-62" name="__codelineno-9-62"></a>  <span class="p">}</span>
-<a id="__codelineno-9-63" name="__codelineno-9-63"></a><span class="p">}</span>
-<a id="__codelineno-9-64" name="__codelineno-9-64"></a><span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-</code></pre></div></td></tr></table></div>
-<ul>
-<li>ligne 43 : on a déjà vu que le contexte d’une page pouvait être trouvé dans [this.$nuxt.context] ;</li>
-<li>ligne 42 : on affiche également les propriétés de l’objet [this.$nuxt] ;</li>
-</ul>
-<p>Exécutée par le serveur, cette page donne naissance aux logs suivants :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-10-10">10</a></span>
-<span class="normal"><a href="#__codelineno-10-11">11</a></span>
-<span class="normal"><a href="#__codelineno-10-12">12</a></span>
-<span class="normal"><a href="#__codelineno-10-13">13</a></span>
-<span class="normal"><a href="#__codelineno-10-14">14</a></span>
-<span class="normal"><a href="#__codelineno-10-15">15</a></span>
-<span class="normal"><a href="#__codelineno-10-16">16</a></span>
-<span class="normal"><a href="#__codelineno-10-17">17</a></span>
-<span class="normal"><a href="#__codelineno-10-18">18</a></span>
-<span class="normal"><a href="#__codelineno-10-19">19</a></span>
-<span class="normal"><a href="#__codelineno-10-20">20</a></span>
-<span class="normal"><a href="#__codelineno-10-21">21</a></span>
-<span class="normal"><a href="#__codelineno-10-22">22</a></span>
-<span class="normal"><a href="#__codelineno-10-23">23</a></span>
-<span class="normal"><a href="#__codelineno-10-24">24</a></span>
-<span class="normal"><a href="#__codelineno-10-25">25</a></span>
-<span class="normal"><a href="#__codelineno-10-26">26</a></span>
-<span class="normal"><a href="#__codelineno-10-27">27</a></span>
-<span class="normal"><a href="#__codelineno-10-28">28</a></span>
-<span class="normal"><a href="#__codelineno-10-29">29</a></span>
-<span class="normal"><a href="#__codelineno-10-30">30</a></span>
-<span class="normal"><a href="#__codelineno-10-31">31</a></span>
-<span class="normal"><a href="#__codelineno-10-32">32</a></span>
-<span class="normal"><a href="#__codelineno-10-33">33</a></span>
-<span class="normal"><a href="#__codelineno-10-34">34</a></span>
-<span class="normal"><a href="#__codelineno-10-35">35</a></span>
-<span class="normal"><a href="#__codelineno-10-36">36</a></span>
-<span class="normal"><a href="#__codelineno-10-37">37</a></span>
-<span class="normal"><a href="#__codelineno-10-38">38</a></span>
-<span class="normal"><a href="#__codelineno-10-39">39</a></span>
-<span class="normal"><a href="#__codelineno-10-40">40</a></span>
-<span class="normal"><a href="#__codelineno-10-41">41</a></span>
-<span class="normal"><a href="#__codelineno-10-42">42</a></span>
-<span class="normal"><a href="#__codelineno-10-43">43</a></span>
-<span class="normal"><a href="#__codelineno-10-44">44</a></span>
-<span class="normal"><a href="#__codelineno-10-45">45</a></span>
-<span class="normal"><a href="#__codelineno-10-46">46</a></span>
-<span class="normal"><a href="#__codelineno-10-47">47</a></span>
-<span class="normal"><a href="#__codelineno-10-48">48</a></span>
-<span class="normal"><a href="#__codelineno-10-49">49</a></span>
-<span class="normal"><a href="#__codelineno-10-50">50</a></span>
-<span class="normal"><a href="#__codelineno-10-51">51</a></span>
-<span class="normal"><a href="#__codelineno-10-52">52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>[home beforeCreate]
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a>[home server created]
-<a id="__codelineno-10-3" name="__codelineno-10-3"></a>Liste des clés [[home server created], this.$nuxt]
-<a id="__codelineno-10-4" name="__codelineno-10-4"></a>[
-<a id="__codelineno-10-5" name="__codelineno-10-5"></a>  &#39;_uid&#39;,
-<a id="__codelineno-10-6" name="__codelineno-10-6"></a>  &#39;_isVue&#39;,
-<a id="__codelineno-10-7" name="__codelineno-10-7"></a>  &#39;$options&#39;,
-<a id="__codelineno-10-8" name="__codelineno-10-8"></a>  &#39;_renderProxy&#39;,
-<a id="__codelineno-10-9" name="__codelineno-10-9"></a>  &#39;_self&#39;,
-<a id="__codelineno-10-10" name="__codelineno-10-10"></a>  &#39;$parent&#39;,
-<a id="__codelineno-10-11" name="__codelineno-10-11"></a>  &#39;$root&#39;,
-<a id="__codelineno-10-12" name="__codelineno-10-12"></a>  &#39;$children&#39;,
-<a id="__codelineno-10-13" name="__codelineno-10-13"></a>  &#39;$refs&#39;,
-<a id="__codelineno-10-14" name="__codelineno-10-14"></a>  &#39;_watcher&#39;,
-<a id="__codelineno-10-15" name="__codelineno-10-15"></a>  &#39;_inactive&#39;,
-<a id="__codelineno-10-16" name="__codelineno-10-16"></a>  &#39;_directInactive&#39;,
-<a id="__codelineno-10-17" name="__codelineno-10-17"></a>  &#39;_isMounted&#39;,
-<a id="__codelineno-10-18" name="__codelineno-10-18"></a>  &#39;_isDestroyed&#39;,
-<a id="__codelineno-10-19" name="__codelineno-10-19"></a>  &#39;_isBeingDestroyed&#39;,
-<a id="__codelineno-10-20" name="__codelineno-10-20"></a>  &#39;_events&#39;,
-<a id="__codelineno-10-21" name="__codelineno-10-21"></a>  &#39;_hasHookEvent&#39;,
-<a id="__codelineno-10-22" name="__codelineno-10-22"></a>  &#39;_vnode&#39;,
-<a id="__codelineno-10-23" name="__codelineno-10-23"></a>  &#39;_staticTrees&#39;,
-<a id="__codelineno-10-24" name="__codelineno-10-24"></a>  &#39;$vnode&#39;,
-<a id="__codelineno-10-25" name="__codelineno-10-25"></a>  &#39;$slots&#39;,
-<a id="__codelineno-10-26" name="__codelineno-10-26"></a>  &#39;$scopedSlots&#39;,
-<a id="__codelineno-10-27" name="__codelineno-10-27"></a>  &#39;_c&#39;,
-<a id="__codelineno-10-28" name="__codelineno-10-28"></a>  &#39;$createElement&#39;,
-<a id="__codelineno-10-29" name="__codelineno-10-29"></a>  &#39;$attrs&#39;,
-<a id="__codelineno-10-30" name="__codelineno-10-30"></a>  &#39;$listeners&#39;,
-<a id="__codelineno-10-31" name="__codelineno-10-31"></a>  &#39;_routerRoot&#39;,
-<a id="__codelineno-10-32" name="__codelineno-10-32"></a>  &#39;_router&#39;,
-<a id="__codelineno-10-33" name="__codelineno-10-33"></a>  &#39;_route&#39;,
-<a id="__codelineno-10-34" name="__codelineno-10-34"></a>  &#39;_bv__modal&#39;,
-<a id="__codelineno-10-35" name="__codelineno-10-35"></a>  &#39;_bv__toast&#39;,
-<a id="__codelineno-10-36" name="__codelineno-10-36"></a>  &#39;_vueMeta&#39;,
-<a id="__codelineno-10-37" name="__codelineno-10-37"></a>  &#39;nuxt&#39;,
-<a id="__codelineno-10-38" name="__codelineno-10-38"></a>  &#39;_watchers&#39;,
-<a id="__codelineno-10-39" name="__codelineno-10-39"></a>  &#39;refreshOnlineStatus&#39;,
-<a id="__codelineno-10-40" name="__codelineno-10-40"></a>  &#39;refresh&#39;,
-<a id="__codelineno-10-41" name="__codelineno-10-41"></a>  &#39;errorChanged&#39;,
-<a id="__codelineno-10-42" name="__codelineno-10-42"></a>  &#39;setLayout&#39;,
-<a id="__codelineno-10-43" name="__codelineno-10-43"></a>  &#39;loadLayout&#39;,
-<a id="__codelineno-10-44" name="__codelineno-10-44"></a>  &#39;_data&#39;,
-<a id="__codelineno-10-45" name="__codelineno-10-45"></a>  &#39;layoutName&#39;,
-<a id="__codelineno-10-46" name="__codelineno-10-46"></a>  &#39;layout&#39;,
-<a id="__codelineno-10-47" name="__codelineno-10-47"></a>  &#39;isOnline&#39;,
-<a id="__codelineno-10-48" name="__codelineno-10-48"></a>  &#39;_computedWatchers&#39;,
-<a id="__codelineno-10-49" name="__codelineno-10-49"></a>  &#39;isOffline&#39;,
-<a id="__codelineno-10-50" name="__codelineno-10-50"></a>  &#39;error&#39;,
-<a id="__codelineno-10-51" name="__codelineno-10-51"></a>  &#39;context&#39;
-<a id="__codelineno-10-52" name="__codelineno-10-52"></a>]
-</code></pre></div></td></tr></table></div>
-<p>Les propriétés du contexte serveur dans la page [index] sont les suivantes :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-11-10">10</a></span>
-<span class="normal"><a href="#__codelineno-11-11">11</a></span>
-<span class="normal"><a href="#__codelineno-11-12">12</a></span>
-<span class="normal"><a href="#__codelineno-11-13">13</a></span>
-<span class="normal"><a href="#__codelineno-11-14">14</a></span>
-<span class="normal"><a href="#__codelineno-11-15">15</a></span>
-<span class="normal"><a href="#__codelineno-11-16">16</a></span>
-<span class="normal"><a href="#__codelineno-11-17">17</a></span>
-<span class="normal"><a href="#__codelineno-11-18">18</a></span>
-<span class="normal"><a href="#__codelineno-11-19">19</a></span>
-<span class="normal"><a href="#__codelineno-11-20">20</a></span>
-<span class="normal"><a href="#__codelineno-11-21">21</a></span>
-<span class="normal"><a href="#__codelineno-11-22">22</a></span>
-<span class="normal"><a href="#__codelineno-11-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>Liste des clés [[home server created], this.$nuxt.context]
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a>[
-<a id="__codelineno-11-3" name="__codelineno-11-3"></a>  &#39;isStatic&#39;,
-<a id="__codelineno-11-4" name="__codelineno-11-4"></a>  &#39;isDev&#39;,
-<a id="__codelineno-11-5" name="__codelineno-11-5"></a>  &#39;isHMR&#39;,
-<a id="__codelineno-11-6" name="__codelineno-11-6"></a>  &#39;app&#39;,
-<a id="__codelineno-11-7" name="__codelineno-11-7"></a>  &#39;payload&#39;,
-<a id="__codelineno-11-8" name="__codelineno-11-8"></a>  &#39;error&#39;,
-<a id="__codelineno-11-9" name="__codelineno-11-9"></a>  &#39;base&#39;,
-<a id="__codelineno-11-10" name="__codelineno-11-10"></a>  &#39;env&#39;,
-<a id="__codelineno-11-11" name="__codelineno-11-11"></a>  &#39;req&#39;,
-<a id="__codelineno-11-12" name="__codelineno-11-12"></a>  &#39;res&#39;,
-<a id="__codelineno-11-13" name="__codelineno-11-13"></a>  &#39;ssrContext&#39;,
-<a id="__codelineno-11-14" name="__codelineno-11-14"></a>  &#39;redirect&#39;,
-<a id="__codelineno-11-15" name="__codelineno-11-15"></a>  &#39;beforeNuxtRender&#39;,
-<a id="__codelineno-11-16" name="__codelineno-11-16"></a>  &#39;route&#39;,
-<a id="__codelineno-11-17" name="__codelineno-11-17"></a>  &#39;next&#39;,
-<a id="__codelineno-11-18" name="__codelineno-11-18"></a>  &#39;_redirected&#39;,
-<a id="__codelineno-11-19" name="__codelineno-11-19"></a>  &#39;_errored&#39;,
-<a id="__codelineno-11-20" name="__codelineno-11-20"></a>  &#39;params&#39;,
-<a id="__codelineno-11-21" name="__codelineno-11-21"></a>  &#39;query&#39;,
-<a id="__codelineno-11-22" name="__codelineno-11-22"></a>  &#39;$axios&#39;
-<a id="__codelineno-11-23" name="__codelineno-11-23"></a>]
-</code></pre></div></td></tr></table></div>
-<p>Ce sont les mêmes propriétés que dans l’objet [context] du plugin.</p>
-<h2 id="105-le-plugin-execute-par-le-client">10.5. Le plugin exécuté par le client</h2>
-<p>Une fois que le serveur a envoyé la page [index] au navigateur client, les scripts client prennent la main. Le plugin [main.js] va alors être exécuté. Ces logs sont les suivants :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-12-10">10</a></span>
-<span class="normal"><a href="#__codelineno-12-11">11</a></span>
-<span class="normal"><a href="#__codelineno-12-12">12</a></span>
-<span class="normal"><a href="#__codelineno-12-13">13</a></span>
-<span class="normal"><a href="#__codelineno-12-14">14</a></span>
-<span class="normal"><a href="#__codelineno-12-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="p">[</span><span class="nx">main</span><span class="w"> </span><span class="nx">server</span><span class="p">],</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">server</span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">client</span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="p">[</span><span class="nx">main</span><span class="w"> </span><span class="nx">client</span><span class="p">],</span><span class="w"> </span><span class="nx">il</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="nx">arguments</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="nx">Liste</span><span class="w"> </span><span class="nx">des</span><span class="w"> </span><span class="nx">clés</span><span class="w"> </span><span class="p">[[</span><span class="nx">main</span><span class="w"> </span><span class="nx">client</span><span class="p">],</span><span class="w"> </span><span class="nx">context</span><span class="p">]</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="nb">Array</span><span class="p">(</span><span class="mf">17</span><span class="p">)</span><span class="mf">0</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;isStatic&quot;</span><span class="mf">1</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;isDev&quot;</span><span class="mf">2</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;isHMR&quot;</span><span class="mf">3</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;app&quot;</span><span class="mf">4</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;payload&quot;</span><span class="mf">5</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="mf">6</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;base&quot;</span><span class="mf">7</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;env&quot;</span><span class="mf">8</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;redirect&quot;</span><span class="mf">9</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;nuxtState&quot;</span><span class="mf">10</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;route&quot;</span><span class="mf">11</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;next&quot;</span><span class="mf">12</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;_redirected&quot;</span><span class="mf">13</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;_errored&quot;</span><span class="mf">14</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;params&quot;</span><span class="mf">15</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;query&quot;</span><span class="mf">16</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;$axios&quot;</span><span class="nx">length</span><span class="o">:</span><span class="w"> </span><span class="mf">17</span><span class="nx">__proto__</span><span class="o">:</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="nx">Liste</span><span class="w"> </span><span class="nx">des</span><span class="w"> </span><span class="nx">clés</span><span class="w"> </span><span class="p">[[</span><span class="nx">main</span><span class="w"> </span><span class="nx">client</span><span class="p">],</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">]</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="nb">Array</span><span class="p">(</span><span class="mf">14</span><span class="p">)</span><span class="mf">0</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;router&quot;</span><span class="mf">1</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;nuxt&quot;</span><span class="mf">2</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;head&quot;</span><span class="mf">3</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;render&quot;</span><span class="mf">4</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="mf">5</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;beforeCreate&quot;</span><span class="mf">6</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;created&quot;</span><span class="mf">7</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;mounted&quot;</span><span class="mf">8</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;watch&quot;</span><span class="mf">9</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;computed&quot;</span><span class="mf">10</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;methods&quot;</span><span class="mf">11</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;components&quot;</span><span class="mf">12</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;context&quot;</span><span class="mf">13</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;$axios&quot;</span><span class="nx">length</span><span class="o">:</span><span class="w"> </span><span class="mf">14</span><span class="nx">__proto__</span><span class="o">:</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="nx">Liste</span><span class="w"> </span><span class="nx">des</span><span class="w"> </span><span class="nx">clés</span><span class="w"> </span><span class="p">[[</span><span class="nx">main</span><span class="w"> </span><span class="nx">client</span><span class="p">],</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">route</span><span class="p">]</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="nb">Array</span><span class="p">(</span><span class="mf">8</span><span class="p">)</span><span class="mf">0</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="mf">1</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;meta&quot;</span><span class="mf">2</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;path&quot;</span><span class="mf">3</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;hash&quot;</span><span class="mf">4</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;query&quot;</span><span class="mf">5</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;params&quot;</span><span class="mf">6</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;fullPath&quot;</span><span class="mf">7</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;matched&quot;</span><span class="nx">length</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="nx">__proto__</span><span class="o">:</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="p">[</span><span class="nx">main</span><span class="w"> </span><span class="nx">client</span><span class="p">],</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">route</span><span class="o">=</span><span class="w"> </span><span class="nx">ObjectfullPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/&quot;</span><span class="nx">hash</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="nx">matched</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="err">…</span><span class="p">}]</span><span class="nx">meta</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="err">…</span><span class="p">}]</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;index&quot;</span><span class="nx">params</span><span class="o">:</span><span class="w"> </span><span class="p">{}</span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/&quot;</span><span class="nx">query</span><span class="o">:</span><span class="w"> </span><span class="p">{}</span><span class="nx">__proto__</span><span class="o">:</span><span class="w"> </span><span class="nb">Object</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="nx">Liste</span><span class="w"> </span><span class="nx">des</span><span class="w"> </span><span class="nx">clés</span><span class="w"> </span><span class="p">[[</span><span class="nx">main</span><span class="w"> </span><span class="nx">client</span><span class="p">],</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">router</span><span class="p">]</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="nb">Array</span><span class="p">(</span><span class="mf">10</span><span class="p">)</span><span class="mf">0</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;app&quot;</span><span class="mf">1</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;apps&quot;</span><span class="mf">2</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;options&quot;</span><span class="mf">3</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;beforeHooks&quot;</span><span class="mf">4</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;resolveHooks&quot;</span><span class="mf">5</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;afterHooks&quot;</span><span class="mf">6</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;matcher&quot;</span><span class="mf">7</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;fallback&quot;</span><span class="mf">8</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;mode&quot;</span><span class="mf">9</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;history&quot;</span><span class="nx">length</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="nx">__proto__</span><span class="o">:</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="nx">Liste</span><span class="w"> </span><span class="nx">des</span><span class="w"> </span><span class="nx">clés</span><span class="w"> </span><span class="p">[[</span><span class="nx">main</span><span class="w"> </span><span class="nx">client</span><span class="p">],</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">routes</span><span class="p">]</span>
-<a id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="nb">Array</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span><span class="mf">0</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="mf">1</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="mf">2</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="nx">length</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="nx">__proto__</span><span class="o">:</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="p">[</span><span class="nx">main</span><span class="w"> </span><span class="nx">client</span><span class="p">],</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">routes</span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span><span class="mf">0</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/page1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;page1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">component</span><span class="o">:</span><span class="w"> </span><span class="nx">ƒ</span><span class="p">}</span><span class="mf">1</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/page2&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;page2&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">component</span><span class="o">:</span><span class="w"> </span><span class="nx">ƒ</span><span class="p">}</span><span class="mf">2</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;index&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">component</span><span class="o">:</span><span class="w"> </span><span class="nx">ƒ</span><span class="p">}</span><span class="nx">length</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="nx">__proto__</span><span class="o">:</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span>
-<a id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="nx">inject</span><span class="o">=</span><span class="w"> </span><span class="kd">function</span>
+<span class="normal"><a href="#__codelineno-9-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>[main server], process.server= false process.client= true
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>[main client], il y a 2 arguments
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>Liste des clés [[main client], context]
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>Array(17)0: &quot;isStatic&quot;1: &quot;isDev&quot;2: &quot;isHMR&quot;3: &quot;app&quot;4: &quot;payload&quot;5: &quot;error&quot;6: &quot;base&quot;7: &quot;env&quot;8: &quot;redirect&quot;9: &quot;nuxtState&quot;10: &quot;route&quot;11: &quot;next&quot;12: &quot;<span class="ge">_redirected&quot;13: &quot;_</span>errored&quot;14: &quot;params&quot;15: &quot;query&quot;16: &quot;$axios&quot;length: 17__proto__: Array(0)
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>Liste des clés [[main client], context.app]
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>Array(14)0: &quot;router&quot;1: &quot;nuxt&quot;2: &quot;head&quot;3: &quot;render&quot;4: &quot;data&quot;5: &quot;beforeCreate&quot;6: &quot;created&quot;7: &quot;mounted&quot;8: &quot;watch&quot;9: &quot;computed&quot;10: &quot;methods&quot;11: &quot;components&quot;12: &quot;context&quot;13: &quot;$axios&quot;length: 14__proto__: Array(0)
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>Liste des clés [[main client], context.route]
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>Array(8)0: &quot;name&quot;1: &quot;meta&quot;2: &quot;path&quot;3: &quot;hash&quot;4: &quot;query&quot;5: &quot;params&quot;6: &quot;fullPath&quot;7: &quot;matched&quot;length: 8<span class="gs">__proto__</span>: Array(0)
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>[main client], context.route= ObjectfullPath: &quot;/&quot;hash: &quot;&quot;matched: [{…}]meta: [{…}]name: &quot;index&quot;params: {}path: &quot;/&quot;query: {}__proto__: Object
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>Liste des clés [[main client], context.app.router]
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a>Array(10)0: &quot;app&quot;1: &quot;apps&quot;2: &quot;options&quot;3: &quot;beforeHooks&quot;4: &quot;resolveHooks&quot;5: &quot;afterHooks&quot;6: &quot;matcher&quot;7: &quot;fallback&quot;8: &quot;mode&quot;9: &quot;history&quot;length: 10__proto__: Array(0)
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a>Liste des clés [[main client], context.app.router.options.routes]
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a>Array(3)0: &quot;0&quot;1: &quot;1&quot;2: &quot;2&quot;length: 3<span class="gs">__proto__</span>: Array(0)
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a>[main client], context.app.router.options.routes= Array(3)0: {path: &quot;/page1&quot;, name: &quot;page1&quot;, component: ƒ}1: {path: &quot;/page2&quot;, name: &quot;page2&quot;, component: ƒ}2: {path: &quot;/&quot;, name: &quot;index&quot;, component: ƒ}length: 3<span class="gs">__proto__</span>: Array(0)
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a>inject= function
 </code></pre></div></td></tr></table></div>
 <p>On retrouve des propriétés analogues à celles trouvées côté serveur avec certaines propriétés qui ont disparu et d’autres qui sont apparues. Ainsi ligne 4, on ne retrouve pas les propriétés [req, res] qui étaient les requêtes HTTP du navigateur client et la réponse HTTP du serveur.</p>
 <h2 id="106-la-page-index-du-client">10.6. La page [index] du client</h2>
 <p>La page [index] du client produit les logs suivants :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
-<span class="normal"><a href="#__codelineno-13-2">2</a></span>
-<span class="normal"><a href="#__codelineno-13-3">3</a></span>
-<span class="normal"><a href="#__codelineno-13-4">4</a></span>
-<span class="normal"><a href="#__codelineno-13-5">5</a></span>
-<span class="normal"><a href="#__codelineno-13-6">6</a></span>
-<span class="normal"><a href="#__codelineno-13-7">7</a></span>
-<span class="normal"><a href="#__codelineno-13-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>[home beforeCreate]
-<a id="__codelineno-13-2" name="__codelineno-13-2"></a>[home client created]
-<a id="__codelineno-13-3" name="__codelineno-13-3"></a>Liste des clés [[home client created], this.$nuxt]
-<a id="__codelineno-13-4" name="__codelineno-13-4"></a>(51) [&quot;_uid&quot;, &quot;_isVue&quot;, &quot;$options&quot;, &quot;_renderProxy&quot;, &quot;_self&quot;, &quot;$parent&quot;, &quot;$root&quot;, &quot;$children&quot;, &quot;$refs&quot;, &quot;_watcher&quot;, &quot;_inactive&quot;, &quot;_directInactive&quot;, &quot;_isMounted&quot;, &quot;_isDestroyed&quot;, &quot;_isBeingDestroyed&quot;, &quot;_events&quot;, &quot;_hasHookEvent&quot;, &quot;_vnode&quot;, &quot;_staticTrees&quot;, &quot;$vnode&quot;, &quot;$slots&quot;, &quot;$scopedSlots&quot;, &quot;_c&quot;, &quot;$createElement&quot;, &quot;$attrs&quot;, &quot;$listeners&quot;, &quot;_routerRoot&quot;, &quot;_router&quot;, &quot;_route&quot;, &quot;_bv__modal&quot;, &quot;_bv__toast&quot;, &quot;_vueMeta&quot;, &quot;nuxt&quot;, &quot;_watchers&quot;, &quot;refreshOnlineStatus&quot;, &quot;refresh&quot;, &quot;errorChanged&quot;, &quot;setLayout&quot;, &quot;loadLayout&quot;, &quot;_data&quot;, &quot;layoutName&quot;, &quot;layout&quot;, &quot;isOnline&quot;, &quot;_computedWatchers&quot;, &quot;isOffline&quot;, &quot;error&quot;, &quot;context&quot;, &quot;_name&quot;, &quot;setTransitions&quot;, &quot;$loading&quot;, &quot;$el&quot;]
-<a id="__codelineno-13-5" name="__codelineno-13-5"></a>Liste des clés [[home client created], this.$nuxt.context]
-<a id="__codelineno-13-6" name="__codelineno-13-6"></a>(17) [&quot;isStatic&quot;, &quot;isDev&quot;, &quot;isHMR&quot;, &quot;app&quot;, &quot;payload&quot;, &quot;error&quot;, &quot;base&quot;, &quot;env&quot;, &quot;redirect&quot;, &quot;nuxtState&quot;, &quot;route&quot;, &quot;next&quot;, &quot;_redirected&quot;, &quot;_errored&quot;, &quot;params&quot;, &quot;query&quot;, &quot;$axios&quot;]
-<a id="__codelineno-13-7" name="__codelineno-13-7"></a>[home client beforeMount]
-<a id="__codelineno-13-8" name="__codelineno-13-8"></a>[home client mounted]
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span>
+<span class="normal"><a href="#__codelineno-10-6">6</a></span>
+<span class="normal"><a href="#__codelineno-10-7">7</a></span>
+<span class="normal"><a href="#__codelineno-10-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>[home beforeCreate]
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>[home client created]
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>Liste des clés [[home client created], this.$nuxt]
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>(51) [&quot;_uid&quot;, &quot;<span class="ge">_isVue&quot;, &quot;$options&quot;, &quot;_</span>renderProxy&quot;, &quot;<span class="ge">_self&quot;, &quot;$parent&quot;, &quot;$root&quot;, &quot;$children&quot;, &quot;$refs&quot;, &quot;_</span>watcher&quot;, &quot;<span class="ge">_inactive&quot;, &quot;_</span>directInactive&quot;, &quot;<span class="ge">_isMounted&quot;, &quot;_</span>isDestroyed&quot;, &quot;<span class="ge">_isBeingDestroyed&quot;, &quot;_</span>events&quot;, &quot;<span class="ge">_hasHookEvent&quot;, &quot;_</span>vnode&quot;, &quot;<span class="ge">_staticTrees&quot;, &quot;$vnode&quot;, &quot;$slots&quot;, &quot;$scopedSlots&quot;, &quot;_</span>c&quot;, &quot;$createElement&quot;, &quot;$attrs&quot;, &quot;$listeners&quot;, &quot;<span class="ge">_routerRoot&quot;, &quot;_</span>router&quot;, &quot;<span class="ge">_route&quot;, &quot;_</span>bv__modal&quot;, &quot;<span class="ge">_bv__toast&quot;, &quot;_</span>vueMeta&quot;, &quot;nuxt&quot;, &quot;<span class="ge">_watchers&quot;, &quot;refreshOnlineStatus&quot;, &quot;refresh&quot;, &quot;errorChanged&quot;, &quot;setLayout&quot;, &quot;loadLayout&quot;, &quot;_</span>data&quot;, &quot;layoutName&quot;, &quot;layout&quot;, &quot;isOnline&quot;, &quot;<span class="ge">_computedWatchers&quot;, &quot;isOffline&quot;, &quot;error&quot;, &quot;context&quot;, &quot;_</span>name&quot;, &quot;setTransitions&quot;, &quot;$loading&quot;, &quot;$el&quot;]
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>Liste des clés [[home client created], this.$nuxt.context]
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a>(17) [&quot;isStatic&quot;, &quot;isDev&quot;, &quot;isHMR&quot;, &quot;app&quot;, &quot;payload&quot;, &quot;error&quot;, &quot;base&quot;, &quot;env&quot;, &quot;redirect&quot;, &quot;nuxtState&quot;, &quot;route&quot;, &quot;next&quot;, &quot;<span class="ge">_redirected&quot;, &quot;_</span>errored&quot;, &quot;params&quot;, &quot;query&quot;, &quot;$axios&quot;]
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>[home client beforeMount]
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>[home client mounted]
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 4 : les propriétés de l’objet [this.$nuxt]. C’est un objet riche avec 51 propriétés ;</li>
@@ -1661,7 +1563,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
