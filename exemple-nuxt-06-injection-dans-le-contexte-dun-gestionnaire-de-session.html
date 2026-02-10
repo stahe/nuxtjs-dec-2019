@@ -927,7 +927,7 @@
 <p>Le store est accessible facilement au travers de propriétés telles que [context.app.$store] en-dehors des vues ou [this.$store] dans les vues. On voudrait quelque chose d’analogue pour la session, quelque chose comme [context.app.$session] ou [this.$session]. On va voir que c’est possible grâce au concept d’injection. Seulement on ne peut pas injecter des objets dans le contexte, seulement des fonctions. Celle-ci sera alors disponible au travers des expressions [context.app.$session<strong><span style="color: #c9211e">()</span></strong>] ou [this.$session<strong><span style="color: #c9211e">()</span></strong>].</p>
 <p>Enfin, nous allons présenter le concept [nuxt] de [plugin].</p>
 <p>L’exemple [nuxt-06] est obtenu initialement par recopie du projet [nuxt-05] :</p>
-<p><img src="images/10000000000001640000024717468ECB.png" style="width:3.77cm;height:6.171cm;" alt="Image" /></p>
+<p><img src="images/10000000000001640000024717468ECB.png" style="width:3.77cm;height:6.171cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001640000024717468ECB.png" /></p>
 <ul>
 <li>en [1], nous ajouterons un dossier [plugins] ;</li>
 </ul>
@@ -952,7 +952,7 @@
 </li>
 <li>lignes 5-6 : nous avons placé nos deux plugins dans un dossier [plugins]. Il n’y a aucune obligation à cela. Les plugins peuvent être placés n’importe où dans l’arborescence du projet. De même les noms des sous-dossiers [client, server] sont ici arbitraires ;</li>
 </ul>
-<p><img src="images/10000000000001640000024711C4FD7E.png" style="width:3.77cm;height:6.171cm;" alt="Image" /></p>
+<p><img src="images/10000000000001640000024711C4FD7E.png" style="width:3.77cm;height:6.171cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001640000024711C4FD7E.png" /></p>
 <h2 id="93-le-plugin-session-du-serveur">9.3. Le plugin [session] du serveur</h2>
 <p>Le plugin [server / session.js] est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
@@ -1318,11 +1318,11 @@
 </ul>
 <h2 id="98-execution-du-projet">9.8. Exécution du projet</h2>
 <p>Avant d’exécuter le projet, vérifiez le cookie de session de votre navigateur et s’il existe supprimez-le pour que le serveur crée une session neuve :</p>
-<p><img src="images/10000000000005B000000269DCC3E5FE.png" style="width:11.561cm;height:4.901cm;" alt="Image" /></p>
+<p><img src="images/10000000000005B000000269DCC3E5FE.png" style="width:11.561cm;height:4.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005B000000269DCC3E5FE.png" /></p>
 <p>Maintenant demandons l’URL [http://localhost:81/nuxt-06/] :</p>
-<p><img src="images/100000000000092300000281C960AAD6.png" style="width:15.47cm;height:4.241cm;" alt="Image" /></p>
+<p><img src="images/100000000000092300000281C960AAD6.png" style="width:15.47cm;height:4.241cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000092300000281C960AAD6.png" /></p>
 <p>Les logs dans le navigateur sont alors les suivants :</p>
-<p><img src="images/10000000000004F4000003E43312D2E8.png" style="width:10.06cm;height:7.91cm;" alt="Image" /></p>
+<p><img src="images/10000000000004F4000003E43312D2E8.png" style="width:10.06cm;height:7.91cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004F4000003E43312D2E8.png" /></p>
 <ul>
 <li>en [2], le serveur démarre une nouvelle session dans le plugin [session] du serveur ;</li>
 <li>en [3], cette nouvelle session est initialisée dans [nuxtServerInit] ;</li>
@@ -1330,42 +1330,42 @@
 <li>en [5], le client a correctement récupéré cette session ;</li>
 </ul>
 <p>Maintenant incrémentons le compteur trois fois :</p>
-<p><img src="images/10000000000009A40000028069157B07.png" style="width:16.32cm;height:4.231cm;" alt="Image" /></p>
+<p><img src="images/10000000000009A40000028069157B07.png" style="width:16.32cm;height:4.231cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000009A40000028069157B07.png" /></p>
 <ul>
 <li>en [3], le compteur a bien été incrémenté mais pas la session en [2]. Alors que [3] affiche le store qui est réactif, [2] affiche la session qui elle n’est pas réactive :</li>
 </ul>
 <p>Maintenant rechargeons la page (F5). Les logs sont les suivants suite à ce rechargement :</p>
-<p><img src="images/10000000000004DC000003D69FCEB1CF.png" style="width:9.871cm;height:7.79cm;" alt="Image" /></p>
+<p><img src="images/10000000000004DC000003D69FCEB1CF.png" style="width:9.871cm;height:7.79cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004DC000003D69FCEB1CF.png" /></p>
 <ul>
 <li>en [2], on voit que le serveur a reçu un cookie de session envoyé par le navigateur client ;</li>
 <li>en [4], on voit que le store n’est pas réinitialisé mais repris dans la session reçue ;</li>
 <li>en [4-5] : on voit que les attributs de la session ont bien tous été incrémentés trois fois ;</li>
 </ul>
 <p>La page envoyée par le serveur est alors la suivante ;</p>
-<p><img src="images/10000000000009340000026FAD722BCF.png" style="width:15.581cm;height:4.121cm;" alt="Image" /></p>
+<p><img src="images/10000000000009340000026FAD722BCF.png" style="width:15.581cm;height:4.121cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000009340000026FAD722BCF.png" /></p>
 <p>La conclusion issue de cette page est que la session peut transporter d’autres éléments que le store mais ceux-ci ne sont pas réactifs.</p>
 <p>Maintenant cliquons sur le lien [Page 1] [4]. La nouvelle page affichée est alors la suivante :</p>
-<p><img src="images/10000000000008380000023A4AB5718A.png" style="width:13.921cm;height:3.77cm;" alt="Image" /></p>
+<p><img src="images/10000000000008380000023A4AB5718A.png" style="width:13.921cm;height:3.77cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000008380000023A4AB5718A.png" /></p>
 <p>Puis utilisons le bouton [Incrémenter] trois fois. La page devient la suivante :</p>
-<p><img src="images/1000000000000864000002439DF02F45.png" style="width:14.211cm;height:3.83cm;" alt="Image" /></p>
+<p><img src="images/1000000000000864000002439DF02F45.png" style="width:14.211cm;height:3.83cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000864000002439DF02F45.png" /></p>
 <p>Cette fois-ci la session s’affiche correctement en [2]. Elle est ici réactive. Cela se voit dans les logs :</p>
-<p><img src="images/100000000000048E0000040829D81976.png" style="width:9.261cm;height:8.191cm;" alt="Image" /></p>
+<p><img src="images/100000000000048E0000040829D81976.png" style="width:9.261cm;height:8.191cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000048E0000040829D81976.png" /></p>
 <ul>
 <li>en [1-3], les valeurs de la session ;</li>
 <li>en [4-6], les getters et setters réactifs des éléments de la session ;</li>
 </ul>
 <p>Maintenant cliquons sur le lien [Home] [4]. Nous obtenons la page suivante :</p>
-<p><img src="images/100000000000099B000002872FBB8CC2.png" style="width:16.26cm;height:4.28cm;" alt="Image" /></p>
+<p><img src="images/100000000000099B000002872FBB8CC2.png" style="width:16.26cm;height:4.28cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000099B000002872FBB8CC2.png" /></p>
 <p>Puis cliquons deux fois sur le bouton [Incrémenter] [4]. La page devient la suivante :</p>
-<p><img src="images/100000000000083A000002373763BAAB.png" style="width:13.93cm;height:3.751cm;" alt="Image" /></p>
+<p><img src="images/100000000000083A000002373763BAAB.png" style="width:13.93cm;height:3.751cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000083A000002373763BAAB.png" /></p>
 <p>On constate que là également la session est devenue réactive [2].</p>
 <p>Demandons la valeur rendue par la fonction [this.$session()] :</p>
-<p><img src="images/10000000000006B40000035665CD6F32.png" style="width:13.622cm;height:6.781cm;" alt="Image" /></p>
+<p><img src="images/10000000000006B40000035665CD6F32.png" style="width:13.622cm;height:6.781cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006B40000035665CD6F32.png" /></p>
 <ul>
 <li>dans l’onglet [Vue], on sélectionne la page courante [Home] pour en obtenir la référence [$vm0] [3] ;</li>
 </ul>
 <p>Puis dans l’onglet [Console] [4], demandons la valeur de la fonction [$vm0.$session()] :</p>
-<p><img src="images/10000000000004DD00000257D109F034.png" style="width:16.47cm;height:7.931cm;" alt="Image" /></p>
+<p><img src="images/10000000000004DD00000257D109F034.png" style="width:16.47cm;height:7.931cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004DD00000257D109F034.png" /></p>
 <ul>
 <li>en [5], on voit que la session est devenue réactive alors qu’elle ne l’était pas initialement ;</li>
 <li>en [6], on demande à voir la valeur de la session ;</li>

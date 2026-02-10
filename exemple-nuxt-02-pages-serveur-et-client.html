@@ -1079,7 +1079,7 @@
 <li>une solution pour que la page client recrée la même page que celle envoyée par le serveur ;</li>
 </ul>
 <p>Le projet [nuxt-02] est obtenue initialement par recopie du projet [nuxt-01].</p>
-<p><img src="images/1000000000000173000001FE59416804.png" style="width:3.931cm;height:5.4cm;" alt="Image" /></p>
+<p><img src="images/1000000000000173000001FE59416804.png" style="width:3.931cm;height:5.4cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000173000001FE59416804.png" /></p>
 <p>Un dossier [store] est ajouté au projet ainsi que deux nouvelles pages. Nous y reviendrons.</p>
 <h2 id="51-la-page-index">5.1. La page [index]</h2>
 <h3 id="511-le-code-de-la-page">5.1.1. Le code de la page</h3>
@@ -1172,7 +1172,7 @@
 </code></pre></div>
 
 <p>Nous exécutons le projet [1] :</p>
-<p><img src="images/100000000000052E0000019BA2032E96.png" style="width:17.541cm;height:5.441cm;" alt="Image" /></p>
+<p><img src="images/100000000000052E0000019BA2032E96.png" style="width:17.541cm;height:5.441cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000052E0000019BA2032E96.png" /></p>
 <p>La page [index] est alors affichée [2-3]. Elle affiche la valeur [10] pendant quelques instants puis affiche la valeur [0]. Que s’est-il passé ?</p>
 <p><u><strong>étape 1</strong></u></p>
 <p>C’est le serveur qui s’exécute le premier. Il exécute le code de la page [index] :</p>
@@ -1336,7 +1336,7 @@
 <h2 id="52-la-page-page1">5.2. La page [page1]</h2>
 <h3 id="521-le-store-vuex">5.2.1. Le store [Vuex]</h3>
 <p>Nous avons ajouté un dossier [store] au projet [nuxt-02] :</p>
-<p><img src="images/100000000000019700000143D71D3C7A.png" style="width:4.31cm;height:3.421cm;" alt="Image" /></p>
+<p><img src="images/100000000000019700000143D71D3C7A.png" style="width:4.31cm;height:3.421cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000019700000143D71D3C7A.png" /></p>
 <p>La présence de ce dossier fait qu’automatiquement [nuxt] va implémenter un store [Vuex]. C’est le fichier [index.js] qui implémente ce store. Ici, le fichier [index.js] est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span style="color:#0000ff">export</span> <span style="color:#0000ff">const</span> state = () =&gt; ({</span>
@@ -1436,7 +1436,7 @@
 <li>la page affichée est alors modifiée ;</li>
 </ul>
 <p>Le résultat final est le suivant :</p>
-<p><img src="images/10000000000005A9000002C321431812.png" style="width:11.501cm;height:5.621cm;" alt="Image" /></p>
+<p><img src="images/10000000000005A9000002C321431812.png" style="width:11.501cm;height:5.621cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005A9000002C321431812.png" /></p>
 <p>Cette fois-ci, la valeur affichée est bien celle fixée par le serveur et visuellement, on ne voit pas la page ‘tressauter’ à cause d’un changement par le client de la valeur affichée par le serveur. Cette fois-ci que s’est-il passé ?</p>
 <p>Le serveur a exécuté la page [page1] suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1725,7 +1725,7 @@
 <li>la page affichée est alors modifiée ;</li>
 </ul>
 <p>Le résultat final est le suivant :</p>
-<p><img src="images/10000000000005C1000002E0B2660390.png" style="width:13.641cm;height:6.82cm;" alt="Image" /></p>
+<p><img src="images/10000000000005C1000002E0B2660390.png" style="width:13.641cm;height:6.82cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005C1000002E0B2660390.png" /></p>
 <p>Cette fois-ci, la valeur affichée est bien celle fixée par le serveur et visuellement, on ne voit pas la page ‘tressauter’ à cause d’un changement par le client de la valeur affichée par le serveur. Cette fois-ci que s’est-il passé ?</p>
 <p>Le serveur a exécuté la page [page2] suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1947,11 +1947,11 @@
 <li>la ligne 7 utilise la propriété [value]. Or la page ne définit aucune propriété nommée [value]. Cependant les scripts du client ont créé automatiquement cette propriété grâce à l’objet [<span style="color: #000000"><mark style="background-color: #ffff00">data: [{ value: 87 }]</mark></span>] reçue du serveur ;</li>
 </ul>
 <p>Les logs montrent par ailleurs que la fonction [asyncData] n’a pas été exécutée par le client :</p>
-<p><img src="images/100000000000031E0000025FD1253326.png" style="width:10.561cm;height:8.03cm;" alt="Image" /></p>
+<p><img src="images/100000000000031E0000025FD1253326.png" style="width:10.561cm;height:8.03cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000031E0000025FD1253326.png" /></p>
 <p>La fonction [asyncData] a été exécutée par le serveur [1] mais pas par le client [2]. Par ailleurs, on peut noter que les fonctions du cycle de vie ne sont pas exécutées par le serveur avant la fin de la fonction [asyncData]. On peut augmenter la durée de l’attente au sein de la fonction [asyncData] pour le vérifier.</p>
 <h2 id="54-la-page-page3">5.4. La page [page3]</h2>
 <p>Nous ajoutons une nouvelle page [page3] à notre application :</p>
-<p><img src="images/1000000000000192000001DEE296B47D.png" style="width:4.261cm;height:5.061cm;" alt="Image" /></p>
+<p><img src="images/1000000000000192000001DEE296B47D.png" style="width:4.261cm;height:5.061cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000192000001DEE296B47D.png" /></p>
 <h3 id="541-le-composant-navigation">5.4.1. Le composant [navigation]</h3>
 <p>Le composant [vavigation] est modifié pour permettre la navigation vers la nouvelle page :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
@@ -2070,7 +2070,7 @@
 <li>la page affichée est alors modifiée ;</li>
 </ul>
 <p>Le résultat final est le suivant :</p>
-<p><img src="images/1000000000000562000002BDAD3CEA91.png" style="width:12.761cm;height:6.49cm;" alt="Image" /></p>
+<p><img src="images/1000000000000562000002BDAD3CEA91.png" style="width:12.761cm;height:6.49cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000562000002BDAD3CEA91.png" /></p>
 <p>La valeur affichée est bien celle fixée par le serveur et visuellement, on ne voit pas la page ‘tressauter’ à cause d’un changement par le client de la valeur affichée par le serveur. Cette fois-ci que s’est-il passé ?</p>
 <p>Le serveur a exécuté la page [page3] suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -2319,12 +2319,12 @@
 <li>la ligne 7 affiche cette valeur. Puisque c’est la même que celle envoyée par le serveur, on ne voit pas la page ‘tressauter’ à cause d’une modification ;</li>
 </ul>
 <p>Les logs montrent par ailleurs que la fonction [fetch] n’a pas été exécutée par le client :</p>
-<p><img src="images/100000000000027A0000024613EC7847.png" style="width:8.392cm;height:7.7cm;" alt="Image" /></p>
+<p><img src="images/100000000000027A0000024613EC7847.png" style="width:8.392cm;height:7.7cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000027A0000024613EC7847.png" /></p>
 <p>La fonction [fetch] a été exécutée par le serveur [1] mais pas par le client [2]. Par ailleurs, on peut noter que les fonctions du cycle de vie ne sont pas exécutées par le serveur avant la fin de la fonction [fetch] [3]. On peut augmenter la durée de l’attente au sein de la fonction [fetch] pour le vérifier.</p>
 <p>Les pages [page1] et [page3] ont montré deux méthodes utilisant le store [Vuex] pour transmettre une information du serveur au client. On peut se demander si elles sont équivalentes. Nous construisons une page [page4] pour le vérifier.</p>
 <h2 id="55-la-page-page4">5.5. La page [page4]</h2>
 <p>Nous ajoutons une nouvelle page [page4] à notre application :</p>
-<p><img src="images/1000000000000174000001FC55AE52D6.png" style="width:3.931cm;height:5.381cm;" alt="Image" /></p>
+<p><img src="images/1000000000000174000001FC55AE52D6.png" style="width:3.931cm;height:5.381cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000174000001FC55AE52D6.png" /></p>
 <h3 id="551-le-composant-navigation">5.5.1. Le composant [navigation]</h3>
 <p>Le composant [navigation] est modifié pour permettre la navigation vers la nouvelle page :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
@@ -2433,20 +2433,20 @@
 <li>la page affichée est alors modifiée ;</li>
 </ul>
 <p>Le résultat final est le suivant :</p>
-<p><img src="images/100000000000056600000330F8A7F91C.png" style="width:10.97cm;height:6.481cm;" alt="Image" /></p>
+<p><img src="images/100000000000056600000330F8A7F91C.png" style="width:10.97cm;height:6.481cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000056600000330F8A7F91C.png" /></p>
 <p>Contrairement à ce qui était attendu, la valeur affichée en [2] n’est pas 52. Que s’est-il passé ?</p>
 <p>Les logs sont les suivants :</p>
-<p><img src="images/10000000000004D60000012A29D49986.png" style="width:16.38cm;height:3.941cm;" alt="Image" /></p>
+<p><img src="images/10000000000004D60000012A29D49986.png" style="width:16.38cm;height:3.941cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004D60000012A29D49986.png" /></p>
 <p>On peut remarquer qu’en [1] le log de fin de l’action asynchrone n’a pas été affiché. La fonction [created] qui affiche la valeur du compteur, affiche 0. Tout cela laisse penser que [nuxt] n’a pas attendu la fin de l’action asynchrone.</p>
 <p>Si on retourne dans le terminal de VSCode qui a servi au lancement de l’application, on trouve les logs [3-4]. On voit que la fonction asynchrone a bien été exécutée côté serveur.</p>
 <p>Au final, la fonction [beforeCreate] a bien été exécutée totalement côté serveur, mais [nuxt] n’a pas attendu la fin de son exécution pour envoyer la page au navigateur client alors qu’il attend bien la fin de la fonction [fetch]. C’est donc cette méthode qu’il faut utiliser si on veut que le serveur initialise un store [Vuex].</p>
 <h2 id="56-navigation-dans-lapplication-vue">5.6. Navigation dans l’application [vue]</h2>
 <p>Nous avons montré ce qui se passait lorsque chacune des pages [index, page1, page2, page3, page4] était chargée initialement par le serveur. Dans la pratique, ce n’est pas ce qui se passe : dans un fonctionnement normal, seule la page [index] est cherchée sur le serveur. Voyons les trois pages dans ce cas là :</p>
 <p><u><strong>page [index]</strong></u></p>
-<p><img src="images/100000000000058D000002B9BEB01E93.png" style="width:11.281cm;height:5.531cm;" alt="Image" /></p>
+<p><img src="images/100000000000058D000002B9BEB01E93.png" style="width:11.281cm;height:5.531cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000058D000002B9BEB01E93.png" /></p>
 <p>Nous avons déjà expliqué ce résultat au paragraphe <a href="../../../../../st-2020/st-2020/cours/nuxtjs/masters/02/chap-05.docx#nuxt02_index_execution"><u><span style="color: #0563c1">lien</span></u></a>.</p>
 <p>Maintenant cliquons sur le lien [Page 1] :</p>
-<p><img src="images/1000000000000597000002870F1B094A.png" style="width:11.36cm;height:5.13cm;" alt="Image" /></p>
+<p><img src="images/1000000000000597000002870F1B094A.png" style="width:11.36cm;height:5.13cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000597000002870F1B094A.png" /></p>
 <p>La valeur affichée est 0. C’était 25 lorsque la page était d’abord demandée au serveur en tapant son URL à la main. L’explication est simple. Le code exécuté est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line">  created() {</span>
@@ -2464,9 +2464,9 @@
 
 <p>C’est la ligne 6 qui mettait le compteur à 25. Comme la page n’a pas été demandée au serveur, les lignes 5-7 n’ont pas été exécutées et le compteur du store [Vuex] est resté à 0.</p>
 <p>Maintenant, cliquons sur le lien [Page 2] :</p>
-<p><img src="images/100000000000057B00000284F2F07154.png" style="width:11.131cm;height:5.111cm;" alt="Image" /></p>
+<p><img src="images/100000000000057B00000284F2F07154.png" style="width:11.131cm;height:5.111cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000057B00000284F2F07154.png" /></p>
 <p>Cette fois-ci, aucune valeur n’est affichée et on a de plus un avertissement dans les logs de la console :</p>
-<p><img src="images/10000000000006690000018B518016D1.png" style="width:15.2cm;height:3.661cm;" alt="Image" /></p>
+<p><img src="images/10000000000006690000018B518016D1.png" style="width:15.2cm;height:3.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006690000018B518016D1.png" /></p>
 <ul>
 <li>en [1], on découvre que la fonction [asyncData] a été exécutée par le client. C’est toujours ainsi :<ul>
 <li>elle est exécutée par le serveur si la page est demandée au serveur. dans ce cas, elle n’est pas exécutée par le client ;</li>
@@ -2497,7 +2497,7 @@
 <li>la ligne 5 a empêché l’exécution du reste du code qui créait la propriété [value] car ce code est exécuté par le client ;</li>
 </ul>
 <p>Maintenant passons à la page [page3] :</p>
-<p><img src="images/100000000000050A000001DDC9E03F0E.png" style="width:17.07cm;height:6.31cm;" alt="Image" /></p>
+<p><img src="images/100000000000050A000001DDC9E03F0E.png" style="width:17.07cm;height:6.31cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000050A000001DDC9E03F0E.png" /></p>
 <ul>
 <li>en [2], on avait 28 lorsque la page était fournie par le serveur. Ici ce n’est pas le cas ;</li>
 <li>en [4], on voit que la fonction [fetch] a été exécutée côté client ;</li>
@@ -2534,7 +2534,7 @@
 <li>les lignes 6-21 ne sont pas exécutées car la condition [process.server] est fausse. Donc la ligne 17 qui met le compteur à 28 n’est pas exécuté. Il reste à zéro. C’est pourquoi le client affiche 0 au lieu de 28 ;</li>
 </ul>
 <p>Passons maintenant à la page [page4]. On a le résultat suivant :</p>
-<p><img src="images/10000000000004D1000001DAC1E60A9F.png" style="width:16.311cm;height:6.28cm;" alt="Image" /></p>
+<p><img src="images/10000000000004D1000001DAC1E60A9F.png" style="width:16.311cm;height:6.28cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004D1000001DAC1E60A9F.png" /></p>
 <ul>
 <li>en [2], la valeur du compteur ;</li>
 <li>en [3], les logs du client ;</li>

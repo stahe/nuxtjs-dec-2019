@@ -1164,19 +1164,19 @@
 <li>la gestion des erreurs  de l’exemple [nuxt-11] ;</li>
 </ul>
 <p>L’architecture de l’exemple sera le suivant :</p>
-<p><img src="images/10000000000007BF00000349CF7EFC56.png" style="width:15.74cm;height:6.67cm;" alt="Image" /></p>
+<p><img src="images/10000000000007BF00000349CF7EFC56.png" style="width:15.74cm;height:6.67cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007BF00000349CF7EFC56.png" /></p>
 <ul>
 <li>l’application [nuxt] sera stockée sur le serveur [node.js] [3], téléchargée par le navigateur [1] qui l’exécutera ensuite ;</li>
 <li>le client [nuxt] [1] aussi bien que le serveur [nuxt] [3] feront des requêtes HTTP au serveur de données [2]. Ce serveur sera le serveur de calcul de l’impôt développé dans la partie PHP 7. Nous utiliserons sa dernière version, la version 14, avec les requêtes CORS autorisées ;</li>
 </ul>
 <p>L’architecture de l’exemple peut être simplifiée de la façon suivante :</p>
-<p><img src="images/10000000000004660000036A2523CCDB.png" style="width:8.94cm;height:6.94cm;" alt="Image" /></p>
+<p><img src="images/10000000000004660000036A2523CCDB.png" style="width:8.94cm;height:6.94cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004660000036A2523CCDB.png" /></p>
 <ul>
 <li>en [1], le serveur [node.js] délivre les pages [nuxt] au navigateur [2]. C’est la couche [web] [8] du serveur qui délivre ces pages. Pour délivrer la page, le serveur a pu demander des données externes au serveur de données [3]. C’est la couche [DAO] [9] qui fait les requêtes HTTP nécessaires ;</li>
 <li>à chaque appel de page au serveur [node.js][1], le navigateur [2] reçoit la totalité de l’application [nuxt] qui va alors s’exécuter en mode SPA. Le bloc [UI] (User Interface) [4] présente des pages [vue.js] à l’utilisateur. Les actions de celui-ci ou le cycle de vie naturel des pages peuvent provoquer des appels de données externes au serveur de données [3]. C’est la couche [DAO] [5] qui fait alors les requêtes HTTP nécessaires ;</li>
 </ul>
 <h2 id="152-arborescence-du-projet">15.2. Arborescence du projet</h2>
-<p><img src="images/100000000000013E0000014735A17401.png" style="width:3.372cm;height:3.462cm;" alt="Image" /></p>
+<p><img src="images/100000000000013E0000014735A17401.png" style="width:3.372cm;height:3.462cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000013E0000014735A17401.png" /></p>
 <h2 id="153-le-fichier-de-configuration-nuxtconfigjs">15.3. Le fichier de configuration [nuxt.config.js]</h2>
 <p>Le projet sera contrôlé par le fichier [nuxt.config.js] suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
@@ -1291,9 +1291,9 @@
 <li>ligne 77 : la navigation des client et serveur [nuxt] sera contrôlée par un middleware de routage ;</li>
 </ul>
 <h2 id="154-la-couche-ui-de-lapplication">15.4. La couche [UI] de l’application</h2>
-<p><img src="images/100000000000017F000000DE689E29B4.png" style="width:5.07cm;height:2.941cm;" alt="Image" /></p>
+<p><img src="images/100000000000017F000000DE689E29B4.png" style="width:5.07cm;height:2.941cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017F000000DE689E29B4.png" /></p>
 <p>Nous allons donner à l’application [nuxt] l’accès à l’API du serveur de calcul de l’impôt via la vue suivante :</p>
-<p><img src="images/1000000000000762000002C2F3B83243.png" style="width:15.001cm;height:5.601cm;" alt="Image" /></p>
+<p><img src="images/1000000000000762000002C2F3B83243.png" style="width:15.001cm;height:5.601cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000762000002C2F3B83243.png" /></p>
 <ul>
 <li>
 <p>en [2], le menu qui donne accès à l’API du serveur de calcul de l’impôt :</p>
@@ -1306,7 +1306,7 @@
 </ul>
 <h2 id="155-les-couches-dao-de-lapplication-nuxt">15.5. Les couches [dao] de l’application [nuxt]</h2>
 <p>Comme indiqué plus haut, l’architecture de l’application [nuxt] sera la suivante :</p>
-<p><img src="images/10000000000004660000036A2523CCDB.png" style="width:8.94cm;height:6.94cm;" alt="Image" /></p>
+<p><img src="images/10000000000004660000036A2523CCDB.png" style="width:8.94cm;height:6.94cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004660000036A2523CCDB.png" /></p>
 <ul>
 <li>en [1], le serveur [node.js] délivre les pages [nuxt] au navigateur [2]. C’est la couche [web] [8] du serveur qui délivre ces pages. Pour délivrer la page, le serveur a pu demander des données externes au serveur de données [3]. C’est la couche [DAO] [9] qui fait les requêtes HTTP nécessaires ;</li>
 <li>à chaque appel de page au serveur [node.js][1], le navigateur [2] reçoit la totalité de l’application [nuxt] qui va alors s’exécuter en mode SPA. Le bloc [UI] (User Interface) [4] présente des pages [vue.js] à l’utilisateur. Les actions de celui-ci ou le cycle de vie des pages peuvent provoquer des appels de données externes au serveur de données [3]. C’est la couche [DAO] [5] qui fait alors les requêtes HTTP nécessaires ;</li>
@@ -1409,7 +1409,7 @@
 <p><a id="nuxt12nuxtserverdao"></a>
 <a id="refheadingtoc1305183177979500"></a></p>
 <h3 id="1551-le-couche-dao-du-serveur-nuxt">15.5.1. Le couche [dao] du serveur [nuxt]</h3>
-<p><img src="images/100000000000012F000000DF11652A9A.png" style="width:3.211cm;height:2.361cm;" alt="Image" /></p>
+<p><img src="images/100000000000012F000000DF11652A9A.png" style="width:3.211cm;height:2.361cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000012F000000DF11652A9A.png" /></p>
 <p>Le serveur [node.js] [1] va utiliser la couche [dao] décrite dans le document <a id="hlk43129255"></a>|<a href="https://tahe.developpez.com/tutoriels-cours/vuejs">Introduction au framework </a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"><strong>VUE.JS</strong></a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"> par l’exemple</a>|. Nous rappelons ici son code :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line">&#x27;use strict&#x27;<span style="color:#000000">;</span></span>
@@ -1701,13 +1701,13 @@
 <li>lignes 30-43 : on recherche le cookie [PHPSESSID=xxx]. Si on le trouve, il est mémorisé dans la classe (ligne 36) ;</li>
 </ul>
 <p>Ce code ne convient pas à la nouvelle méthode [finSession] car sur l’action [fin-session], le serveur PHP envoie <strong>deux</strong> cookies avec le nom [PHPSESSID]. Voici un exemple obtenu avec un client [Postman] :</p>
-<p><img src="images/10000000000004DE0000038466F84E33.png" style="width:11.54cm;height:8.34cm;" alt="Image" /></p>
+<p><img src="images/10000000000004DE0000038466F84E33.png" style="width:11.54cm;height:8.34cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004DE0000038466F84E33.png" /></p>
 <ul>
 <li>en [1], la demande du client [Postman] ;</li>
 <li>en [3], la réponse du serveur PHP ;</li>
 <li>en [4], les entêtes HTTP de la réponse du serveur PHP ;</li>
 </ul>
-<p><img src="images/10000000000007FD0000030C2FB0B63C.png" style="width:16.23cm;height:6.19cm;" alt="Image" /></p>
+<p><img src="images/10000000000007FD0000030C2FB0B63C.png" style="width:16.23cm;height:6.19cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007FD0000030C2FB0B63C.png" /></p>
 <ul>
 <li>en [5], le serveur PHP indique d’abord qu’il a supprimé la session PHP courante ;</li>
 <li>en [6],  le serveur PHP envoie le cookie de la nouvelle session PHP ;</li>
@@ -1801,7 +1801,7 @@
 </ul>
 <p>Notons une particularité sur le cookie de session PHP. Le serveur [nuxt] ne reçoit pas toujours ce cookie de la part du serveur PHP. En effet, celui-ci ne l’envoie qu’une fois. Ensuite il ne l’envoie plus. Lorsqu’on regarde le code de [getRemoteData] et celui de [getPhpSessionCookie] on verra alors que lorsque le serveur PHP n’envoie pas de cookie de session, la fonction [getPhpSessionCookie] renvoie alors le cookie de session PHP fourni au constucteur. C’est ainsi que le serveur envoie toujours au serveur PHP le dernier cookie de session PHP que celui-ci lui a envoyé.</p>
 <h3 id="1552-la-couche-dao-du-client-nuxt">15.5.2. La couche [dao] du client [nuxt]</h3>
-<p><img src="images/100000000000012F000000DF1A53B038.png" style="width:3.211cm;height:2.361cm;" alt="Image" /></p>
+<p><img src="images/100000000000012F000000DF1A53B038.png" style="width:3.211cm;height:2.361cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000012F000000DF1A53B038.png" /></p>
 <p>Pour le client [nuxt] qui s’exécute dans un navigateur, on reprend le code de la classe [Dao] du document |<a href="https://tahe.developpez.com/tutoriels-cours/vuejs">Introduction au framework </a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"><strong>VUE.JS</strong></a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"> par l’exemple</a>| :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line">&quot;use strict&quot;<span style="color:#000000">;</span></span>
@@ -1989,7 +1989,7 @@
 </ul>
 <p>La couche [dao] du client [nuxt] ne diffère de celle du serveur [nuxt] que par un point : elle n’envoie pas le cookie de session PHP elle-même car c’est le navigateur qui le fait. Néanmoins on a préféré garder deux couches [dao] distinctes car les raisonnements qui mènent à leurs écritures respectives sont différents.</p>
 <h2 id="156-la-session-nuxt">15.6. La session [nuxt]</h2>
-<p><img src="images/100000000000015B000000550BF91A25.png" style="width:4.59cm;height:1.131cm;" alt="Image" /></p>
+<p><img src="images/100000000000015B000000550BF91A25.png" style="width:4.59cm;height:1.131cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000015B000000550BF91A25.png" /></p>
 <p>La session [nuxt] (entre client et serveur nuxt) sera encapsulée dans l’objet [session] suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line">/* eslint-disable no-console */</span>
@@ -2036,7 +2036,7 @@
 </li>
 </ul>
 <h2 id="157-les-plugins-de-gestion-de-la-session-nuxt">15.7. Les plugins de gestion de la session [nuxt]</h2>
-<p><img src="images/100000000000017A0000012467AB3E41.png" style="width:4.001cm;height:3.091cm;" alt="Image" /></p>
+<p><img src="images/100000000000017A0000012467AB3E41.png" style="width:4.001cm;height:3.091cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017A0000012467AB3E41.png" /></p>
 <h3 id="1571-le-plugin-de-gestion-de-la-session-nuxt-du-serveur-nuxt">15.7.1. Le plugin de gestion de la session [nuxt] du <em>serveur</em> [nuxt]</h3>
 <p>Au démarrage de l’application, c’est le serveur [nuxt] qui opère le premier. C’est donc lui qui va initialiser la session [nuxt]. Le script [server/plgSession] est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -2097,7 +2097,7 @@
 <li>ligne 13 : on rend la session [nuxt] importée ligne 4 au travers de la fonction injectée [$session] ;</li>
 </ul>
 <h2 id="158-les-plugins-des-couches-dao">15.8. Les plugins des couches [dao]</h2>
-<p><img src="images/100000000000017A0000012408FEBC3E.png" style="width:4.001cm;height:3.091cm;" alt="Image" /></p>
+<p><img src="images/100000000000017A0000012408FEBC3E.png" style="width:4.001cm;height:3.091cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017A0000012408FEBC3E.png" /></p>
 <h3 id="1581-le-plugin-de-la-couche-dao-du-client-nuxt">15.8.1. Le plugin de la couche [dao] du client [nuxt]</h3>
 <p>Le script [client/plgDao] est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -2194,7 +2194,7 @@
 <li>[<strong>this.$dao()</strong>] dans une page [Vue.js] ;</li>
 </ul>
 <h2 id="159-le-store-vuex">15.9. Le store Vuex</h2>
-<p><img src="images/10000000000001380000004C3A681E64.png" style="width:4.13cm;height:1.011cm;" alt="Image" /></p>
+<p><img src="images/10000000000001380000004C3A681E64.png" style="width:4.13cm;height:1.011cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001380000004C3A681E64.png" /></p>
 <p>Le store [Vuex] va mémoriser toutes les données qui doivent être partagées par les différentes composantes de l’application [pages, client, serveur] sans que pour autant ces données soient réactives.</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line">/* eslint-disable no-console */</span>
@@ -2282,7 +2282,7 @@
 <li>ligne 57 : dans tous les cas, la session est sauvegardée dans le cookie [nuxt-session], avec le store qu’elle contient ;</li>
 </ul>
 <h2 id="1510-le-plugin-plgeventbus">15.10. Le plugin [plgEventBus]</h2>
-<p><img src="images/100000000000015400000128D21929CA.png" style="width:3.601cm;height:3.13cm;" alt="Image" /></p>
+<p><img src="images/100000000000015400000128D21929CA.png" style="width:3.601cm;height:3.13cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000015400000128D21929CA.png" /></p>
 <p>Ce plugin vise à rendre un bus d’événements accessible au client [nuxt] via une fonction [$eventBus] injectée dans le contexte du client [nuxt]. Il est inutile de l’injecter dans le contexte du serveur [nuxt] car celui-ci ne sait pas gérer les événements. Néanmoins nous avons déjà vu que l’injecter côté serveur puis l’utiliser ne provoque pas d’erreur.</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">/* eslint-disable no-console */</span>
@@ -2304,7 +2304,7 @@
 <li>[<strong>this.$eventBus()</strong>] dans les pages [Vue.js] du client ;</li>
 </ul>
 <h2 id="1511-les-composants-de-lapplication-nuxt">15.11. Les composants de l’application [nuxt]</h2>
-<p><img src="images/100000000000013300000073816BB325.png" style="width:4.061cm;height:1.521cm;" alt="Image" /></p>
+<p><img src="images/100000000000013300000073816BB325.png" style="width:4.061cm;height:1.521cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000013300000073816BB325.png" /></p>
 <p>Le composant [layout] est celui des exemples précédents :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line">&lt;!-- disposition des vues --&gt;</span>
@@ -2360,7 +2360,7 @@
 <p><a id="nuxt12layouts"></a>
 <a id="refheadingtoc131383849848624"></a></p>
 <h2 id="1512-les-layouts-de-lapplication-nuxt">15.12. Les layouts de l’application [nuxt]</h2>
-<p><img src="images/100000000000010800000076C3F0D397.png" style="width:3.492cm;height:1.56cm;" alt="Image" /></p>
+<p><img src="images/100000000000010800000076C3F0D397.png" style="width:3.492cm;height:1.56cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000010800000076C3F0D397.png" /></p>
 <h3 id="15121-default">15.12.1. [default]</h3>
 <p>Le layout [default] est celui utilisé pour l’exemple [nuxt-11] au paragraphe <a href="../../../../../st-2020/st-2020/cours/nuxtjs/masters/02/chap-14.docx#nuxt11_defaultvue"><u><span style="color: #0563c1">lien</span></u></a> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
@@ -2508,7 +2508,7 @@
 
 <p><a id="nuxt12indexpage"></a></p>
 <h2 id="1513-la-page-index-executee-par-le-serveur-nuxt">15.13. La page [index] exécutée par le serveur [nuxt]</h2>
-<p><img src="images/1000000000000166000000DD0A4B4C20.png" style="width:4.74cm;height:2.92cm;" alt="Image" /></p>
+<p><img src="images/1000000000000166000000DD0A4B4C20.png" style="width:4.74cm;height:2.92cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000166000000DD0A4B4C20.png" /></p>
 <p>La page [index.vue] a la particularité d’être accessible uniquement via le serveur [nuxt]. Aucun lien n’est présenté à l’utilisateur pour y avoir accès via le client [nuxt]. Son code est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">&lt;!-- page principale --&gt;</span>
@@ -2617,7 +2617,7 @@
 <li>lignes 63-68 : une fois la fonction [asyncData] terminée, le serveur [nuxt] exécute les fonctions [beforeCreate] et [create] ;</li>
 </ul>
 <p><strong>Note</strong> : l’exécution de la page [index] par le serveur [nuxt] peut échouer par exemple si le serveur de calcul de l’impôt n’est pas lancé lorsque l’application [nuxt] est elle lancée :</p>
-<p><img src="images/100000000000079A0000034E465ED0CA.png" style="width:15.451cm;height:6.721cm;" alt="Image" /></p>
+<p><img src="images/100000000000079A0000034E465ED0CA.png" style="width:15.451cm;height:6.721cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000079A0000034E465ED0CA.png" /></p>
 <p>Dans ce cas, la seule solution est de lancer le serveur de calcul de l’impôt puis l’application [nuxt] elle-même puisque le menu de navigation ne propose pas d’option pour initier une session jSON avec le serveur de calcul de l’impôt ;</p>
 <p><a id="refheadingtoc130688849848624"></a></p>
 <h2 id="1514-la-page-index-executee-par-le-client-nuxt">15.14. La page [index] exécutée par le client [nuxt]</h2>
@@ -2751,13 +2751,13 @@
 <ul>
 <li>supprimez le cookie de session PHP de votre navigateur (pour repartir de zéro) :</li>
 </ul>
-<p><img src="images/10000000000004A2000001E91E4FEC91.png" style="width:12.551cm;height:5.181cm;" alt="Image" /></p>
+<p><img src="images/10000000000004A2000001E91E4FEC91.png" style="width:12.551cm;height:5.181cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004A2000001E91E4FEC91.png" /></p>
 <ul>
 <li>lancez l’application [nuxt] alors que le serveur de calcul n’a pas été lancé : vous obtenez une erreur ;</li>
 <li>lancez le serveur de calcul de l’impôt ;</li>
 <li>demandez l’URL [/authentification] directement dans la barre d’adresses du navigateur :</li>
 </ul>
-<p><img src="images/10000000000007D90000032676DF10A2.png" style="width:15.952cm;height:6.4cm;" alt="Image" /></p>
+<p><img src="images/10000000000007D90000032676DF10A2.png" style="width:15.952cm;height:6.4cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007D90000032676DF10A2.png" /></p>
 <p>Dans ce cas, la seule solution est de nouveau de recharger la page [index].</p>
 <h2 id="1516-la-page-authentification-executee-par-le-client-nuxt">15.16. La page [authentification] exécutée par le client [nuxt]</h2>
 <p>Reprenons le code de la page :</p>
@@ -2854,7 +2854,7 @@
 <li>le client [nuxt] s’exécute après que le serveur [nuxt] ait envoyé au navigateur du client [nuxt] la page [authentification] ;</li>
 <li>le client [nuxt] parce que l’utilisateur a cliqué sur le lien [Authentification] du menu de navigation :</li>
 </ol>
-<p><img src="images/10000000000007A7000002CF6E8A8432.png" style="width:15.551cm;height:5.71cm;" alt="Image" /></p>
+<p><img src="images/10000000000007A7000002CF6E8A8432.png" style="width:15.551cm;height:5.71cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007A7000002CF6E8A8432.png" /></p>
 <p>Etudions d’abord le 1er cas. Dans ce cas, le client [nuxt] n’exécute pas la fonction [asyncData]. Il intègre dans les propriétés de la page les éléments [result] et éventuellement [showErrorLoading, errorLoadingMessage] que lui a envoyés le serveur [nuxt] :</p>
 <ul>
 <li>la propriété [result] est affichée par la ligne 7 ;</li>
@@ -2959,9 +2959,9 @@
 </code></pre></div>
 
 <p>Cette page est très semblable à la page [authentification]. Les explications sont analogues aussi bien pour son exécution par le serveur [nuxt] que pour son exécution par le client [nuxt]. Notons cependant que la ligne 7 affiche non pas succès / échec comme précédemment mais la valeur de la donnée reçue du serveur de calcul de l’impôt (ligne 52) :</p>
-<p><img src="images/10000000000009F80000034B244FC903.png" style="width:16.881cm;height:5.58cm;" alt="Image" /></p>
+<p><img src="images/10000000000009F80000034B244FC903.png" style="width:16.881cm;height:5.58cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000009F80000034B244FC903.png" /></p>
 <p>Le résultat ci-dessus est obtenu aussi bien avec le serveur qu’avec le client [nuxt]. Pour provoquer une erreur, demandez la page [get-admindata], via le serveur ou le client [nuxt], sans être authentifié :</p>
-<p><img src="images/10000000000007440000032C98854CDA.png" style="width:14.761cm;height:6.451cm;" alt="Image" /></p>
+<p><img src="images/10000000000007440000032C98854CDA.png" style="width:14.761cm;height:6.451cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007440000032C98854CDA.png" /></p>
 <h2 id="1518-la-page-fin-session">15.18. La page [fin-session]</h2>
 <p>Le code de la page est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -3110,10 +3110,10 @@
 <li>ligne 13, la couche [dao] du serveur [nuxt] est instanciée avec le cookie de session PHP pris dans la session [nuxt], lignes 9-10 ;</li>
 </ul>
 <p>Pour le client [nuxt], c’est une autre histoire. Ce n’est pas lui en effet qui envoie le cookie mais le navigateur qui l’exécute. Or ce navigateur ne connaît pas le cookie de la nouvelle session PHP reçu par le serveur [nuxt]. Si on utilise les liens du menu de navigation [3] :</p>
-<p><img src="images/10000000000009CA000002C462C907F2.png" style="width:16.581cm;height:4.68cm;" alt="Image" /></p>
+<p><img src="images/10000000000009CA000002C462C907F2.png" style="width:16.581cm;height:4.68cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000009CA000002C462C907F2.png" /></p>
 <p>Le serveur de calcul de l’impôt va recevoir du navigateur un cookie de session PHP obsolète et il va répondre qu’à ce cookie aucune session jSON n’est associée. Il nous faut trouver le moyen de passer au navigateur le nouveau cookie de session PHP.</p>
 <p>On peut utiliser un middleware de routing pour ce faire :</p>
-<p><img src="images/10000000000001270000009E8C1E5CC7.png" style="width:3.901cm;height:2.091cm;" alt="Image" /></p>
+<p><img src="images/10000000000001270000009E8C1E5CC7.png" style="width:3.901cm;height:2.091cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001270000009E8C1E5CC7.png" /></p>
 <p>Le script [client/routing] est le middleware de routage déclaré dans le fichier [nuxt.config] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// routeur</span>
@@ -3168,7 +3168,7 @@
 </code></pre></div>
 
 <p>Revenons à la situation juste après l’exécution de la page [fin-session] par le serveur [nuxt] :</p>
-<p><img src="images/10000000000009CA000002C462C907F2.png" style="width:16.581cm;height:4.68cm;" alt="Image" /></p>
+<p><img src="images/10000000000009CA000002C462C907F2.png" style="width:16.581cm;height:4.68cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000009CA000002C462C907F2.png" /></p>
 <p>Si on clique sur l’un des liens du menu [3], le client [nuxt] va prendre la main. Comme il va y avoir changement de page, le script de routing du client va s’exécuter :</p>
 <ul>
 <li>ligne 13 : le cookie de session PHP est trouvé dans le store de l’application [nuxt] ;</li>
@@ -3228,7 +3228,7 @@
 </ul>
 <h2 id="1519-execution">15.19. Exécution</h2>
 <p>Pour exécuter cet exemple, il faut prendre soin avant l’exécution de supprimer le cookie de session [nuxt] et le cookie PHP du navigateur exécutant le client [nuxt] afin de partir d’une situation nette. Ci-dessous un exemple avec le navigateur Chrome :</p>
-<p><img src="images/1000000000000380000001D2F02C8ECA.png" style="width:9.48cm;height:4.931cm;" alt="Image" /></p>
+<p><img src="images/1000000000000380000001D2F02C8ECA.png" style="width:9.48cm;height:4.931cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000380000001D2F02C8ECA.png" /></p>
 <h2 id="1520-conclusion">15.20. Conclusion</h2>
 <p>Cet exemple a été particulièrement complexe. Il réunissait des connaissances acquises dans les exemples précédents : persistance du store dans une session [nuxt], plugins d’injections de fonctions, middleware de routage, gestion des erreurs des opérations asynchrones. La complexité a été accrue par le fait qu’on voulait que l’utilisateur puisse aussi bien utiliser les liens du menu de navigation que taper des URL à la main sans que ça casse l’application. Pour cela, on a été obligés de regarder comment se comportait chaque page selon qu’elle était exécutée par le client ou le serveur [nuxt].</p>
 <p>Cette unité de comportement du client et du serveur [nuxt] n’est pas indispensable. On peut se mettre dans le cas fréquent où :</p>

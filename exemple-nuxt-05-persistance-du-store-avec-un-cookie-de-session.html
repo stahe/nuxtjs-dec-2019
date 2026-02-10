@@ -897,10 +897,10 @@
 </ul>
 <h2 id="81-presentation">8.1. Présentation</h2>
 <p>Le projet [nuxt-05] est obtenu initialement par recopie du projet [nuxt-04] :</p>
-<p><img src="images/100000000000014D00000194D2B72658.png" style="width:3.53cm;height:4.271cm;" alt="Image" /></p>
+<p><img src="images/100000000000014D00000194D2B72658.png" style="width:3.53cm;height:4.271cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000014D00000194D2B72658.png" /></p>
 <p>Nous allons voir que seul le fichier [store / index.js] va changer.</p>
 <p>Pour utiliser des cookies avec [nuxt], nous allons utiliser le module [cookie-universal-nuxt] que nous installlons avec [yarn] dans un terminal VSCode :</p>
-<p><img src="images/10000000000004C800000124EE164342.png" style="width:16.192cm;height:3.86cm;" alt="Image" /></p>
+<p><img src="images/10000000000004C800000124EE164342.png" style="width:16.192cm;height:3.86cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004C800000124EE164342.png" /></p>
 <ul>
 <li>en [4], on tape la commande [yarn add cookie-universal-nuxt] ;</li>
 </ul>
@@ -1193,14 +1193,14 @@
 </ul>
 <h2 id="86-execution-de-lexemple-nuxt-05">8.6. Exécution de l’exemple [nuxt-05]</h2>
 <p>Nous lançons l’application [nuxt-05] :</p>
-<p><img src="images/10000000000004A4000000C393512E1D.png" style="width:15.721cm;height:2.581cm;" alt="Image" /></p>
+<p><img src="images/10000000000004A4000000C393512E1D.png" style="width:15.721cm;height:2.581cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004A4000000C393512E1D.png" /></p>
 <p>Les copies d’écran qui suivent sont celles d’un navigateur Chrome. Nous demandons l’URL [http://localhost:81/nuxt-05/]. <strong>N’oubliez pas</strong> le dernier / derrière /nuxt-05, sinon vous n’aurez pas les résultats escomptés :</p>
-<p><img src="images/10000000000007EA000002AD420D8580.png" style="width:16.08cm;height:5.441cm;" alt="Image" /></p>
+<p><img src="images/10000000000007EA000002AD420D8580.png" style="width:16.08cm;height:5.441cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007EA000002AD420D8580.png" /></p>
 <ul>
 <li>en [4], nous avons obtenu la valeur initiale du store (77) ;</li>
 </ul>
 <p>Examinons les logs du navigateur (F12) :</p>
-<p><img src="images/10000000000003A8000002BFF206F300.png" style="width:7.43cm;height:5.58cm;" alt="Image" /></p>
+<p><img src="images/10000000000003A8000002BFF206F300.png" style="width:7.43cm;height:5.58cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003A8000002BFF206F300.png" /></p>
 <ul>
 <li>en [5-6], les logs du serveur ;</li>
 <li>en [7], on voit que le serveur démarre une nouvelle session. Cela veut dire qu’il n’a pas reçu de cookie de session ;</li>
@@ -1208,7 +1208,7 @@
 <li>en [9], la page [index] du serveur (9) et celle du client (10) affichent bien la même valeur du compteur ;</li>
 </ul>
 <p>Maintenant regardons les cookies reçus par le navigateur :</p>
-<p><img src="images/100000000000071C0000026550FCE5E8.png" style="width:14.451cm;height:4.86cm;" alt="Image" /></p>
+<p><img src="images/100000000000071C0000026550FCE5E8.png" style="width:14.451cm;height:4.86cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000071C0000026550FCE5E8.png" /></p>
 <ul>
 <li>en [1], choisissez l’onglet [Application] puis l’option [Cookies] [2]. Parmi tous les cookies de votre navigateur, choisissez celui du domaine [http://localhost:81];</li>
 <li>en [4], le cookie nommé ‘session’. Si vous ne l’avez pas, rechargez la page [F5] : peut-être avez-vous dépassé sa durée de vie qui est de 5 mn ;</li>
@@ -1217,13 +1217,13 @@
 <li>en [7], l’heure de fin de validité du cookie. Lorsque cette heure sera dépassée, le cookie sera détruit sur le navigateur ;</li>
 </ul>
 <p>Assurez-vous d’avoir ce cookie. Si vous ne l’avez pas, rechargez la page (F5). Lorsque vous avez la page avec son cookie, rechargez de nouveau la page (F5). Les logs deviennent alors les suivants :</p>
-<p><img src="images/10000000000003F5000002D011D4BFB8.png" style="width:8.041cm;height:5.721cm;" alt="Image" /></p>
+<p><img src="images/10000000000003F5000002D011D4BFB8.png" style="width:8.041cm;height:5.721cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003F5000002D011D4BFB8.png" /></p>
 <p>Cette fois-ci en [3], le serveur a bien récupéré le cookie de session. C’est le navigateur client qui le lui a envoyé.</p>
 <p>Maintenant, procédez à des incrémentations du compteur, puis de temps en temps rechargez la page courante (F5), que ce soit [index] ou [page1], vous devez constater que le compteur ne revient pas à 77 comme dans l’exemple [nuxt-04] mais garde la valeur qu’il avait sur le navigateur client avant le rechargement de la page :</p>
-<p><img src="images/10000000000007E2000002B5201B12CF.png" style="width:16.02cm;height:5.501cm;" alt="Image" /></p>
-<p><img src="images/10000000000007F9000002B492061390.png" style="width:16.2cm;height:5.49cm;" alt="Image" /></p>
+<p><img src="images/10000000000007E2000002B5201B12CF.png" style="width:16.02cm;height:5.501cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007E2000002B5201B12CF.png" /></p>
+<p><img src="images/10000000000007F9000002B492061390.png" style="width:16.2cm;height:5.49cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007F9000002B492061390.png" /></p>
 <p>Les logs du navigateur sont alors les suivants :</p>
-<p><img src="images/1000000000000530000001B45ACF1350.png" style="width:17.571cm;height:5.77cm;" alt="Image" /></p>
+<p><img src="images/1000000000000530000001B45ACF1350.png" style="width:17.571cm;height:5.77cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000530000001B45ACF1350.png" /></p>
 <p><strong>Note</strong> : pour les tests vous pouvez avoir besoin de supprimer [5] le cookie de session stocké sur le navigateur pour repartir avec une nouvelle session, initialisée par le serveur, lors de la prochaine requête vers celui-ci.</p>
 <p>Enfin montrons l’influence de la fonction [incrementCounter] de la page [index] sur le cookie de session stocké sur le navigateur client :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
@@ -1245,12 +1245,12 @@
 <li>ligne 10 : la modification du compteur est répercutée sur le cookie de session ;</li>
 </ul>
 <p>Vérifions ce point. On part de la situation suivante :</p>
-<p><img src="images/10000000000007EF000005E5DA78BB73.png" style="width:16.121cm;height:11.981cm;" alt="Image" /></p>
+<p><img src="images/10000000000007EF000005E5DA78BB73.png" style="width:16.121cm;height:11.981cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007EF000005E5DA78BB73.png" /></p>
 <ul>
 <li>en [4], le compteur du cookie de session reflète bien la valeur affichée [1] ;</li>
 </ul>
 <p>Maintenant, incrémentons le compteur une fois [5]. Le cookie de session en [4] évolue de la façon suivante :</p>
-<p><img src="images/10000000000007EC000005DCC967A8FF.png" style="width:16.102cm;height:11.911cm;" alt="Image" /></p>
+<p><img src="images/10000000000007EC000005DCC967A8FF.png" style="width:16.102cm;height:11.911cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007EC000005DCC967A8FF.png" /></p>
 <ul>
 <li>en [7], le compteur du cookie de session est bien passé à 84. Pour le voir, il faut rafraîchir la vue [8]. Pour cela sélectionnez une autre option du [Storage] [9], puis resélectionnez l’option [8]. La nouvelle valeur du cookie de session devrait alors apparaître ;</li>
 </ul>

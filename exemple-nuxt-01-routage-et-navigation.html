@@ -903,9 +903,9 @@
 <p>Nous allons construire une série d’exemples simples pour découvrir progressivement le fonctionnement d’une application [nuxt]. Nous allons commencer par porter l’application [vuejs-11] du document |<a href="https://tahe.developpez.com/tutoriels-cours/vuejs">Introduction au framework </a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"><strong>VUE.JS</strong></a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"> par l’exemple</a>|, pour découvrir tout d’abord ce qui différencie l’organisation du code d’une application [nuxt] de celle du code d’une application [vue].</p>
 <h2 id="41-arborescence-du-projet">4.1. Arborescence du projet</h2>
 <p>Le projet [vuejs-11] était un projet de navigation entre vues :</p>
-<p><img src="images/10000000000009DA000002ED622669F6.png" style="width:16.68cm;height:4.95cm;" alt="Image" /></p>
+<p><img src="images/10000000000009DA000002ED622669F6.png" style="width:16.68cm;height:4.95cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000009DA000002ED622669F6.png" /></p>
 <p>L’arborescence du code source du projet [vuejs-11] était le suivant :</p>
-<p><img src="images/10000000000002AE0000015510494F9F.png" style="width:9.081cm;height:4.511cm;" alt="Image" /></p>
+<p><img src="images/10000000000002AE0000015510494F9F.png" style="width:9.081cm;height:4.511cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002AE0000015510494F9F.png" /></p>
 <ul>
 <li>[main.js] était le script exécuté lors du démarrage de l’application [vue] ;</li>
 <li>[router.js] fixait les règles de routage ;</li>
@@ -1055,7 +1055,7 @@
 </ul>
 <p>Le fichier [main.js] n’a désormais plus de raison d’être. S’il en avait eu une, on l’aurait déclaré dans la clé [plugins] de la ligne 30 du fichier de configuration [nuxt.config.js] ;</p>
 <h2 id="43-la-vue-principale-defaultvue">4.3. La vue principale [default.vue]</h2>
-<p><img src="images/1000000000000167000000BD626BF868.png" style="width:3.8cm;height:2.001cm;" alt="Image" /></p>
+<p><img src="images/1000000000000167000000BD626BF868.png" style="width:3.8cm;height:2.001cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000167000000BD626BF868.png" /></p>
 <p>La vue principale [layouts / default.vue] est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line"><span style="color:#0000ff">&lt;</span>template<span style="color:#0000ff">&gt;</span></span>
@@ -1082,7 +1082,7 @@
 <li>ligne 9, dans le projet [vuejs-11], on avait la balise &lt;<strong>router-view</strong> /&gt; au lieu de la balise &lt;<strong>nuxt</strong> /&gt; utilisée ici. Les deux semblent utilisables. Je les ai essayées toutes les deux sans voir de changement. J’ai gardé la balise &lt;<strong>nuxt</strong> /&gt; qui est celle conseillée. Elle affiche la vue courante, ç-à-d la page cible du routage courant ;</li>
 </ul>
 <h2 id="44-les-composants">4.4. Les composants</h2>
-<p><img src="images/100000000000016E000000D5488BFE06.png" style="width:3.871cm;height:2.26cm;" alt="Image" /></p>
+<p><img src="images/100000000000016E000000D5488BFE06.png" style="width:3.871cm;height:2.26cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000016E000000D5488BFE06.png" /></p>
 <p>Par rapport au projet [vuejs-11], les composants [layout, navigation] ne changent pas :</p>
 <p>[<strong>components / layout.vue</strong>]</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
@@ -1142,7 +1142,7 @@
 </code></pre></div>
 
 <p>Ce composant affiche trois liens de navigation :</p>
-<p><img src="images/100000000000028A0000012120CA623E.png" style="width:8.601cm;height:3.821cm;" alt="Image" /></p>
+<p><img src="images/100000000000028A0000012120CA623E.png" style="width:8.601cm;height:3.821cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000028A0000012120CA623E.png" /></p>
 <p>Pour savoir quoi mettre comme valeur aux attributs [to] des lignes 4, 7 et 10, il faut regarder le dossier [pages] [2] :</p>
 <ul>
 <li>la page [index] aura l’URL [/] ;</li>
@@ -1169,9 +1169,9 @@
 
 <p>La balise &lt;<strong>b-nav-item</strong>&gt; est remplacée par la balise &lt;<strong>nuxt-link</strong>&gt; qui désigne un lien de routage. A l’exécution, je n’ai pas vu de grande différence, rien qui pourrait faire pencher la balance vers une balise plutôt que l’autre.</p>
 <h2 id="45-les-pages">4.5. Les pages</h2>
-<p><img src="images/10000000000001790000010343016F8A.png" style="width:4.001cm;height:2.751cm;" alt="Image" /></p>
+<p><img src="images/10000000000001790000010343016F8A.png" style="width:4.001cm;height:2.751cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001790000010343016F8A.png" /></p>
 <p>La page [index.vue] affiche la vue suivante :</p>
-<p><img src="images/10000000000006D2000002C6CB778E4C.png" style="width:16.17cm;height:6.571cm;" alt="Image" /></p>
+<p><img src="images/10000000000006D2000002C6CB778E4C.png" style="width:16.17cm;height:6.571cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006D2000002C6CB778E4C.png" /></p>
 <p>Le code de la page est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">&lt;!-- page principale --&gt;</span>
@@ -1244,9 +1244,9 @@
 <p>C’est lui qui contrôle l’exécution du projet [dvp]. Il a été décrit page <a href="#nuxt01-config">32</a>.</p>
 <h2 id="47-execution-du-projet">4.7. Exécution du projet</h2>
 <p>Nous exécutons le projet :</p>
-<p><img src="images/1000000000000307000000E286F6CC26.png" style="width:8.201cm;height:2.391cm;" alt="Image" /></p>
+<p><img src="images/1000000000000307000000E286F6CC26.png" style="width:8.201cm;height:2.391cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000307000000E286F6CC26.png" /></p>
 <p>La page affichée est la suivante :</p>
-<p><img src="images/10000000000006D2000002CC1F192FC4.png" style="width:16.17cm;height:6.631cm;" alt="Image" /></p>
+<p><img src="images/10000000000006D2000002CC1F192FC4.png" style="width:16.17cm;height:6.631cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006D2000002CC1F192FC4.png" /></p>
 <p>Une fois installée sur le navigateur, l’application [nuxt] devient une application [vue] classique. Nous ne commenterons donc pas le fonctionnement client de l’application [nuxt-01]. Cela a été fait dans le projet [vuejs-11] du document |<a href="https://tahe.developpez.com/tutoriels-cours/vuejs">Introduction au framework </a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"><strong>VUE.JS</strong></a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"> par l’exemple</a>|.</p>
 <p>L’application [nuxt] ne diffère de l’application [vue] qu’à deux moments :</p>
 <ul>
@@ -1259,7 +1259,7 @@
 <li>la page reçue est traitée par le client ;</li>
 </ul>
 <p>Regardons les logs du démarrage de l’application (F12 sur le navigateur) :</p>
-<p><img src="images/1000000000000472000001C59AF58089.png" style="width:15.05cm;height:5.991cm;" alt="Image" /></p>
+<p><img src="images/1000000000000472000001C59AF58089.png" style="width:15.05cm;height:5.991cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000472000001C59AF58089.png" /></p>
 <ul>
 <li>en [1], les logs du serveur (process.server=true). Ils apparaissent précédés de la mention [Nuxt SSR] (SSR= Server Side Rendered) ;</li>
 <li>en [2], les logs du client sur le navigateur (process.client=true) ;</li>
@@ -1355,7 +1355,7 @@
 <li>lignes 68-71 : les scripts qui forment le client exécuté côté navigateur ;</li>
 </ul>
 <p>Les scripts des lignes 68-71 sont exécutés et transforment la page reçue. Pour connaître la page finalement affichée pour l’utilisateur, il faut aller dans l’onglet [inspecteur] des outils de développement du navigateur (F12) :</p>
-<p><img src="images/100000000000048E000001476F00465E.png" style="width:15.431cm;height:4.331cm;" alt="Image" /></p>
+<p><img src="images/100000000000048E000001476F00465E.png" style="width:15.431cm;height:4.331cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000048E000001476F00465E.png" /></p>
 <p>Lorsqu’on développe la balise &lt;html&gt; [3], on a le contenu suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line"><span style="color:#0000ff">&lt;</span>head<span style="color:#0000ff">&gt;</span></span>
@@ -1447,14 +1447,14 @@
 <li>lignes 76-79 : quatre [iframe] apparaissent ;</li>
 </ul>
 <p>Lignes 33, 37 et 42, les liens posent problème. Ils semblent être des liens normaux qui lorsqu’on les clique vont faire une requête vers le serveur. Or à l’exécution, on voit que ce n’est pas vrai : il n’y a pas de requête vers le serveur. Pour comprendre pourquoi, il faut retourner dans l’onglet [inspecteur] du navigateur :</p>
-<p><img src="images/10000000000004C7000001C856944240.png" style="width:12.941cm;height:4.83cm;" alt="Image" /></p>
+<p><img src="images/10000000000004C7000001C856944240.png" style="width:12.941cm;height:4.83cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004C7000001C856944240.png" /></p>
 <p>On voit qu’en [1, 2] des événements ont été attachés aux liens. Ce sont les scripts des lignes 71-74 qui ont attaché des gestionnaires d’événements aux liens. Donc :</p>
 <ul>
 <li>la page affichée par le client est visuellement identique à celle envoyée par le serveur ;</li>
 <li>un comportement dynamique a été ajouté à la page par le client ;</li>
 </ul>
 <p>Maintenant demandons la page [page1] en tapant l’URL à la main [http://192.168.1.128:81/nuxt-01/page1]. Les logs deviennent les suivants :</p>
-<p><img src="images/100000000000048B0000016161B446A2.png" style="width:15.391cm;height:4.672cm;" alt="Image" /></p>
+<p><img src="images/100000000000048B0000016161B446A2.png" style="width:15.391cm;height:4.672cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000048B0000016161B446A2.png" /></p>
 <p>On obtient les mêmes résultats que pour la page [index] mais pour [page1]. Le code source de la page reçue est lui le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line"><span style="color:#0000ff">&lt;</span>body<span style="color:#0000ff">&gt;</span></span>

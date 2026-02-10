@@ -858,10 +858,10 @@
 <h1 id="12-exemple-nuxt-09-controle-de-la-navigation">12. Exemple [nuxt-09] : contrôle de la navigation</h1>
 <p><span style="color: #000000">L’exemple [nuxt-09] utilise un middleware pour contrôler la navigation du client. Par ailleurs, on ajoute une nouvelle vue pour les cas où l’utilisateur demande au serveur une URL qui n’existe pas dans l’application.</span></p>
 <p><span style="color: #000000">L’exemple [nuxt-09] est initialement obtenu par recopie de l’exemple [nuxt-01] :</span></p>
-<p><img src="images/10000000000001A0000001D7251FD4A6.png" style="width:4.4cm;height:4.98cm;" alt="Image" /></p>
+<p><img src="images/10000000000001A0000001D7251FD4A6.png" style="width:4.4cm;height:4.98cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001A0000001D7251FD4A6.png" /></p>
 <h2 id="121-la-page-_vue">12.1. La page [_.vue]</h2>
 <p><span style="color: #000000">Nous avons dit que les routes de l’application étaient construites à partir du contenu du dossier [pages]. Ici, nous avons ajouté dans ce dossier la page [_.vue]. Cette page particulière est affichée à chaque fois que l’application est routée vers une page qui n’existe pas. Dans notre exemple ici, cela ne peut pas arriver pour le client. Mais cela peut arriver pour le serveur si par exemple on lui demande l’URL [/nuxt-09/</span><strong><span style="color: #000000">abcd</span></strong><span style="color: #000000">]. La page [abcd] n’existant pas, c’est la page [_.vue] qui va être affichée. Ici, ce sera la suivante :</span></p>
-<p><img src="images/10000000000007C200000290EE453908.png" style="width:13.131cm;height:4.34cm;" alt="Image" /></p>
+<p><img src="images/10000000000007C200000290EE453908.png" style="width:13.131cm;height:4.34cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007C200000290EE453908.png" /></p>
 <p><span style="color: #000000">Le code de la page [_.vue] est le suivant :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">&lt;!-- définition HTML de la vue --&gt;</span>

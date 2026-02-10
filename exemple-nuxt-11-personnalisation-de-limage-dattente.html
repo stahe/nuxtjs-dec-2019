@@ -973,11 +973,11 @@
 
 <h1 id="14-exemple-nuxt-11-personnalisation-de-limage-dattente">14. Exemple [nuxt-11] : personnalisation de l’image d’attente</h1>
 <p>Par défaut, l’image d’attente de [nuxt] est une barre de progression. L’exemple [nuxt-11] montre qu’on peut la remplacer par sa propre image d’attente :</p>
-<p><img src="images/10000000000008550000030A852B5A87.png" style="width:14.11cm;height:5.151cm;" alt="Image" /></p>
+<p><img src="images/10000000000008550000030A852B5A87.png" style="width:14.11cm;height:5.151cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000008550000030A852B5A87.png" /></p>
 <p>L’exemple [nuxt-11]  montre également comment gérer des erreurs de chargement.</p>
-<p><img src="images/1000000000000855000003274C636D62.png" style="width:14.11cm;height:5.331cm;" alt="Image" /></p>
+<p><img src="images/1000000000000855000003274C636D62.png" style="width:14.11cm;height:5.331cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000855000003274C636D62.png" /></p>
 <p>L’exemple [nuxt-11] est obtenu initialement par recopie de l’exemple [nuxt-10] :</p>
-<p><img src="images/100000000000011E00000154E95F9BA4.png" style="width:3.781cm;height:4.5cm;" alt="Image" /></p>
+<p><img src="images/100000000000011E00000154E95F9BA4.png" style="width:3.781cm;height:4.5cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000011E00000154E95F9BA4.png" /></p>
 <p>Nous allons ajouter en [1], un plugin pour le client dont le rôle sera de gérer des événements entre composants.</p>
 <p><a id="nuxt11eventbus"></a>
 <a id="refheadingtoc1254732440889551"></a></p>
@@ -1244,7 +1244,7 @@
 </li>
 </ul>
 <p>Que [asyncData] soit exécutée par le client ou le serveur, en cas d’erreur [context.error], [nuxt] affiche la page [layouts / <strong>error.vue</strong>] :</p>
-<p><img src="images/1000000000000172000001D9BB99F161.png" style="width:3.911cm;height:5.01cm;" alt="Image" /></p>
+<p><img src="images/1000000000000172000001D9BB99F161.png" style="width:3.911cm;height:5.01cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000172000001D9BB99F161.png" /></p>
 <p>Bien que ce soit une page, la page [error.vue] est cherchée dans le dossier [layouts] (peut-être pour éviter qu’elle soit incluse dans les routes de l’application ?). Ici, la page [error.vue] est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">&lt;!-- définition HTML de la vue --&gt;</span>
@@ -1476,9 +1476,9 @@
 </ul>
 <h3 id="1462-la-page-index-executee-par-le-serveur">14.6.2. <em>L</em>a page [index] <em>exécutée par le</em> serveur</h3>
 <p>Demandons la page [index] au serveur (on tape l’URL [http://localhost:81/nuxt-11/] à la main). La page affichée par le navigateur client est la suivante :</p>
-<p><img src="images/10000000000009BD000002BC00286B31.png" style="width:16.491cm;height:4.631cm;" alt="Image" /></p>
+<p><img src="images/10000000000009BD000002BC00286B31.png" style="width:16.491cm;height:4.631cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000009BD000002BC00286B31.png" /></p>
 <p>Les logs sont les suivants :</p>
-<p><img src="images/1000000000000440000004CB1DF945BE.png" style="width:8.64cm;height:9.741cm;" alt="Image" /></p>
+<p><img src="images/1000000000000440000004CB1DF945BE.png" style="width:8.64cm;height:9.741cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000440000004CB1DF945BE.png" /></p>
 <ul>
 <li>en [3], on voit que le serveur envoie la page [error.vue] ;</li>
 <li>en [4], on voit que le client affiche lui aussi la page [error] avec la même erreur que le serveur ;</li>
@@ -1569,18 +1569,18 @@
 </ul>
 <h3 id="1463-la-page-page1-executee-par-le-serveur">14.6.3. La page [page1] exécutée par le serveur</h3>
 <p>On tape à la main l’URL [http://localhost:81/nuxt-11/page1]. Au bout de 5 secondes, le navigateur affiche la page suivante :</p>
-<p><img src="images/10000000000007E200000297DCE3A3BB.png" style="width:13.352cm;height:4.381cm;" alt="Image" /></p>
+<p><img src="images/10000000000007E200000297DCE3A3BB.png" style="width:13.352cm;height:4.381cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007E200000297DCE3A3BB.png" /></p>
 <p>Les logs affichés sont les suivants :</p>
-<p><img src="images/10000000000003A6000003A2963CB67C.png" style="width:7.411cm;height:7.381cm;" alt="Image" /></p>
+<p><img src="images/10000000000003A6000003A2963CB67C.png" style="width:7.411cm;height:7.381cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003A6000003A2963CB67C.png" /></p>
 <ul>
 <li>en [1], les logsdu serveur. On peut remarquer que la méthode [mShowLoading] de la page [default] n’a pas été appelée ;</li>
 <li>en [2], les logs du client ;</li>
 </ul>
 <h3 id="1464-la-page-page2-executee-par-le-serveur">14.6.4. La page [page2] exécutée par le serveur</h3>
 <p>Nous tapons à la main l’URL [http://localhost:81/nuxt-11/page2]. Au bout de 5 secondes, le navigateur affiche la page suivante :</p>
-<p><img src="images/10000000000007DD00000309D7D619B7.png" style="width:15.982cm;height:6.171cm;" alt="Image" /></p>
+<p><img src="images/10000000000007DD00000309D7D619B7.png" style="width:15.982cm;height:6.171cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007DD00000309D7D619B7.png" /></p>
 <p>Examinons les logs affichés dans le navigateur :</p>
-<p><img src="images/10000000000005E200000405DB47D4BA.png" style="width:11.951cm;height:8.171cm;" alt="Image" /></p>
+<p><img src="images/10000000000005E200000405DB47D4BA.png" style="width:11.951cm;height:8.171cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005E200000405DB47D4BA.png" /></p>
 <ul>
 <li>en [1], les logs du serveur. On rappelle que le serveur a mis les propriétés [showErrorLoading, errorLoadingMessage] dans la page envoyée au navigateur client. On sait qu’alors ces propriétés vont être intégrées dans les [data] de la page affichée par le client</li>
 <li>en [3], lorsque la page [page2] est montée, elle trouve la propriété [showErrorLoading] à vrai. Elle envoie alors un événement à la page [default], pour qu’elle affiche le message d’erreur envoyé par le serveur [4] ;</li>
@@ -1588,11 +1588,11 @@
 <h3 id="1465-la-page-index-executee-par-le-client">14.6.5. La page [index] exécutée par le client</h3>
 <p>On utilise maintenant les liens de navigation pour afficher les trois pages. Toutes les pages affichées par le client sont identiques à celles affichées par le serveur. La seule différence est que l’image d’attente de la fin des 5 secondes est affichée à chaque fois.</p>
 <p>On commence par la page [index]. L’image d’attente est alors affichée :</p>
-<p><img src="images/10000000000007F90000030E84F26BC0.png" style="width:13.502cm;height:5.181cm;" alt="Image" /></p>
+<p><img src="images/10000000000007F90000030E84F26BC0.png" style="width:13.502cm;height:5.181cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007F90000030E84F26BC0.png" /></p>
 <p>puis au bout de 5 secondes, on obtient la page suivante :</p>
-<p><img src="images/10000000000009D5000002C9013ACE97.png" style="width:13.322cm;height:3.77cm;" alt="Image" /></p>
+<p><img src="images/10000000000009D5000002C9013ACE97.png" style="width:13.322cm;height:3.77cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000009D5000002C9013ACE97.png" /></p>
 <p>La page finale est donc identique à celle obtenue côté serveur.</p>
-<p><img src="images/10000000000004BC000002EC7F29B811.png" style="width:9.621cm;height:5.942cm;" alt="Image" /></p>
+<p><img src="images/10000000000004BC000002EC7F29B811.png" style="width:9.621cm;height:5.942cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004BC000002EC7F29B811.png" /></p>
 <p>Rappelons la fonction [asyncData] de la page [index] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line">asyncData(context) {</span>
@@ -1618,7 +1618,7 @@
 </code></pre></div>
 
 <p>Les logs du client sont les suivants :</p>
-<p><img src="images/10000000000004BC000002EC7F29B811.png" style="width:9.621cm;height:5.942cm;" alt="Image" /></p>
+<p><img src="images/10000000000004BC000002EC7F29B811.png" style="width:9.621cm;height:5.942cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004BC000002EC7F29B811.png" /></p>
 <ul>
 <li>en [1], la fonction [asyncData] démarre ;</li>
 <li>en [2], on met en route l’image d’attente ;</li>
@@ -1629,7 +1629,7 @@
 </ul>
 <h3 id="1466-la-page-page1-executee-par-le-client">14.6.6. La page [<em>page1</em>] exécutée par le client</h3>
 <p>Après l’attente de 5 secondes, le client affiche la page suivante :</p>
-<p><img src="images/10000000000007DD000002BB12ED4E01.png" style="width:15.982cm;height:5.55cm;" alt="Image" /></p>
+<p><img src="images/10000000000007DD000002BB12ED4E01.png" style="width:15.982cm;height:5.55cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007DD000002BB12ED4E01.png" /></p>
 <p>Rappelons le code de la fonction [asyncData] de [page1] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line">asyncData(context) {</span>
@@ -1655,10 +1655,10 @@
 </code></pre></div>
 
 <p>Les logs sont les suivants :</p>
-<p><img src="images/1000000000000474000001E2424CBD47.png" style="width:9.051cm;height:3.83cm;" alt="Image" /></p>
+<p><img src="images/1000000000000474000001E2424CBD47.png" style="width:9.051cm;height:3.83cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000474000001E2424CBD47.png" /></p>
 <h3 id="1467-la-page-page2-executee-par-le-client">14.6.7. La page [<em>page2</em>] exécutée par le client</h3>
 <p>Après l’attente de 5 secondes, le client affiche la page suivante :</p>
-<p><img src="images/100000000000080A00000309A590B1B6.png" style="width:16.341cm;height:6.171cm;" alt="Image" /></p>
+<p><img src="images/100000000000080A00000309A590B1B6.png" style="width:16.341cm;height:6.171cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000080A00000309A590B1B6.png" /></p>
 <p>Rappelons le code des fonctions [asyncData] et [mounted] de [page2] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line">asyncData(context) {</span>
@@ -1695,7 +1695,7 @@
 </code></pre></div>
 
 <p>Les logs sont les suivants :</p>
-<p><img src="images/100000000000066A00000228B83106F2.png" style="width:13.031cm;height:4.381cm;" alt="Image" /></p>
+<p><img src="images/100000000000066A00000228B83106F2.png" style="width:13.031cm;height:4.381cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000066A00000228B83106F2.png" /></p>
 <ul>
 <li>en [1], la page [default] a reçu l’événement [showErrorLoading, true] envoyé par [page2] (ligne 29) qui lui demande d’afficher le message d’erreur ;</li>
 </ul>

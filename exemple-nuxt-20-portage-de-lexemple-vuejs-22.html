@@ -945,15 +945,15 @@
 <h2 id="171-presentation">17.1. Présentation</h2>
 <p>Nous nous proposons ici de porter l’exemple [vuejs-22] qui était une application [vue.js] de type SPA, dans un contexte [nuxt] SSR. [vuejs-22] était une application cliente du serveur de calcul de l’impôt qui présentait les vues suivantes :</p>
 <p>La 1ère vue est la vue d’authentification :</p>
-<p><img src="images/1000000000000770000004AA35461DA4.png" style="width:12.591cm;height:7.901cm;" alt="Image" /></p>
+<p><img src="images/1000000000000770000004AA35461DA4.png" style="width:12.591cm;height:7.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000770000004AA35461DA4.png" /></p>
 <p>La seconde vue est celle du calcul de l’impôt :</p>
-<p><img src="images/10000000000008AD0000055E31785C13.png" style="width:14.69cm;height:9.09cm;" alt="Image" /></p>
+<p><img src="images/10000000000008AD0000055E31785C13.png" style="width:14.69cm;height:9.09cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000008AD0000055E31785C13.png" /></p>
 <p>La 3ième vue est celle qui affiche la liste des simulations faites par l’utilisateur :</p>
-<p><img src="images/100000000000089D000004D19CD113E8.png" style="width:14.581cm;height:8.161cm;" alt="Image" /></p>
+<p><img src="images/100000000000089D000004D19CD113E8.png" style="width:14.581cm;height:8.161cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000089D000004D19CD113E8.png" /></p>
 <p>L’écran ci-dessus montre qu’on peut supprimer la simulation n° 1. On obtient alors la vue suivante :</p>
-<p><img src="images/100000000000088F000004622293E2BB.png" style="width:14.491cm;height:7.421cm;" alt="Image" /></p>
+<p><img src="images/100000000000088F000004622293E2BB.png" style="width:14.491cm;height:7.421cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000088F000004622293E2BB.png" /></p>
 <p>Si on supprime maintenant la dernière simulation, on obtient la nouvelle vue suivante :</p>
-<p><img src="images/10000000000008BE0000036F87B3657D.png" style="width:14.802cm;height:5.822cm;" alt="Image" /></p>
+<p><img src="images/10000000000008BE0000036F87B3657D.png" style="width:14.802cm;height:5.822cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000008BE0000036F87B3657D.png" /></p>
 <p>Nous allons porter l’application [vuejs-22] vers l’application [nuxt-20] de façon progressive. Nous n’expliquerons pas de nouveau les codes de [vuejs-22]. Le lecteur est invité à relire le document |<a href="https://tahe.developpez.com/tutoriels-cours/vuejs">Introduction au framework </a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"><strong>VUE.JS</strong></a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"> par l’exemple</a>|. Les différentes étapes devraient montrer les différences entre une application [vuejs] et une application [nuxt].</p>
 <h2 id="172-etape-1">17.2. étape 1</h2>
 <p>Le projet [nuxt-20] est initialement obtenu par recopie du projet [nuxt-12]. Celui-ci est en effet un bon point de départ :</p>
@@ -969,7 +969,7 @@
 <li>la gestion du routage du client et du serveur [nuxt] ;</li>
 </ul>
 <p>Donc tout d’abord, on crée le projet [nuxt-20] en recopiant le projet [nuxt-12] :</p>
-<p><img src="images/10000000000004D4000001F7303D816A.png" style="width:16.35cm;height:6.661cm;" alt="Image" /></p>
+<p><img src="images/10000000000004D4000001F7303D816A.png" style="width:16.35cm;height:6.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004D4000001F7303D816A.png" /></p>
 <p>Puis on supprime les pages et composants devenus inutiles [2] :</p>
 <ul>
 <li>le composant [components/navigation] disparaît ;</li>
@@ -983,7 +983,7 @@
 <li>la page [Main] de [vuejs-22] qui servait de [layout] à l’application [vuejs-22] va dans le dossier [layouts] ;</li>
 </ul>
 <p>On renomme les éléments intégrés [4] :</p>
-<p><img src="images/10000000000001D4000002AD055E8306.png" style="width:4.95cm;height:7.25cm;" alt="Image" /></p>
+<p><img src="images/10000000000001D4000002AD055E8306.png" style="width:4.95cm;height:7.25cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001D4000002AD055E8306.png" /></p>
 <ul>
 <li>dans [layouts], [Main] est devenue [default] puisque c’est le nom par défaut du layout d’une application [nuxt] ;</li>
 <li>dans [pages], la page [Authentification] est devenue [index], car [Authentification] jouait ce rôle dans l’application [vuejs-22] ;</li>
@@ -1089,7 +1089,7 @@
 </code></pre></div>
 
 <p>On fait ensuite un [build] du projet :</p>
-<p><img src="images/10000000000003020000019244B0B405.png" style="width:6.111cm;height:3.192cm;" alt="Image" /></p>
+<p><img src="images/10000000000003020000019244B0B405.png" style="width:6.111cm;height:3.192cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003020000019244B0B405.png" /></p>
 <p>Les erreurs signalées sont les suivantes :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
@@ -1112,7 +1112,7 @@
 <li>les erreurs des lignes [6-7] montrent que le composant [./Menu] n’existe pas. Effectivement, il s’appelle maintenant [@/components/menu] ;</li>
 </ul>
 <p>On ajoute l’image [<mark style="background-color: #ffff00">assets/logo.jpg</mark>] au projet [nuxt-20] :</p>
-<p><img src="images/10000000000001C70000012349C3FFE8.png" style="width:6.021cm;height:3.851cm;" alt="Image" /></p>
+<p><img src="images/10000000000001C70000012349C3FFE8.png" style="width:6.021cm;height:3.851cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001C70000012349C3FFE8.png" /></p>
 <p>Par ailleurs, dans toutes les pages on va corriger le chemin des composants. Prenons l’exemple de la page [calcul-impot] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">&lt;!-- définition HTML de la vue --&gt;</span>
@@ -1164,7 +1164,7 @@
 
 <p>On vérifie et éventuellement corrige ainsi les [import] de tous les composants, layouts et pages. Une fois ces corrections faites, on peut tenter un nouveau [build]. Normalement il n’y a plus d’erreurs.</p>
 <p>On peut alors tenter une exécution :</p>
-<p><img src="images/1000000000000304000000E348146A0B.png" style="width:10.21cm;height:3.001cm;" alt="Image" /></p>
+<p><img src="images/1000000000000304000000E348146A0B.png" style="width:10.21cm;height:3.001cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000304000000E348146A0B.png" /></p>
 <p>Des erreurs apparaissent :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
@@ -1184,16 +1184,16 @@
 <span class="normal"><a href="#__codelineno-2-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">c</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2019</span>\<span class="n">dev</span>\<span class="n">nuxtjs</span>\<span class="n">dvp</span>\<span class="n">nuxt</span><span class="o">-</span><span class="mi">20</span>\<span class="n">components</span>\<span class="n">menu</span><span class="o">.</span><span class="n">vue</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="mi">14</span><span class="p">:</span><span class="mi">5</span>  <span class="n">warning</span>  <span class="n">Prop</span> <span class="s1">&#39;options&#39;</span> <span class="n">requires</span> <span class="n">default</span> <span class="n">value</span> <span class="n">to</span> <span class="n">be</span> <span class="nb">set</span>  <span class="n">vue</span><span class="o">/</span><span class="n">require</span><span class="o">-</span><span class="n">default</span><span class="o">-</span><span class="n">prop</span>
 </code></pre></div></td></tr></table></div>
-<p><img src="images/10000000000004670000010924A6CF66.png" style="width:14.911cm;height:3.511cm;" alt="Image" /></p>
+<p><img src="images/10000000000004670000010924A6CF66.png" style="width:14.911cm;height:3.511cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004670000010924A6CF66.png" /></p>
 <p>On corrige cette erreur avec le [Quick fix] du module [eslint] [2].</p>
 <p>On relance l’exécution du projet. On n’a plus d’erreur de compilation. On demande alors l’URL [http://localhost:81/nuxt-20/] avec un navigateur. On obtient une erreur d’exécution :</p>
-<p><img src="images/100000000000056F00000364C8CEAED2.png" style="width:11.041cm;height:6.891cm;" alt="Image" /></p>
+<p><img src="images/100000000000056F00000364C8CEAED2.png" style="width:11.041cm;height:6.891cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000056F00000364C8CEAED2.png" /></p>
 <p>L’erreur se trouve dans [index.vue] [2]. L’erreur [1] vient du fait que dans [vuejs-22], la couche [dao] était disponible dans [this.$dao] alors que dans [nuxt-12] dont nous avons adopté l’infrastructure, elle est disponible dans la fonction [this.$dao()].</p>
 <p>L’erreur est dans la fonction [created] du cycle de vie de la page [index] :</p>
-<p><img src="images/1000000000000461000001DE3F753021.png" style="width:14.832cm;height:6.321cm;" alt="Image" /></p>
+<p><img src="images/1000000000000461000001DE3F753021.png" style="width:14.832cm;height:6.321cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000461000001DE3F753021.png" /></p>
 <p>Pour l’instant, on se contente de renommer [created] en [created2] pour que la fonction du cycle de vie [created] ne soit pas exécutée [3].</p>
 <p>On sauve la modification et on recharge la page [index] dans le navigateur. Cette fois-ci c’est bon :</p>
-<p><img src="images/10000000000007C400000509C14D0463.png" style="width:13.151cm;height:8.531cm;" alt="Image" /></p>
+<p><img src="images/10000000000007C400000509C14D0463.png" style="width:13.151cm;height:8.531cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007C400000509C14D0463.png" /></p>
 <h2 id="173-etape-2">17.3. étape 2</h2>
 <p>Les pages du projet [vuejs-22] utilisaient les éléments injectés suivants :</p>
 <ul>
@@ -1407,14 +1407,14 @@
 
 <p>puis utiliser ensuite la variable [session]. On peut tenir le même raisonnement pour la fonction [<strong>this.$dao()</strong>].</p>
 <p>Ces corrections faites, nous pouvons recharger l’URL [http://localhost:81/nuxt-20/] avec un navigateur. Nous obtenons toujours la même page que précédemment :</p>
-<p><img src="images/10000000000007CD00000519C4108692.png" style="width:13.211cm;height:8.631cm;" alt="Image" /></p>
+<p><img src="images/10000000000007CD00000519C4108692.png" style="width:13.211cm;height:8.631cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007CD00000519C4108692.png" /></p>
 <p>Regardons les logs du navigateur :</p>
-<p><img src="images/1000000000000468000002E39DD3A458.png" style="width:8.951cm;height:5.86cm;" alt="Image" /></p>
+<p><img src="images/1000000000000468000002E39DD3A458.png" style="width:8.951cm;height:5.86cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000468000002E39DD3A458.png" /></p>
 <p>Le log [1] est le dernier log fait par le client [nuxt]. En [2], on voit que la propriété [started] est à [vrai], ce qui veut dire que la fonction [mounted] a réussi à démarrer une session jSON avec le serveur de calcul de l’impôt. On voit également que le store a des propriétés qu’il faudra soit abandonner soit renommer. Rappelons que nous utilisons le store de l’exemple [nuxt-12].</p>
 <p>Maintenant redemandons l’URL [http://localhost:81/nuxt-20/] alors que le serveur de calcul de l’impôt n’est pas lancé. On prend soin tout d’abord de supprimer le cookie de la session [nuxt] :</p>
-<p><img src="images/100000000000050E0000020FBB8D80C3.png" style="width:13.69cm;height:5.58cm;" alt="Image" /></p>
+<p><img src="images/100000000000050E0000020FBB8D80C3.png" style="width:13.69cm;height:5.58cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000050E0000020FBB8D80C3.png" /></p>
 <p>La copie d’écran ci-dessus est une copie d’écran Chrome. Ceci fait, l’URL [http://localhost:81/nuxt-20/] donne le résultat suivant :</p>
-<p><img src="images/100000000000072B00000398677385A3.png" style="width:12.131cm;height:6.081cm;" alt="Image" /></p>
+<p><img src="images/100000000000072B00000398677385A3.png" style="width:12.131cm;height:6.081cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000072B00000398677385A3.png" /></p>
 <p>L’erreur était correctement gérée par le projet [vuejs-22]. Elle reste correctement gérée par le projet [nuxt-20].</p>
 <h2 id="174-etape-3">17.4. étape 3</h2>
 <p>Maintenant que nous avons la page d’authentification, il faut regarder le code exécuté lorsque l’utilisateur clique sur le bouton [Valider] :</p>
@@ -1486,7 +1486,7 @@
 <li>injecter une fonction [$métier] dans le contexte du client [nuxt] qui donnera accès à cette classe ;</li>
 </ul>
 <p>Tout d’abord la copie de la classe [Métier] dans le dossier [api] :</p>
-<p><img src="images/10000000000002CC000000E4FF74401A.png" style="width:9.471cm;height:3.021cm;" alt="Image" /></p>
+<p><img src="images/10000000000002CC000000E4FF74401A.png" style="width:9.471cm;height:3.021cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002CC000000E4FF74401A.png" /></p>
 <p>Une fois la classe [Métier] présente dans le projet, on crée un nouveau plugin pour le client [nuxt]. Ce plugin appelé [pluginMétier] va injecter une fonction [$métier] qui donnera accès à la classe [Métier] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">/* eslint-disable no-console */</span>
@@ -1585,11 +1585,11 @@
 <li>lignes 8, 63 : le nom de la page [CalculImpot] du projet [vuejs-22] est devenue la page [calcul-impot] dans le projet [nuxt-20] ;</li>
 </ul>
 <p>Ces corrections faites, on peut tenter de valider la page d’authentification :</p>
-<p><img src="images/1000000000000774000005860EEBD26C.png" style="width:12.621cm;height:9.351cm;" alt="Image" /></p>
+<p><img src="images/1000000000000774000005860EEBD26C.png" style="width:12.621cm;height:9.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000774000005860EEBD26C.png" /></p>
 <p>La page obtenue est la suivante :</p>
-<p><img src="images/100000000000099700000630848F13E2.png" style="width:12.99cm;height:8.381cm;" alt="Image" /></p>
+<p><img src="images/100000000000099700000630848F13E2.png" style="width:12.99cm;height:8.381cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000099700000630848F13E2.png" /></p>
 <p>On a bien obtenu la page de calcul de l’impôt. Maintenant regardons les logs :</p>
-<p><img src="images/100000000000093900000288327278F0.png" style="width:15.62cm;height:4.291cm;" alt="Image" /></p>
+<p><img src="images/100000000000093900000288327278F0.png" style="width:15.62cm;height:4.291cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000093900000288327278F0.png" /></p>
 <p>En [2], on voit que le fait d’être authentifié a été correctement mémorisé. En [3-4], on voit qu’on a récupéré la donnée [taxAdminData] qui permet le calcul de l’impôt par la classe [Métier].</p>
 <h2 id="175-etape-4">17.5. étape 4</h2>
 <p>Examinons la page [calcul-impot] que nous avons obtenue :</p>
@@ -1918,18 +1918,18 @@
 <li>lignes 65, 89 : la référence [this.$métier] doit être changée en [<strong>this.$métier</strong><strong><mark style="background-color: #ffa6a6">()</mark></strong>] ;</li>
 </ul>
 <p>Ces corrections faites, on peut tenter une simulation :</p>
-<p><img src="images/1000000000000797000004F58BE8C108.png" style="width:12.851cm;height:8.392cm;" alt="Image" /></p>
+<p><img src="images/1000000000000797000004F58BE8C108.png" style="width:12.851cm;height:8.392cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000797000004F58BE8C108.png" /></p>
 <p>On obtient la réponse suivante :</p>
-<p><img src="images/1000000000000300000002BAF4B67CA3.png" style="width:6.1cm;height:5.541cm;" alt="Image" /></p>
+<p><img src="images/1000000000000300000002BAF4B67CA3.png" style="width:6.1cm;height:5.541cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000300000002BAF4B67CA3.png" /></p>
 <p>Si on regarde les logs :</p>
-<p><img src="images/10000000000008DF0000030F35E62CDE.png" style="width:18.031cm;height:6.211cm;" alt="Image" /></p>
+<p><img src="images/10000000000008DF0000030F35E62CDE.png" style="width:18.031cm;height:6.211cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000008DF0000030F35E62CDE.png" /></p>
 <ul>
 <li>en [9-10], on voit que la 1ère simulation se trouve bien dans le [store] ;</li>
 <li>en [5], le n° de la dernière simulation a bien été incrémenté ;</li>
 </ul>
 <h2 id="176-etape-5">17.6. étape 5</h2>
 <p>Maintenant que nous avons fait une simulation, cliquons sur le lien [Liste des simulations]. Nous obtenons la page suivante :</p>
-<p><img src="images/10000000000009B1000004942FFAF358.png" style="width:16.41cm;height:7.751cm;" alt="Image" /></p>
+<p><img src="images/10000000000009B1000004942FFAF358.png" style="width:16.41cm;height:7.751cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000009B1000004942FFAF358.png" /></p>
 <p>Le routage du client [nuxt] s’est fait correctement. Regardons le code de la page [liste-des-simulations] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">&lt;!-- définition HTML de la vue --&gt;</span>
@@ -2036,18 +2036,18 @@
 <li>ligne 91 : cette ligne doit être réécrite comme [<span style="color: #0000ff">this</span><span style="color: #000000">.$session</span><span style="color: #000000"><mark style="background-color: #f7d1d5">()</mark></span><span style="color: #000000">.save(</span><span style="color: #0000ff"><mark style="background-color: #f7d1d5">this</mark></span><span style="color: #000000"><mark style="background-color: #f7d1d5">.$nuxt.context)</mark></span>] ;</li>
 </ul>
 <p>Nous faisons les modifications nécessaires, puis nous tentons de supprimer la simulation affichée :</p>
-<p><img src="images/10000000000009710000048AEA84B9C2.png" style="width:15.99cm;height:7.691cm;" alt="Image" /></p>
+<p><img src="images/10000000000009710000048AEA84B9C2.png" style="width:15.99cm;height:7.691cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000009710000048AEA84B9C2.png" /></p>
 <p>On obtient alors la page suivante :</p>
-<p><img src="images/1000000000000752000003E1FEB28ECD.png" style="width:12.39cm;height:6.571cm;" alt="Image" /></p>
+<p><img src="images/1000000000000752000003E1FEB28ECD.png" style="width:12.39cm;height:6.571cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000752000003E1FEB28ECD.png" /></p>
 <p>Regardons les logs :</p>
-<p><img src="images/100000000000065B000002EDE0C714C8.png" style="width:12.911cm;height:5.942cm;" alt="Image" /></p>
+<p><img src="images/100000000000065B000002EDE0C714C8.png" style="width:12.911cm;height:5.942cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000065B000002EDE0C714C8.png" /></p>
 <ul>
 <li>en [6], on voit que le tableau des simulations est vide ;</li>
 </ul>
 <p>Maintenant revenons au formulaire de calcul de l’impôt :</p>
-<p><img src="images/10000000000006AC000003B87B10A3B3.png" style="width:11.3cm;height:6.301cm;" alt="Image" /></p>
+<p><img src="images/10000000000006AC000003B87B10A3B3.png" style="width:11.3cm;height:6.301cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006AC000003B87B10A3B3.png" /></p>
 <p>On obtient la page suivante :</p>
-<p><img src="images/100000000000076F0000062923B49C95.png" style="width:12.591cm;height:10.431cm;" alt="Image" /></p>
+<p><img src="images/100000000000076F0000062923B49C95.png" style="width:12.591cm;height:10.431cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000076F0000062923B49C95.png" /></p>
 <p>Donc le routage a fonctionné.</p>
 <h2 id="177-etape-6">17.7. étape 6</h2>
 <p>Il nous reste à gérer l’option de navigation [Fin de session] du menu de navigation :</p>
@@ -2156,7 +2156,7 @@
 <li>lignes 68-70 : on affiche la vue [authentification] ;</li>
 </ul>
 <p>Nous allons essayer de faire quelque chose d’analogue dans le fichier de routage du client [nuxt] :</p>
-<p><img src="images/100000000000011F0000008ED5040C37.png" style="width:3.8cm;height:1.881cm;" alt="Image" /></p>
+<p><img src="images/100000000000011F0000008ED5040C37.png" style="width:3.8cm;height:1.881cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000011F0000008ED5040C37.png" /></p>
 <p>Le script [client/routing.js] devient le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line">/* eslint-disable no-console */</span>
@@ -2219,7 +2219,7 @@
 </code></pre></div>
 
 <p>Lorsqu’on utilise maintenant le lien [Fin de session], la page d’accueil est affichée avec les logs suivants :</p>
-<p><img src="images/10000000000004500000022C969E6F48.png" style="width:8.76cm;height:4.41cm;" alt="Image" /></p>
+<p><img src="images/10000000000004500000022C969E6F48.png" style="width:8.76cm;height:4.41cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004500000022C969E6F48.png" /></p>
 <ul>
 <li>en [3], on voit qu’on n’est plus authentifié ;</li>
 <li>en [4], on voit que la session jSON est démarrée ;</li>
@@ -2427,19 +2427,19 @@
 </ul>
 <p>Faisons quelques tests.</p>
 <p>Nous supprimons d’abord et le cookie de la session [nuxt] et le cookie de session PHP s’ils existent. Nous demandons ensuite la page [http://localhost:81/nuxt-20/] alors que le serveur de calcul de l’impôt n’est pas lancé. Nous obtenons la page suivante :</p>
-<p><img src="images/10000000000006A80000039180951CD3.png" style="width:11.281cm;height:6.04cm;" alt="Image" /></p>
+<p><img src="images/10000000000006A80000039180951CD3.png" style="width:11.281cm;height:6.04cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006A80000039180951CD3.png" /></p>
 <p>Nous rechargeons la même page après avoir lancé le serveur de calcul de l’impôt :</p>
-<p><img src="images/10000000000006AE0000057F6455B3EC.png" style="width:11.311cm;height:9.311cm;" alt="Image" /></p>
+<p><img src="images/10000000000006AE0000057F6455B3EC.png" style="width:11.311cm;height:9.311cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006AE0000057F6455B3EC.png" /></p>
 <p>Regardons les logs :</p>
-<p><img src="images/10000000000003FA000002923D563EEB.png" style="width:8.081cm;height:5.22cm;" alt="Image" /></p>
+<p><img src="images/10000000000003FA000002923D563EEB.png" style="width:8.081cm;height:5.22cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003FA000002923D563EEB.png" /></p>
 <ul>
 <li>en [2-3], on voit que la session jSON a été démarrée ;</li>
 <li>en [4], on voit le cookie de session PHP que le serveur [nuxt] a récupéré lors de son échange avec le serveur de calcul de l’impôt. Le client [nuxt] va désormais l’utiliser ;</li>
 </ul>
 <p>Maintenant identifions-nous :</p>
-<p><img src="images/10000000000006470000059A64681117.png" style="width:10.621cm;height:9.48cm;" alt="Image" /></p>
+<p><img src="images/10000000000006470000059A64681117.png" style="width:10.621cm;height:9.48cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006470000059A64681117.png" /></p>
 <p>Nous obtenons la page suivante :</p>
-<p><img src="images/10000000000006C5000006116076031B.png" style="width:11.461cm;height:10.281cm;" alt="Image" /></p>
+<p><img src="images/10000000000006C5000006116076031B.png" style="width:11.461cm;height:10.281cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006C5000006116076031B.png" /></p>
 <p>En [1], nous avons obtenu un message d’erreur. Cela veut dire que le navigateur n’a pas envoyé le bon cookie de la session PHP démarrée par le serveur [nuxt] à l’étape précédente. Dans [nuxt-12], le passage du cookie de session PHP du serveur [nuxt] au client [nuxt] se faisait dans le routage du client [nuxt] du script [middleware/client/routing] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line">/* eslint-disable no-console */</span>
@@ -2498,7 +2498,7 @@
 <li>modifier le script [midleware/routing] ;</li>
 <li>ajouter un script [middleware/server/routing] ;</li>
 </ul>
-<p><img src="images/10000000000001430000012B7EBA7EC6.png" style="width:4.271cm;height:3.961cm;" alt="Image" /></p>
+<p><img src="images/10000000000001430000012B7EBA7EC6.png" style="width:4.271cm;height:3.961cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001430000012B7EBA7EC6.png" /></p>
 <p>Le script [middleware/routing] est modifié de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">/* eslint-disable no-console */</span>
@@ -2657,7 +2657,7 @@
 <li>lignes 100-103 : si on doit faire une redirection, on la fait ;</li>
 </ul>
 <p>Pour faire les tests, il faut prendre soin de partir d’une situation vierge en supprimant le cookie de la session [nuxt] et le cookie de la session PHP avec le serveur de calcul de l’impôt :</p>
-<p><img src="images/100000000000050E0000020FBB8D80C3.png" style="width:10.27cm;height:4.181cm;" alt="Image" /></p>
+<p><img src="images/100000000000050E0000020FBB8D80C3.png" style="width:10.27cm;height:4.181cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000050E0000020FBB8D80C3.png" /></p>
 <p>Pour tester le routage du serveur [nuxt], sur chaque page essayez toutes les URL possibles [/, /calcul-impot, /liste-des-simulations]. A chaque fois, l’application doit rester dans un état cohérent.</p>
 <h2 id="1710-etape-9">17.10. étape 9</h2>
 <p>L’étape 9 est celle du déploiement de l’application [nuxt-20]. Celle-ci nécessite un hébergement offrant un environnement [node.js] pour exécuter le serveur [nuxt]. Je ne l’ai pas. Le lecteur pourra suivre les procédures décrites au paragraphe <a href="../../../../../st-2020/st-2020/cours/nuxtjs/masters/02/chap-03.docx#nuxt00_deploiement"><u><span style="color: #0563c1">lien</span></u></a>, pour déployer l’application [nuxt-20] sur sa machine de développement et la sécuriser avec un protocole HTTPS.</p>
