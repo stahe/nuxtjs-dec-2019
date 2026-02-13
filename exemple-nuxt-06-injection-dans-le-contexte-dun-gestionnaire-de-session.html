@@ -955,7 +955,7 @@
 <p><img src="images/10000000000001640000024711C4FD7E.png" style="width:3.77cm;height:6.171cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001640000024711C4FD7E.png" /></p>
 <h2 id="93-le-plugin-session-du-serveur">9.3. Le plugin [session] du serveur</h2>
 <p>Le plugin [server / session.js] est le suivant :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">/* eslint-disable no-console */</span>
 <span class="odt-code-line"><span style="color:#0000ff">export</span> <span style="color:#0000ff">default</span> (context, inject) =&gt; {</span>
 <span class="odt-code-line"><span style="color:#000000">  </span>// gestion de la session serveur</span>
@@ -1032,7 +1032,7 @@
 </ul>
 <h2 id="94-initialisation-de-la-session">9.4. Initialisation de la session</h2>
 <p>Une fois le plugin [session / server] exécuté par le serveur, celui-ci va exécuter le script [store / index.js] suivant :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-js">
 <span class="odt-code-line">/* eslint-disable no-console */</span>
 <span class="odt-code-line"><span style="color:#0000ff">export</span> <span style="color:#0000ff">const</span> state = () =&gt; ({</span>
 <span class="odt-code-line"><span style="color:#000000">  </span>// compteur</span>
@@ -1118,7 +1118,7 @@
 </ul>
 <h2 id="95-le-plugin-client-session-du-client">9.5. Le plugin [client / session] du client</h2>
 <p>Une fois que le serveur a exécuté les scripts [plugins / server / session] et [store / index], il va envoyer l’une des pages [index, page1] au navigateur client. Dans la réponse HTTP du serveur, il y aura le cookie de session. Une fois la page reçue par le navigateur client, les scripts client embarqués dans la page vont s’exécuter. Le plugin [client / session] va alors s’exécuter :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">/* eslint-disable no-console */</span>
 <span class="odt-code-line"><span style="color:#0000ff">export</span> <span style="color:#0000ff">default</span> (context, inject) =&gt; {</span>
 <span class="odt-code-line"><span style="color:#000000">  </span>// gestion de la session client</span>

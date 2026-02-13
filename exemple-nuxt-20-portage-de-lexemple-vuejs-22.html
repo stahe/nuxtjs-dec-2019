@@ -989,7 +989,7 @@
 <li>dans [pages], la page [Authentification] est devenue [index], car [Authentification] jouait ce rôle dans l’application [vuejs-22] ;</li>
 </ul>
 <p>A ce point là, on peut faire une compilation du projet pour voir les premières erreurs. On modifie le fichier [nuxt.config] de l’exemple [nuxt-12] afin d’exécuter désormais [nuxt-20] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
 <span class="odt-code-line">export<span style="color:#000000"> </span>default<span style="color:#000000"> {</span></span>
 <span class="odt-code-line"><span style="color:#000000">  mode: </span>&#x27;universal&#x27;<span style="color:#000000">,</span></span>
 <span class="odt-code-line">  <span style="color:#008000">/*</span></span>
@@ -1418,7 +1418,7 @@
 <p>L’erreur était correctement gérée par le projet [vuejs-22]. Elle reste correctement gérée par le projet [nuxt-20].</p>
 <h2 id="174-etape-3">17.4. étape 3</h2>
 <p>Maintenant que nous avons la page d’authentification, il faut regarder le code exécuté lorsque l’utilisateur clique sur le bouton [Valider] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// gestionnaires d&#x27;évts</span>
 <span class="odt-code-line">  methods: {</span>
 <span class="odt-code-line"><span style="color:#000000">    </span>// ----------- authentification</span>
@@ -1503,7 +1503,7 @@
 </code></pre></div>
 
 <p>Ceci fait, nous pouvons corriger la page [index] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// cycle de vie : le composant vient d&#x27;être créé</span>
 <span class="odt-code-line">  mounted() {</span>
 <span class="odt-code-line"><span style="color:#000000">    </span>// eslint-disable-next-line</span>
@@ -1684,7 +1684,7 @@
 <li>ligne 78 : comme dans la page [index], il faut écrire [<span style="color: #0000ff"><mark style="background-color: #ffff00">this</mark></span><span style="color: #000000"><mark style="background-color: #ffff00">.$session().save(this.$nuxt.context)</mark></span>] ;</li>
 </ul>
 <p>Modifions le store [store/index]. Hérité du projet [nuxt-12], il est pour l’instant le suivant :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-js">
 <span class="odt-code-line">/* eslint-disable no-console */</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line">// état du store</span>
@@ -1750,7 +1750,7 @@
 <ul>
 <li>lignes 3-27 : nous allons reprendre le state et les mutations de l’application [vuejs-22] (cf document [3]) :</li>
 </ul>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// état du store</span>
 <span class="odt-code-line"><span style="color:#0000ff">export</span> <span style="color:#0000ff">const</span> state = () =&gt; ({</span>
 <span class="odt-code-line"><span style="color:#000000">  </span>// session jSON démarrée</span>
@@ -1810,7 +1810,7 @@
 <li>lignes 26-28 : la mutation [reset] est modifiée pour prendre en compte le nouveau contenu du state ;</li>
 </ul>
 <p>La page [calcul-impot] utilise le composant [form-calcul-impot] suivant :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line">&lt;!-- définition HTML de la vue --&gt;</span>
 <span class="odt-code-line"><span style="color:#0000ff">&lt;</span>template<span style="color:#0000ff">&gt;</span></span>
 <span class="odt-code-line"><span style="color:#000000">  </span>&lt;!-- formulaire HTML --&gt;</span>
@@ -2158,7 +2158,7 @@
 <p>Nous allons essayer de faire quelque chose d’analogue dans le fichier de routage du client [nuxt] :</p>
 <p><img src="images/100000000000011F0000008ED5040C37.png" style="width:3.8cm;height:1.881cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000011F0000008ED5040C37.png" /></p>
 <p>Le script [client/routing.js] devient le suivant :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">/* eslint-disable no-console */</span>
 <span class="odt-code-line">export<span style="color:#000000"> </span>default<span style="color:#000000"> </span>function<span style="color:#000000">(context) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">  </span>// qui exécute ce code ?</span>
@@ -2199,7 +2199,7 @@
 </li>
 </ul>
 <p>La méthode [<span style="color: #000000">session.reset(context)</span>] (ligne 24) de la session est la suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// reset de la session</span>
 <span class="odt-code-line">  reset(context) {</span>
 <span class="odt-code-line"><span style="color:#000000">    console.log(</span>&#x27;nuxt-session reset&#x27;<span style="color:#000000">)</span></span>
@@ -2236,7 +2236,7 @@
 <p>A ce stade, l’application [nuxt-20] a toutes les fonctionnalités de l’application [vuejs-22]. Le portage semble terminé.</p>
 <p>Nous allons aller un peu plus loin dans un esprit [nuxt]. La méthode [mounted] de la page [index] pose problème. Elle lance une opération asynchrone dont un moteur de recherche n’attendra pas la fin. On sait que dans ce cas là, il faut mettre l’opération asynchrone dans une fonction [asyncData] car alors, le serveur [nuxt] qui l’exécute attend qu’elle soit terminée avant de délivrer la page au moteur de recherche.</p>
 <p>Nous nous aidons ici de la fonction [asyncData] écrite dans l’application [nuxt-12] pour la page [index] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">export<span style="color:#000000"> </span>default<span style="color:#000000"> {</span></span>
 <span class="odt-code-line"><span style="color:#000000">  name: </span>&#x27;InitSession&#x27;<span style="color:#000000">,</span></span>
 <span class="odt-code-line"><span style="color:#000000">  </span>// composants utilisés</span>
@@ -2441,7 +2441,7 @@
 <p>Nous obtenons la page suivante :</p>
 <p><img src="images/10000000000006C5000006116076031B.png" style="width:11.461cm;height:10.281cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006C5000006116076031B.png" /></p>
 <p>En [1], nous avons obtenu un message d’erreur. Cela veut dire que le navigateur n’a pas envoyé le bon cookie de la session PHP démarrée par le serveur [nuxt] à l’étape précédente. Dans [nuxt-12], le passage du cookie de session PHP du serveur [nuxt] au client [nuxt] se faisait dans le routage du client [nuxt] du script [middleware/client/routing] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">/* eslint-disable no-console */</span>
 <span class="odt-code-line"><span style="color:#0000ff">export</span><span style="color:#000000"> </span><span style="color:#0000ff">default</span><span style="color:#000000"> </span><span style="color:#0000ff">function</span><span style="color:#000000">(context) {  </span>// qui exécute ce code ?</span>
 <span class="odt-code-line"><span style="color:#000000">  console.log(</span>&#x27;[middleware client], process.server&#x27;<span style="color:#000000">, process.server, </span>&#x27;, process.client=&#x27;<span style="color:#000000">, process.client)</span></span>
@@ -2473,7 +2473,7 @@
 
 <p>Ce sont les lignes 13-17 qui permettent au client [nuxt] de récupérer le cookie de la session PHP du serveur [nuxt].</p>
 <p>Le problème ici c’est que lorsqu’on clique sur le bouton [Valider], il n’y a pas de routage du client [nuxt]. Sa fonction de routage n’est alors pas appelée. On règle le problème en dupliquant les lignes 12-17 au début de la méthode d’authentification de la page [index] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// gestionnaires d&#x27;évts</span>
 <span class="odt-code-line">  methods: {</span>
 <span class="odt-code-line"><span style="color:#000000">    </span>// ----------- authentification</span>
@@ -2525,7 +2525,7 @@
 <li>lignes 10-12 : si c’est le serveur [nuxt] qui exécute le code, on utilise sa fonction de routage ;</li>
 </ul>
 <p>Le script [middleware/server/routing] est le suivant :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">/* eslint-disable no-console */</span>
 <span class="odt-code-line">export<span style="color:#000000"> </span>default<span style="color:#000000"> </span>function<span style="color:#000000">(context) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">  </span>// qui exécute ce code ?</span>

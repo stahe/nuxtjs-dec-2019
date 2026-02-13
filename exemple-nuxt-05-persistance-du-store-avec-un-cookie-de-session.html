@@ -941,7 +941,7 @@
 <li>ligne 12, le module [cookie-universal-nuxt] est ajouté au tableau des modules [6] de [nuxt] ;</li>
 </ul>
 <p>Le fichier [nuxt.config.js] est au final le suivant :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
 <span class="odt-code-line">export<span style="color:#000000"> </span>default<span style="color:#000000"> {</span></span>
 <span class="odt-code-line"><span style="color:#000000">  mode: </span>&#x27;universal&#x27;<span style="color:#000000">,</span></span>
 <span class="odt-code-line">  <span style="color:#008000">/*</span></span>
@@ -1048,7 +1048,7 @@
 </ul>
 <h2 id="84-initialisation-du-store">8.4. Initialisation du store</h2>
 <p>Le store est implémenté dans le fichier [store / index.js] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-js">
 <span class="odt-code-line">/* eslint-disable no-console */</span>
 <span class="odt-code-line"><span style="color:#0000ff">export</span> <span style="color:#0000ff">const</span> state = () =&gt; ({</span>
 <span class="odt-code-line"><span style="color:#000000">  </span>// compteur</span>
@@ -1169,7 +1169,7 @@
 </ul>
 <h2 id="85-incrementation-du-compteur-du-store">8.5. Incrémentation du compteur du store</h2>
 <p>L’incrémentation du compteur dans la page [index.vue] évolue de la façon suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">  </span>// gestion des évts</span>
 <span class="odt-code-line">  methods: {</span>
 <span class="odt-code-line">    incrementCounter() {</span>
@@ -1226,7 +1226,7 @@
 <p><img src="images/1000000000000530000001B45ACF1350.png" style="width:17.571cm;height:5.77cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000530000001B45ACF1350.png" /></p>
 <p><strong>Note</strong> : pour les tests vous pouvez avoir besoin de supprimer [5] le cookie de session stocké sur le navigateur pour repartir avec une nouvelle session, initialisée par le serveur, lors de la prochaine requête vers celui-ci.</p>
 <p>Enfin montrons l’influence de la fonction [incrementCounter] de la page [index] sur le cookie de session stocké sur le navigateur client :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// gestion des évts</span>
 <span class="odt-code-line">  methods: {</span>
 <span class="odt-code-line">    incrementCounter() {</span>

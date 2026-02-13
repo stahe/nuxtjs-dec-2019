@@ -1179,7 +1179,7 @@
 <p><img src="images/100000000000013E0000014735A17401.png" style="width:3.372cm;height:3.462cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000013E0000014735A17401.png" /></p>
 <h2 id="153-le-fichier-de-configuration-nuxtconfigjs">15.3. Le fichier de configuration [nuxt.config.js]</h2>
 <p>Le projet sera contrôlé par le fichier [nuxt.config.js] suivant :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
 <span class="odt-code-line">export default {</span>
 <span class="odt-code-line"><span style="color:#000000">  mode: </span>&#x27;universal&#x27;<span style="color:#000000">,</span></span>
 <span class="odt-code-line">  <span style="color:#008000">/*</span></span>
@@ -1406,12 +1406,12 @@
 <span class="odt-code-line">}</span>
 </code></pre></div></td></tr></table>
 
-<p><a id="nuxt12nuxtserverdao"></a>
-<a id="refheadingtoc1305183177979500"></a></p>
+<p><a id="refheadingtoc1305183177979500"></a>
+<a id="nuxt12nuxtserverdao"></a></p>
 <h3 id="1551-le-couche-dao-du-serveur-nuxt">15.5.1. Le couche [dao] du serveur [nuxt]</h3>
 <p><img src="images/100000000000012F000000DF11652A9A.png" style="width:3.211cm;height:2.361cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000012F000000DF11652A9A.png" /></p>
 <p>Le serveur [node.js] [1] va utiliser la couche [dao] décrite dans le document <a id="hlk43129255"></a>|<a href="https://tahe.developpez.com/tutoriels-cours/vuejs">Introduction au framework </a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"><strong>VUE.JS</strong></a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"> par l’exemple</a>|. Nous rappelons ici son code :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">&#x27;use strict&#x27;<span style="color:#000000">;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line">// imports</span>
@@ -1546,7 +1546,7 @@
 </li>
 </ul>
 <p>Examinons le constructeur de la classe [Dao] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// constructeur</span>
 <span class="odt-code-line">  <span style="color:#0000ff">constructor</span>(axios) {</span>
 <span class="odt-code-line">    <span style="color:#0000ff">this</span>.axios = axios;</span>
@@ -1585,7 +1585,7 @@
 </ul>
 <p>Pour que le navigateur du client [nuxt] puisse dialoguer avec le serveur PHP du calcul de l’impôt, nous utiliserons la version 14 de ce serveur <strong>qui autorise les appels inter-domaines</strong>, ç-à-d ceux d’un navigateur vers le serveur PHP. Les appels du serveur [nuxt] vers le serveur PHP ne sont pas, eux, des appels inter-domaines. Cette notion n’existe que pour les appels faits depuis un navigateur.</p>
 <p>Revenons au code du constructeur de la classe [Dao] précédente :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// constructeur</span>
 <span class="odt-code-line">  <span style="color:#0000ff">constructor</span>(axios) {</span>
 <span class="odt-code-line">    <span style="color:#0000ff">this</span>.axios = axios;</span>
@@ -1600,7 +1600,7 @@
 </ul>
 <p>La gestion du cookie de la session PHP ci-dessus ne convient pas au serveur [nuxt] : sa couche [dao] <strong>est instanciée à chaque nouvelle requête faite au serveur [nuxt]</strong>. On se rappelle en effet que demander une page au serveur [nuxt] revient à réinitialiser l’application [nuxt]. Ainsi lorsqu’à l’issue de la 1ère requête faite au serveur de données par le serveur [nuxt], le cookie de session PHP de la couche [dao] est initialisé, cette valeur est perdue lors de la requête HTTP suivante du même serveur [nuxt], car entre-temps sa couche [dao] a été recréée, le constructeur réexécuté et le cookie de session PHP réinitialisé avec la chaîne vide (ligne 6) ;</p>
 <p>Une solution est d’utiliser un autre constructeur pour la couche [dao] du serveur :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// constructeur</span>
 <span class="odt-code-line">  <span style="color:#0000ff">constructor</span>(axios, phpSessionCookie) {</span>
 <span class="odt-code-line"><span style="color:#000000">    </span>// bibliothèque axios</span>
@@ -1628,7 +1628,7 @@
 <li>le cookie de session PHP échangé entre le serveur [nuxt] et le serveur PHP ou entre le client [nuxt] et le serveur PHP ;</li>
 </ul>
 <p>Revenons maintenant sur le code de la méthode de la classe [Dao]. Elle n’inclut pas de fonction pour clôre la session PHP avec le serveur de calcul de l’impôt. Nous ajoutons celle-ci :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// fin de la session de calcul de l&#x27;impôt</span>
 <span class="odt-code-line">  <span style="color:#0000ff">async</span> finSession() {</span>
 <span class="odt-code-line"><span style="color:#000000">    </span>// options de la requête HHTP  [get /main.php?action=fin-session]</span>
@@ -1647,7 +1647,7 @@
 </code></pre></div>
 
 <p>Aux tests, on découvre que la fonction [getRemoteData] appelée ligne 12 ne convient pas pour la méthode [finSession] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-php">
 <span class="odt-code-line"><span style="color:#0000ff">async</span>  getRemoteData(options) {</span>
 <span class="odt-code-line"><span style="color:#000000">    </span>// pour le cookie de session</span>
 <span class="odt-code-line">    <span style="color:#0000ff">if</span> (!options.headers) {</span>
@@ -1714,7 +1714,7 @@
 </ul>
 <p>Avec le code actuel, la fonction [getRemoteData] récupère le cookie [5] alors que c’est le cookie [6] qu’il faut mémoriser.</p>
 <p>Il faut donc faire évoluer le code de la fonction [getRemoteData] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#0000ff">async</span> getRemoteData(options) {</span>
 <span class="odt-code-line"><span style="color:#000000">    </span>// y-a-t-il un cookie de session PHP ?</span>
 <span class="odt-code-line">    <span style="color:#0000ff">if</span> (<span style="color:#0000ff">this</span>.phpSessionCookie) {</span>
@@ -1803,7 +1803,7 @@
 <h3 id="1552-la-couche-dao-du-client-nuxt">15.5.2. La couche [dao] du client [nuxt]</h3>
 <p><img src="images/100000000000012F000000DF1A53B038.png" style="width:3.211cm;height:2.361cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000012F000000DF1A53B038.png" /></p>
 <p>Pour le client [nuxt] qui s’exécute dans un navigateur, on reprend le code de la classe [Dao] du document |<a href="https://tahe.developpez.com/tutoriels-cours/vuejs">Introduction au framework </a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"><strong>VUE.JS</strong></a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"> par l’exemple</a>| :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">&quot;use strict&quot;<span style="color:#000000">;</span></span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line">// imports</span>
@@ -1894,7 +1894,7 @@
 
 <p>Ce code se distingue de la couche [dao] du serveur [nuxt] par le fait qu’il ne gère pas le cookie de la session PHP avec le serveur de calcul de l’impôt : c’est le navigateur qui le fait.</p>
 <p>Nous allons, comme nous l’avons fait pour la couche [dao] du serveur [nuxt], ajouter une méthode [finSession] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// fin de la session de calcul de l&#x27;impôt</span>
 <span class="odt-code-line">  <span style="color:#0000ff">async</span> finSession() {</span>
 <span class="odt-code-line"><span style="color:#000000">    </span>// options de la requête HHTP  [get /main.php?action=fin-session]</span>
@@ -1918,7 +1918,7 @@
 <li>en utilisant la méthode [getRemoteData] du serveur qui sait comment récupérer le nouveau cookie de session PHP ;</li>
 </ol>
 <p>Nous allons utiliser la 2ième solution car elle est déjà toute prête. La méthode [getRemoteData] du client [nuxt] devient alors la suivante :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#0000ff">async</span> getRemoteData(options) {</span>
 <span class="odt-code-line"><span style="color:#000000">    </span>// exécution de la requête HTTP</span>
 <span class="odt-code-line">    <span style="color:#0000ff">let</span> response</span>
@@ -1991,7 +1991,7 @@
 <h2 id="156-la-session-nuxt">15.6. La session [nuxt]</h2>
 <p><img src="images/100000000000015B000000550BF91A25.png" style="width:4.59cm;height:1.131cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000015B000000550BF91A25.png" /></p>
 <p>La session [nuxt] (entre client et serveur nuxt) sera encapsulée dans l’objet [session] suivant :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">/* eslint-disable no-console */</span>
 <span class="odt-code-line">// définition de la session</span>
 <span class="odt-code-line"><span style="color:#0000ff">const</span> session = {</span>
@@ -2196,7 +2196,7 @@
 <h2 id="159-le-store-vuex">15.9. Le store Vuex</h2>
 <p><img src="images/10000000000001380000004C3A681E64.png" style="width:4.13cm;height:1.011cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001380000004C3A681E64.png" /></p>
 <p>Le store [Vuex] va mémoriser toutes les données qui doivent être partagées par les différentes composantes de l’application [pages, client, serveur] sans que pour autant ces données soient réactives.</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-js">
 <span class="odt-code-line">/* eslint-disable no-console */</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line">// état du store</span>
@@ -2357,13 +2357,13 @@
 <span class="odt-code-line"><span style="color:#0000ff">&lt;/</span>template<span style="color:#0000ff">&gt;</span></span>
 </code></pre></div>
 
-<p><a id="nuxt12layouts"></a>
-<a id="refheadingtoc131383849848624"></a></p>
+<p><a id="refheadingtoc131383849848624"></a>
+<a id="nuxt12layouts"></a></p>
 <h2 id="1512-les-layouts-de-lapplication-nuxt">15.12. Les layouts de l’application [nuxt]</h2>
 <p><img src="images/100000000000010800000076C3F0D397.png" style="width:3.492cm;height:1.56cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000010800000076C3F0D397.png" /></p>
 <h3 id="15121-default">15.12.1. [default]</h3>
 <p>Le layout [default] est celui utilisé pour l’exemple [nuxt-11] au paragraphe <a href="../../../../../st-2020/st-2020/cours/nuxtjs/masters/02/chap-14.docx#nuxt11_defaultvue"><u><span style="color: #0563c1">lien</span></u></a> :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line"><span style="color:#0000ff">&lt;</span>template<span style="color:#0000ff">&gt;</span></span>
 <span class="odt-code-line"><span style="color:#000000">  </span>&lt;<span style="color:#800000">div</span><span style="color:#000000"> </span><span style="color:#ff0000">class</span>=&quot;container&quot;&gt;</span>
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#0000ff">&lt;</span>b-card<span style="color:#0000ff">&gt;</span></span>
@@ -2623,7 +2623,7 @@
 <h2 id="1514-la-page-index-executee-par-le-client-nuxt">15.14. La page [index] exécutée par le client [nuxt]</h2>
 <p>La page [index] n’est exécutée par le client [nuxt] qu’après que le serveur [nuxt] la lui ait envoyée. Celui-ci lui a envoyé les informations [<span style="color: #000000">result</span>] et éventuellement [<span style="color: #000000">showErrorLoading</span>] et [<span style="color: #000000">errorLoadingMessage</span>].</p>
 <p>On sait que la fonction [asyncData] ne sera pas exécutée. Restent alors les fonctions du cycle de vie et notamment la fonction [mounted] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">mounted() {</span>
 <span class="odt-code-line">    console.log(<span style="color:#a31515">&#x27;[index mounted]&#x27;</span>)</span>
 <span class="odt-code-line"><span style="color:#000000">    </span>// client seulement</span>
@@ -2640,8 +2640,8 @@
 <li>les propriétés [showErrorLoading, errorLoadingMessage] sont utilisées par la méthode [mounted] : ligne 4, on teste la propriété [showErrorLoading]. Si elle est vraie, on utilise, ligne 6, le bus d’événements du client [nuxt] pour signaler qu’il y a un message d’erreur à afficher ;</li>
 <li>l’événement [errorLoading] lancé ligne 6, est intercepté par la page [layouts/default] décrite au paragraphe <a href="../../../../../st-2020/st-2020/cours/nuxtjs/masters/02/chap-15.docx#nuxt12_layouts"><u><span style="color: #0563c1">lien</span></u></a> ;</li>
 </ul>
-<p><a id="nuxt12authentificationpage"></a>
-<a id="refheadingtoc132086849848624"></a></p>
+<p><a id="refheadingtoc132086849848624"></a>
+<a id="nuxt12authentificationpage"></a></p>
 <h2 id="1515-la-page-authentification-executee-par-le-serveur-nuxt">15.15. La page [authentification] exécutée par le serveur [nuxt]</h2>
 <p>La page [authentification] est chargée d’identifier un utilisateur auprès du serveur de calcul de l’impôt. Son code est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -3065,7 +3065,7 @@
 <ul>
 <li>ligne 37 : c’est la couche [dao] du serveur [nuxt] qui est instanciée. Rappelons le code de son constructeur :</li>
 </ul>
-<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// constructeur</span>
 <span class="odt-code-line">  <span style="color:#0000ff">constructor</span>(axios, phpSessionCookie) {</span>
 <span class="odt-code-line"><span style="color:#000000">    </span>// bibliothèque axios</span>
@@ -3146,7 +3146,7 @@
 <li>lignes 9-12 : on ne route que le client avec une fonction importée ligne 4 ;</li>
 </ul>
 <p>Le script  [middleware/client/routing] est le suivant :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">/* eslint-disable no-console */</span>
 <span class="odt-code-line">export<span style="color:#000000"> </span>default<span style="color:#000000"> </span>function<span style="color:#000000">(context) {</span></span>
 <span class="odt-code-line"><span style="color:#000000">  </span>// qui exécute ce code ?</span>
@@ -3180,7 +3180,7 @@
 <li>lorsque le serveur [nuxt] exécute la page [fin-session] comme il vient d’être expliqué ;</li>
 </ul>
 <p>Maintenant étudions le cas où la page [fin-session] est exécutée par le client [nuxt] uniquement, parce qu’on a cliqué sur son lien dans le menu de navigation. C’est désormais le client [nuxt] qui exécute la fonction [asyncData] :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">try<span style="color:#000000"> {</span></span>
 <span class="odt-code-line"><span style="color:#000000">      </span>// on demande une nouvelle session PHP au serveur de calcul de l&#x27;impôt</span>
 <span class="odt-code-line">      <span style="color:#0000ff">const</span> dao = context.app.$dao()</span>
