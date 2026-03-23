@@ -788,10 +788,14 @@
 <h1 id="7-exemple-nuxt-04-maintien-dune-session-client-serveur">7. Exemple [nuxt-04] : maintien d’une session client / serveur</h1>
 <p>Le projet [nuxt-04] aborde le problème du maintien d’une session client / serveur. On reprend le projet [nuxt-03] avec les modifications suivantes :</p>
 <ul>
-<li>la page [index] aura un bouton qui permettra d’incrémenter le compteur du store [Vuex] ;</li>
-<li>la page [page1] reste inchangée ;</li>
-<li>on voudrait que lorsqu’une page est demandée à la main au serveur, celui-ci renvoie la page demandée avec un store [Vuex] qui aurait pour valeur de compteur, la dernière valeur que celui-ci avait côté client ;</li>
+  <li>la page [index] aura un bouton qui permettra d’incrémenter le compteur du store [Vuex] ;
+  </li>
+  <li>la page [page1] reste inchangée ;
+  </li>
+  <li>on voudrait que lorsqu’une page est demandée à la main au serveur, celui-ci renvoie la page demandée avec un store [Vuex] qui aurait pour valeur de compteur, la dernière valeur que celui-ci avait côté client ;
+  </li>
 </ul>
+
 <p>Le projet [nuxt-04] est initialement créé par recopie du projet [nuxt-03] :</p>
 <p><img src="images/10000000000001970000018C0984BDAE.png" style="width:4.31cm;height:4.19cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001970000018C0984BDAE.png" /></p>
 <p>Seule la page [index] change :</p>
@@ -862,11 +866,16 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 10 : on a ajouté un bouton pour incrémenter le compteur du store [Vuex] ;</li>
-<li>ligne 54 : la méthode qui gère le [clic] sur le bouton [Incrémenter] ;</li>
-<li>ligne 57 : le compteur du store est incrémenté de 1 ;</li>
-<li>ligne 59 : la valeur du compteur est affectée à la propriété [value] afin qu’elle soit affichée par la ligne 8 ;</li>
+  <li>ligne 10 : on a ajouté un bouton pour incrémenter le compteur du store [Vuex] ;
+  </li>
+  <li>ligne 54 : la méthode qui gère le [clic] sur le bouton [Incrémenter] ;
+  </li>
+  <li>ligne 57 : le compteur du store est incrémenté de 1 ;
+  </li>
+  <li>ligne 59 : la valeur du compteur est affectée à la propriété [value] afin qu’elle soit affichée par la ligne 8 ;
+  </li>
 </ul>
+
 <p>On exécute le projet [nuxt-04] avec le fichier [nuxt.config.js] suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// répertoire du code source</span>
@@ -893,17 +902,23 @@
 <p>Si on utilise le lien [3], on a la page suivante :</p>
 <p><img src="images/100000000000060C00000233F80A9994.png" style="width:12.292cm;height:4.47cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000060C00000233F80A9994.png" /></p>
 <ul>
-<li>en [2], la page [page1] [1] affiche bien la valeur du compteur ;</li>
+  <li>en [2], la page [page1] [1] affiche bien la valeur du compteur ;
+  </li>
 </ul>
+
 <p>Maintenant, rafraîchissons la page avec [3]. La nouvelle page est la suivante :</p>
 <p><img src="images/10000000000004DD0000017FF4470033.png" style="width:16.47cm;height:5.07cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004DD0000017FF4470033.png" /></p>
 <ul>
-<li>en [2], on a perdu la valeur courante du compteur. On est revenu à sa valeur initiale ;</li>
+  <li>en [2], on a perdu la valeur courante du compteur. On est revenu à sa valeur initiale ;
+  </li>
 </ul>
+
 <p>Ce résultat est tout a fait compréhensible si on regarde les logs :</p>
 <ul>
-<li>en [1], le serveur a réexécuté la fonction [nuxtServerInit]. Or celle-ci est la suivante :</li>
+  <li>en [1], le serveur a réexécuté la fonction [nuxtServerInit]. Or celle-ci est la suivante :
+  </li>
 </ul>
+
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>

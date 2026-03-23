@@ -861,9 +861,12 @@
 <p><img src="images/10000000000001AA000001DCD2565E0F.png" style="width:4.511cm;height:5.04cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AA000001DCD2565E0F.png" /></p>
 <p>Les middlewares de routage doivent être dans un dossier appelé [middleware] [2]. Il peut y avoir un routage à deux niveaux :</p>
 <ul>
-<li>un routage appliqué à chaque navigation. Celui-ci fait alors l’objet d’une déclaration dans le fichier [nuxt.config.js] ;</li>
-<li>un routage appliqué à une page particulière, lorsque celle-ci est la cible du routage. Ce routage est alors déclaré dans cette page cible ;</li>
+  <li>un routage appliqué à chaque navigation. Celui-ci fait alors l’objet d’une déclaration dans le fichier [nuxt.config.js] ;
+  </li>
+  <li>un routage appliqué à une page particulière, lorsque celle-ci est la cible du routage. Ce routage est alors déclaré dans cette page cible ;
+  </li>
 </ul>
+
 <h2 id="111-routage-general">11.1. Routage général</h2>
 <p>Le fichier [middleware / routing.js] assurera le routage général. Il fait l’objet de la déclaration suivante dans le fichier [nuxt.config.js] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
@@ -914,9 +917,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 3 : on va découvrir que le middleware reçoit un argument : le contexte de l’exécuteur (serveur ou client) ;</li>
-<li>lignes 4-25 : on affiche les propriétés de différents objets pour savoir ce qui est utilisable. On va découvrir que le contexte du middleware est quasi identique au contexte du plugin ;</li>
+  <li>ligne 3 : on va découvrir que le middleware reçoit un argument : le contexte de l’exécuteur (serveur ou client) ;
+  </li>
+  <li>lignes 4-25 : on affiche les propriétés de différents objets pour savoir ce qui est utilisable. On va découvrir que le contexte du middleware est quasi identique au contexte du plugin ;
+  </li>
 </ul>
+
 <h2 id="112-routage-pour-une-page-particuliere">11.2. Routage pour une page particulière</h2>
 <p>On veut contrôler la façon dont on arrive à la page [index]. Pour cela, il nous faut introduire la propriété [middleware] dans cette page [index] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -959,8 +965,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 34 : la propriété [middleware] liste les scripts à exécuter à chaque fois que la prochaine page affichée est la page [index]. Là encore, ces scripts seront cherchés dans le dossier [middleware] du projet ;</li>
+  <li>ligne 34 : la propriété [middleware] liste les scripts à exécuter à chaque fois que la prochaine page affichée est la page [index]. Là encore, ces scripts seront cherchés dans le dossier [middleware] du projet ;
+  </li>
 </ul>
+
 <p>Le middleware [index-routing] est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">/* eslint-disable no-undef */</span>
@@ -1182,8 +1190,10 @@
 </code></pre></div></td></tr></table></div>
 <p>On retrouve là ce qu’on avait obtenu avec les plugins.</p>
 <ul>
-<li>ligne 15 : la propriété [redirect] est souvent utilisée dans les middlewares : elle permet de changer la cible du routage en cours ;</li>
+  <li>ligne 15 : la propriété [redirect] est souvent utilisée dans les middlewares : elle permet de changer la cible du routage en cours ;
+  </li>
 </ul>
+
 <p>Puis, parce que la page qui va être affichée est la page [index], le serveur exécute le script [index-routing] et affiche les logs suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
@@ -1405,11 +1415,16 @@
 <a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="p">[</span><span class="n">page1</span> <span class="n">mounted</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 2 : le middleware [routing] est exécuté par le client ;</li>
-<li>ligne 4 : notez la propriété [from] : c’est la route d’où l’on vient ;</li>
-<li>ligne 9 : [context.route] est la route où l’on va ;</li>
-<li>lignes 15-18 : affichage de la page [page1] ;</li>
+  <li>ligne 2 : le middleware [routing] est exécuté par le client ;
+  </li>
+  <li>ligne 4 : notez la propriété [from] : c’est la route d’où l’on vient ;
+  </li>
+  <li>ligne 9 : [context.route] est la route où l’on va ;
+  </li>
+  <li>lignes 15-18 : affichage de la page [page1] ;
+  </li>
 </ul>
+
 <p>Maintenant revenons à la page [index] avec le lien [Home]. Les logs sont alors les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
@@ -1478,13 +1493,18 @@
 <a id="__codelineno-4-33" name="__codelineno-4-33"></a><span class="p">[</span><span class="n">home</span> <span class="n">mounted</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 1-15 : le client exécute le middleware [routing]. C’est normal. Il est exécuté à chaque changement de route;</li>
-<li>lignes 16-29 : le client exécute le middleware [index-routing], ceci parce que :<ul>
-<li>[index] est la cible de la route courante (cf ligne 23) ;</li>
-<li>la page [index] a défini un middleware, nommément [index-routing] ;</li>
+  <li>lignes 1-15 : le client exécute le middleware [routing]. C’est normal. Il est exécuté à chaque changement de route;
+  </li>
+  <li>lignes 16-29 : le client exécute le middleware [index-routing], ceci parce que :
+    <ul>
+      <li>[index] est la cible de la route courante (cf ligne 23) ;
+      </li>
+      <li>la page [index] a défini un middleware, nommément [index-routing] ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>On voit donc que les middlewares de routage général sont exécutés par le client avant les middlewares attachés aux pages.</p>
 
 

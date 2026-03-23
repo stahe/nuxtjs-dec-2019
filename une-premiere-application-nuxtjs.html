@@ -1000,22 +1000,28 @@
 
 <p>Ce fichier reflète les réponses données à la commande [create nuxt-app] pour définir le projet créé (novembre 2019). Le lecteur peut avoir un fichier [package.json] différent :</p>
 <ul>
-<li>il a pu donner des réponses différentes aux questions ;</li>
-<li>la commande [create nuxt-app] aura évolué depuis l’écriture de ce document : les dépendances et les versions auront changé ;</li>
+  <li>il a pu donner des réponses différentes aux questions ;
+  </li>
+  <li>la commande [create nuxt-app] aura évolué depuis l’écriture de ce document : les dépendances et les versions auront changé ;
+  </li>
 </ul>
+
 <p>La ligne 8 du script est la commande qui lance l’application :</p>
 <p><img src="images/10000000000006DC0000035D8EBDBB38.png" style="width:16.26cm;height:7.97cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006DC0000035D8EBDBB38.png" /></p>
 <ul>
-<li>en [4], on voit que l’application est disponible à l’URL [localhost:3000] ;</li>
-<li>en [5-6], on voit que l’application donne naissance à un serveur [6] et à un client (de ce serveur) [5] ;</li>
+  <li>en [4], on voit que l’application est disponible à l’URL [localhost:3000] ;
+  </li>
+  <li>en [5-6], on voit que l’application donne naissance à un serveur [6] et à un client (de ce serveur) [5] ;
+  </li>
 </ul>
+
 <p>Demandons l’URL [http://localhost:3000/] dans un navigateur :</p>
 <p><img src="images/10000000000004A6000005A60E05D66D.png" style="width:6.301cm;height:7.651cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004A6000005A60E05D66D.png" /></p>
 <h2 id="32-description-de-larborescence-dune-application-nuxt">3.2. Description de l’arborescence d’une application [nuxt]</h2>
 <p>Reprenons l’arborescence de l’application créée :</p>
 <p><img src="images/1000000000000595000004527634DC81.png" style="width:13.23cm;height:10.24cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000595000004527634DC81.png" /></p>
 <p>Le rôle des dossiers est le suivant :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>assets</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">ressources non compilées de l’application (images, ...) ;</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>static</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">les fichiers de ce dossier seront disponibles à la racine de l’application. On met dans ce dossier des fichiers qu’on doit trouver à la racine de l’application comme par exemple le fichier [robots.txt] destiné aux moteurs de recherche ;</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>components</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">les composants [vue] de l’application utilisés dans les [layouts] et les [pages] ;</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>layouts</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">les composants [vue] de l’application servant de mise en page des [pages] ;</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>pages</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">les composants [vue] affichés par les différentes routes de l’application. On pourrait les appeler les vues de l’application. Les pages jouent un rôle particulier dans [nuxt] : les routes sont créées dynamiquement à partir de l’arborescence trouvée dans le dossier [pages] ;</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>middleware</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">les scripts exécutés à chaque changement de route. Ils permettent de contrôler celles-ci ;</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>plugins</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">porte un nom prêtant à confusion. Peut contenir des plugins mais également des scripts classiques. Les scripts trouvés dans ce dossier sont exécutés au démarrage de l’application ;</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>store</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">s’il contient un script [index.js] alors celui-ci définit une instance du store de [Vuex] ;</p></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>assets</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">ressources non compilées de l’application (images, ...) ;</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>static</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">les fichiers de ce dossier seront disponibles à la racine de l’application. On met dans ce dossier des fichiers qu’on doit trouver à la racine de l’application comme par exemple le fichier [robots.txt] destiné aux moteurs de recherche ;</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>components</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">les composants [vue] de l’application utilisés dans les [layouts] et les [pages] ;</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>layouts</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">les composants [vue] de l’application servant de mise en page des [pages] ;</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>pages</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">les composants [vue] affichés par les différentes routes de l’application. On pourrait les appeler les vues de l’application. Les pages jouent un rôle particulier dans [nuxt] : les routes sont créées dynamiquement à partir de l’arborescence trouvée dans le dossier [pages] ;</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>middleware</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">les scripts exécutés à chaque changement de route. Ils permettent de contrôler celles-ci ;</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>plugins</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">porte un nom prêtant à confusion. Peut contenir des plugins mais également des scripts classiques. Les scripts trouvés dans ce dossier sont exécutés au démarrage de l’application ;</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>store</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">s’il contient un script [index.js] alors celui-ci définit une instance du store de [Vuex] ;</div></td></tr></table>
 
 <p>Si un dossier est vide, on peut le supprimer de l’arborescence. Ci-dessus, les dossiers [assets, static, middleware, plugins, store] peuvent être supprimés [2].</p>
 <h2 id="33-le-fichier-de-configuration-nuxtconfig">3.3. Le fichier de configuration [nuxt.config]</h2>
@@ -1085,18 +1091,26 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 2 : le type d’application générée :<ul>
-<li>[<strong>universal</strong>] : application client / serveur. Au chargement initial de l’application ainsi qu’à chaque rafraîchissement de page dans le navigateur, le serveur est sollicité pour délivrer la page ;</li>
-<li>[<strong>sap</strong>] : application de type [Single Page Application] : un serveur délivre initialement la totalité de l’application. Ensuite le client opère seul, même en cas de rafraîchissement d’une page dans le navigateur ;</li>
+  <li>ligne 2 : le type d’application générée :
+    <ul>
+      <li>[<b>universal</b>] : application client / serveur. Au chargement initial de l’application ainsi qu’à chaque rafraîchissement de page dans le navigateur, le serveur est sollicité pour délivrer la page ;
+      </li>
+      <li>[<b>sap</b>] : application de type [Single Page Application] : un serveur délivre initialement la totalité de l’application. Ensuite le client opère seul, même en cas de rafraîchissement d’une page dans le navigateur ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 6-18 : définissent l’entête HTML &lt;head&gt; des différentes pages de l’application :
+    <ul>
+      <li>ligne 7 : la balise &lt;title&gt; du titre des pages ;
+      </li>
+      <li>lignes 8-16 : les balises &lt;meta&gt; ;
+      </li>
+      <li>ligne 17 : les balises &lt;link&gt;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-<li>lignes 6-18 : définissent l’entête HTML &lt;head&gt; des différentes pages de l’application :<ul>
-<li>ligne 7 : la balise &lt;title&gt; du titre des pages ;</li>
-<li>lignes 8-16 : les balises &lt;meta&gt; ;</li>
-<li>ligne 17 : les balises &lt;link&gt;</li>
-</ul>
-</li>
-</ul>
+
 <p>Dans l’application générée, la balise &lt;head&gt; est la suivante (code source de la page affichée dans le navigateur) :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line">&lt;<span style="color:#800080">title</span>&gt;nuxt-intro&lt;<span style="color:#800080">/title</span>&gt;</span>
@@ -1197,13 +1211,20 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 12 : entre chaque route du client [nuxt], une barre de chargement (loading) apparaît si le changement de route prend un peu de temps. La propriété [loading] permet de paramétrer cette barre de chargement, ici la couleur de la barre ;</li>
-<li>ligne 16 : les fichiers [css] globaux. Ils seront automatiquement inclus dans toutes les pages de l’application ;</li>
-<li>lignes 24-27 : les modules Javascript nécessaires à la compilation (build) de l’application ;</li>
-<li>lignes 31-36 : les modules Javascript utilisés par l’application ;</li>
-<li>ligne 41 : paramétrage de la bibliothèque [axios] lorsque celle-ci a été sélectionnée par l’utilisateur pour les dialogues HTTP avec des serveurs tiers ;</li>
-<li>lignes 45-50 : paramétrage de la compilation (build) du projet ;</li>
+  <li>ligne 12 : entre chaque route du client [nuxt], une barre de chargement (loading) apparaît si le changement de route prend un peu de temps. La propriété [loading] permet de paramétrer cette barre de chargement, ici la couleur de la barre ;
+  </li>
+  <li>ligne 16 : les fichiers [css] globaux. Ils seront automatiquement inclus dans toutes les pages de l’application ;
+  </li>
+  <li>lignes 24-27 : les modules Javascript nécessaires à la compilation (build) de l’application ;
+  </li>
+  <li>lignes 31-36 : les modules Javascript utilisés par l’application ;
+  </li>
+  <li>ligne 41 : paramétrage de la bibliothèque [axios] lorsque celle-ci a été sélectionnée par l’utilisateur pour les dialogues HTTP avec des serveurs tiers ;
+  </li>
+  <li>lignes 45-50 : paramétrage de la compilation (build) du projet ;
+  </li>
 </ul>
+
 <p>On peut ajouter d’autres clés au fichier de configuration. On peut notamment paramétrer le port de service (3000 par défaut) et la racine du projet (par défaut, le dossier racine du projet). C’est ce que nlous faisons maintenant en ajoutant les clés suivantes :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">// répertoire du code source</span>
@@ -1222,20 +1243,31 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 2 : où trouver le code source du projet. On le trouve ici dans le dossier courant, ç-à-d au même niveau que le fichier [nuxt.config.js]. C’est la valeur par défaut ;</li>
-<li>lignes 8-13 : configurent le serveur (il ne faut pas oublier qu’une application [nuxt] de type [universal] est installée à la fois sur un serveur et un navigateur client de ce serveur) ;</li>
-<li>ligne 10 : les pages de l’application seront délivrées sur le port 81 du serveur ;</li>
-<li>ligne 12 : par défaut [localhost] (adresse réseau 127.0.0.1). Une machine peut avoir plusieurs adresses réseau si elle appartient à plusieurs réseaux. L’adresse 0.0.0.0 indique que le serveur web écoute toutes les adresses réseau de la machine ;</li>
-<li>lignes 3-6 : configurent le routeur de l’applicatio [nuxt] ;</li>
-<li>ligne 5 : les pages de l’application seront disponibles à l’URL [http://localhost:81/<mark style="background-color: #ffff00">nuxt-intro/</mark>];</li>
+  <li>ligne 2 : où trouver le code source du projet. On le trouve ici dans le dossier courant, ç-à-d au même niveau que le fichier [nuxt.config.js]. C’est la valeur par défaut ;
+  </li>
+  <li>lignes 8-13 : configurent le serveur (il ne faut pas oublier qu’une application [nuxt] de type [universal] est installée à la fois sur un serveur et un navigateur client de ce serveur) ;
+  </li>
+  <li>ligne 10 : les pages de l’application seront délivrées sur le port 81 du serveur ;
+  </li>
+  <li>ligne 12 : par défaut [localhost] (adresse réseau 127.0.0.1). Une machine peut avoir plusieurs adresses réseau si elle appartient à plusieurs réseaux. L’adresse 0.0.0.0 indique que le serveur web écoute toutes les adresses réseau de la machine ;
+  </li>
+  <li>lignes 3-6 : configurent le routeur de l’applicatio [nuxt] ;
+  </li>
+  <li>ligne 5 : les pages de l’application seront disponibles à l’URL [http://localhost:81/<mark style="background-color: #ffff00">nuxt-intro/</mark>];
+  </li>
 </ul>
+
 <p>Ajoutons ces lignes au fichier [nuxt.config.js] puis exécutons le projet (script npm dev). Le résultat est le suivant :</p>
 <p><img src="images/10000000000005A50000059B101843D0.png" style="width:5.001cm;height:5.001cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005A50000059B101843D0.png" /></p>
 <ul>
-<li>en [1], l’adresse de la machine sur un réseau public ;</li>
-<li>en [2], le port de service ;</li>
-<li>en [3], l’URL racine de l’application ;</li>
+  <li>en [1], l’adresse de la machine sur un réseau public ;
+  </li>
+  <li>en [2], le port de service ;
+  </li>
+  <li>en [3], l’URL racine de l’application ;
+  </li>
 </ul>
+
 <h2 id="34-le-dossier-layouts">3.4. Le dossier [layouts]</h2>
 <p><img src="images/100000000000019A00000209E43B4A81.png" style="width:3.8cm;height:4.821cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000019A00000209E43B4A81.png" /></p>
 <p>Le dossier [layouts] est destiné aux composants de mise en page. Par défaut, c’est le composant nommé [default.vue] qui est utilisé. Dans ce projet, celui-ci est le suivant :</p>
@@ -1299,10 +1331,14 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>lignes 1-5 : le [template] du composant ;</li>
-<li>ligne 3 : la balise &lt;<strong>nuxt</strong> /&gt; désigne la page courante du routage ;</li>
-<li>lignes 7-55 : le style embarqué par le composant de mise en page. Comme celui-ci contient la page courante du routage, ce style va s’appliquer à toutes les pages routées de l’application ;</li>
+  <li>lignes 1-5 : le [template] du composant ;
+  </li>
+  <li>ligne 3 : la balise &lt;<b>nuxt</b> /&gt; désigne la page courante du routage ;
+  </li>
+  <li>lignes 7-55 : le style embarqué par le composant de mise en page. Comme celui-ci contient la page courante du routage, ce style va s’appliquer à toutes les pages routées de l’application ;
+  </li>
 </ul>
+
 <p>On voit que le but premier de la page [default.vue] est ici d’appliquer un style aux pages routées.</p>
 <h2 id="35-le-dossier-pages">3.5. Le dossier [pages]</h2>
 <p><img src="images/10000000000001AE000002497EC1638B.png" style="width:3.98cm;height:5.411cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AE000002497EC1638B.png" /></p>
@@ -1474,16 +1510,22 @@
 <p>[Vue DevTools] est l’extension de navigateur qui permet d’inspecter les objets [nuxt.js] et [vue.js] dans le navigateur. Nous l’avons déjà utilisée dans le chapitre sur [vue.js]. Examinons ce que cet outil trouve lorsque la page d’accueil de notre application est affichée :</p>
 <p><img src="images/10000000000008ED0000028BFAABC330.png" style="width:15.121cm;height:4.31cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000008ED0000028BFAABC330.png" /></p>
 <ul>
-<li>en [1], le composant [PagesIndex] désigne la page [pages/index.vue] ;</li>
-<li>on voit en [2] que ce composant a une propriété [$route] qui est la route qui a amené à la page [index] ;</li>
+  <li>en [1], le composant [PagesIndex] désigne la page [pages/index.vue] ;
+  </li>
+  <li>on voit en [2] que ce composant a une propriété [$route] qui est la route qui a amené à la page [index] ;
+  </li>
 </ul>
+
 <p>Comme simple exercice, affichons cette route dans la console.</p>
 <h2 id="38-modification-de-la-page-daccueil">3.8. Modification de la page d’accueil</h2>
 <p>Nous allons modifier le fichier [index.vue]. Dans notre installation du projet, nous avons installé deux dépendances :</p>
 <ul>
-<li>[eslint] : qui vérifie la syntaxe des fichiers Javascript et des composants Vue. Si l’extension [ESLint] de VSCode a été installée, cette syntaxe est vérifiée lors de la frappe des textes et les erreurs sont immédiatement signalées ;</li>
-<li>[prettier] : qui formate les codes Javascript d’une façon standard ;</li>
+  <li>[eslint] : qui vérifie la syntaxe des fichiers Javascript et des composants Vue. Si l’extension [ESLint] de VSCode a été installée, cette syntaxe est vérifiée lors de la frappe des textes et les erreurs sont immédiatement signalées ;
+  </li>
+  <li>[prettier] : qui formate les codes Javascript d’une façon standard ;
+  </li>
 </ul>
+
 <p>Ces dépendances sont inscrites dans le fichier [package.json] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">&quot;devDependencies&quot;<span style="color:#000000">: {</span></span>
@@ -1519,15 +1561,22 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 2-11 : indiquent que lorsque [eslint] valide les fichiers .vue et .js il doit corriger les erreurs qu’il peut corriger ;</li>
-<li>ligne 12 : lorsqu’un fichier est sauvegardé, [eslint] doit corriger les erreurs qu’il peut corriger ;</li>
-<li>ligne 13 : inhibe le formatage fait par défaut dans VSCode lors d’une sauvegarde. C’est [prettier] qui le fera ;</li>
+  <li>lignes 2-11 : indiquent que lorsque [eslint] valide les fichiers .vue et .js il doit corriger les erreurs qu’il peut corriger ;
+  </li>
+  <li>ligne 12 : lorsqu’un fichier est sauvegardé, [eslint] doit corriger les erreurs qu’il peut corriger ;
+  </li>
+  <li>ligne 13 : inhibe le formatage fait par défaut dans VSCode lors d’une sauvegarde. C’est [prettier] qui le fera ;
+  </li>
 </ul>
+
 <p>Avec cette configuration :</p>
 <ul>
-<li>les erreurs de syntaxe ou de formatage sont signalées dès la frappe des textes ;</li>
-<li>les erreurs de formatage sont automatiquement corrigées lors de la sauvegarde du fichier ;</li>
+  <li>les erreurs de syntaxe ou de formatage sont signalées dès la frappe des textes ;
+  </li>
+  <li>les erreurs de formatage sont automatiquement corrigées lors de la sauvegarde du fichier ;
+  </li>
 </ul>
+
 <p>La bibliothèque [prettier] est configurée par le fichier [.prettierrc] :</p>
 <p><img src="images/10000000000001C7000003416DC63586.png" style="width:4.22cm;height:7.721cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001C7000003416DC63586.png" /></p>
 <p>Ce fichier est par défaut le suivant :</p>
@@ -1540,10 +1589,14 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 1 : pas de ; à la fin des instructions ;</li>
-<li>ligne 2 : si une fonction ‘flèche’ (arrow) a un unique paramètre, celui-ci est entouré de parenthèses ;</li>
-<li>ligne 3 : les chaînes de caractères sont entourées d’apostrophes (pas de guillemets) ;</li>
+  <li>ligne 1 : pas de ; à la fin des instructions ;
+  </li>
+  <li>ligne 2 : si une fonction ‘flèche’ (arrow) a un unique paramètre, celui-ci est entouré de parenthèses ;
+  </li>
+  <li>ligne 3 : les chaînes de caractères sont entourées d’apostrophes (pas de guillemets) ;
+  </li>
 </ul>
+
 <p>Nous ajoutons les deux règles suivantes :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">{</span>
@@ -1556,9 +1609,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 5 : la ligne de code peut faire jusqu’à 120 caractères ;</li>
-<li>ligne 6 : la marque de fin de ligne peut être indifféremment CRLF (windows) ou LF (unix) ;</li>
+  <li>ligne 5 : la ligne de code peut faire jusqu’à 120 caractères ;
+  </li>
+  <li>ligne 6 : la marque de fin de ligne peut être indifféremment CRLF (windows) ou LF (unix) ;
+  </li>
 </ul>
+
 <p>Enfin, le fichier [package.json] est modifié de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">&quot;scripts&quot;<span style="color:#000000">: {</span></span>
@@ -1572,8 +1628,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 7 : nous ajoutons la commande [lintfix] qui est identique à la commande [lint] de la ligne 6 si ce n’est qu’elle a en plus le paramètre [--fix]. La commande [lint] vérifie la syntaxe et le format de tous les fichiers du projet et signale toute erreur. [lintfix] fera la même chose si ce n’est que les problèmes de formatage qui peuvent être corrigés le seront automatiquement. [lintfix] sera la commande à utiliser si la compilation échoue à cause de problèmes de formatage de fichiers ;</li>
+  <li>ligne 7 : nous ajoutons la commande [lintfix] qui est identique à la commande [lint] de la ligne 6 si ce n’est qu’elle a en plus le paramètre [--fix]. La commande [lint] vérifie la syntaxe et le format de tous les fichiers du projet et signale toute erreur. [lintfix] fera la même chose si ce n’est que les problèmes de formatage qui peuvent être corrigés le seront automatiquement. [lintfix] sera la commande à utiliser si la compilation échoue à cause de problèmes de formatage de fichiers ;
+  </li>
 </ul>
+
 <p>Ceci fait, nous modifions le fichier [index.vue] de la façon suivante :</p>
 <p><img src="images/10000000000002FF000001933857350F.png" style="width:7.1cm;height:3.731cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002FF000001933857350F.png" /></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1594,30 +1652,43 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 10-12 : on ajoute la fonction [created] qui est automatiquement exécutée lorsque le composant a été créé ;</li>
-<li>ligne 11 : on affiche la route courante ;</li>
-<li>
-<p>ligne 2 : un commentaire destiné à [eslint]. Sans ce commentaire, [eslint] signale une erreur ligne 11 : il ne veut pas d’instructions [console] dans les fonctions du cycle de vie. [eslint] est configurable. Nous allons garder sa configuration par défaut et nous utiliserons des commentaires tels que celui de la ligne 2 pour désactiver une règle précise de [eslint]. Nous utiliserons deux types de commentaires :</p>
-<ul>
-<li><span style="color: #158466">/* désactivation règle [eslint] */</span> : désactivation d’une règle pour tout le fichier ;</li>
-<li><span style="color: #158466">// désactivation règle [eslint]</span> : désactivation d’une règle pour la ligne qui suit ;</li>
+  <li>lignes 10-12 : on ajoute la fonction [created] qui est automatiquement exécutée lorsque le composant a été créé ;
+  </li>
+  <li>ligne 11 : on affiche la route courante ;
+  </li>
+  <li>ligne 2 : un commentaire destiné à [eslint]. Sans ce commentaire, [eslint] signale une erreur ligne 11 : il ne veut pas d’instructions [console] dans les fonctions du cycle de vie. [eslint] est configurable. Nous allons garder sa configuration par défaut et nous utiliserons des commentaires tels que celui de la ligne 2 pour désactiver une règle précise de [eslint]. Nous utiliserons deux types de commentaires :
+  </li>
 </ul>
-</li>
-</ul>
+
+<ol>
+    <ul>
+      <li><span style="color: #158466">/* désactivation règle [eslint] */</span> : désactivation d’une règle pour tout le fichier ;
+      </li>
+      <li><span style="color: #158466">// désactivation règle [eslint]</span> : désactivation d’une règle pour la ligne qui suit ;
+      </li>
+    </ul>
+</ol>
+
 <p>Lors de la frappe, les erreurs sont signalées et une fonction [Quick Fix] disponible :</p>
 <p><img src="images/100000000000068F000001A429F4A303.png" style="width:15.551cm;height:3.89cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000068F000001A429F4A303.png" /></p>
 <p>On exécute le projet :</p>
 <p><img src="images/1000000000000676000003F9C4FB723F.png" style="width:13.131cm;height:8.071cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000676000003F9C4FB723F.png" /></p>
 <ul>
-<li>en [1], l’onglet [Vue] des outils de développement du navigateur (F12) ;</li>
-<li>en [2] et [3], l’affichage de la route ;</li>
+  <li>en [1], l’onglet [Vue] des outils de développement du navigateur (F12) ;
+  </li>
+  <li>en [2] et [3], l’affichage de la route ;
+  </li>
 </ul>
+
 <p>Pourquoi deux affichages et non un seul ?</p>
 <p>Une application [nuxt] se décompose de deux éléments, un serveur et un client :</p>
 <ol>
-<li>le serveur fournit les pages de l’application au démarrage de celle-ci et puis à chaque fois qu’une page est rafraîchie dans le navigateur (F5) ou bien que l’utilisateur tape une URL de l’application à la main ;</li>
-<li>chaque page fournie par le navigateur contient la page demandée ainsi que le code Javascript de toute l’application qui est ensuite exécutée sur le navigateur. C’est le client. Tant qu’il n’y a pas rafraîchissement de page sur le navigateur, l’application fonctionne comme une application Vue classique en mode [sap] (Single Page Application). Dès que l’utilisateur provoque manuellement un rafraîchissement de page, celle-ci est demandée au serveur et on retourne à la phase 1 précédente.</li>
+  <li>le serveur fournit les pages de l’application au démarrage de celle-ci et puis à chaque fois qu’une page est rafraîchie dans le navigateur (F5) ou bien que l’utilisateur tape une URL de l’application à la main ;
+  </li>
+  <li>chaque page fournie par le navigateur contient la page demandée ainsi que le code Javascript de toute l’application qui est ensuite exécutée sur le navigateur. C’est le client. Tant qu’il n’y a pas rafraîchissement de page sur le navigateur, l’application fonctionne comme une application Vue classique en mode [sap] (Single Page Application). Dès que l’utilisateur provoque manuellement un rafraîchissement de page, celle-ci est demandée au serveur et on retourne à la phase 1 précédente.
+  </li>
 </ol>
+
 <p>Ce qu’il faut comprendre, c’est que ce sont les <strong>mêmes pages</strong> du dossier [pages] qui sont fournies par le serveur ou le client. Pour cette raison, les concepteurs de [nuxt] appellent ce type de pages, des pages <strong>isomorphiques</strong>. Les mêmes pages [.vue] peuvent être interprétées à la fois par le client et le serveur. Prenons l’exemple de la page [index] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line"><span style="color:#0000ff">&lt;</span>template<span style="color:#0000ff">&gt;</span></span>
@@ -1666,16 +1737,24 @@
 <p>L’architecture d’une application [nuxt] pourrait être la suivante :</p>
 <p><img src="images/10000000000007BF00000349AB87D1B1.png" style="width:15.74cm;height:6.67cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007BF00000349AB87D1B1.png" /></p>
 <ul>
-<li>[1] : le navigateur qui héberge l’application [nuxt] lorsque celle-ci a été chargée sur le navigateur. C’est ce qu’on a appelé le client [nuxt] ;</li>
-<li>[3] : le serveur qui héberge initialement l’application [nuxt]. Celle-ci est chargée sur le navigateur [1] au démarrage de l’application et à chaque fois que l’utilisateur rafraîchit la page courante du navigateur ou tape à la main une URL de l’application. C’est là que se situe la différence de fonctionnement avec une application Vue classique. Avec celle-ci, une fois chargée sur le navigateur, le serveur n’était plus jamais sollicité par la suite. Une autre différence importante qu’on n’a pas pu voir pour l’instant est que le serveur d’une application Vue est un serveur statique, incapable d’interpréter les pages [.vue], alors que celui d’une application Nuxt de type [universal] est un serveur Javascript. Avant d’envoyer une page au navigateur, le serveur peut exécuter des scripts et aller par exemple chercher des données sur le serveur [2] ;</li>
-<li>[2] : est le serveur qui fournit des données soit au client [nuxt] [1], soit au serveur [nuxt] [3] ;</li>
+  <li>[1] : le navigateur qui héberge l’application [nuxt] lorsque celle-ci a été chargée sur le navigateur. C’est ce qu’on a appelé le client [nuxt] ;
+  </li>
+  <li>[3] : le serveur qui héberge initialement l’application [nuxt]. Celle-ci est chargée sur le navigateur [1] au démarrage de l’application et à chaque fois que l’utilisateur rafraîchit la page courante du navigateur ou tape à la main une URL de l’application. C’est là que se situe la différence de fonctionnement avec une application Vue classique. Avec celle-ci, une fois chargée sur le navigateur, le serveur n’était plus jamais sollicité par la suite. Une autre différence importante qu’on n’a pas pu voir pour l’instant est que le serveur d’une application Vue est un serveur statique, incapable d’interpréter les pages [.vue], alors que celui d’une application Nuxt de type [universal] est un serveur Javascript. Avant d’envoyer une page au navigateur, le serveur peut exécuter des scripts et aller par exemple chercher des données sur le serveur [2] ;
+  </li>
+  <li>[2] : est le serveur qui fournit des données soit au client [nuxt] [1], soit au serveur [nuxt] [3] ;
+  </li>
 </ul>
+
 <p>On peut dans le schéma ci-dessus distinguer trois sous-systèmes client / serveur :</p>
 <ul>
-<li>[1, 3] : héberge l’application [nuxt]. [3] la fournit au démarrage de l’application avec la page d’accueil et à chaque fois que l’utilisateur demande une page manuellement. [1] héberge l’application [nuxt] reçue de [3] qui fonctionne alos en mode [SAP] tant que les pages ne sont pas demandées manuellement à [3] ;</li>
-<li>[1, 2] : en mode [SAP], le client [nuxt] récupère des données externes auprès d’un ou plusieurs serveurs ;</li>
-<li>[3, 2] : lors de la génération de la page demandée par l’utilisateur, le serveur [3] peut lui aussi récupérer des données externes auprès d’un ou plusieurs serveurs ;</li>
+  <li>[1, 3] : héberge l’application [nuxt]. [3] la fournit au démarrage de l’application avec la page d’accueil et à chaque fois que l’utilisateur demande une page manuellement. [1] héberge l’application [nuxt] reçue de [3] qui fonctionne alos en mode [SAP] tant que les pages ne sont pas demandées manuellement à [3] ;
+  </li>
+  <li>[1, 2] : en mode [SAP], le client [nuxt] récupère des données externes auprès d’un ou plusieurs serveurs ;
+  </li>
+  <li>[3, 2] : lors de la génération de la page demandée par l’utilisateur, le serveur [3] peut lui aussi récupérer des données externes auprès d’un ou plusieurs serveurs ;
+  </li>
 </ul>
+
 <p>C’est donc le serveur [3] qui distingue une application [nuxt] d’une application [vue]. Ce serveur est sollicité à chaque fois  que l’utilisateur demande une page manuellement. Il traite les mêmes pages [.vue] que le client [vue] [1]. C’est un serveur Javascript capable d’exécuter les scripts présents dans la page. Cela peut modifier par exemple la façon de générer la page d’accueil avec des données externes : là où une application [vue] obtient celles-ci forcément à partir du client [1], ici elles peuvent être obtenues par le serveur [3] avant que la page ne soit envoyée au client. La page d’accueil devient ainsi signifiante et peut contribuer à améliorer le SEO de l’application.</p>
 <p><strong>Note</strong> : en mode développement les trois entités [1, 2, 3] sont souvent sur la même machine. Ce sera le cas ici pour tous nos exemples.</p>
 <h2 id="39-deplacement-du-code-source-de-lapplication-dans-un-dossier-separe">3.9. Déplacement du code source de l’application dans un dossier séparé</h2>
@@ -1683,9 +1762,12 @@
 <p>Nous déplaçons le code source de l’application générée initialement par la commande [yarn create nuxt-app] dans un dossier [nuxt-00] :</p>
 <p><img src="images/1000000000000472000003BE4895B017.png" style="width:12.041cm;height:10.141cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000472000003BE4895B017.png" /></p>
 <ul>
-<li>en [2], on a déplacé les dossiers [components, layouts, pages] dans un dossier [nuxt-00] ;</li>
-<li>en [3], il nous faut modifier le fichier [nuxt.config.js] ;</li>
+  <li>en [2], on a déplacé les dossiers [components, layouts, pages] dans un dossier [nuxt-00] ;
+  </li>
+  <li>en [3], il nous faut modifier le fichier [nuxt.config.js] ;
+  </li>
 </ul>
+
 <p>Nous modifions le le fichier [nuxt.config.js] de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">export<span style="color:#000000"> </span>default<span style="color:#000000"> {</span></span>
@@ -1723,21 +1805,27 @@
 
 <p>Le fichier est modifié en deux points :</p>
 <ul>
-<li>ligne 17 : on indique que le code source du projet [dvp] est à trouver dans le dossier [nuxt-00] ;</li>
-<li>ligne 21 : on indique que l’URL racine de l’application est désormais [/nuxt-00/]. Ce changement n’était pas obligatoire. On pourrait ne pas mettre cette propriété et la racine des URL serait alors [/]. Ici, cela nous permettra de nous souvenir que le code source exécuté est celui du dossier [nuxt-00] ;</li>
+  <li>ligne 17 : on indique que le code source du projet [dvp] est à trouver dans le dossier [nuxt-00] ;
+  </li>
+  <li>ligne 21 : on indique que l’URL racine de l’application est désormais [/nuxt-00/]. Ce changement n’était pas obligatoire. On pourrait ne pas mettre cette propriété et la racine des URL serait alors [/]. Ici, cela nous permettra de nous souvenir que le code source exécuté est celui du dossier [nuxt-00] ;
+  </li>
 </ul>
+
 <p>Ceci fait, le projet [dvp] est exécuté comme précédemment :</p>
 <p><img src="images/10000000000004F6000002E2FA7C784D.png" style="width:15.121cm;height:8.79cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004F6000002E2FA7C784D.png" /></p>
-<p><a id="nuxt00deploiement"></a>
-<a id="refheadingtoc641993669820992"></a></p>
+<p><a id="refheadingtoc641993669820992"></a>
+<a id="nuxt00deploiement"></a></p>
 <h2 id="310-deploiement-de-lapplication-nuxt-00">3.10. Déploiement de l’application [nuxt-00]</h2>
 <p>Nous allons exécuter l’application [nuxt-00] dans un environnement autre que l’environnement intégré de VSCode.</p>
 <p>Tout d’abord nous compilons l’application :</p>
 <p><img src="images/1000000000000541000001DEF6E54525.png" style="width:16.012cm;height:5.691cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000541000001DEF6E54525.png" /></p>
 <ul>
-<li>en [3], le résultat de la compilation du client. Sera exécuté par le navigateur ;</li>
-<li>en [4], le résultat de la compilation du serveur. Sera exécuté par le serveur [node.js] ;</li>
+  <li>en [3], le résultat de la compilation du client. Sera exécuté par le navigateur ;
+  </li>
+  <li>en [4], le résultat de la compilation du serveur. Sera exécuté par le serveur [node.js] ;
+  </li>
 </ul>
+
 <p>Le résultat de la compilation est placé dans le dossier [.nuxt] :</p>
 <p><img src="images/1000000000000512000002AB357FA659.png" style="width:15.451cm;height:8.131cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000512000002AB357FA659.png" /></p>
 <p>Nous copions les dossiers [.nuxt, node_modules] et les fichiers [package.json, nuxt.config.js] dans un dossier séparé :</p>
@@ -1752,8 +1840,10 @@
 </code></pre></div>
 
 <ul>
-<li>on ne garde que le script [start] qui permet d’exécuter la version compilée du projet ;</li>
+  <li>on ne garde que le script [start] qui permet d’exécuter la version compilée du projet ;
+  </li>
 </ul>
+
 <p>Le fichier [nuxt.config.js] est simplifié de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">export<span style="color:#000000"> </span>default<span style="color:#000000"> {</span></span>
@@ -1774,9 +1864,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 5 : on fixe l’URL de base de l’application compilée ;</li>
-<li>lignes 8-14 : on définit le port de service et les adresses réseau écoutées ;</li>
+  <li>ligne 5 : on fixe l’URL de base de l’application compilée ;
+  </li>
+  <li>lignes 8-14 : on définit le port de service et les adresses réseau écoutées ;
+  </li>
 </ul>
+
 <p>Ceci fait, on ouvre un terminal Laragon et on se positionne dans le dossier contenant la version compilée du projet. On peut ouvrir tout type de terminal mais il faut que l’exécutable [npm] soit dans le PATH du terminal. C’est le cas pour le terminal Laragon.</p>
 <p>Ceci fait, on tape la commande [npm run start] :</p>
 <p><img src="images/10000000000005380000035D5ABF0D4A.png" style="width:17.671cm;height:11.39cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005380000035D5ABF0D4A.png" /></p>
@@ -1790,11 +1883,16 @@
 <p><img src="images/10000000000004BA00000231EE0EB21E.png" style="width:16.012cm;height:7.421cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004BA00000231EE0EB21E.png" /></p>
 <p><img src="images/100000000000051800000197835C3FDB.png" style="width:17.252cm;height:5.391cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000051800000197835C3FDB.png" /></p>
 <ul>
-<li>en [2], on tape la commande [openssl genrsa 2048 &gt; server.key] ;</li>
-<li>en [3], un fichier [server.key] est créé ;</li>
-<li>en [4], on tape la commande [openssl req -new -x509 -nodes -sha256 -days 365 -key server.key -out server.crt] ;</li>
-<li>en [5], un fichier [server.crt] est créé ;</li>
+  <li>en [2], on tape la commande [openssl genrsa 2048 &gt; server.key] ;
+  </li>
+  <li>en [3], un fichier [server.key] est créé ;
+  </li>
+  <li>en [4], on tape la commande [openssl req -new -x509 -nodes -sha256 -days 365 -key server.key -out server.crt] ;
+  </li>
+  <li>en [5], un fichier [server.crt] est créé ;
+  </li>
 </ul>
+
 <p>Ces deux fichiers constituent un certificat autosigné. La plupart des navigateurs ne les acceptent qu’après approbation de l’utilisateur ayant demandé la page.</p>
 <p>Les fichiers [server.key, server.crt] doivent être maintenant utilisés par l’application web. Pour cela le fichier [nuxt.config.js] doit être modifié de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">

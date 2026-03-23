@@ -1075,9 +1075,12 @@
 <h1 id="5-exemple-nuxt-02-pages-serveur-et-client">5. Exemple [nuxt-02] : pages serveur et client</h1>
 <p>Dans ce projet, nous montrons :</p>
 <ul>
-<li>que la page construite par le client peut être visuellement différente de celle reçue du serveur. On a alors un changement rapide de page, perceptible par l’utilisateur, et qui est donc nuisible à l’ergonomie de l’application. C’est donc une option à éviter ;</li>
-<li>une solution pour que la page client recrée la même page que celle envoyée par le serveur ;</li>
+  <li>que la page construite par le client peut être visuellement différente de celle reçue du serveur. On a alors un changement rapide de page, perceptible par l’utilisateur, et qui est donc nuisible à l’ergonomie de l’application. C’est donc une option à éviter ;
+  </li>
+  <li>une solution pour que la page client recrée la même page que celle envoyée par le serveur ;
+  </li>
 </ul>
+
 <p>Le projet [nuxt-02] est obtenue initialement par recopie du projet [nuxt-01].</p>
 <p><img src="images/1000000000000173000001FE59416804.png" style="width:3.931cm;height:5.4cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000173000001FE59416804.png" /></p>
 <p>Un dossier [store] est ajouté au projet ainsi que deux nouvelles pages. Nous y reviendrons.</p>
@@ -1144,11 +1147,14 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>ligne 7 : la page [index] va afficher la valeur de sa propriété [value] (ligne 28) ;</li>
-<li>lignes 36-45 : il faut se rappeler ici que la fonction [created] est exécutée à la fois côté serveur et côté client. Lignes 40-42, le serveur fera passer à 10 la valeur de la propriété [value]. Le client, lui, ne touche pas à cette valeur. On veut simplement savoir si cette valeur est conservée par le client. On va découvrir que non ;</li>
+  <li>ligne 7 : la page [index] va afficher la valeur de sa propriété [value] (ligne 28) ;
+  </li>
+  <li>lignes 36-45 : il faut se rappeler ici que la fonction [created] est exécutée à la fois côté serveur et côté client. Lignes 40-42, le serveur fera passer à 10 la valeur de la propriété [value]. Le client, lui, ne touche pas à cette valeur. On veut simplement savoir si cette valeur est conservée par le client. On va découvrir que non ;
+  </li>
 </ul>
-<p><a id="nuxt02indexexecution"></a>
-<a id="refheadingtoc106094921827936"></a></p>
+
+<p><a id="refheadingtoc106094921827936"></a>
+<a id="nuxt02indexexecution"></a></p>
 <h3 id="512-execution">5.1.2. Exécution</h3>
 <p>Nous modifions le fichier [/nuxt.config.js] pour exécuter le projet [nuxt-02] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
@@ -1216,8 +1222,10 @@
 </code></pre></div>
 
 <ul>
-<li>à cause de la ligne 23, la propriété [value] de la ligne 10 prend la valeur 10 ;</li>
+  <li>à cause de la ligne 23, la propriété [value] de la ligne 10 prend la valeur 10 ;
+  </li>
 </ul>
+
 <p>On peut le vérifier en regardant le code source de la page reçue par le navigateur (option [code source] dans le navigateur) :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line"><span style="color:#0000ff">&lt;</span>!doctype<span style="color:#000000"> </span><span style="color:#ff0000">html</span><span style="color:#0000ff">&gt;</span></span>
@@ -1285,8 +1293,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 46 : dans la page reçue, [value] avait la valeur 10 ;</li>
+  <li>ligne 46 : dans la page reçue, [value] avait la valeur 10 ;
+  </li>
 </ul>
+
 <p><u><strong>étape 2</strong></u></p>
 <p>On sait qu’après réception de la page, les scripts des lignes 57-60 prennent la main et transforment le comportement de la page reçue, voire les informations affichées comme ici. Ces scripts forment le client qui lui aussi exécute le code de la page [index], le même code que le serveur :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1329,9 +1339,12 @@
 </code></pre></div>
 
 <ul>
-<li>pour comprendre ce qui se passe, il faut comprendre que le client [nuxt] n’exécutera pas les lignes 22-24 (process.server=false) ;</li>
-<li>dans une application [vue] classique la propriété [value] de la ligne 10 reste à 0. C’est pourquoi, une fois que le client est passé sur la page reçue, la valeur affichée devient [0] ;</li>
+  <li>pour comprendre ce qui se passe, il faut comprendre que le client [nuxt] n’exécutera pas les lignes 22-24 (process.server=false) ;
+  </li>
+  <li>dans une application [vue] classique la propriété [value] de la ligne 10 reste à 0. C’est pourquoi, une fois que le client est passé sur la page reçue, la valeur affichée devient [0] ;
+  </li>
 </ul>
+
 <p>La valeur générée par le serveur [nuxt] pour la propriété [value] n’a servi à rien.</p>
 <h2 id="52-la-page-page1">5.2. La page [page1]</h2>
 <h3 id="521-le-store-vuex">5.2.1. Le store [Vuex]</h3>
@@ -1352,9 +1365,12 @@
 
 <p>[nuxt] implémente un store [Vuex] à partir du contenu de [index.js] :</p>
 <ul>
-<li>lignes 1-3 : définition de l’état [state] du store. Cet état est retourné par une <strong>fonction</strong>. Ici, l’état n’a qu’une propriété, le compteur de la ligne 2. La fonction exportée doit s’appeler [state] ;</li>
-<li>lignes 5-9 : les opération possibles sur l’état du store. On les appelle des [mutations]. Ici, la mutation [increment] permet d’incrémenter la propriété [counter] d’une quantité [inc]. L’objet exporté doit s’appeler [mutations] ;</li>
+  <li>lignes 1-3 : définition de l’état [state] du store. Cet état est retourné par une <b>fonction</b>. Ici, l’état n’a qu’une propriété, le compteur de la ligne 2. La fonction exportée doit s’appeler [state] ;
+  </li>
+  <li>lignes 5-9 : les opération possibles sur l’état du store. On les appelle des [mutations]. Ici, la mutation [increment] permet d’incrémenter la propriété [counter] d’une quantité [inc]. L’objet exporté doit s’appeler [mutations] ;
+  </li>
 </ul>
+
 <p>Le [store] Vuex implémenté par [nuxt] est disponible à différents endroits. Dans les vues, il est disponible dans la propriété [<strong>this.$store</strong>].</p>
 <h3 id="522-le-code-de-la-page">5.2.2. Le code de la page</h3>
 <p>Comme la page [index], la page [page1] va afficher une valeur, celle du compteur du store Vuex :</p>
@@ -1417,24 +1433,36 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>lignes 38-40 : le serveur va incrémenter le compteur de 25 ;</li>
-<li>ligne 42 : aussi bien le serveur que le client vont afficher la valeur du compteur ;</li>
-<li>ligne 7 : la valeur du compteur est affichée ;</li>
+  <li>lignes 38-40 : le serveur va incrémenter le compteur de 25 ;
+  </li>
+  <li>ligne 42 : aussi bien le serveur que le client vont afficher la valeur du compteur ;
+  </li>
+  <li>ligne 7 : la valeur du compteur est affichée ;
+  </li>
 </ul>
+
 <p>En lisant ce code, il faut comprendre deux choses :</p>
 <ul>
-<li>le code exécuté est le même pour le serveur que le client ;</li>
-<li>l’objet [this] n’est lui pas le même : il y a une version [this] côté serveur et une autre côté [client] ;</li>
+  <li>le code exécuté est le même pour le serveur que le client ;
+  </li>
+  <li>l’objet [this] n’est lui pas le même : il y a une version [this] côté serveur et une autre côté [client] ;
+  </li>
 </ul>
+
 <p>Nous cherchons à savoir si le [this.$store] du serveur est le même que le [this.$store] du client. Comme c’est le serveur qui s’exécute en premier (au démarrage de l’application), cela revient à se poser la question : est-ce que le [store] initialisé par le serveur est transmis au client ?</p>
 <h3 id="523-execution">5.2.3. Exécution</h3>
 <p>On exécute le projet [nuxt-02] et on tape [localhost:81/nuxt-02/<strong>page1</strong>] à la main pour que le serveur soit sollicité. Comme au démarrage pour la page [index] :</p>
 <ul>
-<li>le serveur exécute la page [page1.vue] ;</li>
-<li>envoie la page générée au navigateur. Celle-ci est affichée ;</li>
-<li>les scripts client embarqués dans la page envoyée prennent la main et exécutent à nouveau la page [page1.vue] ;</li>
-<li>la page affichée est alors modifiée ;</li>
+  <li>le serveur exécute la page [page1.vue] ;
+  </li>
+  <li>envoie la page générée au navigateur. Celle-ci est affichée ;
+  </li>
+  <li>les scripts client embarqués dans la page envoyée prennent la main et exécutent à nouveau la page [page1.vue] ;
+  </li>
+  <li>la page affichée est alors modifiée ;
+  </li>
 </ul>
+
 <p>Le résultat final est le suivant :</p>
 <p><img src="images/10000000000005A9000002C321431812.png" style="width:11.501cm;height:5.621cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005A9000002C321431812.png" /></p>
 <p>Cette fois-ci, la valeur affichée est bien celle fixée par le serveur et visuellement, on ne voit pas la page ‘tressauter’ à cause d’un changement par le client de la valeur affichée par le serveur. Cette fois-ci que s’est-il passé ?</p>
@@ -1489,9 +1517,12 @@
 </code></pre></div>
 
 <ul>
-<li>les lignes 30-32 ont été exécutées sans erreur. Ce qui signifie que côté serveur également, [this.$store] désigne le store [Vuex]. La ligne 31 a fait passer le compteur du store à 25 ;</li>
-<li>ceci fait, la page a été envoyée au client ;</li>
+  <li>les lignes 30-32 ont été exécutées sans erreur. Ce qui signifie que côté serveur également, [this.$store] désigne le store [Vuex]. La ligne 31 a fait passer le compteur du store à 25 ;
+  </li>
+  <li>ceci fait, la page a été envoyée au client ;
+  </li>
 </ul>
+
 <p>Si on regarde la page reçue par le client, on trouve les éléments suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line"><span style="color:#0000ff">&lt;</span>!doctype<span style="color:#000000"> </span><span style="color:#ff0000">html</span><span style="color:#0000ff">&gt;</span></span>
@@ -1570,9 +1601,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 47 : la valeur envoyée par le serveur ;</li>
-<li>ligne 60 : on constate que l’état du store [Vuex] a été embarqué dans la page. Cela va permettre au client qui va s’exécuter après réception de la page, de reconstituer un nouveau store [Vuex] avec 25 comme valeur initiale du compteur ;</li>
+  <li>ligne 47 : la valeur envoyée par le serveur ;
+  </li>
+  <li>ligne 60 : on constate que l’état du store [Vuex] a été embarqué dans la page. Cela va permettre au client qui va s’exécuter après réception de la page, de reconstituer un nouveau store [Vuex] avec 25 comme valeur initiale du compteur ;
+  </li>
 </ul>
+
 <p>Après réception et affichage de la page reçue du serveur, le client prend la main et exécute à son tour la page [page1] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">...</span>
@@ -1624,17 +1658,22 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 34 : la propriété [value] de la ligne 18 reçoit à son tour la valeur 25 du compteur ;</li>
+  <li>ligne 34 : la propriété [value] de la ligne 18 reçoit à son tour la valeur 25 du compteur ;
+  </li>
 </ul>
+
 <p>Le store de [nuxt] permet donc au serveur de transmettre des informations au client lors du chargement initial de la page, lorsque celle-ci est cherchée sur le serveur. On rappelle qu’une fois cette page obtenue, le serveur n’est plus sollicité et l’application fonctionne comme une application [vue] classique, en mode SAP.</p>
-<p><a id="nuxt02page2"></a>
-<a id="refheadingtoc1175683691645526"></a></p>
+<p><a id="refheadingtoc1175683691645526"></a>
+<a id="nuxt02page2"></a></p>
 <h2 id="53-la-page-page2">5.3. La page [page2]</h2>
 <p>Dans la page [page2], nous montrons une autre façon pour que :</p>
 <ul>
-<li>le serveur inclut des informations calculées dans la page ;</li>
-<li>le client ne modifie pas celles-ci ;</li>
+  <li>le serveur inclut des informations calculées dans la page ;
+  </li>
+  <li>le client ne modifie pas celles-ci ;
+  </li>
 </ul>
+
 <h3 id="531-le-code-de-la-page">5.3.1. Le code de la page</h3>
 <p>Le code de la page [page2] évolue de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1702,28 +1741,44 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 7 : la page affiche la valeur d’une propriété nommée [value] ;</li>
-<li>la propriété [value] n’existe pas comme élément d’un objet rendu par la fonction [data]. Ici cette fonction n’existe pas. La propriété [value] est créée dynamiquement par la ligne 36 ;</li>
-<li>ligne 25 : la fonction [asyncData] est une fonction [nuxt]. Comme son nom l’indique, c’est normalement une fonction asynchrone. Son rôle habituel est d’aller chercher des données externes. [nuxt] assure que la page n’est pas envoyée au navigateur client avant que la fonction [asyncData] n’ait rendu ses données asynchrones ;</li>
-<li>la fonction [asyncData] reçoit comme paramètre le contexte [nuxt]. Cet objet est très dense et donne accès à beaucoup d’informations sur l’application [nuxt. Nous le découvrirons dans les sections à venir ;</li>
-<li>ligne 31 : on implémente la fonction [asyncData] avec une [Promise] (cf document |<a href="https://tahe.developpez.com/tutoriels-cours/ecmascript6">Introduction au langage </a><a href="https://tahe.developpez.com/tutoriels-cours/ecmascript6"><strong>ECMASCRIPT 6</strong></a><a href="https://tahe.developpez.com/tutoriels-cours/ecmascript6"> par l’exemple</a>|). Le constructeur de cette classe accepte comme paramètre une fonction asynchrone qui :<ul>
-<li>signale un succès en rendant des données avec la fonction [resolve]. L’objet rendu par cette fonction est automatiquement inclus dans les propriétés [data] de la page ;</li>
-<li>signale un échec en rendant une erreur avec la fonction [reject] ;</li>
+  <li>ligne 7 : la page affiche la valeur d’une propriété nommée [value] ;
+  </li>
+  <li>la propriété [value] n’existe pas comme élément d’un objet rendu par la fonction [data]. Ici cette fonction n’existe pas. La propriété [value] est créée dynamiquement par la ligne 36 ;
+  </li>
+  <li>ligne 25 : la fonction [asyncData] est une fonction [nuxt]. Comme son nom l’indique, c’est normalement une fonction asynchrone. Son rôle habituel est d’aller chercher des données externes. [nuxt] assure que la page n’est pas envoyée au navigateur client avant que la fonction [asyncData] n’ait rendu ses données asynchrones ;
+  </li>
+  <li>la fonction [asyncData] reçoit comme paramètre le contexte [nuxt]. Cet objet est très dense et donne accès à beaucoup d’informations sur l’application [nuxt. Nous le découvrirons dans les sections à venir ;
+  </li>
+  <li>ligne 31 : on implémente la fonction [asyncData] avec une [Promise] (cf document |<a href="https://tahe.developpez.com/tutoriels-cours/ecmascript6">Introduction au langage </a><a href="https://tahe.developpez.com/tutoriels-cours/ecmascript6"><b>ECMASCRIPT 6</b></a><a href="https://tahe.developpez.com/tutoriels-cours/ecmascript6"> par l’exemple</a>|). Le constructeur de cette classe accepte comme paramètre une fonction asynchrone qui :
+    <ul>
+      <li>signale un succès en rendant des données avec la fonction [resolve]. L’objet rendu par cette fonction est automatiquement inclus dans les propriétés [data] de la page ;
+      </li>
+      <li>signale un échec en rendant une erreur avec la fonction [reject] ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 34 : on simule une fonction asynchrone avec la fonction [setTimeout]. Cette fonction rend l’objet [<span style="color: #000000">{ </span><span style="color: #000000"><mark style="background-color: #ffff00">value: 87</mark></span><span style="color: #000000"> }</span>] (ligne 36) au bout d’une seconde (ligne 31) grâce à la fonction [resolve] qui signale un succès de la [Promise]. L’objet rendu par la fonction asynchrone est inclus automatiquement dans les propriétés [data] de la page. Et c’est donc cette propriété que la ligne 7 affiche ;
+  </li>
+  <li>ligne 27 : nous allons découvrir que la fonction [asyncData] est exécutée par le serveur mais pas par le client ;
+  </li>
+  <li>ligne 29 : l’initialisation de la propriété [value] est faite par le serveur ;
+  </li>
 </ul>
-</li>
-<li>ligne 34 : on simule une fonction asynchrone avec la fonction [setTimeout]. Cette fonction rend l’objet [<span style="color: #000000">{ </span><span style="color: #000000"><mark style="background-color: #ffff00">value: 87</mark></span><span style="color: #000000"> }</span>] (ligne 36) au bout d’une seconde (ligne 31) grâce à la fonction [resolve] qui signale un succès de la [Promise]. L’objet rendu par la fonction asynchrone est inclus automatiquement dans les propriétés [data] de la page. Et c’est donc cette propriété que la ligne 7 affiche ;</li>
-<li>ligne 27 : nous allons découvrir que la fonction [asyncData] est exécutée par le serveur mais pas par le client ;</li>
-<li>ligne 29 : l’initialisation de la propriété [value] est faite par le serveur ;</li>
-</ul>
+
 <p><strong>Note</strong> : l’objet [this] n’est pas connu dans la fonction [asyncData] car l’objet encapsulant le composant [vue] n’a pas encore été créé ;</p>
 <h3 id="532-execution">5.3.2. Exécution</h3>
 <p>On exécute le projet [nuxt-02] et on tape [localhost:81/nuxt-02/<strong>page2</strong>] à la main pour que le serveur soit sollicité. Comme au démarrage pour la page [index] :</p>
 <ul>
-<li>le serveur exécute la page [page2.vue] ;</li>
-<li>envoie la page générée au navigateur. Celle-ci est affichée ;</li>
-<li>les scripts client embarqués dans la page envoyée prennent la main et exécutent à nouveau la page [page2.vue] ;</li>
-<li>la page affichée est alors modifiée ;</li>
+  <li>le serveur exécute la page [page2.vue] ;
+  </li>
+  <li>envoie la page générée au navigateur. Celle-ci est affichée ;
+  </li>
+  <li>les scripts client embarqués dans la page envoyée prennent la main et exécutent à nouveau la page [page2.vue] ;
+  </li>
+  <li>la page affichée est alors modifiée ;
+  </li>
 </ul>
+
 <p>Le résultat final est le suivant :</p>
 <p><img src="images/10000000000005C1000002E0B2660390.png" style="width:13.641cm;height:6.82cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005C1000002E0B2660390.png" /></p>
 <p>Cette fois-ci, la valeur affichée est bien celle fixée par le serveur et visuellement, on ne voit pas la page ‘tressauter’ à cause d’un changement par le client de la valeur affichée par le serveur. Cette fois-ci que s’est-il passé ?</p>
@@ -1871,13 +1926,18 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 48 : on voit que la valeur dans la page reçue est 87 ;</li>
-<li>ligne 61 : dans la réponse du serveur, on voit deux objets : [data] et [state] :<ul>
-<li>[state] est l’état du store [Vuex]. Celui-ci a été instancié à partir du contenu du dossier [store] de l’application [nuxt-02] ;</li>
-<li>[data] contient les propriétés créées par le serveur grâce à la fonction [asyncData]. On retrouve la propriété [value : 87] créée par le serveur. Les scripts du client vont intégrer cette propriété dans celles de la page [page2] ;</li>
+  <li>ligne 48 : on voit que la valeur dans la page reçue est 87 ;
+  </li>
+  <li>ligne 61 : dans la réponse du serveur, on voit deux objets : [data] et [state] :
+    <ul>
+      <li>[state] est l’état du store [Vuex]. Celui-ci a été instancié à partir du contenu du dossier [store] de l’application [nuxt-02] ;
+      </li>
+      <li>[data] contient les propriétés créées par le serveur grâce à la fonction [asyncData]. On retrouve la propriété [value : 87] créée par le serveur. Les scripts du client vont intégrer cette propriété dans celles de la page [page2] ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Revenons au code de la page [page2] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">&lt;!-- page2 --&gt;</span>
@@ -1944,8 +2004,10 @@
 </code></pre></div>
 
 <ul>
-<li>la ligne 7 utilise la propriété [value]. Or la page ne définit aucune propriété nommée [value]. Cependant les scripts du client ont créé automatiquement cette propriété grâce à l’objet [<span style="color: #000000"><mark style="background-color: #ffff00">data: [{ value: 87 }]</mark></span>] reçue du serveur ;</li>
+  <li>la ligne 7 utilise la propriété [value]. Or la page ne définit aucune propriété nommée [value]. Cependant les scripts du client ont créé automatiquement cette propriété grâce à l’objet [<span style="color: #000000"><mark style="background-color: #ffff00">data: [{ value: 87 }]</mark></span>] reçue du serveur ;
+  </li>
 </ul>
+
 <p>Les logs montrent par ailleurs que la fonction [asyncData] n’a pas été exécutée par le client :</p>
 <p><img src="images/100000000000031E0000025FD1253326.png" style="width:10.561cm;height:8.03cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000031E0000025FD1253326.png" /></p>
 <p>La fonction [asyncData] a été exécutée par le serveur [1] mais pas par le client [2]. Par ailleurs, on peut noter que les fonctions du cycle de vie ne sont pas exécutées par le serveur avant la fin de la fonction [asyncData]. On peut augmenter la durée de l’attente au sein de la fonction [asyncData] pour le vérifier.</p>
@@ -2048,27 +2110,43 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 30 : la fonction [fetch] a un comportement analogue à celui de la fonction [asyncData] :<ul>
-<li>elle est exécutée avant les fonctions du cycle de vie ;</li>
-<li>l’objet [this] n’est pas connu dans cette fonction ;</li>
-<li>son fonctionnement est asynchrone ;</li>
-<li>le cycle de vie ne commence pas tant que la fonction asynchrone n’a pas rendu son résultat ;</li>
-<li>le résultat est ici rendu par la méthode [then] de la [Promise], ligne 43 ;</li>
-<li>fonction [fetch]  reçoit le paramètre [context]. Celui-ci représente le contexte [nuxt] du moment ;</li>
+  <li>ligne 30 : la fonction [fetch] a un comportement analogue à celui de la fonction [asyncData] :
+    <ul>
+      <li>elle est exécutée avant les fonctions du cycle de vie ;
+      </li>
+      <li>l’objet [this] n’est pas connu dans cette fonction ;
+      </li>
+      <li>son fonctionnement est asynchrone ;
+      </li>
+      <li>le cycle de vie ne commence pas tant que la fonction asynchrone n’a pas rendu son résultat ;
+      </li>
+      <li>le résultat est ici rendu par la méthode [then] de la [Promise], ligne 43 ;
+      </li>
+      <li>fonction [fetch]  reçoit le paramètre [context]. Celui-ci représente le contexte [nuxt] du moment ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 30 : parmi ses nombreuses propriétés, l’objet [context] a une propriété [store] qui représente le store [Vuex] de l’application ;
+  </li>
+  <li>ligne 41 : artificiellement, on signale le succès de la [Promise] au bout d’une seconde (cf. document |<a href="https://tahe.developpez.com/tutoriels-cours/ecmascript6">Introduction au langage </a><a href="https://tahe.developpez.com/tutoriels-cours/ecmascript6"><b>ECMASCRIPT 6</b></a><a href="https://tahe.developpez.com/tutoriels-cours/ecmascript6"> par l’exemple</a>|) ;
+  </li>
+  <li>ligne 45 : la méthode [then] est alors exécutée. On y incrémente le compteur du [store] ;
+  </li>
 </ul>
-</li>
-<li>ligne 30 : parmi ses nombreuses propriétés, l’objet [context] a une propriété [store] qui représente le store [Vuex] de l’application ;</li>
-<li>ligne 41 : artificiellement, on signale le succès de la [Promise] au bout d’une seconde (cf. document |<a href="https://tahe.developpez.com/tutoriels-cours/ecmascript6">Introduction au langage </a><a href="https://tahe.developpez.com/tutoriels-cours/ecmascript6"><strong>ECMASCRIPT 6</strong></a><a href="https://tahe.developpez.com/tutoriels-cours/ecmascript6"> par l’exemple</a>|) ;</li>
-<li>ligne 45 : la méthode [then] est alors exécutée. On y incrémente le compteur du [store] ;</li>
-</ul>
+
 <h3 id="543-execution">5.4.3. Exécution</h3>
 <p>On exécute le projet [nuxt-02] et on tape [localhost:81/nuxt-02/<strong>page3</strong>] à la main pour que le serveur soit sollicité. Comme au démarrage pour la page [index] :</p>
 <ul>
-<li>le serveur exécute la page [page3.vue] ;</li>
-<li>envoie la page générée au navigateur. Celle-ci est affichée ;</li>
-<li>les scripts client embarqués dans la page envoyée prennent la main et exécutent à nouveau la page [page3.vue] ;</li>
-<li>la page affichée est alors modifiée ;</li>
+  <li>le serveur exécute la page [page3.vue] ;
+  </li>
+  <li>envoie la page générée au navigateur. Celle-ci est affichée ;
+  </li>
+  <li>les scripts client embarqués dans la page envoyée prennent la main et exécutent à nouveau la page [page3.vue] ;
+  </li>
+  <li>la page affichée est alors modifiée ;
+  </li>
 </ul>
+
 <p>Le résultat final est le suivant :</p>
 <p><img src="images/1000000000000562000002BDAD3CEA91.png" style="width:12.761cm;height:6.49cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000562000002BDAD3CEA91.png" /></p>
 <p>La valeur affichée est bien celle fixée par le serveur et visuellement, on ne voit pas la page ‘tressauter’ à cause d’un changement par le client de la valeur affichée par le serveur. Cette fois-ci que s’est-il passé ?</p>
@@ -2147,12 +2225,18 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 45 : la fonction asynchrone [fetch] est la première des fonctions ci-dessus à s’exécuter. Elle reçoit en paramètre, un objet appelé [context] qui est le contexte [nuxt] du moment. Parmi les très nombreuses propriétés de cet objet, la propriété [context.store] représente le store [Vuex] ;</li>
-<li>ligne 45 : dans la fonction asynchrone [fetch], le serveur fixe le compteur du store à 28 ;</li>
-<li>ligne 56 : lorsque la fonction [created] s’exécute, [nuxt] garantit que la fonction asynchrone [fetch] a terminé son travail ;</li>
-<li>ligne 58 : la valeur du compteur du store  est affectée à la propriété [value] de la ligne 27 ;</li>
-<li>ligne 7 : affichage de la valeur de [value], donc du compteur du store ;</li>
+  <li>ligne 45 : la fonction asynchrone [fetch] est la première des fonctions ci-dessus à s’exécuter. Elle reçoit en paramètre, un objet appelé [context] qui est le contexte [nuxt] du moment. Parmi les très nombreuses propriétés de cet objet, la propriété [context.store] représente le store [Vuex] ;
+  </li>
+  <li>ligne 45 : dans la fonction asynchrone [fetch], le serveur fixe le compteur du store à 28 ;
+  </li>
+  <li>ligne 56 : lorsque la fonction [created] s’exécute, [nuxt] garantit que la fonction asynchrone [fetch] a terminé son travail ;
+  </li>
+  <li>ligne 58 : la valeur du compteur du store  est affectée à la propriété [value] de la ligne 27 ;
+  </li>
+  <li>ligne 7 : affichage de la valeur de [value], donc du compteur du store ;
+  </li>
 </ul>
+
 <p>Le navigateur client reçoit la page suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line"><span style="color:#0000ff">&lt;</span>!doctype<span style="color:#000000"> </span><span style="color:#ff0000">html</span><span style="color:#0000ff">&gt;</span></span>
@@ -2237,9 +2321,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 52 : on voit que la valeur dans la page reçue est 28 ;</li>
-<li>ligne 65 : dans la réponse du serveur, on voit que le serveur a envoyé au client l’état [state] du store [Vuex]. Grâce à cette information, les scripts client vont pouvoir reconstituer un store [Vuex] ;</li>
+  <li>ligne 52 : on voit que la valeur dans la page reçue est 28 ;
+  </li>
+  <li>ligne 65 : dans la réponse du serveur, on voit que le serveur a envoyé au client l’état [state] du store [Vuex]. Grâce à cette information, les scripts client vont pouvoir reconstituer un store [Vuex] ;
+  </li>
 </ul>
+
 <p>Les scripts client vont à leur tour exécuter le code de la page [page3] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">&lt;!-- page3 --&gt;</span>
@@ -2315,9 +2402,12 @@
 </code></pre></div>
 
 <ul>
-<li>line 58 : la fonction [created] exécutée par le client affecte la valeur du compteur à la propriété [value] de la ligne 27 ;</li>
-<li>la ligne 7 affiche cette valeur. Puisque c’est la même que celle envoyée par le serveur, on ne voit pas la page ‘tressauter’ à cause d’une modification ;</li>
+  <li>line 58 : la fonction [created] exécutée par le client affecte la valeur du compteur à la propriété [value] de la ligne 27 ;
+  </li>
+  <li>la ligne 7 affiche cette valeur. Puisque c’est la même que celle envoyée par le serveur, on ne voit pas la page ‘tressauter’ à cause d’une modification ;
+  </li>
 </ul>
+
 <p>Les logs montrent par ailleurs que la fonction [fetch] n’a pas été exécutée par le client :</p>
 <p><img src="images/100000000000027A0000024613EC7847.png" style="width:8.392cm;height:7.7cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000027A0000024613EC7847.png" /></p>
 <p>La fonction [fetch] a été exécutée par le serveur [1] mais pas par le client [2]. Par ailleurs, on peut noter que les fonctions du cycle de vie ne sont pas exécutées par le serveur avant la fin de la fonction [fetch] [3]. On peut augmenter la durée de l’attente au sein de la fonction [fetch] pour le vérifier.</p>
@@ -2420,18 +2510,27 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 30 : ce qui était fait auparavant dans la fonction [fetch] est désormais fait dans la méthode [beforeCreate]. On utilise le couple async (ligne 30) / await (ligne 36) pour attendre la fin de la fonction asynchrone ;</li>
-<li>ligne 36 : on récupère le résultat de la fonction asynchrone rendu ligne 41 après 10 secondes (ligne 42) ;</li>
-<li>lignes 50-54 : dans la méthode [created] exécutée aussi bien côté serveur que côté client, le compteur est affecté à la propriété [value] de la page ;</li>
+  <li>ligne 30 : ce qui était fait auparavant dans la fonction [fetch] est désormais fait dans la méthode [beforeCreate]. On utilise le couple async (ligne 30) / await (ligne 36) pour attendre la fin de la fonction asynchrone ;
+  </li>
+  <li>ligne 36 : on récupère le résultat de la fonction asynchrone rendu ligne 41 après 10 secondes (ligne 42) ;
+  </li>
+  <li>lignes 50-54 : dans la méthode [created] exécutée aussi bien côté serveur que côté client, le compteur est affecté à la propriété [value] de la page ;
+  </li>
 </ul>
+
 <h3 id="553-execution">5.5.3. Exécution</h3>
 <p>On exécute le projet [nuxt-02] et on tape [localhost:81/nuxt-02/<strong>page4</strong>] à la main pour que le serveur soit sollicité. Comme au démarrage pour la page [index] :</p>
 <ul>
-<li>le serveur exécute la page [page4.vue] ;</li>
-<li>envoie la page générée au navigateur. Celle-ci est affichée ;</li>
-<li>les scripts client embarqués dans la page envoyée prennent la main et exécutent à nouveau la page [page4.vue] ;</li>
-<li>la page affichée est alors modifiée ;</li>
+  <li>le serveur exécute la page [page4.vue] ;
+  </li>
+  <li>envoie la page générée au navigateur. Celle-ci est affichée ;
+  </li>
+  <li>les scripts client embarqués dans la page envoyée prennent la main et exécutent à nouveau la page [page4.vue] ;
+  </li>
+  <li>la page affichée est alors modifiée ;
+  </li>
 </ul>
+
 <p>Le résultat final est le suivant :</p>
 <p><img src="images/100000000000056600000330F8A7F91C.png" style="width:10.97cm;height:6.481cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000056600000330F8A7F91C.png" /></p>
 <p>Contrairement à ce qui était attendu, la valeur affichée en [2] n’est pas 52. Que s’est-il passé ?</p>
@@ -2468,13 +2567,18 @@
 <p>Cette fois-ci, aucune valeur n’est affichée et on a de plus un avertissement dans les logs de la console :</p>
 <p><img src="images/10000000000006690000018B518016D1.png" style="width:15.2cm;height:3.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006690000018B518016D1.png" /></p>
 <ul>
-<li>en [1], on découvre que la fonction [asyncData] a été exécutée par le client. C’est toujours ainsi :<ul>
-<li>elle est exécutée par le serveur si la page est demandée au serveur. dans ce cas, elle n’est pas exécutée par le client ;</li>
-<li>puis à chaque fois que la page est la <strong>cible</strong> de la route courante du client ;</li>
+  <li>en [1], on découvre que la fonction [asyncData] a été exécutée par le client. C’est toujours ainsi :
+    <ul>
+      <li>elle est exécutée par le serveur si la page est demandée au serveur. dans ce cas, elle n’est pas exécutée par le client ;
+      </li>
+      <li>puis à chaque fois que la page est la <b>cible</b> de la route courante du client ;
+      </li>
+    </ul>
+  </li>
+  <li>en [2] : [nuxt] émet un avertissement parce que dans le template de la page, il y a une expression réactive <mark style="background-color: #dddddd">{{ value }}</mark> alors que la page n’a pas de propriété [value] ;
+  </li>
 </ul>
-</li>
-<li>en [2] : [nuxt] émet un avertissement parce que dans le template de la page, il y a une expression réactive <mark style="background-color: #dddddd">{{ value }}</mark> alors que la page n’a pas de propriété [value] ;</li>
-</ul>
+
 <p>Rappelons le code exécuté par le client :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-js">
 <span class="odt-code-line">asyncData() {</span>
@@ -2493,15 +2597,21 @@
 </code></pre></div>
 
 <ul>
-<li>la ligne 3 a permis de voir que la fonction [asyncData] a été exécutée par le client avant même les fonctions du cycle de vie ;</li>
-<li>la ligne 5 a empêché l’exécution du reste du code qui créait la propriété [value] car ce code est exécuté par le client ;</li>
+  <li>la ligne 3 a permis de voir que la fonction [asyncData] a été exécutée par le client avant même les fonctions du cycle de vie ;
+  </li>
+  <li>la ligne 5 a empêché l’exécution du reste du code qui créait la propriété [value] car ce code est exécuté par le client ;
+  </li>
 </ul>
+
 <p>Maintenant passons à la page [page3] :</p>
 <p><img src="images/100000000000050A000001DDC9E03F0E.png" style="width:17.07cm;height:6.31cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000050A000001DDC9E03F0E.png" /></p>
 <ul>
-<li>en [2], on avait 28 lorsque la page était fournie par le serveur. Ici ce n’est pas le cas ;</li>
-<li>en [4], on voit que la fonction [fetch] a été exécutée côté client ;</li>
+  <li>en [2], on avait 28 lorsque la page était fournie par le serveur. Ici ce n’est pas le cas ;
+  </li>
+  <li>en [4], on voit que la fonction [fetch] a été exécutée côté client ;
+  </li>
 </ul>
+
 <p>Examinons le code exécuté par le client :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-js">
 <span class="odt-code-line">...</span>
@@ -2530,15 +2640,21 @@
 </code></pre></div>
 
 <ul>
-<li>le client exécute la méthode [fetch], ligne 2 ;</li>
-<li>les lignes 6-21 ne sont pas exécutées car la condition [process.server] est fausse. Donc la ligne 17 qui met le compteur à 28 n’est pas exécuté. Il reste à zéro. C’est pourquoi le client affiche 0 au lieu de 28 ;</li>
+  <li>le client exécute la méthode [fetch], ligne 2 ;
+  </li>
+  <li>les lignes 6-21 ne sont pas exécutées car la condition [process.server] est fausse. Donc la ligne 17 qui met le compteur à 28 n’est pas exécuté. Il reste à zéro. C’est pourquoi le client affiche 0 au lieu de 28 ;
+  </li>
 </ul>
+
 <p>Passons maintenant à la page [page4]. On a le résultat suivant :</p>
 <p><img src="images/10000000000004D1000001DAC1E60A9F.png" style="width:16.311cm;height:6.28cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004D1000001DAC1E60A9F.png" /></p>
 <ul>
-<li>en [2], la valeur du compteur ;</li>
-<li>en [3], les logs du client ;</li>
+  <li>en [2], la valeur du compteur ;
+  </li>
+  <li>en [3], les logs du client ;
+  </li>
 </ul>
+
 <p>Le code exécuté par le client est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-js">
 <span class="odt-code-line">...</span>
@@ -2577,21 +2693,31 @@
 </code></pre></div>
 
 <ul>
-<li>les lignes 12-26 ne sont pas exécutées par le client, car la condition [process.server] de la ligne 12 est fausse. Donc le compteur du store [Vuex] vaut 0 (sa valeur initiale dans le store) et c’est cette valeur qu’affiche la page ;</li>
+  <li>les lignes 12-26 ne sont pas exécutées par le client, car la condition [process.server] de la ligne 12 est fausse. Donc le compteur du store [Vuex] vaut 0 (sa valeur initiale dans le store) et c’est cette valeur qu’affiche la page ;
+  </li>
 </ul>
+
 <p>On peut se demander ce qui se passe lorsqu’on met en commentaires le [if] des lignes 12 et 26. Voici la réponse :</p>
 <ul>
-<li>le client exécute cette fois les lignes 14-25 mais [nuxt] n’attend pas la fin de la fonction asynchrone (comme pour le serveur) et laisse donc le compteur à 0 ;</li>
-<li>au bout de 10 s, la fonction asynchrone se termine et le compteur est mis à 52 ligne 23 ;</li>
-<li>lorsqu’on navigue de nouveau vers la page [page4], c’est alors la valeur 52 qui est affichée ;</li>
+  <li>le client exécute cette fois les lignes 14-25 mais [nuxt] n’attend pas la fin de la fonction asynchrone (comme pour le serveur) et laisse donc le compteur à 0 ;
+  </li>
+  <li>au bout de 10 s, la fonction asynchrone se termine et le compteur est mis à 52 ligne 23 ;
+  </li>
+  <li>lorsqu’on navigue de nouveau vers la page [page4], c’est alors la valeur 52 qui est affichée ;
+  </li>
 </ul>
+
 <h2 id="57-resume">5.7. Résumé</h2>
 <p>De nos différents essais, on retiendra les points suivants :</p>
 <ul>
-<li>si la page [index] doit contenir des données externes, celles-ci peuvent être cherchées par le serveur avec la fonction [asyncData] ;</li>
-<li>si le serveur doit initialiser un store [Vuex] avec des données externes au chargement de la page [index], il le fera dans la fonction [fetch] ;</li>
-<li>la page générée par le serveur et la page générée par le client doivent être <strong>identiques</strong> si on veut éviter l’effet de ‘tressautement’ provoqué par le fait que la page du client vient visuellement remplacer la page envoyée par le serveur et initialement affichée ;</li>
+  <li>si la page [index] doit contenir des données externes, celles-ci peuvent être cherchées par le serveur avec la fonction [asyncData] ;
+  </li>
+  <li>si le serveur doit initialiser un store [Vuex] avec des données externes au chargement de la page [index], il le fera dans la fonction [fetch] ;
+  </li>
+  <li>la page générée par le serveur et la page générée par le client doivent être <b>identiques</b> si on veut éviter l’effet de ‘tressautement’ provoqué par le fait que la page du client vient visuellement remplacer la page envoyée par le serveur et initialement affichée ;
+  </li>
 </ul>
+
 <p>Nous allons découvrir d’autres aspects de [nuxt] au travers d’un nouvel exemple.</p>
 
 

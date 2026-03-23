@@ -892,16 +892,22 @@
 <h2 id="101-presentation">10.1. Présentation</h2>
 <p>L’exemple [nuxt-07] vise à explorer l’objet [context] du côté serveur et du côté client. Il ne faut pas oublier que ces deux acteurs des applications [nuxt] sont séparés : <strong>ils ne partagent</strong> rien sauf :</p>
 <ul>
-<li>ce que le serveur veut bien envoyer au client (dans la réponse HTTP et la page envoyée) ;</li>
-<li>ce que le client veut bien envoyer au serveur (dans sa requête HTTP) ;</li>
+  <li>ce que le serveur veut bien envoyer au client (dans la réponse HTTP et la page envoyée) ;
+  </li>
+  <li>ce que le client veut bien envoyer au serveur (dans sa requête HTTP) ;
+  </li>
 </ul>
+
 <p>Si donc, comme on va le voir, les objets manipulés par le serveur et ceux manipulés par le client <strong>portent le même nom</strong>, ils ne sont pas identiques : ils peuvent parfois être des copies l’un de l’autre mais n’ont jamais la même référence. Modifier un objet client n’a aucun effet sur l’objet de même nom, côté serveur, et vice-versa.</p>
 <p>L’exemple [nuxt-07] est obtenu initialement par recopie de l’exemple [nuxt-01] :</p>
 <p><img src="images/1000000000000160000001D7C9F9C2ED.png" style="width:3.731cm;height:4.98cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000160000001D7C9F9C2ED.png" /></p>
 <ul>
-<li>en [2], nous allons ajouter un plugin commun au client et au serveur ;</li>
-<li>en [3], nous allons modifier quelque peu la page [index] ;</li>
+  <li>en [2], nous allons ajouter un plugin commun au client et au serveur ;
+  </li>
+  <li>en [3], nous allons modifier quelque peu la page [index] ;
+  </li>
 </ul>
+
 <h2 id="102-le-plugin-common-mainjs">10.2. Le plugin [common / main.js]</h2>
 <p>Le plugin [common / main.js] est exécuté à la fois par le client et le serveur : cela est dû à la configuration [nuxt.config.js] suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
@@ -912,8 +918,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 4 : l’absence de la propriété [mode] fait que le plugin [<span style="color: #a31515">~/plugins/common/main.js</span>] sera exécuté à la fois par le client et le serveur : le serveur d’abord, le client ensuite ;</li>
+  <li>ligne 4 : l’absence de la propriété [mode] fait que le plugin [<span style="color: #a31515">~/plugins/common/main.js</span>] sera exécuté à la fois par le client et le serveur : le serveur d’abord, le client ensuite ;
+  </li>
 </ul>
+
 <p>Ce plugin sera le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">/* eslint-disable no-undef */</span>
@@ -958,19 +966,32 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 31-39 : la fonction [dumpkeys] liste les propriétés de l’objet passé en 2ième paramètre. Cette liste est précédée du message passé en 1er paramètre ;</li>
-<li>ligne 3 : on veut savoir combien d’arguments reçoit la fonction. Pour cela, on utilise la notation [...args] qui va avoir pour effet de mettre les paramètres effectifs de la fonction dans le tableau [args]. On va découvrir qu’il y a deux arguments ;</li>
-<li>ligne 5 : on affiche qui exécute le code, du serveur ou du client ;</li>
-<li>ligne 6 : l’exécuteur du code, client ou serveur ;</li>
-<li>ligne 7 : une constante chaîne de caractères utilisée dans les logs ;</li>
-<li>ligne 12 : on va découvrir que le 1er argument reçu par la plugin est le contexte de l’exécuteur ;</li>
-<li>ligne 14 : liste des clés de l’objet [context] ;</li>
-<li>ligne 16 : on va découvrir que l’objet [context] a une propriété [app] qui représente l’application [nuxt] ;</li>
-<li>ligne 18 : on va découvrir que l’objet [context] a une propriété [route] qui représente la route courante du routeur ;</li>
-<li>ligne 21 : on va découvrir que l’objet [app] a une propriété [router] qui représente le routeur ;</li>
-<li>ligne 23 : l’objet [router.options.routes] représente les différentes routes de l’application ;</li>
-<li>lignes 27-28 : le second argument du plugin est la fonction [inject] que nous avons utilisée dans l’exemple [nuxt-06] ;</li>
+  <li>lignes 31-39 : la fonction [dumpkeys] liste les propriétés de l’objet passé en 2ième paramètre. Cette liste est précédée du message passé en 1er paramètre ;
+  </li>
+  <li>ligne 3 : on veut savoir combien d’arguments reçoit la fonction. Pour cela, on utilise la notation [...args] qui va avoir pour effet de mettre les paramètres effectifs de la fonction dans le tableau [args]. On va découvrir qu’il y a deux arguments ;
+  </li>
+  <li>ligne 5 : on affiche qui exécute le code, du serveur ou du client ;
+  </li>
+  <li>ligne 6 : l’exécuteur du code, client ou serveur ;
+  </li>
+  <li>ligne 7 : une constante chaîne de caractères utilisée dans les logs ;
+  </li>
+  <li>ligne 12 : on va découvrir que le 1er argument reçu par la plugin est le contexte de l’exécuteur ;
+  </li>
+  <li>ligne 14 : liste des clés de l’objet [context] ;
+  </li>
+  <li>ligne 16 : on va découvrir que l’objet [context] a une propriété [app] qui représente l’application [nuxt] ;
+  </li>
+  <li>ligne 18 : on va découvrir que l’objet [context] a une propriété [route] qui représente la route courante du routeur ;
+  </li>
+  <li>ligne 21 : on va découvrir que l’objet [app] a une propriété [router] qui représente le routeur ;
+  </li>
+  <li>ligne 23 : l’objet [router.options.routes] représente les différentes routes de l’application ;
+  </li>
+  <li>lignes 27-28 : le second argument du plugin est la fonction [inject] que nous avons utilisée dans l’exemple [nuxt-06] ;
+  </li>
 </ul>
+
 <h2 id="103-le-plugin-execute-par-le-serveur">10.3. Le plugin exécuté par le serveur</h2>
 <p>A l’exécution, le serveur affiche la chose suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
@@ -1024,12 +1045,18 @@
 <a id="__codelineno-0-25" name="__codelineno-0-25"></a>]
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 11-12 : nous avons déjà eu l’occasion d’utiliser les propriétés [base] et [env] dont les valeurs proviennent du fichier [nuxt.config.js] ;</li>
-<li>ligne 8 : la propriété [app] désigne l’application [nuxt] ;</li>
-<li>ligne 18 : la propriété [route] désigne la route courante du routeur, ç-à-d la page que va envoyer le serveur ;</li>
-<li>ligne 13 : la requête HTTP du navigateur client ;</li>
-<li>ligne 14 : la réponse HTTP du serveur ;</li>
+  <li>lignes 11-12 : nous avons déjà eu l’occasion d’utiliser les propriétés [base] et [env] dont les valeurs proviennent du fichier [nuxt.config.js] ;
+  </li>
+  <li>ligne 8 : la propriété [app] désigne l’application [nuxt] ;
+  </li>
+  <li>ligne 18 : la propriété [route] désigne la route courante du routeur, ç-à-d la page que va envoyer le serveur ;
+  </li>
+  <li>ligne 13 : la requête HTTP du navigateur client ;
+  </li>
+  <li>ligne 14 : la réponse HTTP du serveur ;
+  </li>
 </ul>
+
 <p>La liste des propriétés de [context.app] est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
@@ -1066,8 +1093,10 @@
 <a id="__codelineno-1-17" name="__codelineno-1-17"></a>]
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 3 : la propriété [router] nous donne accès au router de l’application. C’est important sous [nuxt] puisque le routeur est défini par [nuxt] lui-même et non par le développeur. Cette propriété est un accès donné au développeur pour modifier le routeur ;</li>
+  <li>ligne 3 : la propriété [router] nous donne accès au router de l’application. C’est important sous [nuxt] puisque le routeur est défini par [nuxt] lui-même et non par le développeur. Cette propriété est un accès donné au développeur pour modifier le routeur ;
+  </li>
 </ul>
+
 <p>La liste des propriétés de [context.route] sont les suivantes :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
@@ -1145,9 +1174,12 @@
 <a id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 2 : on voit que la prochaine page du serveur est [index] et que son chemin est [/] (ligne 10) ;</li>
-<li>ligne 22 : la propriété [meta] permet d’ajouter des propriétés aux routes ;</li>
+  <li>ligne 2 : on voit que la prochaine page du serveur est [index] et que son chemin est [/] (ligne 10) ;
+  </li>
+  <li>ligne 22 : la propriété [meta] permet d’ajouter des propriétés aux routes ;
+  </li>
 </ul>
+
 <p>Les propriétés du routeur [context.app.router] du serveur sont les suivantes :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
@@ -1295,9 +1327,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 43 : on a déjà vu que le contexte d’une page pouvait être trouvé dans [this.$nuxt.context] ;</li>
-<li>ligne 42 : on affiche également les propriétés de l’objet [this.$nuxt] ;</li>
+  <li>ligne 43 : on a déjà vu que le contexte d’une page pouvait être trouvé dans [this.$nuxt.context] ;
+  </li>
+  <li>ligne 42 : on affiche également les propriétés de l’objet [this.$nuxt] ;
+  </li>
 </ul>
+
 <p>Exécutée par le serveur, cette page donne naissance aux logs suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
@@ -1503,8 +1538,10 @@
 <a id="__codelineno-10-8" name="__codelineno-10-8"></a>[home client mounted]
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 4 : les propriétés de l’objet [this.$nuxt]. C’est un objet riche avec 51 propriétés ;</li>
-<li>ligne 6 : les propriétés de l’objet [this.$nuxt.context]. On retrouve les mêmes propriétés que dans l’objet [context] du plugin client ;</li>
+  <li>ligne 4 : les propriétés de l’objet [this.$nuxt]. C’est un objet riche avec 51 propriétés ;
+  </li>
+  <li>ligne 6 : les propriétés de l’objet [this.$nuxt.context]. On retrouve les mêmes propriétés que dans l’objet [context] du plugin client ;
+  </li>
 </ul>
 
 

@@ -908,17 +908,26 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 1-12 : sont analogues à ce qu’elles étaient dans le projet [nuxt-02] ;</li>
-<li>lignes 14-32 : on exporte un objet [actions]. C’est un terme réservé du store de [Vuex] ;</li>
-<li>ligne 15 : on définit la fonction [nuxtServerInit]. Celle-ci sera exécutée au démarrage de l’application par le serveur. Son rôle usuel est d’initialiser un store [Vuex] à l’aide de données externes obtenues avec une fonction asynchrone. [nuxt] attend que celle-ci rende ses résultats avant d’entamer le cycle de vie de la page demandée. La fonction reçoit deux paramètres :<ul>
-<li>le store [Vuex] à initialiser ;</li>
-<li>le contexte [nuxt] du moment ;</li>
+  <li>lignes 1-12 : sont analogues à ce qu’elles étaient dans le projet [nuxt-02] ;
+  </li>
+  <li>lignes 14-32 : on exporte un objet [actions]. C’est un terme réservé du store de [Vuex] ;
+  </li>
+  <li>ligne 15 : on définit la fonction [nuxtServerInit]. Celle-ci sera exécutée au démarrage de l’application par le serveur. Son rôle usuel est d’initialiser un store [Vuex] à l’aide de données externes obtenues avec une fonction asynchrone. [nuxt] attend que celle-ci rende ses résultats avant d’entamer le cycle de vie de la page demandée. La fonction reçoit deux paramètres :
+    <ul>
+      <li>le store [Vuex] à initialiser ;
+      </li>
+      <li>le contexte [nuxt] du moment ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 19-26 : on attend la fin de l’action asynchrone, ici une attente artificielle d’une seconde (ligne 15) ;
+  </li>
+  <li>ligne 28 : on donne au compteur la valeur 34 ;
+  </li>
+  <li>lignes 17 et 30 : des logs pour suivre le déroulement de l’exécution de la fonction [nuxtServerInit] ;
+  </li>
 </ul>
-</li>
-<li>lignes 19-26 : on attend la fin de l’action asynchrone, ici une attente artificielle d’une seconde (ligne 15) ;</li>
-<li>ligne 28 : on donne au compteur la valeur 34 ;</li>
-<li>lignes 17 et 30 : des logs pour suivre le déroulement de l’exécution de la fonction [nuxtServerInit] ;</li>
-</ul>
+
 <h2 id="62-la-page-index">6.2. La page [index]</h2>
 <p>La page [index] sera la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -974,9 +983,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 37 : la valeur du compteur initialisé par la fonction [nuxtServerInit] est affectée à la propriété [value] de la ligne 27. Cette valeur est affichée par la ligne 7 ;</li>
-<li>la ligne 37 sera exécutée aussi bien par le serveur que par le client. Dans les deux cas, la propriété [value] recevra la même valeur ce qui assure l’identité de la page générée par le serveur avec celle générée par le client ;</li>
+  <li>ligne 37 : la valeur du compteur initialisé par la fonction [nuxtServerInit] est affectée à la propriété [value] de la ligne 27. Cette valeur est affichée par la ligne 7 ;
+  </li>
+  <li>la ligne 37 sera exécutée aussi bien par le serveur que par le client. Dans les deux cas, la propriété [value] recevra la même valeur ce qui assure l’identité de la page générée par le serveur avec celle générée par le client ;
+  </li>
 </ul>
+
 <h2 id="63-la-page-page1">6.3. La page [page1]</h2>
 <p>La page [page1] est obtenue par recopie de la page [index]. On modifie ensuite son texte pour remplacer [home] par [page1] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1056,14 +1068,19 @@
 <p>La page affichée à l’exécution est alors la suivante :</p>
 <p><img src="images/100000000000050100000172E0F6CCD9.png" style="width:16.95cm;height:4.89cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000050100000172E0F6CCD9.png" /></p>
 <ul>
-<li>en [5], on voit que la fonction [nuxtServerInit] a été exécutée par le serveur avant le cycle de vie de la page [index]. [nuxt] a attendu que la fonction asynchrone ait terminé son travail avant de passer au cycle de vie ;</li>
-<li>en [4], on voit que le client n’a pas exécuté la fonction [nuxtServerInit] ;</li>
+  <li>en [5], on voit que la fonction [nuxtServerInit] a été exécutée par le serveur avant le cycle de vie de la page [index]. [nuxt] a attendu que la fonction asynchrone ait terminé son travail avant de passer au cycle de vie ;
+  </li>
+  <li>en [4], on voit que le client n’a pas exécuté la fonction [nuxtServerInit] ;
+  </li>
 </ul>
+
 <p>Maintenant naviguons deux fois : index --&gt; page1 --&gt; index. Les logs sont alors les suivants :</p>
 <p><img src="images/1000000000000191000001CE1D9ABBD0.png" style="width:5.31cm;height:6.111cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000191000001CE1D9ABBD0.png" /></p>
 <ul>
-<li>en [1-2], on voit que la fonction [nuxtServerInit] n’est pas exécutée par le client ;</li>
+  <li>en [1-2], on voit que la fonction [nuxtServerInit] n’est pas exécutée par le client ;
+  </li>
 </ul>
+
 <p>Maintenant tapons l’URL de la page [page1] à la main pour forcer un appel au serveur :</p>
 <p><img src="images/10000000000004F6000001A19DF26726.png" style="width:15.121cm;height:4.961cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004F6000001A19DF26726.png" /></p>
 <p>en [3-4], on retrouve le même mécanisme que celui qui avait précédé le chargement de la page [index] au démarrage. On rappelle ici ce qui a déjà été dit : lorsqu’on force l’appel d’une page au serveur, tout se passe comme si l’application redémarrait avec une page d’accueil qui serait la page demandée ;</p>

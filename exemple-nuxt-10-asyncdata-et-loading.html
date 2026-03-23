@@ -858,9 +858,12 @@
 <h1 id="13-exemple-nuxt-10-asyncdata-et-loading">13. Exemple [nuxt-10] : asyncData et loading</h1>
 <p><span style="color: #000000">La fonction [asyncData] dans une page permet de charger de façon asynchrone des données souvent externes. [nuxt] attend la fin de la fonction [asyncData] avant de commencer le cycle de vie de la page. Celle-ci n’est donc rendue qu’une fois les données externes obtenues. Elle est exécutée aussi bien par le serveur que par le client avec les règles suivantes :</span></p>
 <ul>
-<li><span style="color: #000000">lorsque la page est demandée directement au serveur, seul le serveur exécute la fonction [asyncData] ;</span></li>
-<li><span style="color: #000000">ensuite lors de la navigation client, seul le client exécute la fonction [asyncData] ;</span></li>
+  <li><span style="color: #000000">lorsque la page est demandée directement au serveur, seul le serveur exécute la fonction [asyncData] ;</span>
+  </li>
+  <li><span style="color: #000000">ensuite lors de la navigation client, seul le client exécute la fonction [asyncData] ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Au final seul l’un des deux, client ou serveur, exécute la fonction. Par ailleurs, quand c’est le client qui exécute la fonction [asyncData], [nuxt] affiche une barre de progression qui peut être paramétrée.</span></p>
 <p><span style="color: #000000">La fonction [asyncData] permet de délivrer aux moteurs de recherche des pages avec leurs données ce qui les rend plus signifiantes.</span></p>
 <p><span style="color: #000000">L’exemple [nuxt-10] est obtenu initialement par recopie du projet [nuxt-01] :</span></p>
@@ -927,11 +930,16 @@
 </code></pre></div>
 
 <ul>
-<li><span style="color: #000000">lignes 26-39 : la fonction [asyncData]. Nous avons déjà étudié cette fonction (cf paragraphe </span><a href="../../../../../st-2020/st-2020/cours/nuxtjs/masters/02/chap-05.docx#nuxt02_page2"><u><span style="color: #0563c1">lien</span></u></a><span style="color: #000000">). Elle est exécutée </span><strong><span style="color: #000000">avant</span></strong><span style="color: #000000"> le cycle de vie de la page. Pour cette raison, on ne peut utiliser le mot clé [this] dans la fonction ;</span></li>
-<li><span style="color: #000000">ligne 30 : elle doit rendre une promesse [Promise] ou utiliser la syntaxe async / await ;</span></li>
-<li><span style="color: #000000">lignes 32-37 : la fonction asynchrone de la promesse est simulée avec une attente de 5 secondes (ligne 37) ;</span></li>
-<li><span style="color: #000000">ligne 34 : le résultat de la fonction asynchrone est rendu sous la forme d’un objet {result :...}. L’objet asynchrone rendu par la fonction [asyncData] </span><strong><span style="color: #000000">est intégré dans l’objet [data] de la page</span></strong><span style="color: #000000">. C’est pourquoi l’objet [result] est-il disponible ligne 7 du template alors même que la page n’avait pas défini d’objet [data] ;</span></li>
+  <li><span style="color: #000000">lignes 26-39 : la fonction [asyncData]. Nous avons déjà étudié cette fonction (cf paragraphe </span><a href="../../../../../st-2020/st-2020/cours/nuxtjs/masters/02/chap-05.docx#nuxt02_page2"><u><span style="color: #0563c1">lien</span></u></a><span style="color: #000000">). Elle est exécutée </span><b><span style="color: #000000">avant</span></b><span style="color: #000000"> le cycle de vie de la page. Pour cette raison, on ne peut utiliser le mot clé [this] dans la fonction ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 30 : elle doit rendre une promesse [Promise] ou utiliser la syntaxe async / await ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 32-37 : la fonction asynchrone de la promesse est simulée avec une attente de 5 secondes (ligne 37) ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 34 : le résultat de la fonction asynchrone est rendu sous la forme d’un objet {result :...}. L’objet asynchrone rendu par la fonction [asyncData] </span><b><span style="color: #000000">est intégré dans l’objet [data] de la page</span></b><span style="color: #000000">. C’est pourquoi l’objet [result] est-il disponible ligne 7 du template alors même que la page n’avait pas défini d’objet [data] ;</span>
+  </li>
 </ul>
+
 <h2 id="132-configuration-de-la-barre-de-progression-de-asyncdata">13.2. Configuration de la barre de progression de [asyncData]</h2>
 <p>Lorsque la page [page1] est la cible d’une navigation au sein du client (mode SPA), le client exécute la fonction [asyncData] et [nuxt] affiche alors une barre de progression qu’elle cache lorsque la fonction [asyncData] a rendu son résultat. La propriété [loading] du fichier [nuxt.config.js] permet de configurer cette barre :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
@@ -945,19 +953,26 @@
 
 <p>Par défaut, l’image d’attente de [nuxt] est une barre de progression, faisant la largeur de la page. Cette barre a une couleur et une épaisseur. L<span style="color: #000000">e trait coloré grandit progressivement de 0 % à 100 % de sa taille, plus ou moins vite donc selon la durée de l’attente.</span></p>
 <ul>
-<li><span style="color: #000000">ligne 2 : fixe la couleur de la barre de progression ;</span></li>
-<li><span style="color: #000000">ligne 3 : fixe l’épaisseur de la barre en pixels ;</span></li>
-<li><span style="color: #000000">ligne 4 : [throttle] est le délai en millisecondes avant que l’animation ne démarre. Cela permet de ne pas avoir d’image d’animation lorsque la fonction [asyncData] rend son résultat rapidement ;</span></li>
-<li><span style="color: #000000">ligne 5 : [continuous] fixe le comportement de l’animation de la barre de progression. Par défaut, la barre grandit progressivement de 0 % à 100 % de sa taille, plus ou moins vite selon la durée de l’attente. Avec [continuous:true], le barre colorée grandit à vitesse constante de 0 à 100 % de sa taille, puis recommence tant que la fonction [asyncData] n’a pas rendu son résultat ;</span></li>
+  <li><span style="color: #000000">ligne 2 : fixe la couleur de la barre de progression ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 3 : fixe l’épaisseur de la barre en pixels ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 4 : [throttle] est le délai en millisecondes avant que l’animation ne démarre. Cela permet de ne pas avoir d’image d’animation lorsque la fonction [asyncData] rend son résultat rapidement ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 5 : [continuous] fixe le comportement de l’animation de la barre de progression. Par défaut, la barre grandit progressivement de 0 % à 100 % de sa taille, plus ou moins vite selon la durée de l’attente. Avec [continuous:true], le barre colorée grandit à vitesse constante de 0 à 100 % de sa taille, puis recommence tant que la fonction [asyncData] n’a pas rendu son résultat ;</span>
+  </li>
 </ul>
+
 <h2 id="133-execution">13.3. Exécution</h2>
 <p><span style="color: #000000">Lançons l’application, puis demandons, </span><strong><span style="color: #000000">à la main</span></strong><span style="color: #000000">,  au serveur la page [page1] :</span></p>
 <p><img src="images/10000000000006E2000002C3032BE8AB.png" style="width:11.66cm;height:4.672cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006E2000002C3032BE8AB.png" /></p>
 <p><span style="color: #000000">Les logs sont les suivants :</span></p>
 <p><img src="images/10000000000003B20000028946316A2B.png" style="width:7.511cm;height:5.151cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003B20000028946316A2B.png" /></p>
 <ul>
-<li><span style="color: #000000">on voit que seul le serveur [1] a exécuté la fonction [asyncData] et il l’a fait avant le cycle de la page ;</span></li>
+  <li><span style="color: #000000">on voit que seul le serveur [1] a exécuté la fonction [asyncData] et il l’a fait avant le cycle de la page ;</span>
+  </li>
 </ul>
+
 <p><span style="color: #000000">Maintenant examinons la page envoyée par le serveur (code source) :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line"><span style="color:#0000ff">&lt;</span>!doctype<span style="color:#000000"> </span><span style="color:#ff0000">html</span><span style="color:#0000ff">&gt;</span></span>
@@ -1032,13 +1047,17 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 55 : on voit que le serveur a envoyé au client un tableau [data] qui contient l’objet [result:3] qui a été intégré à l’objet [data] de la page [page1] du serveur. Afin que le client puisse faire de même et donc afficher la même page que le serveur, celui-ci lui transmet l’objet [result]. On rappelle que le client ne va pas exécuter la fonction [asyncData]. Il va simplement utiliser les données calculées par le serveur ;</li>
+  <li>ligne 55 : on voit que le serveur a envoyé au client un tableau [data] qui contient l’objet [result:3] qui a été intégré à l’objet [data] de la page [page1] du serveur. Afin que le client puisse faire de même et donc afficher la même page que le serveur, celui-ci lui transmet l’objet [result]. On rappelle que le client ne va pas exécuter la fonction [asyncData]. Il va simplement utiliser les données calculées par le serveur ;
+  </li>
 </ul>
+
 <p>Maintenant naviguons de la page [Home] à la page [Page 1] en utilisant le menu de navigation :</p>
 <p><img src="images/10000000000006BA000002955D12A382.png" style="width:13.671cm;height:5.25cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006BA000002955D12A382.png" /></p>
 <ul>
-<li>en [1], on voit apparaître la barre de progression ;</li>
+  <li>en [1], on voit apparaître la barre de progression ;
+  </li>
 </ul>
+
 <p>Au bout de 5 secondes, on a la page [Page 1] :</p>
 <p><img src="images/10000000000006B800000290992723AB.png" style="width:13.652cm;height:5.211cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006B800000290992723AB.png" /></p>
 <p>Les logs sont les suivants :</p>

@@ -945,28 +945,44 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 3 : nous savons que la fonction de routing ne reçoit qu’un paramètre, l’objet [context] de celui qui l’exécute, serveur ou client. La notation [<span style="color: #0000ff">function</span><span style="color: #000000">({ route, from, redirect })]</span><ul>
-<li><span style="color: #000000">est équivalente à [</span><span style="color: #0000ff">function</span><span style="color: #000000">({ route:route, from:from, redirect:redirect })]</span><span style="color: #000000"> ;</span></li>
-<li><span style="color: #000000">ce qui fait que </span><span style="color: #000000">{ route:route, from:from, redirect:redirect } &lt;-- context </span><span style="color: #000000">;</span></li>
-<li><span style="color: #000000">ce qui crée trois paramètres [route, from, redirect] tels que :</span><ul>
-<li><span style="color: #000000">route=context.route ;</span></li>
-<li><span style="color: #000000">redirect=context.redirect ;</span></li>
-<li><span style="color: #000000">from=context.from ;</span></li>
+  <li>ligne 3 : nous savons que la fonction de routing ne reçoit qu’un paramètre, l’objet [context] de celui qui l’exécute, serveur ou client. La notation [<span style="color: #0000ff">function</span><span style="color: #000000">({ route, from, redirect })]</span>
+    <ul>
+      <li><span style="color: #000000">est équivalente à [</span><span style="color: #0000ff">function</span><span style="color: #000000">({ route:route, from:from, redirect:redirect })]</span><span style="color: #000000"> ;</span>
+      </li>
+      <li><span style="color: #000000">ce qui fait que </span><span style="color: #000000">{ route:route, from:from, redirect:redirect } &lt;-- context </span><span style="color: #000000">;</span>
+      </li>
+      <li><span style="color: #000000">ce qui crée trois paramètres [route, from, redirect] tels que :</span>
+        <ul>
+          <li><span style="color: #000000">route=context.route ;</span>
+          </li>
+          <li><span style="color: #000000">redirect=context.redirect ;</span>
+          </li>
+          <li><span style="color: #000000">from=context.from ;</span>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
+
 <p><span style="color: #000000">La documentation de [nuxt] utilise abondamment cette notation. Il faut la connaître ;</span></p>
 <ul>
-<li><span style="color: #000000">ligne 8 : un tableau des noms de pages dans l’ordre de navigation souhaité</span></li>
-<li><span style="color: #000000">ligne 10 : le nom de la page de destination du routage courant ;</span></li>
-<li><span style="color: #000000">lignes 12 : le nom de la page précédente du routage courant ;</span></li>
-<li><span style="color: #000000">ligne 14 : comme exercice, on ne va autoriser qu’une navigation circulaire [index --&gt; page1 --&gt; page2 --&gt; index] ;</span></li>
-<li><span style="color: #000000">lignes 15-21 : on parcourt le tableau donnant l’ordre de navigation souhaité ;</span></li>
-<li><span style="color: #000000">ligne 16 : si on découvre que routes[i] était la dernière page routée alors la suivante doit être routes[i+1] ;</span></li>
-<li><span style="color: #000000">lignes 18-19 : si ce n’est pas le cas, on redirige l’application vers routes[i], ç-à-d qu’on ne change pas de page : on refuse la navigation ;</span></li>
+  <li><span style="color: #000000">ligne 8 : un tableau des noms de pages dans l’ordre de navigation souhaité</span>
+  </li>
+  <li><span style="color: #000000">ligne 10 : le nom de la page de destination du routage courant ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 12 : le nom de la page précédente du routage courant ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 14 : comme exercice, on ne va autoriser qu’une navigation circulaire [index --&gt; page1 --&gt; page2 --&gt; index] ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 15-21 : on parcourt le tableau donnant l’ordre de navigation souhaité ;</span>
+  </li>
+  <li><span style="color: #000000">ligne 16 : si on découvre que routes[i] était la dernière page routée alors la suivante doit être routes[i+1] ;</span>
+  </li>
+  <li><span style="color: #000000">lignes 18-19 : si ce n’est pas le cas, on redirige l’application vers routes[i], ç-à-d qu’on ne change pas de page : on refuse la navigation ;</span>
+  </li>
 </ul>
+
 <h2 id="123-execution">12.3. Exécution</h2>
 <p><span style="color: #000000">On exécute l’exemple avec le fichier [nuxt.config.js] suivant :</span></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
@@ -1042,10 +1058,14 @@
 
 <p><span style="color: #000000">Vérifiez les points suivants :</span></p>
 <ul>
-<li><span style="color: #000000">lorsque vous êtes sur la page [Home], vous ne pouvez naviguer que vers la page [Page 1] ;</span></li>
-<li><span style="color: #000000">lorsque vous êtes sur la page [Page 1], vous ne pouvez naviguer que vers la page [Page 2] ;</span></li>
-<li><span style="color: #000000">lorsque vous êtes sur la page [Page 2], vous ne pouvez naviguer que vers la page [Home] ;</span></li>
-<li><span style="color: #000000">lorsque vous demandez une URL incorrecte telle que [</span>http://localhost:81/nuxt-09b/<strong>abcd</strong><span style="color: #000000">] alors vous obtenez la vue qui indique que la page demandée n’existe pas ;</span></li>
+  <li><span style="color: #000000">lorsque vous êtes sur la page [Home], vous ne pouvez naviguer que vers la page [Page 1] ;</span>
+  </li>
+  <li><span style="color: #000000">lorsque vous êtes sur la page [Page 1], vous ne pouvez naviguer que vers la page [Page 2] ;</span>
+  </li>
+  <li><span style="color: #000000">lorsque vous êtes sur la page [Page 2], vous ne pouvez naviguer que vers la page [Home] ;</span>
+  </li>
+  <li><span style="color: #000000">lorsque vous demandez une URL incorrecte telle que [</span>http://localhost:81/nuxt-09b/<b>abcd</b><span style="color: #000000">] alors vous obtenez la vue qui indique que la page demandée n’existe pas ;</span>
+  </li>
 </ul>
 
 

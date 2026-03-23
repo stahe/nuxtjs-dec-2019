@@ -907,22 +907,34 @@
 <p>L’arborescence du code source du projet [vuejs-11] était le suivant :</p>
 <p><img src="images/10000000000002AE0000015510494F9F.png" style="width:9.081cm;height:4.511cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002AE0000015510494F9F.png" /></p>
 <ul>
-<li>[main.js] était le script exécuté lors du démarrage de l’application [vue] ;</li>
-<li>[router.js] fixait les règles de routage ;</li>
-<li>[App.vue] était la vue structurante de l’application. Elle organisait la mise en page des différentes vues ;</li>
-<li>[Component1, Component2, Component3, Layout, Navigation] étaient les composants utilisés dans les différentes vues de l’application ;</li>
+  <li>[main.js] était le script exécuté lors du démarrage de l’application [vue] ;
+  </li>
+  <li>[router.js] fixait les règles de routage ;
+  </li>
+  <li>[App.vue] était la vue structurante de l’application. Elle organisait la mise en page des différentes vues ;
+  </li>
+  <li>[Component1, Component2, Component3, Layout, Navigation] étaient les composants utilisés dans les différentes vues de l’application ;
+  </li>
 </ul>
+
 <p>Dans le portage de l’application [vue] [1] vers une application [nuxt] [2] :</p>
 <ul>
-<li>les scripts exécutés au démarrage de l’application doivent être déclarés dans la clé [plugins] du fichier [nuxt.config.js]. Par ailleurs, il est possible de séparer les scripts destinés au serveur [nuxt] de ceux destinés au client [nuxt] ;</li>
-<li>la vue [App.vue] doit être installée dans le dossier [layouts] et être renommée [default.vue] ;</li>
-<li>les composants [Component1, Component2, Component3] qui sont les cibles du routage doivent migrer dans le dossier [pages]. L’un d’eux, celui qui sert de page d’accueil, doit être renommé [index.vue]. Nous avons ici renommé les fichiers :<ul>
-<li>[Component1] --&gt; [index] : affiche le texte [Home] ;</li>
-<li>[Component2] --&gt; [page1] : affiche le texte [Page 1] ;</li>
-<li>[Component3] --&gt; [page2] : affiche le texte [Page 2] ;</li>
+  <li>les scripts exécutés au démarrage de l’application doivent être déclarés dans la clé [plugins] du fichier [nuxt.config.js]. Par ailleurs, il est possible de séparer les scripts destinés au serveur [nuxt] de ceux destinés au client [nuxt] ;
+  </li>
+  <li>la vue [App.vue] doit être installée dans le dossier [layouts] et être renommée [default.vue] ;
+  </li>
+  <li>les composants [Component1, Component2, Component3] qui sont les cibles du routage doivent migrer dans le dossier [pages]. L’un d’eux, celui qui sert de page d’accueil, doit être renommé [index.vue]. Nous avons ici renommé les fichiers :
+    <ul>
+      <li>[Component1] --&gt; [index] : affiche le texte [Home] ;
+      </li>
+      <li>[Component2] --&gt; [page1] : affiche le texte [Page 1] ;
+      </li>
+      <li>[Component3] --&gt; [page2] : affiche le texte [Page 2] ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>[nuxt] utilise le contenu du dossier [pages] pour générer dynamiquement les routes suivantes :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
@@ -1012,10 +1024,14 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 62 : on indique le dossier qui contient le code source du projet [dvp] ;</li>
-<li>ligne 66 : : on indique l’URL racine de l’application [dvp] (on peut mettre ce qu’on veut) ;</li>
-<li>ligne 43 : notons que la bibliothèque [bootstrap-vue] est référencée dans la configuration ;</li>
+  <li>ligne 62 : on indique le dossier qui contient le code source du projet [dvp] ;
+  </li>
+  <li>ligne 66 : : on indique l’URL racine de l’application [dvp] (on peut mettre ce qu’on veut) ;
+  </li>
+  <li>ligne 43 : notons que la bibliothèque [bootstrap-vue] est référencée dans la configuration ;
+  </li>
 </ul>
+
 <h2 id="42-portage-du-fichier-mainjs">4.2. Portage du fichier [main.js]</h2>
 <p>Le fichier [main.js] du projet [vuejs-11] était le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1049,10 +1065,14 @@
 
 <p>En-dehors des [imports], le code fait les choses suivantes :</p>
 <ul>
-<li>lignes 5-11 : utilisation de la bibliothèque [bootstrap-vue]. Ce travail est désormais fait par le module [<span style="color: #a31515"><mark style="background-color: #ffff00">bootstrap-vue</mark></span><span style="color: #a31515">/nuxt</span>] de la ligne 43 du fichier de configuration [nuxt.config.js] ;</li>
-<li>lignes 14 et 25 : utilisation du fichier de routage [router.js]. Ce travail est désormais fait automatiquement par l’application [nuxt] à partir de l’arborescence du dossier [pages] ;</li>
-<li>lignes 20-26 : instanciation de la vue principale de l’application. Dans une application [nuxt], c’est la vue [layouts/default.vue] qui sert de vue principale ;</li>
+  <li>lignes 5-11 : utilisation de la bibliothèque [bootstrap-vue]. Ce travail est désormais fait par le module [<span style="color: #a31515"><mark style="background-color: #ffff00">bootstrap-vue</mark></span><span style="color: #a31515">/nuxt</span>] de la ligne 43 du fichier de configuration [nuxt.config.js] ;
+  </li>
+  <li>lignes 14 et 25 : utilisation du fichier de routage [router.js]. Ce travail est désormais fait automatiquement par l’application [nuxt] à partir de l’arborescence du dossier [pages] ;
+  </li>
+  <li>lignes 20-26 : instanciation de la vue principale de l’application. Dans une application [nuxt], c’est la vue [layouts/default.vue] qui sert de vue principale ;
+  </li>
 </ul>
+
 <p>Le fichier [main.js] n’a désormais plus de raison d’être. S’il en avait eu une, on l’aurait déclaré dans la clé [plugins] de la ligne 30 du fichier de configuration [nuxt.config.js] ;</p>
 <h2 id="43-la-vue-principale-defaultvue">4.3. La vue principale [default.vue]</h2>
 <p><img src="images/1000000000000167000000BD626BF868.png" style="width:3.8cm;height:2.001cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000167000000BD626BF868.png" /></p>
@@ -1079,8 +1099,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 9, dans le projet [vuejs-11], on avait la balise &lt;<strong>router-view</strong> /&gt; au lieu de la balise &lt;<strong>nuxt</strong> /&gt; utilisée ici. Les deux semblent utilisables. Je les ai essayées toutes les deux sans voir de changement. J’ai gardé la balise &lt;<strong>nuxt</strong> /&gt; qui est celle conseillée. Elle affiche la vue courante, ç-à-d la page cible du routage courant ;</li>
+  <li>ligne 9, dans le projet [vuejs-11], on avait la balise &lt;<b>router-view</b> /&gt; au lieu de la balise &lt;<b>nuxt</b> /&gt; utilisée ici. Les deux semblent utilisables. Je les ai essayées toutes les deux sans voir de changement. J’ai gardé la balise &lt;<b>nuxt</b> /&gt; qui est celle conseillée. Elle affiche la vue courante, ç-à-d la page cible du routage courant ;
+  </li>
 </ul>
+
 <h2 id="44-les-composants">4.4. Les composants</h2>
 <p><img src="images/100000000000016E000000D5488BFE06.png" style="width:3.871cm;height:2.26cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000016E000000D5488BFE06.png" /></p>
 <p>Par rapport au projet [vuejs-11], les composants [layout, navigation] ne changent pas :</p>
@@ -1120,9 +1142,12 @@
 
 <p>Ce composant sert à structurer les pages de l’application en deux colonnes :</p>
 <ul>
-<li>lignes 7-9 : la colonne de gauche sur 2 colonnes Bootstrap ;</li>
-<li>lignes 11-13 : la colonne de droite sur 10 colonnes Bootstrap ;</li>
+  <li>lignes 7-9 : la colonne de gauche sur 2 colonnes Bootstrap ;
+  </li>
+  <li>lignes 11-13 : la colonne de droite sur 10 colonnes Bootstrap ;
+  </li>
 </ul>
+
 <p>[<strong>navigation.vue</strong>]</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#0000ff">&lt;</span>template<span style="color:#0000ff">&gt;</span></span>
@@ -1145,10 +1170,14 @@
 <p><img src="images/100000000000028A0000012120CA623E.png" style="width:8.601cm;height:3.821cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000028A0000012120CA623E.png" /></p>
 <p>Pour savoir quoi mettre comme valeur aux attributs [to] des lignes 4, 7 et 10, il faut regarder le dossier [pages] [2] :</p>
 <ul>
-<li>la page [index] aura l’URL [/] ;</li>
-<li>la page [page1] aura l’URL [/page1] ;</li>
-<li>la page [page2] aura l’URL [/page2] ;</li>
+  <li>la page [index] aura l’URL [/] ;
+  </li>
+  <li>la page [page1] aura l’URL [/page1] ;
+  </li>
+  <li>la page [page2] aura l’URL [/page2] ;
+  </li>
 </ul>
+
 <p>Le composant [navigation] peut être également écrit de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#0000ff">&lt;</span>template<span style="color:#0000ff">&gt;</span></span>
@@ -1223,23 +1252,36 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 5 : le composant de navigation est placé en colonne de gauche ;</li>
-<li>lignes 7-9 : une alerte est placée dans la colonne de droite ;</li>
+  <li>ligne 5 : le composant de navigation est placé en colonne de gauche ;
+  </li>
+  <li>lignes 7-9 : une alerte est placée dans la colonne de droite ;
+  </li>
 </ul>
+
 <p>Dans la partie &lt;script&gt;, nous mettons du code dans les fonctions du cycle de vie de la page [beforeCreate, created, beforeMount, beforeMounted]. Nous voulons savoir lesquelles sont exécutées par le serveur []nuxt et lesquelles par le client [nuxt]. On rappelle deux choses :</p>
 <ul>
-<li>lorsqu’une page est demandée soit au démarrage de l’application, cas de la page [index], soit manuellement par l’utilisateur qui rafraîchit la page du navigateur ou tape une URL à la main, elle est délivrée d’abord par le serveur [nuxt]. Celui-ci interprète le code ci-dessus et exécute le Javascript qu’il contient ;</li>
-<li>lorsque la page envoyée par le serveur [nuxt] arrive sur le navigateur, elle arrive avec le code du client [nuxt]. Celui-ci interprète de nouveau la page ci-dessus ;</li>
-<li>par des logs, on veut savoir qui fait quoi pour mieux comprendre ce processus ;</li>
-<li>lignes 30-31 : on utilise dans la fonction un objet global [process] qui existe aussi bien sur le serveur que sur le client :<ul>
-<li>[process.server] est vrai si le code est exécuté par le serveur, faux sinon ;</li>
-<li>[process.client] est vrai si le code est exécuté par le client, faux sinon ;</li>
-<li>parce que la variable [process] est non déclarée dans le code, on est obligés de mettre la ligne 14 pour [eslint]. La ligne [16] est nécessaire parce que sinon [eslint] déclare un autre type d’erreur à cause de la variable [process]. La ligne 15 est elle nécessaire pour permettre l’utilisation de [console] dans les fonctions du cycle de vie ;</li>
+  <li>lorsqu’une page est demandée soit au démarrage de l’application, cas de la page [index], soit manuellement par l’utilisateur qui rafraîchit la page du navigateur ou tape une URL à la main, elle est délivrée d’abord par le serveur [nuxt]. Celui-ci interprète le code ci-dessus et exécute le Javascript qu’il contient ;
+  </li>
+  <li>lorsque la page envoyée par le serveur [nuxt] arrive sur le navigateur, elle arrive avec le code du client [nuxt]. Celui-ci interprète de nouveau la page ci-dessus ;
+  </li>
+  <li>par des logs, on veut savoir qui fait quoi pour mieux comprendre ce processus ;
+  </li>
+  <li>lignes 30-31 : on utilise dans la fonction un objet global [process] qui existe aussi bien sur le serveur que sur le client :
+    <ul>
+      <li>[process.server] est vrai si le code est exécuté par le serveur, faux sinon ;
+      </li>
+      <li>[process.client] est vrai si le code est exécuté par le client, faux sinon ;
+      </li>
+      <li>parce que la variable [process] est non déclarée dans le code, on est obligés de mettre la ligne 14 pour [eslint]. La ligne [16] est nécessaire parce que sinon [eslint] déclare un autre type d’erreur à cause de la variable [process]. La ligne 15 est elle nécessaire pour permettre l’utilisation de [console] dans les fonctions du cycle de vie ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 29 : on veut savoir également si les fonctions du cycle de vie reçoivent des arguments. On va découvrir en effet que [nuxt] transmet des informations à certaines fonctions. On veut savoir si les fonctions du cycle de vie en font partie ;
+  </li>
+  <li>on répète le même code pour les quatre fonctions ;
+  </li>
 </ul>
-</li>
-<li>ligne 29 : on veut savoir également si les fonctions du cycle de vie reçoivent des arguments. On va découvrir en effet que [nuxt] transmet des informations à certaines fonctions. On veut savoir si les fonctions du cycle de vie en font partie ;</li>
-<li>on répète le même code pour les quatre fonctions ;</li>
-</ul>
+
 <h2 id="46-le-fichier-nuxtconfigjs">4.6. Le fichier [nuxt.config.js]</h2>
 <p>C’est lui qui contrôle l’exécution du projet [dvp]. Il a été décrit page <a href="#nuxt01-config">33</a>.</p>
 <h2 id="47-execution-du-projet">4.7. Exécution du projet</h2>
@@ -1250,27 +1292,41 @@
 <p>Une fois installée sur le navigateur, l’application [nuxt] devient une application [vue] classique. Nous ne commenterons donc pas le fonctionnement client de l’application [nuxt-01]. Cela a été fait dans le projet [vuejs-11] du document |<a href="https://tahe.developpez.com/tutoriels-cours/vuejs">Introduction au framework </a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"><strong>VUE.JS</strong></a><a href="https://tahe.developpez.com/tutoriels-cours/vuejs"> par l’exemple</a>|.</p>
 <p>L’application [nuxt] ne diffère de l’application [vue] qu’à deux moments :</p>
 <ul>
-<li>le démarrage initial de l’application qui fournit la page d’accueil ;</li>
-<li>à chaque fois que l’utilisateur provoque d’une manière ou une autre le rafraîchissement du navigateur ;</li>
+  <li>le démarrage initial de l’application qui fournit la page d’accueil ;
+  </li>
+  <li>à chaque fois que l’utilisateur provoque d’une manière ou une autre le rafraîchissement du navigateur ;
+  </li>
 </ul>
+
 <p>Dans ces deux cas :</p>
 <ul>
-<li>la page demandée est fournie par le serveur ;</li>
-<li>la page reçue est traitée par le client ;</li>
+  <li>la page demandée est fournie par le serveur ;
+  </li>
+  <li>la page reçue est traitée par le client ;
+  </li>
 </ul>
+
 <p>Regardons les logs du démarrage de l’application (F12 sur le navigateur) :</p>
 <p><img src="images/1000000000000472000001C59AF58089.png" style="width:15.05cm;height:5.991cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000472000001C59AF58089.png" /></p>
 <ul>
-<li>en [1], les logs du serveur (process.server=true). Ils apparaissent précédés de la mention [Nuxt SSR] (SSR= Server Side Rendered) ;</li>
-<li>en [2], les logs du client sur le navigateur (process.client=true) ;</li>
+  <li>en [1], les logs du serveur (process.server=true). Ils apparaissent précédés de la mention [Nuxt SSR] (SSR= Server Side Rendered) ;
+  </li>
+  <li>en [2], les logs du client sur le navigateur (process.client=true) ;
+  </li>
 </ul>
+
 <p>De ces logs, on peut déduire que :</p>
 <ul>
-<li>le <strong>serveur</strong> exécute les fonctions [beforeCreate, created] du cycle de vie ;</li>
-<li>le <strong>client</strong> exécute les fonctions [beforeCreate, created, beforeMount, mounted] du cycle de vie ;</li>
-<li>le serveur a traité la page <strong>avant</strong> le client ;</li>
-<li>dans les deux cas, aucune des fonctions exécutées ne reçoit d’arguments ;</li>
+  <li>le <b>serveur</b> exécute les fonctions [beforeCreate, created] du cycle de vie ;
+  </li>
+  <li>le <b>client</b> exécute les fonctions [beforeCreate, created, beforeMount, mounted] du cycle de vie ;
+  </li>
+  <li>le serveur a traité la page <b>avant</b> le client ;
+  </li>
+  <li>dans les deux cas, aucune des fonctions exécutées ne reçoit d’arguments ;
+  </li>
 </ul>
+
 <p>Maintenant regardons le code source de la page reçue (option [Code source de la page] dans le navigateur) :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line"><span style="color:#0000ff">&lt;</span>!doctype<span style="color:#000000"> </span><span style="color:#ff0000">html</span><span style="color:#0000ff">&gt;</span></span>
@@ -1350,10 +1406,14 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>la première chose qui peut être remarquée est que le code HTML <strong>reçu</strong> reflète correctement ce que voit l’utilisateur. Ce n’était pas le cas des applications [vue] pour lesquelles le code source affiché était le code source d’un fichier HTML quasi vide. C’était ce qu’avait reçu le navigateur. Ensuite le client [vue] prenait la main et construisait la page attendue par l’utilisateur. Il fallait alors aller dans l’onglet [inspecteur] des outils de développement du navigateur (F12) pour découvrir le code HTML de la page affichée ;</li>
-<li>lignes 57-67 : c’est le script qui a affiché les logs tagués [Nuxt SSR]. Ces logs ont été produits côté serveur et les résultats ont été embarqués dans un script inclus dans la page envoyée ;</li>
-<li>lignes 68-71 : les scripts qui forment le client exécuté côté navigateur ;</li>
+  <li>la première chose qui peut être remarquée est que le code HTML <b>reçu</b> reflète correctement ce que voit l’utilisateur. Ce n’était pas le cas des applications [vue] pour lesquelles le code source affiché était le code source d’un fichier HTML quasi vide. C’était ce qu’avait reçu le navigateur. Ensuite le client [vue] prenait la main et construisait la page attendue par l’utilisateur. Il fallait alors aller dans l’onglet [inspecteur] des outils de développement du navigateur (F12) pour découvrir le code HTML de la page affichée ;
+  </li>
+  <li>lignes 57-67 : c’est le script qui a affiché les logs tagués [Nuxt SSR]. Ces logs ont été produits côté serveur et les résultats ont été embarqués dans un script inclus dans la page envoyée ;
+  </li>
+  <li>lignes 68-71 : les scripts qui forment le client exécuté côté navigateur ;
+  </li>
 </ul>
+
 <p>Les scripts des lignes 68-71 sont exécutés et transforment la page reçue. Pour connaître la page finalement affichée pour l’utilisateur, il faut aller dans l’onglet [inspecteur] des outils de développement du navigateur (F12) :</p>
 <p><img src="images/100000000000048E000001476F00465E.png" style="width:15.431cm;height:4.331cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000048E000001476F00465E.png" /></p>
 <p>Lorsqu’on développe la balise &lt;html&gt; [3], on a le contenu suivant :</p>
@@ -1442,17 +1502,24 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>à première vue, la page affichée lignes 19-59, semble être la même que la page reçue ;</li>
-<li>lignes 14-16 : trois nouveaux scripts apparaissent, un pour chacune des pages de l’application ;</li>
-<li>lignes 76-79 : quatre [iframe] apparaissent ;</li>
+  <li>à première vue, la page affichée lignes 19-59, semble être la même que la page reçue ;
+  </li>
+  <li>lignes 14-16 : trois nouveaux scripts apparaissent, un pour chacune des pages de l’application ;
+  </li>
+  <li>lignes 76-79 : quatre [iframe] apparaissent ;
+  </li>
 </ul>
+
 <p>Lignes 33, 37 et 42, les liens posent problème. Ils semblent être des liens normaux qui lorsqu’on les clique vont faire une requête vers le serveur. Or à l’exécution, on voit que ce n’est pas vrai : il n’y a pas de requête vers le serveur. Pour comprendre pourquoi, il faut retourner dans l’onglet [inspecteur] du navigateur :</p>
 <p><img src="images/10000000000004C7000001C856944240.png" style="width:12.941cm;height:4.83cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004C7000001C856944240.png" /></p>
 <p>On voit qu’en [1, 2] des événements ont été attachés aux liens. Ce sont les scripts des lignes 71-74 qui ont attaché des gestionnaires d’événements aux liens. Donc :</p>
 <ul>
-<li>la page affichée par le client est visuellement identique à celle envoyée par le serveur ;</li>
-<li>un comportement dynamique a été ajouté à la page par le client ;</li>
+  <li>la page affichée par le client est visuellement identique à celle envoyée par le serveur ;
+  </li>
+  <li>un comportement dynamique a été ajouté à la page par le client ;
+  </li>
 </ul>
+
 <p>Maintenant demandons la page [page1] en tapant l’URL à la main [http://192.168.1.128:81/nuxt-01/page1]. Les logs deviennent les suivants :</p>
 <p><img src="images/100000000000048B0000016161B446A2.png" style="width:15.391cm;height:4.672cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000048B0000016161B446A2.png" /></p>
 <p>On obtient les mêmes résultats que pour la page [index] mais pour [page1]. Le code source de la page reçue est lui le suivant :</p>
