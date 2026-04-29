@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Introduction au framework NUXT.JS par l'exemple">
+        <meta name="description" content="Introduction au framework NUXT.JS par l’exemple">
       
       
         <meta name="author" content="Serge Tahé">
@@ -29,7 +29,7 @@
     
     
       
-        <title>11. Exemple [nuxt-08] : middlewares de routage - Introduction au framework NUXT.JS par l'exemple</title>
+        <title>11. Exemple [nuxt-08] : middlewares de routage - Introduction au framework NUXT.JS par l’exemple</title>
       
     
     
@@ -65,7 +65,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    var siteName = "Introduction au framework NUXT.JS par l'exemple";
+    var siteName = "Introduction au framework NUXT.JS par l’exemple";
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
@@ -108,7 +108,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="index.html" title="Introduction au framework NUXT.JS par l&#39;exemple" class="md-header__button md-logo" aria-label="Introduction au framework NUXT.JS par l'exemple" data-md-component="logo">
+    <a href="index.html" title="Introduction au framework NUXT.JS par l’exemple" class="md-header__button md-logo" aria-label="Introduction au framework NUXT.JS par l’exemple" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -122,7 +122,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Introduction au framework NUXT.JS par l'exemple
+            Introduction au framework NUXT.JS par l’exemple
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -141,9 +141,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer en mode sombre"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Passer en mode sombre" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
@@ -151,9 +151,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer en mode clair"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Passer en mode clair" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
@@ -208,7 +208,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/stahe/nuxtjs-dec-2019" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://stahe.github.io/nuxtjs-dec-2019" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -246,17 +246,17 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="index.html" title="Introduction au framework NUXT.JS par l&#39;exemple" class="md-nav__button md-logo" aria-label="Introduction au framework NUXT.JS par l'exemple" data-md-component="logo">
+    <a href="index.html" title="Introduction au framework NUXT.JS par l’exemple" class="md-nav__button md-logo" aria-label="Introduction au framework NUXT.JS par l’exemple" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Introduction au framework NUXT.JS par l'exemple
+    Introduction au framework NUXT.JS par l’exemple
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/stahe/nuxtjs-dec-2019" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://stahe.github.io/nuxtjs-dec-2019" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -851,14 +851,11 @@
                   
 
 
-  
-  
-
 
 <h1 id="11-exemple-nuxt-08-middlewares-de-routage">11. Exemple [nuxt-08] : middlewares de routage</h1>
 <p>Dans cet exemple, nous introduisons la notion de middlewares de routage, des scripts exécutés à chaque changement de route.</p>
 <p>L’exemple [nuxt-08] est obtenu initialement par recopie du projet [nuxt-01] :</p>
-<p><img src="images/10000000000001AA000001DCD2565E0F.png" style="width:4.511cm;height:5.04cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AA000001DCD2565E0F.png" /></p>
+<p><img src="images/10000000000001AA000001DCD2565E0F.png" width="170" height="190" style="width:4.511cm;height:5.04cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AA000001DCD2565E0F.png" /></p>
 <p>Les middlewares de routage doivent être dans un dossier appelé [middleware] [2]. Il peut y avoir un routage à deux niveaux :</p>
 <ul>
   <li>un routage appliqué à chaque navigation. Celui-ci fait alors l’objet d’une déclaration dans le fichier [nuxt.config.js] ;
@@ -870,50 +867,50 @@
 <h2 id="111-routage-general">11.1. Routage général</h2>
 <p>Le fichier [middleware / routing.js] assurera le routage général. Il fait l’objet de la déclaration suivante dans le fichier [nuxt.config.js] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
-<span class="odt-code-line">  router: {</span>
-<span class="odt-code-line">    base: <span style="color:#a31515">&#x27;/nuxt-08/&#x27;</span>,</span>
-<span class="odt-code-line">    middleware: [<span style="color:#a31515">&#x27;routing&#x27;</span>]</span>
-<span class="odt-code-line">},</span>
+<span class="odt-code-line"><span class="odt-code-line-content">  router: {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    base: <span style="color:#a31515">&#x27;/nuxt-08/&#x27;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    middleware: [<span style="color:#a31515">&#x27;routing&#x27;</span>]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">},</span></span>
 </code></pre></div>
 
 <p>Les middlewares de routage général sont une propriété du routeur (ligne 1). Il peut y avoir plusieurs middlewares de routage. C’est pourquoi ligne 3, la valeur de la propriété [middleware] est un tableau. On voit qu’on n’utilise pas de chemin pour désigner le middleware. Il sera automatiquement cherché dans le dossier [middleware] du projet ;</p>
 <p>Le middleware [routing] ne fait ici que des logs :</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
-<span class="odt-code-line">/* eslint-disable no-undef */</span>
-<span class="odt-code-line">/* eslint-disable no-console */</span>
-<span class="odt-code-line">export<span style="color:#000000"> </span>default<span style="color:#000000"> </span>function<span style="color:#000000">(...args) {</span></span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// qui exécute ce code ?</span>
-<span class="odt-code-line">  console.log(<span style="color:#a31515">&#x27;[routing], process.server=&#x27;</span>, process.server, <span style="color:#a31515">&#x27;process.client=&#x27;</span>, process.client)</span>
-<span class="odt-code-line">  <span style="color:#0000ff">const</span> who = process.server ? <span style="color:#a31515">&#x27;server&#x27;</span> : <span style="color:#a31515">&#x27;client&#x27;</span></span>
-<span class="odt-code-line">  <span style="color:#0000ff">const</span> routing = <span style="color:#a31515">&#x27;[routing &#x27;</span> + who + <span style="color:#a31515">&#x27;]&#x27;</span></span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// nbre d&#x27;arguments</span>
-<span class="odt-code-line">  console.log(routing + <span style="color:#a31515">&#x27;, il y a&#x27;</span>, args.length, <span style="color:#a31515">&#x27;argument(s)&#x27;</span>)</span>
-<span class="odt-code-line"></span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// 1er argument</span>
-<span class="odt-code-line">  <span style="color:#0000ff">const</span> context = args[0]</span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// clés du contexte</span>
-<span class="odt-code-line">  dumpkeys(routing + <span style="color:#a31515">&#x27;, context&#x27;</span>, context)</span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// l&#x27;application</span>
-<span class="odt-code-line">  dumpkeys(routing + <span style="color:#a31515">&#x27;, context.app&#x27;</span>, context.app)</span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// la route</span>
-<span class="odt-code-line">  dumpkeys(routing + <span style="color:#a31515">&#x27;, context.route&#x27;</span>, context.route)</span>
-<span class="odt-code-line">  console.log(routing + <span style="color:#a31515">&#x27;, context.route=&#x27;</span>, context.route)</span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// le router</span>
-<span class="odt-code-line">  dumpkeys(routing + <span style="color:#a31515">&#x27;, context.app.router&#x27;</span>, context.app.router)</span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// le router.options.routes</span>
-<span class="odt-code-line">  dumpkeys(routing + <span style="color:#a31515">&#x27;, context.app.router.options.routes&#x27;</span>, context.app.router.options.routes)</span>
-<span class="odt-code-line">  console.log(routing + <span style="color:#a31515">&#x27;, context.app.router.options.routes=&#x27;</span>, context.app.router.options.routes)</span>
-<span class="odt-code-line">}</span>
-<span class="odt-code-line"></span>
-<span class="odt-code-line"><span style="color:#0000ff">function</span> dumpkeys(message, object) {</span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// liste des clés de [object]</span>
-<span class="odt-code-line">  <span style="color:#0000ff">const</span> ligne = <span style="color:#a31515">&#x27;Liste des clés [&#x27;</span> + message + <span style="color:#a31515">&#x27;]&#x27;</span></span>
-<span class="odt-code-line">  console.log(ligne)</span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// liste des clés</span>
-<span class="odt-code-line">  <span style="color:#0000ff">if</span> (object) {</span>
-<span class="odt-code-line">    console.log(Object.keys(object))</span>
-<span class="odt-code-line">  }</span>
-<span class="odt-code-line">}</span>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
+<span class="odt-code-line"><span class="odt-code-line-content">/* eslint-disable no-undef */</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">/* eslint-disable no-console */</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">export<span style="color:#000000"> </span>default<span style="color:#000000"> </span>function<span style="color:#000000">(...args) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// qui exécute ce code ?</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  console.log(<span style="color:#a31515">&#x27;[routing], process.server=&#x27;</span>, process.server, <span style="color:#a31515">&#x27;process.client=&#x27;</span>, process.client)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#0000ff">const</span> who = process.server ? <span style="color:#a31515">&#x27;server&#x27;</span> : <span style="color:#a31515">&#x27;client&#x27;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#0000ff">const</span> routing = <span style="color:#a31515">&#x27;[routing &#x27;</span> + who + <span style="color:#a31515">&#x27;]&#x27;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// nbre d&#x27;arguments</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  console.log(routing + <span style="color:#a31515">&#x27;, il y a&#x27;</span>, args.length, <span style="color:#a31515">&#x27;argument(s)&#x27;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 1er argument</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#0000ff">const</span> context = args[0]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// clés du contexte</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  dumpkeys(routing + <span style="color:#a31515">&#x27;, context&#x27;</span>, context)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// l&#x27;application</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  dumpkeys(routing + <span style="color:#a31515">&#x27;, context.app&#x27;</span>, context.app)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// la route</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  dumpkeys(routing + <span style="color:#a31515">&#x27;, context.route&#x27;</span>, context.route)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  console.log(routing + <span style="color:#a31515">&#x27;, context.route=&#x27;</span>, context.route)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// le router</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  dumpkeys(routing + <span style="color:#a31515">&#x27;, context.app.router&#x27;</span>, context.app.router)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// le router.options.routes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  dumpkeys(routing + <span style="color:#a31515">&#x27;, context.app.router.options.routes&#x27;</span>, context.app.router.options.routes)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  console.log(routing + <span style="color:#a31515">&#x27;, context.app.router.options.routes=&#x27;</span>, context.app.router.options.routes)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">function</span> dumpkeys(message, object) {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// liste des clés de [object]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#0000ff">const</span> ligne = <span style="color:#a31515">&#x27;Liste des clés [&#x27;</span> + message + <span style="color:#a31515">&#x27;]&#x27;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  console.log(ligne)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// liste des clés</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#0000ff">if</span> (object) {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    console.log(Object.keys(object))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
 </code></pre></div>
 
 <ul>
@@ -926,42 +923,42 @@
 <h2 id="112-routage-pour-une-page-particuliere">11.2. Routage pour une page particulière</h2>
 <p>On veut contrôler la façon dont on arrive à la page [index]. Pour cela, il nous faut introduire la propriété [middleware] dans cette page [index] :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
-<span class="odt-code-line"><span style="color:#0000ff">&lt;</span>script<span style="color:#0000ff">&gt;</span></span>
-<span class="odt-code-line">/* eslint-disable no-undef */</span>
-<span class="odt-code-line">/* eslint-disable no-console */</span>
-<span class="odt-code-line">/* eslint-disable nuxt/no-env-in-hooks */</span>
-<span class="odt-code-line"></span>
-<span class="odt-code-line"><span style="color:#0000ff">import</span><span style="color:#000000"> Navigation </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span>&#x27;@/components/navigation&#x27;</span>
-<span class="odt-code-line"><span style="color:#0000ff">import</span><span style="color:#000000"> Layout </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span>&#x27;@/components/layout&#x27;</span>
-<span class="odt-code-line"></span>
-<span class="odt-code-line">export<span style="color:#000000"> </span>default<span style="color:#000000"> {</span></span>
-<span class="odt-code-line">  name: <span style="color:#a31515">&#x27;Home&#x27;</span>,</span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// composants utilisés</span>
-<span class="odt-code-line">  components: {</span>
-<span class="odt-code-line">    Layout,</span>
-<span class="odt-code-line">    Navigation</span>
-<span class="odt-code-line">  },</span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// cycle de vie</span>
-<span class="odt-code-line">  beforeCreate() {</span>
-<span class="odt-code-line"><span style="color:#000000">    </span>// client et serveur</span>
-<span class="odt-code-line"><span style="color:#000000">    console.log(</span>&#x27;[home beforeCreate]&#x27;<span style="color:#000000">)</span></span>
-<span class="odt-code-line">  },</span>
-<span class="odt-code-line">  created() {</span>
-<span class="odt-code-line"><span style="color:#000000">    </span>// client et serveur</span>
-<span class="odt-code-line">    console.log(<span style="color:#a31515">&#x27;[home created]&#x27;</span>)</span>
-<span class="odt-code-line">  },</span>
-<span class="odt-code-line">  beforeMount() {</span>
-<span class="odt-code-line"><span style="color:#000000">    </span>// client seulement</span>
-<span class="odt-code-line"><span style="color:#000000">    console.log(</span>&#x27;[home beforeMount]&#x27;<span style="color:#000000">)</span></span>
-<span class="odt-code-line">  },</span>
-<span class="odt-code-line">  mounted() {</span>
-<span class="odt-code-line"><span style="color:#000000">    </span>// client seulement</span>
-<span class="odt-code-line">    console.log(<span style="color:#a31515">&#x27;[home mounted]&#x27;</span>)</span>
-<span class="odt-code-line">  },</span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// routage</span>
-<span class="odt-code-line">  middleware: [<span style="color:#a31515">&#x27;index-routing&#x27;</span>]</span>
-<span class="odt-code-line">}</span>
-<span class="odt-code-line"><span style="color:#0000ff">&lt;/</span>script<span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;</span>script<span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">/* eslint-disable no-undef */</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">/* eslint-disable no-console */</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">/* eslint-disable nuxt/no-env-in-hooks */</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> Navigation </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span>&#x27;@/components/navigation&#x27;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> Layout </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span>&#x27;@/components/layout&#x27;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">export<span style="color:#000000"> </span>default<span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  name: <span style="color:#a31515">&#x27;Home&#x27;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// composants utilisés</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  components: {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    Layout,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    Navigation</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  },</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// cycle de vie</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  beforeCreate() {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// client et serveur</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    console.log(</span>&#x27;[home beforeCreate]&#x27;<span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  },</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  created() {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// client et serveur</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    console.log(<span style="color:#a31515">&#x27;[home created]&#x27;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  },</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  beforeMount() {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// client seulement</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    console.log(</span>&#x27;[home beforeMount]&#x27;<span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  },</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  mounted() {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// client seulement</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    console.log(<span style="color:#a31515">&#x27;[home mounted]&#x27;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  },</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// routage</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  middleware: [<span style="color:#a31515">&#x27;index-routing&#x27;</span>]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;/</span>script<span style="color:#0000ff">&gt;</span></span></span>
 </code></pre></div>
 
 <ul>
@@ -971,45 +968,45 @@
 
 <p>Le middleware [index-routing] est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
-<span class="odt-code-line">/* eslint-disable no-undef */</span>
-<span class="odt-code-line">/* eslint-disable no-console */</span>
-<span class="odt-code-line">export<span style="color:#000000"> </span>default<span style="color:#000000"> </span>function<span style="color:#000000">(...args) {</span></span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// qui exécute ce code ?</span>
-<span class="odt-code-line"><span style="color:#000000">  console.log(</span>&#x27;[index-routing], process.server=&#x27;<span style="color:#000000">, process.server, </span>&#x27;process.client=&#x27;<span style="color:#000000">, process.client)</span></span>
-<span class="odt-code-line">  <span style="color:#0000ff">const</span> who = process.server ? <span style="color:#a31515">&#x27;server&#x27;</span> : <span style="color:#a31515">&#x27;client&#x27;</span></span>
-<span class="odt-code-line">  <span style="color:#0000ff">const</span> indexRouting = <span style="color:#a31515">&#x27;[index-routing &#x27;</span> + who + <span style="color:#a31515">&#x27;]&#x27;</span></span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// nbre d&#x27;arguments</span>
-<span class="odt-code-line">  console.log(indexRouting + <span style="color:#a31515">&#x27;, il y a&#x27;</span>, args.length, <span style="color:#a31515">&#x27;argument(s)&#x27;</span>)</span>
-<span class="odt-code-line"></span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// 1er argument</span>
-<span class="odt-code-line">  <span style="color:#0000ff">const</span> context = args[0]</span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// clés du contexte</span>
-<span class="odt-code-line">  dumpkeys(indexRouting + <span style="color:#a31515">&#x27;, context&#x27;</span>, context)</span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// l&#x27;application</span>
-<span class="odt-code-line">  dumpkeys(indexRouting + <span style="color:#a31515">&#x27;, context.app&#x27;</span>, context.app)</span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// la route</span>
-<span class="odt-code-line">  dumpkeys(indexRouting + <span style="color:#a31515">&#x27;, context.route&#x27;</span>, context.route)</span>
-<span class="odt-code-line">  console.log(indexRouting + <span style="color:#a31515">&#x27;, context.route=&#x27;</span>, context.route)</span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// le router</span>
-<span class="odt-code-line">  dumpkeys(indexRouting + <span style="color:#a31515">&#x27;, context.app.router&#x27;</span>, context.app.router)</span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// le router.options.routes</span>
-<span class="odt-code-line">  dumpkeys(indexRouting + <span style="color:#a31515">&#x27;, context.app.router.options.routes&#x27;</span>, context.app.router.options.routes)</span>
-<span class="odt-code-line">  console.log(indexRouting + <span style="color:#a31515">&#x27;, context.app.router.options.routes=&#x27;</span>, context.app.router.options.routes)</span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// d&#x27;où vient-on ?</span>
-<span class="odt-code-line">  <span style="color:#0000ff">if</span> (context.from) {</span>
-<span class="odt-code-line">    console.log(<span style="color:#a31515">&#x27;from=&#x27;</span>, context.from)</span>
-<span class="odt-code-line">  }</span>
-<span class="odt-code-line">}</span>
-<span class="odt-code-line"></span>
-<span class="odt-code-line"><span style="color:#0000ff">function</span> dumpkeys(message, object) {</span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// liste des clés de [object]</span>
-<span class="odt-code-line">  <span style="color:#0000ff">const</span> ligne = <span style="color:#a31515">&#x27;Liste des clés [&#x27;</span> + message + <span style="color:#a31515">&#x27;]&#x27;</span></span>
-<span class="odt-code-line">  console.log(ligne)</span>
-<span class="odt-code-line"><span style="color:#000000">  </span>// liste des clés</span>
-<span class="odt-code-line">  <span style="color:#0000ff">if</span> (object) {</span>
-<span class="odt-code-line">    console.log(Object.keys(object))</span>
-<span class="odt-code-line">  }</span>
-<span class="odt-code-line">}</span>
+<span class="odt-code-line"><span class="odt-code-line-content">/* eslint-disable no-undef */</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">/* eslint-disable no-console */</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">export<span style="color:#000000"> </span>default<span style="color:#000000"> </span>function<span style="color:#000000">(...args) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// qui exécute ce code ?</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  console.log(</span>&#x27;[index-routing], process.server=&#x27;<span style="color:#000000">, process.server, </span>&#x27;process.client=&#x27;<span style="color:#000000">, process.client)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#0000ff">const</span> who = process.server ? <span style="color:#a31515">&#x27;server&#x27;</span> : <span style="color:#a31515">&#x27;client&#x27;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#0000ff">const</span> indexRouting = <span style="color:#a31515">&#x27;[index-routing &#x27;</span> + who + <span style="color:#a31515">&#x27;]&#x27;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// nbre d&#x27;arguments</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  console.log(indexRouting + <span style="color:#a31515">&#x27;, il y a&#x27;</span>, args.length, <span style="color:#a31515">&#x27;argument(s)&#x27;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 1er argument</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#0000ff">const</span> context = args[0]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// clés du contexte</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  dumpkeys(indexRouting + <span style="color:#a31515">&#x27;, context&#x27;</span>, context)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// l&#x27;application</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  dumpkeys(indexRouting + <span style="color:#a31515">&#x27;, context.app&#x27;</span>, context.app)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// la route</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  dumpkeys(indexRouting + <span style="color:#a31515">&#x27;, context.route&#x27;</span>, context.route)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  console.log(indexRouting + <span style="color:#a31515">&#x27;, context.route=&#x27;</span>, context.route)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// le router</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  dumpkeys(indexRouting + <span style="color:#a31515">&#x27;, context.app.router&#x27;</span>, context.app.router)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// le router.options.routes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  dumpkeys(indexRouting + <span style="color:#a31515">&#x27;, context.app.router.options.routes&#x27;</span>, context.app.router.options.routes)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  console.log(indexRouting + <span style="color:#a31515">&#x27;, context.app.router.options.routes=&#x27;</span>, context.app.router.options.routes)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// d&#x27;où vient-on ?</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#0000ff">if</span> (context.from) {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    console.log(<span style="color:#a31515">&#x27;from=&#x27;</span>, context.from)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">function</span> dumpkeys(message, object) {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// liste des clés de [object]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#0000ff">const</span> ligne = <span style="color:#a31515">&#x27;Liste des clés [&#x27;</span> + message + <span style="color:#a31515">&#x27;]&#x27;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  console.log(ligne)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// liste des clés</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#0000ff">if</span> (object) {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    console.log(Object.keys(object))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
 </code></pre></div>
 
 <p>Le code de  [index-routing] est identique à celui de [routing] et produit les mêmes résultats. Ce qui nous intéresse c’est de voir quand ces deux middlewares sont exécutés.</p>
@@ -1541,13 +1538,14 @@
     <div class="md-footer-meta__inner">
 
       <div>
-        <a href="https://tahe.developpez.com" target="_blank">
-          https://tahe.developpez.com
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
         </a>
         <br>
-        Ce cours-tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
-        <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
-        Partage dans les Mêmes Conditions 3.0 non transposé</em>.
+        Ce cours-tutoriel rédigé par <strong>Serge Tahé</strong> est mis à la disposition du public selon les termes de la
+        <em>Licence Creative Commons Attribution – Pas d'utilisation commerciale –
+        Partage dans les mêmes conditions 3.0 non modifiée</em>.
+
       </div>
 
     </div>
